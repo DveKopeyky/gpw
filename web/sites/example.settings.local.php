@@ -130,6 +130,9 @@ $settings['rebuild_access'] = TRUE;
  */
 $settings['skip_permissions_hardening'] = TRUE;
 
+$config_directories = array(
+  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . '/../config/sync',
+);
 
 $databases['default']['default'] = array (
   'database' => 'unep_gpw',
