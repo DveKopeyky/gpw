@@ -129,3 +129,15 @@ $settings['rebuild_access'] = TRUE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = TRUE;
+
+
+$databases['default']['default'] = array (
+  'database' => 'unep_gpw',
+  'username' => 'root',
+  'password' => 'root',
+  'host' => 'localhost',
+  'port' => '3306',
+  'driver' => 'mysql',
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+);
