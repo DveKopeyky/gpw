@@ -1,0 +1,17 @@
+uuid: 46a3f554-f35a-4cd7-b14f-934c92190779
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.course_section
+  module:
+    - user
+id: node.course_section.default
+targetEntityType: node
+bundle: course_section
+mode: default
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

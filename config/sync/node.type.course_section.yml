@@ -1,0 +1,11 @@
+uuid: 406d298f-57bd-4b6d-8cba-19ab93984884
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course section'
+type: course_section
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
