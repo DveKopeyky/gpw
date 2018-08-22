@@ -1,0 +1,27 @@
+uuid: 9951d689-767d-4e7a-90d4-7220da772e00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_files
+    - node.type.agenda_item
+  module:
+    - file
+id: node.agenda_item.field_files
+field_name: field_files
+entity_type: node
+bundle: agenda_item
+label: Documents
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: meetings
+  file_extensions: 'txt pdf doc docx xls xlsxa'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

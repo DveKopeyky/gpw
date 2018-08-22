@@ -1,0 +1,27 @@
+uuid: 2e2dfe5b-ff9a-4d3a-b666-03b9b88228ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_files
+    - node.type.meeting
+  module:
+    - file
+id: node.meeting.field_files
+field_name: field_files
+entity_type: node
+bundle: meeting
+label: Documents
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: meetings
+  file_extensions: 'txt pdf doc docx xls xlsx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

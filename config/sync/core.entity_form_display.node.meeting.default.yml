@@ -1,0 +1,101 @@
+uuid: fde7ca36-7c3f-4659-9234-4fabd13c9224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.meeting.field_address
+    - field.field.node.meeting.field_agenda_items
+    - field.field.node.meeting.field_date_range
+    - field.field.node.meeting.field_files
+    - node.type.meeting
+  module:
+    - address
+    - datetime_range
+    - file
+    - inline_entity_form
+id: node.meeting.default
+targetEntityType: node
+bundle: meeting
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_address:
+    weight: 122
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_agenda_items:
+    weight: 125
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Item
+      label_plural: Items
+      allow_new: true
+      match_operator: CONTAINS
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  field_date_range:
+    weight: 123
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_files:
+    weight: 124
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

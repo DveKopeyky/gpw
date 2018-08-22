@@ -1,0 +1,11 @@
+uuid: 5ec435e1-3dd2-4fb7-937f-8e52fb19de56
+langcode: en
+status: true
+dependencies: {  }
+name: 'Agenda item'
+type: agenda_item
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

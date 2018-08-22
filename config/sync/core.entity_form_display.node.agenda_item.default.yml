@@ -1,0 +1,53 @@
+uuid: e7c2fe63-40b9-4035-9686-5e139072284e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.agenda_item.field_agenda_item_category
+    - field.field.node.agenda_item.field_date_range
+    - field.field.node.agenda_item.field_files
+    - node.type.agenda_item
+  module:
+    - datetime_range
+    - file
+id: node.agenda_item.default
+targetEntityType: node
+bundle: agenda_item
+mode: default
+content:
+  field_agenda_item_category:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_date_range:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_files:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

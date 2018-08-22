@@ -1,0 +1,21 @@
+uuid: 97a1b825-1f51-4d4d-b9e0-40ce6158a7df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_range
+    - node.type.meeting
+  module:
+    - datetime_range
+id: node.meeting.field_date_range
+field_name: field_date_range
+entity_type: node
+bundle: meeting
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

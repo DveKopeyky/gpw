@@ -1,0 +1,20 @@
+uuid: 628f8a68-f9ff-470e-8951-883d6a20781b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.meeting.field_address
+    - node.type.meeting
+  module:
+    - user
+id: node.meeting.teaser
+targetEntityType: node
+bundle: meeting
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_address: true

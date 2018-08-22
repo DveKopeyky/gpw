@@ -1,0 +1,18 @@
+uuid: 4eb9a330-097d-4b15-aa69-0016f952a312
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.agenda_item
+  module:
+    - user
+id: node.agenda_item.teaser
+targetEntityType: node
+bundle: agenda_item
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }
