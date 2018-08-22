@@ -1,0 +1,11 @@
+uuid: 3c80d704-8f50-4514-ab74-cfbd53778c1a
+langcode: en
+status: true
+dependencies: {  }
+name: Course
+type: course
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

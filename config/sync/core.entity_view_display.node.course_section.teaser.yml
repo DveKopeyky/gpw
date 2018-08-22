@@ -1,0 +1,18 @@
+uuid: 453c5685-3b6b-44aa-a279-cbfce2e4c9cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.course_section
+  module:
+    - user
+id: node.course_section.teaser
+targetEntityType: node
+bundle: course_section
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

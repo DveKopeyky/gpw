@@ -1,43 +1,42 @@
-uuid: fde7ca36-7c3f-4659-9234-4fabd13c9224
+uuid: d12dfd48-0eaa-484c-baaa-16201509693f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.meeting.field_address
-    - field.field.node.meeting.field_agenda_items
-    - field.field.node.meeting.field_date_range
-    - field.field.node.meeting.field_files
-    - node.type.meeting
+    - field.field.node.course.body
+    - field.field.node.course.field_course_sections
+    - field.field.node.course.field_key_points
+    - node.type.course
   module:
-    - address
-    - datetime_range
-    - file
     - inline_entity_form
-id: node.meeting.default
+    - text
+id: node.course.default
 targetEntityType: node
-bundle: meeting
+bundle: course
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_address:
-    weight: 122
-    settings:
-      default_country: null
-    third_party_settings: {  }
-    type: address_default
-    region: content
-  field_agenda_items:
-    weight: 125
+  field_course_sections:
+    weight: 123
     settings:
       form_mode: default
       override_labels: true
-      label_singular: item
-      label_plural: items
+      label_singular: section
+      label_plural: sections
       allow_new: true
       match_operator: CONTAINS
       collapsible: false
@@ -47,18 +46,13 @@ content:
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
-  field_date_range:
-    weight: 123
-    settings: {  }
-    third_party_settings: {  }
-    type: daterange_default
-    region: content
-  field_files:
-    weight: 124
+  field_key_points:
+    weight: 122
     settings:
-      progress_indicator: throbber
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: file_generic
+    type: string_textfield
     region: content
   promote:
     type: boolean_checkbox

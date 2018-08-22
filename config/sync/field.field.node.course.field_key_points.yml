@@ -1,0 +1,19 @@
+uuid: d3937ef3-6a95-4cdd-868b-943f4d0e8a35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_key_points
+    - node.type.course
+id: node.course.field_key_points
+field_name: field_key_points
+entity_type: node
+bundle: course
+label: 'Key points'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
