@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_type.node_child.meeting_agenda_item
+    - eck.eck_type.child_entity.meeting_agenda_item
     - field.storage.node.field_agenda_items
     - node.type.meeting
 id: node.meeting.field_agenda_items
@@ -17,7 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node_child'
+  handler: 'default:child_entity'
   handler_settings:
     target_bundles:
       meeting_agenda_item: meeting_agenda_item

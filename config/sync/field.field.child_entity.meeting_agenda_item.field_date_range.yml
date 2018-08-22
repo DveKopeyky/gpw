@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_type.node_child.meeting_agenda_item
-    - field.storage.node_child.field_date_range
+    - eck.eck_type.child_entity.meeting_agenda_item
+    - field.storage.child_entity.field_date_range
   module:
     - datetime_range
-id: node_child.meeting_agenda_item.field_date_range
+id: child_entity.meeting_agenda_item.field_date_range
 field_name: field_date_range
-entity_type: node_child
+entity_type: child_entity
 bundle: meeting_agenda_item
 label: Date
 description: ''

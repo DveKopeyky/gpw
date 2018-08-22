@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_entity_type.node_child
+    - eck.eck_entity_type.child_entity
 name: 'Meeting agenda item'
 type: meeting_agenda_item
 description: ''

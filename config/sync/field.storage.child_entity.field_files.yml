@@ -5,9 +5,9 @@ dependencies:
   module:
     - eck
     - file
-id: node_child.field_files
+id: child_entity.field_files
 field_name: field_files
-entity_type: node_child
+entity_type: child_entity
 type: file
 settings:
   display_field: false

@@ -3,15 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_type.node_child.meeting_agenda_item
-    - field.field.node_child.meeting_agenda_item.field_agenda_item_category
-    - field.field.node_child.meeting_agenda_item.field_date_range
-    - field.field.node_child.meeting_agenda_item.field_files
+    - eck.eck_type.child_entity.meeting_agenda_item
+    - field.field.child_entity.meeting_agenda_item.field_agenda_item_category
+    - field.field.child_entity.meeting_agenda_item.field_date_range
+    - field.field.child_entity.meeting_agenda_item.field_files
   module:
     - datetime_range
     - file
-id: node_child.meeting_agenda_item.default
-targetEntityType: node_child
+id: child_entity.meeting_agenda_item.default
+targetEntityType: child_entity
 bundle: meeting_agenda_item
 mode: default
 content:

@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_type.node_child.meeting_agenda_item
-    - field.storage.node_child.field_agenda_item_category
+    - eck.eck_type.child_entity.meeting_agenda_item
+    - field.storage.child_entity.field_agenda_item_category
     - taxonomy.vocabulary.agenda_items_categories
-id: node_child.meeting_agenda_item.field_agenda_item_category
+id: child_entity.meeting_agenda_item.field_agenda_item_category
 field_name: field_agenda_item_category
-entity_type: node_child
+entity_type: child_entity
 bundle: meeting_agenda_item
 label: Category
 description: ''

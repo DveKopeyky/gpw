@@ -5,9 +5,9 @@ dependencies:
   module:
     - eck
     - taxonomy
-id: node_child.field_agenda_item_category
+id: child_entity.field_agenda_item_category
 field_name: field_agenda_item_category
-entity_type: node_child
+entity_type: child_entity
 type: entity_reference
 settings:
   target_type: taxonomy_term

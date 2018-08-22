@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_type.node_child.course_section
+    - eck.eck_type.child_entity.course_section
     - field.storage.node.field_course_sections
     - node.type.course
 id: node.course.field_course_sections
@@ -17,7 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node_child'
+  handler: 'default:child_entity'
   handler_settings:
     target_bundles:
       course_section: course_section

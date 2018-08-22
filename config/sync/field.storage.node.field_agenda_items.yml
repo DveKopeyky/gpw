@@ -10,7 +10,7 @@ field_name: field_agenda_items
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node_child
+  target_type: child_entity
 module: core
 locked: false
 cardinality: -1

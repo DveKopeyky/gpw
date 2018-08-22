@@ -5,9 +5,9 @@ dependencies:
   module:
     - datetime_range
     - eck
-id: node_child.field_date_range
+id: child_entity.field_date_range
 field_name: field_date_range
-entity_type: node_child
+entity_type: child_entity
 type: daterange
 settings:
   datetime_type: date
