@@ -1,0 +1,9 @@
+uuid: b858bf70-bfe1-4edb-ad54-50210b772700
+langcode: en
+status: true
+dependencies: {  }
+id: administrator
+label: Administrator
+weight: 3
+is_admin: true
+permissions: {  }
