@@ -1,15 +1,15 @@
-uuid: 5cbccabf-1872-4038-82e2-c4fbf2d57072
+uuid: 381bdfe6-3348-4923-83c2-cdfe7abb4bf9
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_agenda_item_category
-    - node.type.agenda_item
+    - eck.eck_type.node_child.meeting_agenda_item
+    - field.storage.node_child.field_agenda_item_category
     - taxonomy.vocabulary.agenda_items_categories
-id: node.agenda_item.field_agenda_item_category
+id: node_child.meeting_agenda_item.field_agenda_item_category
 field_name: field_agenda_item_category
-entity_type: node
-bundle: agenda_item
+entity_type: node_child
+bundle: meeting_agenda_item
 label: Category
 description: ''
 required: false

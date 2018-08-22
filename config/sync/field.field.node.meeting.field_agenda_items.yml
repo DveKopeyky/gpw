@@ -1,10 +1,10 @@
-uuid: eaa96fc9-ce5e-415c-ac2a-517781691b71
+uuid: 788f7ec7-1252-468f-9f72-a34e80311fbf
 langcode: en
 status: true
 dependencies:
   config:
+    - eck.eck_type.node_child.meeting_agenda_item
     - field.storage.node.field_agenda_items
-    - node.type.agenda_item
     - node.type.meeting
 id: node.meeting.field_agenda_items
 field_name: field_agenda_items
@@ -17,12 +17,12 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:node_child'
   handler_settings:
     target_bundles:
-      agenda_item: agenda_item
+      meeting_agenda_item: meeting_agenda_item
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: course_section
 field_type: entity_reference

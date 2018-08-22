@@ -1,23 +1,22 @@
-uuid: 6e040f4c-65d3-499d-b229-7364d16047d8
+uuid: b10b5933-aaf0-44af-b1c3-9760d4a0a5d2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.agenda_item.field_agenda_item_category
-    - field.field.node.agenda_item.field_date_range
-    - field.field.node.agenda_item.field_files
-    - node.type.agenda_item
+    - eck.eck_type.node_child.meeting_agenda_item
+    - field.field.node_child.meeting_agenda_item.field_agenda_item_category
+    - field.field.node_child.meeting_agenda_item.field_date_range
+    - field.field.node_child.meeting_agenda_item.field_files
   module:
     - datetime_range
     - file
-    - user
-id: node.agenda_item.default
-targetEntityType: node
-bundle: agenda_item
+id: node_child.meeting_agenda_item.default
+targetEntityType: node_child
+bundle: meeting_agenda_item
 mode: default
 content:
   field_agenda_item_category:
-    weight: 101
+    weight: -4
     label: above
     settings:
       link: true
@@ -25,7 +24,7 @@ content:
     type: entity_reference_label
     region: content
   field_date_range:
-    weight: 103
+    weight: -3
     label: above
     settings:
       separator: '-'
@@ -35,14 +34,19 @@ content:
     type: daterange_default
     region: content
   field_files:
-    weight: 102
+    weight: -2
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     region: content
-  links:
-    weight: 100
+  title:
+    label: hidden
+    type: string
+    weight: -5
     region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden: {  }

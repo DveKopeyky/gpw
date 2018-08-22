@@ -1,0 +1,21 @@
+uuid: 35204ec4-b10c-4cb0-8003-e9c6d59bf0a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.node_child.meeting_agenda_item
+    - field.storage.node_child.field_date_range
+  module:
+    - datetime_range
+id: node_child.meeting_agenda_item.field_date_range
+field_name: field_date_range
+entity_type: node_child
+bundle: meeting_agenda_item
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

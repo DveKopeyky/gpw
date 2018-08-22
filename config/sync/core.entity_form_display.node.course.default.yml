@@ -31,7 +31,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_course_sections:
-    weight: 123
+    weight: 124
     settings:
       form_mode: default
       override_labels: true

@@ -1,15 +1,16 @@
-uuid: 1df5f683-b45c-41c1-b9bc-c4417d5b7c07
+uuid: ff07dbaa-a890-4b27-95ad-0271c0004b67
 langcode: en
 status: true
 dependencies:
   module:
+    - eck
     - node
 id: node.field_course_sections
 field_name: field_course_sections
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: node_child
 module: core
 locked: false
 cardinality: -1

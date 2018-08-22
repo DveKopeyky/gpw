@@ -1,0 +1,9 @@
+uuid: 1273c444-95b5-4d24-bf4b-2182945c61a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.node_child
+name: 'Meeting agenda item'
+type: meeting_agenda_item
+description: ''

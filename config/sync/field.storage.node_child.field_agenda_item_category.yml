@@ -1,13 +1,13 @@
-uuid: 2440c92e-368f-4204-a0e5-64bd638d98ee
+uuid: 9289011f-b795-4d79-afd6-d2963d7f77f7
 langcode: en
 status: true
 dependencies:
   module:
-    - node
+    - eck
     - taxonomy
-id: node.field_agenda_item_category
+id: node_child.field_agenda_item_category
 field_name: field_agenda_item_category
-entity_type: node
+entity_type: node_child
 type: entity_reference
 settings:
   target_type: taxonomy_term

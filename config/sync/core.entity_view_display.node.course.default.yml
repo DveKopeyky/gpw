@@ -23,7 +23,7 @@ content:
     third_party_settings: {  }
     region: content
   field_course_sections:
-    weight: 103
+    weight: 104
     label: above
     settings:
       link: true

@@ -1,0 +1,20 @@
+uuid: d0461be5-3323-4ea8-9731-fd0bc8f35bc3
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime_range
+    - eck
+id: node_child.field_date_range
+field_name: field_date_range
+entity_type: node_child
+type: daterange
+settings:
+  datetime_type: date
+module: datetime_range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
