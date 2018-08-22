@@ -1,0 +1,47 @@
+uuid: ad48dddc-823e-4d5b-9925-7180773b5dd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.webinar.body
+    - field.field.node.webinar.field_date
+    - field.field.node.webinar.field_files
+    - node.type.webinar
+  module:
+    - datetime
+    - file
+    - text
+    - user
+id: node.webinar.default
+targetEntityType: node
+bundle: webinar
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_date:
+    weight: 103
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_files:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

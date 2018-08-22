@@ -1,0 +1,28 @@
+uuid: f5add88d-cf9a-4047-9b71-33386b011cb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.webinar.body
+    - node.type.webinar
+  module:
+    - text
+    - user
+id: node.webinar.teaser
+targetEntityType: node
+bundle: webinar
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

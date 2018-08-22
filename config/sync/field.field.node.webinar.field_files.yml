@@ -1,0 +1,27 @@
+uuid: 0d232a26-333c-4685-a65e-cad4e291ec0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_files
+    - node.type.webinar
+  module:
+    - file
+id: node.webinar.field_files
+field_name: field_files
+entity_type: node
+bundle: webinar
+label: Resources
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: webinars
+  file_extensions: 'txt pdf doc docx xls xlsx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

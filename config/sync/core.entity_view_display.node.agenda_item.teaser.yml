@@ -15,4 +15,7 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_agenda_item_category: true
+  field_date_range: true
+  field_files: true
