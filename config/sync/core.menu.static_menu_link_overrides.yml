@@ -1,3 +1,75 @@
-definitions: {  }
+definitions:
+  entity__child_entity_type__edit_form__course_section:
+    enabled: false
+    menu_name: admin
+    parent: ''
+    expanded: false
+    weight: 0
+  entity__child_entity__field_ui_fieldscourse_section:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.course_section
+    weight: 1
+    expanded: false
+  entity__entity_form_display__child_entity__defaultcourse_section:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.course_section
+    weight: 2
+    expanded: false
+  entity__entity_view_display__child_entity__default__course_section:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.course_section
+    weight: 3
+    expanded: false
+  entity__child_entity_type__delete_form__course_section:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.course_section
+    weight: 5
+    expanded: false
+  entity__child_entity_type__edit_form__meeting_agenda_item:
+    enabled: false
+    menu_name: admin
+    parent: ''
+    weight: 0
+    expanded: false
+  entity__child_entity__field_ui_fieldsmeeting_agenda_item:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.meeting_agenda_item
+    weight: 1
+    expanded: false
+  entity__entity_form_display__child_entity__defaultmeeting_agenda_item:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.meeting_agenda_item
+    weight: 2
+    expanded: false
+  entity__entity_view_display__child_entity__default__meeting_agenda_item:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.meeting_agenda_item
+    weight: 3
+    expanded: false
+  entity__child_entity_type__delete_form__meeting_agenda_item:
+    enabled: false
+    menu_name: admin
+    parent: entity.child_entity_type.edit_form.meeting_agenda_item
+    weight: 5
+    expanded: false
+  system__theme_settings_theme__seven:
+    enabled: false
+    menu_name: admin
+    parent: ''
+    weight: 0
+    expanded: false
+  system__theme_settings_theme__stark:
+    enabled: false
+    menu_name: admin
+    parent: ''
+    weight: 0
+    expanded: false
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
