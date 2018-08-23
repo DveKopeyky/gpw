@@ -3,6 +3,7 @@
 namespace Drupal\gpbase;
 
 use Drupal\eck\EckEntityInterface;
+use Drupal\node\NodeInterface;
 
 /**
  * Interface UtilsServiceInterface.
@@ -40,8 +41,17 @@ interface UtilsServiceInterface {
    * Computes duration and lectures number of course section entity.
    *
    * @param \Drupal\eck\EckEntityInterface $entity
+   *  Entity of type child_entity and of bundle course_section.
    *
    * @throws \Exception
    */
   public function computeCourseSectionFields(EckEntityInterface &$entity);
+
+  /**
+   * @param \Drupal\node\NodeInterface $node
+   *  Node of bundle course.
+   *
+   * @throws \Exception
+   */
+  public function computeCourseFields(NodeInterface &$node);
 }

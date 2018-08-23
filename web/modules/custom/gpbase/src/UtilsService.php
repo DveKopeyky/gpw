@@ -5,6 +5,7 @@ namespace Drupal\gpbase;
 use Drupal\duration_field\Service\DurationService;
 use Drupal\eck\EckEntityInterface;
 use Drupal\eck\Entity\EckEntity;
+use Drupal\node\NodeInterface;
 
 /**
  * Class UtilsService.
@@ -62,5 +63,27 @@ class UtilsService implements UtilsServiceInterface {
     $duration = $this->durationFieldsSum(...$durationChildValues);
 
     $entity->set('field_video_duration', DurationService::convertValue($this->convertDateIntervalToDurationString($duration)));
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function computeCourseFields(NodeInterface &$node) {
+    if ($node->bundle() != 'course') {
+      throw new \InvalidArgumentException();
+    }
+    $sections = array_column($node->field_course_sections->getValue(), 'target_id');
+
+    $lecturesNumber = 0;
+    $durationChildValues = [];
+    foreach ($sections as $sectionId) {
+      $section = EckEntity::load($sectionId);
+      $durationChildValues[] = $section->field_video_duration->value;
+      $lecturesNumber += $section->field_lectures_number->value;
+    }
+    $duration = $this->durationFieldsSum(...$durationChildValues);
+
+    $node->set('field_lectures_number', $lecturesNumber);
+    $node->set('field_video_duration', DurationService::convertValue($this->convertDateIntervalToDurationString($duration)));
   }
 }
