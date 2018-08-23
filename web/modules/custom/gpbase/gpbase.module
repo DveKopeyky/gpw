@@ -66,7 +66,7 @@ function gpbase_node_update(NodeInterface $node) {
         }
         catch (\Exception $e) {
           \Drupal::logger('gpbase')
-            ->error(t('Could not compute the fields of course_section entity (%id).', ['%id' => $entity->id()]));
+            ->error(t('Could not compute the fields of course_section entity (%id).', ['%id' => $section->id()]));
         }
       }
       break;
