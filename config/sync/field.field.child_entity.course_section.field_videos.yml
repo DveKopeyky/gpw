@@ -1,0 +1,28 @@
+uuid: 7a20343e-90f6-4814-8250-63848e7bd637
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.course_section
+    - eck.eck_type.child_entity.video
+    - field.storage.child_entity.field_videos
+id: child_entity.course_section.field_videos
+field_name: field_videos
+entity_type: child_entity
+bundle: course_section
+label: Lectures
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:child_entity'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

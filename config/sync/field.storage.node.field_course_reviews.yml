@@ -1,0 +1,20 @@
+uuid: 9106562a-5b2f-4e58-9a85-88993363a218
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+id: node.field_course_reviews
+field_name: field_course_reviews
+entity_type: node
+type: entity_reference
+settings:
+  target_type: child_entity
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: 5a0b3fcf-e6d9-4cc9-94c2-543d55eef7dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.course_section
+    - field.field.child_entity.course_section.field_videos
+id: child_entity.course_section.default
+targetEntityType: child_entity
+bundle: course_section
+mode: default
+content:
+  field_videos:
+    weight: -4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,9 @@
+uuid: afaaf732-fb27-4ab9-b385-e01352a80b12
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.child_entity
+name: 'Course review'
+type: course_review
+description: ''
