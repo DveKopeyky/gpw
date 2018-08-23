@@ -1,0 +1,32 @@
+uuid: a9a76aab-2996-46d2-bf1c-80006eae5025
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.highlighted_courses
+  module:
+    - node
+    - views
+  theme:
+    - stark
+id: views_block__highlighted_courses_block_1
+theme: stark
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:highlighted_courses-block_1'
+settings:
+  id: 'views_block:highlighted_courses-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      course: course
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,42 @@
+uuid: 20fc338d-8179-4e52-93b9-b6152cfa6383
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.highlighted_course.field_image
+    - field.field.node.highlighted_course.field_link
+    - node.type.highlighted_course
+  module:
+    - image
+    - link
+    - user
+id: node.highlighted_course.default
+targetEntityType: node
+bundle: highlighted_course
+mode: default
+content:
+  field_image:
+    weight: 101
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_link:
+    weight: 102
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
