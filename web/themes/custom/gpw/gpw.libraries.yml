@@ -1,0 +1,6 @@
+framework:
+  css:
+    theme:
+      dist/css/style.css: {}
+  js:
+    dist/js/main.js: {}

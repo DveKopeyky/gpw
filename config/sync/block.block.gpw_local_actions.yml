@@ -1,0 +1,20 @@
+uuid: 94756068-7b61-43f9-9909-ac4e5f6c45c6
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gpw
+_core:
+  default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
+id: gpw_local_actions
+theme: gpw
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
