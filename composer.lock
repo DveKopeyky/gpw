@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a4d50bb3b3d0081bd3e2e79014c1c0b",
+    "content-hash": "f8bfda18d58ecaeb85cfe313123dd8f9",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2500,6 +2500,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Undefined index: #states in drupal_process_states()": "https://www.drupal.org/files/issues/2018-06-08/2978206-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2604,6 +2607,58 @@
             "support": {
                 "source": "http://git.drupal.org/project/eck.git",
                 "issues": "https://www.drupal.org/project/issues/eck"
+            }
+        },
+        {
+            "name": "drupal/fixed_block_content",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/fixed_block_content",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fixed_block_content-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "878767886b40c2251f5c79a89ec53c78e6aa55e7"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1524389285",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Manuel Adan",
+                    "homepage": "https://www.drupal.org/user/516420",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Provides fixed placements for custom blocks.",
+            "homepage": "http://drupal.org/project/fixed_block_content",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://cgit.drupalcode.org/fixed_block_content",
+                "issues": "https://drupal.org/project/issues/fixed_block_content"
             }
         },
         {
@@ -8246,6 +8301,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/eck": 15,
+        "drupal/fixed_block_content": 5,
         "drupal/inline_entity_form": 5
     },
     "prefer-stable": true,
