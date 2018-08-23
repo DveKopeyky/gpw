@@ -1,22 +1,22 @@
-uuid: d5a569fe-2d0e-43d6-967d-f61d44ac7fe8
+uuid: 430e0977-5067-4453-9c9a-f732a320b7e9
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.highlighted_courses
+    - views.view.elearning_topics
   module:
     - node
     - views
   theme:
     - gpw
-id: views_block__highlighted_courses_block_1_2
+id: views_block__elearning_topics_block_1
 theme: gpw
 region: content
-weight: -1
+weight: 0
 provider: null
-plugin: 'views_block:highlighted_courses-block_1'
+plugin: 'views_block:elearning_topics-block_1'
 settings:
-  id: 'views_block:highlighted_courses-block_1'
+  id: 'views_block:elearning_topics-block_1'
   label: ''
   provider: views
   label_display: visible
