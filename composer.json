@@ -88,6 +88,9 @@
         "patches": {
             "drupal/video_embed_field": {
                 "Retrieve title & description for videos": "https://www.drupal.org/files/issues/2018-07-09/retrieve-title-2913925-5.patch"
+            },
+            "drupal/duration_field": {
+                "Undefined index: #states in drupal_process_states()": "https://www.drupal.org/files/issues/2018-06-08/2978206-2.patch"
             }
         }
     }

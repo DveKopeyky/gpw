@@ -3028,6 +3028,9 @@
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
                 }
+            },
+            "patches_applied": {
+                "Undefined index: #states in drupal_process_states()": "https://www.drupal.org/files/issues/2018-06-08/2978206-2.patch"
             }
         },
         "installation-source": "dist",

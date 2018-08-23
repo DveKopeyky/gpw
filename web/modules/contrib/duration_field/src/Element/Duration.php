@@ -97,7 +97,9 @@ class Duration extends FormElement {
     // of the elements.
     $div = '<div';
     $classes = ['duration-inner-wrapper'];
-    drupal_process_states($element);
+    if (!empty($element['#states'])) {
+      drupal_process_states($element);
+    }
     foreach ($element['#attributes'] as $attribute => $attribute_value) {
       if (is_string($attribute_value)) {
         $div .= ' ' . $attribute . "='" . $attribute_value . "'";
