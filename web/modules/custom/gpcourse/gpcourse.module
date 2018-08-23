@@ -73,6 +73,10 @@ function gpcourse_child_entity_presave(EckEntityInterface $entity) {
           ->error(t('Could not compute the fields of course_section entity (%id).', ['%id' => $entity->id()]));
       }
       break;
+
+    case 'course_review':
+      $entity->set('title', $entity->field_author_name->value);
+      break;
   }
 }
 
@@ -90,6 +94,10 @@ function gpcourse_child_entity_insert(EckEntityInterface $entity) {
           ->error(t('Could not compute the fields of course_section entity (%id).', ['%id' => $entity->id()]));
       }
       _gpcourse_course_section_update_parent_course($entity);
+      break;
+
+    case 'course_review':
+      $entity->set('title', $entity->field_author_name->value);
       break;
   }
 }
