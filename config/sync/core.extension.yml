@@ -34,7 +34,6 @@ module:
   views: 10
   minimal: 1000
 theme:
-  stark: 0
   stable: 0
   classy: 0
   seven: 0
