@@ -27,6 +27,7 @@
         "drupal/core": "~8.5.3",
         "drupal/eck": "^1.0@alpha",
         "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/video_embed_field": "^2.0",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
