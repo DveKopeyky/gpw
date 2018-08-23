@@ -1,0 +1,10 @@
+uuid: 4d8b46ee-0390-4661-8b34-80a8439162cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.teaser
+label: Teaser
+targetEntityType: child_entity
+cache: true

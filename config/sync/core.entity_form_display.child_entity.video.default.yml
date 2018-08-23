@@ -17,23 +17,30 @@ bundle: video
 mode: default
 content:
   field_video:
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: video_embed_field_textfield
     region: content
   field_video_date:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_video_duration:
-    weight: 1
+    weight: 2
     settings:
       duration: ''
     third_party_settings: {  }
     type: duration_widget
     region: content
-hidden:
-  title: true
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

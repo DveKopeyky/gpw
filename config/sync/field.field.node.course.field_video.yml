@@ -1,26 +1,26 @@
-uuid: c2b041af-ccfa-4e2e-933a-27c820cecb0e
+uuid: ac6adc7a-b0e0-417a-b7a3-739386d27990
 langcode: en
 status: true
 dependencies:
   config:
-    - eck.eck_type.child_entity.course_section
-    - field.storage.node.field_course_sections
+    - eck.eck_type.child_entity.video
+    - field.storage.node.field_video
     - node.type.course
-id: node.course.field_course_sections
-field_name: field_course_sections
+id: node.course.field_video
+field_name: field_video
 entity_type: node
 bundle: course
-label: 'Curriculum for this course'
+label: 'Demo video'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:child_entity'
   handler_settings:
     target_bundles:
-      course_section: course_section
+      video: video
     sort:
       field: _none
     auto_create: false
