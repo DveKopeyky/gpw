@@ -37,12 +37,18 @@ function gpbase_child_entity_presave(EckEntityInterface $entity) {
       $lectures = array_column($entity->field_videos->getValue(), 'target_id');
       $entity->set('field_lectures_number', count($lectures));
 
-      $durationChildValues = [];
-      foreach ($lectures as $lectureId) {
-        $video = EckEntity::load($lectureId);
-        $durationChildValues[] = $video->field_video_duration->value;
+      try {
+        $durationChildValues = [];
+        foreach ($lectures as $lectureId) {
+          $video = EckEntity::load($lectureId);
+          $durationChildValues[] = $video->field_video_duration->value;
+        }
+        $duration = $utils->durationFieldsSum(...$durationChildValues);
       }
-      $duration = $utils->durationFieldsSum(...$durationChildValues);
+      catch (\Exception $e) {
+        \Drupal::logger('gpbase')->error(t('Could not compute the duration field of course_section entity.'));
+        $duration = new \DateInterval('PT0S');
+      }
 
       $entity->set('field_video_duration', DurationService::convertValue($utils->convertDateIntervalToDurationString($duration)));
       break;
