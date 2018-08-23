@@ -57,6 +57,7 @@ permissions:
   - 'revert meeting revisions'
   - 'revert news revisions'
   - 'revert webinar revisions'
+  - 'use text format full_html'
   - 'view agenda_item revisions'
   - 'view any child_entity entities'
   - 'view course revisions'

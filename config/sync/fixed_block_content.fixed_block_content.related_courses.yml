@@ -1,0 +1,10 @@
+uuid: bcdf1a75-072b-4ecc-a3ba-68a8c3388ba2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.simple_block
+id: related_courses
+title: 'Related courses'
+block_content_bundle: simple_block
+default_content: null
