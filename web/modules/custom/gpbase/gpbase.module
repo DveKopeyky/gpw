@@ -30,27 +30,24 @@ function gpbase_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_ENTITY_TYPE_presave().
  */
 function gpbase_child_entity_presave(EckEntityInterface $entity) {
+  /** @var \Drupal\gpbase\UtilsServiceInterface $utils */
+  $utils = \Drupal::service('gpbase.utils');
   switch ($entity->bundle()) {
     case 'course_section':
       $lectures = array_column($entity->field_videos->getValue(), 'target_id');
       $entity->set('field_lectures_number', count($lectures));
 
-      $d1 = new DateTime();
-      $d2 = new DateTime();
-      foreach ($lectures as $lectureId) {
-        $video = EckEntity::load($lectureId);
-        $d2->add(new \DateInterval($video->field_video_duration->value));
+      $duration = new \DateInterval();
+      if (!empty($lectures)) {
+        $durationChildValues = [];
+        foreach ($lectures as $lectureId) {
+          $video = EckEntity::load($lectureId);
+          $durationChildValues[] = $video->field_video_duration->value;
+        }
+        $duration = $utils->durationFieldsSum(...$durationChildValues);
       }
-      $duration = $d2->diff($d1);
-      $value = [
-        'year' => $duration->y,
-        'month' => $duration->m,
-        'day' => $duration->d,
-        'hour' => $duration->h,
-        'minute' => $duration->m,
-        'second' => $duration->s,
-      ];
-      $entity->set('field_video_duration', DurationService::convertValue($value));
+
+      $entity->set('field_video_duration', DurationService::convertValue($utils->convertDateIntervalToDurationString($duration)));
       break;
   }
 }
