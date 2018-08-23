@@ -1,0 +1,32 @@
+uuid: d5a569fe-2d0e-43d6-967d-f61d44ac7fe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.highlighted_courses
+  module:
+    - node
+    - views
+  theme:
+    - gpw
+id: views_block__highlighted_courses_block_1_2
+theme: gpw
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:highlighted_courses-block_1'
+settings:
+  id: 'views_block:highlighted_courses-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      course: course
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
