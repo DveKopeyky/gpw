@@ -30,3 +30,4 @@ hidden:
   field_course_sections: true
   field_key_points: true
   field_topic: true
+  field_video: true
