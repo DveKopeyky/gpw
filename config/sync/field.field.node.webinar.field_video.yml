@@ -1,12 +1,11 @@
-uuid: b13e95b0-178c-4569-beec-d2a0fec0c0da
+uuid: d51cf3ff-ced9-4f2b-8ef8-a70d300383d8
 langcode: en
 status: true
 dependencies:
   config:
+    - eck.eck_type.child_entity.video
     - field.storage.node.field_video
     - node.type.webinar
-  module:
-    - video_embed_field
 id: node.webinar.field_video
 field_name: field_video
 entity_type: node
@@ -18,8 +17,12 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_providers:
-    youtube_playlist: '0'
-    vimeo: '0'
-    youtube: '0'
-field_type: video_embed_field
+  handler: 'default:child_entity'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

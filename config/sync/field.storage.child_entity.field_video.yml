@@ -1,17 +1,16 @@
-uuid: 9bb853f9-303f-4cc4-905c-a295d9a5c986
+uuid: 16df45aa-5cf2-4fd5-b527-cb0f2daee3ee
 langcode: en
 status: true
 dependencies:
   module:
     - eck
-    - node
-id: node.field_video
+    - video_embed_field
+id: child_entity.field_video
 field_name: field_video
-entity_type: node
-type: entity_reference
-settings:
-  target_type: child_entity
-module: core
+entity_type: child_entity
+type: video_embed_field
+settings: {  }
+module: video_embed_field
 locked: false
 cardinality: 1
 translatable: true

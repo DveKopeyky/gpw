@@ -1,0 +1,9 @@
+uuid: 53f45589-a3be-422b-a5f6-dca9b7366740
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.child_entity
+name: Video
+type: video
+description: ''

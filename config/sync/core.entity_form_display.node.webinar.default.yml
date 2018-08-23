@@ -4,15 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.webinar.body
-    - field.field.node.webinar.field_date
     - field.field.node.webinar.field_files
     - field.field.node.webinar.field_video
     - node.type.webinar
   module:
-    - datetime
     - file
+    - inline_entity_form
     - text
-    - video_embed_field
 id: node.webinar.default
 targetEntityType: node
 bundle: webinar
@@ -33,12 +31,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_date:
-    weight: 7
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_files:
     weight: 9
     settings:
@@ -48,9 +40,19 @@ content:
     region: content
   field_video:
     weight: 6
-    settings: {  }
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: video
+      label_plural: videos
+      allow_new: true
+      match_operator: CONTAINS
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
     third_party_settings: {  }
-    type: video_embed_field_textfield
+    type: inline_entity_form_complex
     region: content
   promote:
     type: boolean_checkbox
