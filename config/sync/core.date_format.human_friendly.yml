@@ -1,0 +1,8 @@
+uuid: cd311c4c-37d9-44ab-9511-85360e534418
+langcode: en
+status: true
+dependencies: {  }
+id: human_friendly
+label: 'Human Friendly'
+locked: false
+pattern: 'd F Y'
