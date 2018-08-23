@@ -1,0 +1,20 @@
+uuid: 9289011f-b795-4d79-afd6-d2963d7f77f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - taxonomy
+id: child_entity.field_agenda_item_category
+field_name: field_agenda_item_category
+entity_type: child_entity
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

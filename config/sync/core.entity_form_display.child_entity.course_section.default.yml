@@ -1,0 +1,43 @@
+uuid: 6d4a6e3f-038a-4bd6-8df6-5884e3afb1c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.course_section
+    - field.field.child_entity.course_section.field_lectures_number
+    - field.field.child_entity.course_section.field_video_duration
+    - field.field.child_entity.course_section.field_videos
+  module:
+    - inline_entity_form
+id: child_entity.course_section.default
+targetEntityType: child_entity
+bundle: course_section
+mode: default
+content:
+  field_videos:
+    weight: 1
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: lecture
+      label_plural: lectures
+      allow_new: true
+      match_operator: CONTAINS
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_lectures_number: true
+  field_video_duration: true

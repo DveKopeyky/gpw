@@ -1,0 +1,22 @@
+uuid: aac82eec-cb32-4b0c-8bc0-c0b306cafba1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.simple_block
+    - field.field.block_content.simple_block.body
+  module:
+    - text
+id: block_content.simple_block.default
+targetEntityType: block_content
+bundle: simple_block
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

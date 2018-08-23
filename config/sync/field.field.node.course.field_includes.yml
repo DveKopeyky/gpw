@@ -1,0 +1,21 @@
+uuid: 024b9e6e-6d3a-4567-b2f4-43d0a3441816
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_includes
+    - node.type.course
+  module:
+    - text
+id: node.course.field_includes
+field_name: field_includes
+entity_type: node
+bundle: course
+label: Includes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

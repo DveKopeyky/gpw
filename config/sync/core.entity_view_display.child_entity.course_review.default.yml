@@ -1,0 +1,30 @@
+uuid: 64b8371b-fb5e-4d8b-8c9d-06c83acb16c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.course_review
+    - field.field.child_entity.course_review.field_author_name
+    - field.field.child_entity.course_review.field_review_text
+id: child_entity.course_review.default
+targetEntityType: child_entity
+bundle: course_review
+mode: default
+content:
+  field_author_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_review_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  title: true

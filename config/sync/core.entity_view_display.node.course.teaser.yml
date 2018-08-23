@@ -26,5 +26,8 @@ content:
     weight: 100
     region: content
 hidden:
+  field_course_reviews: true
   field_course_sections: true
   field_key_points: true
+  field_topic: true
+  field_video: true

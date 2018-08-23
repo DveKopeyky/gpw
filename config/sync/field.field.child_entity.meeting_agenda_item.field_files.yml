@@ -1,0 +1,27 @@
+uuid: c3a1bb76-83e6-411a-9013-2bb4b8ec194a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_agenda_item
+    - field.storage.child_entity.field_files
+  module:
+    - file
+id: child_entity.meeting_agenda_item.field_files
+field_name: field_files
+entity_type: child_entity
+bundle: meeting_agenda_item
+label: Documents
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: meetings
+  file_extensions: 'txt pdf doc docx xls xlsx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

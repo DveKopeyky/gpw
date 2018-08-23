@@ -1,0 +1,23 @@
+uuid: 5a885454-ec72-4a50-81f6-de5d6ac36427
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - file
+id: child_entity.field_files
+field_name: field_files
+entity_type: child_entity
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

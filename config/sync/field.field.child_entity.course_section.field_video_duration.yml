@@ -1,0 +1,28 @@
+uuid: f1d3555c-7bc1-4f5f-bfae-2159d115cc8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.course_section
+    - field.storage.child_entity.field_video_duration
+  module:
+    - duration_field
+id: child_entity.course_section.field_video_duration
+field_name: field_video_duration
+entity_type: child_entity
+bundle: course_section
+label: Duration
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  granularity:
+    hour: true
+    minute: true
+    second: true
+    year: false
+    month: false
+    day: false
+field_type: duration

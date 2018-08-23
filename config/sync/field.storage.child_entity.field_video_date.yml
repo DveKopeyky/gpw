@@ -1,0 +1,20 @@
+uuid: 4d944bdf-97b2-4906-86b8-574f4874559f
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - eck
+id: child_entity.field_video_date
+field_name: field_video_date
+entity_type: child_entity
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

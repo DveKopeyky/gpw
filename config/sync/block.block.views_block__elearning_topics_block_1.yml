@@ -1,0 +1,32 @@
+uuid: 430e0977-5067-4453-9c9a-f732a320b7e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.elearning_topics
+  module:
+    - node
+    - views
+  theme:
+    - gpw
+id: views_block__elearning_topics_block_1
+theme: gpw
+region: content
+weight: 3
+provider: null
+plugin: 'views_block:elearning_topics-block_1'
+settings:
+  id: 'views_block:elearning_topics-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      course: course
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

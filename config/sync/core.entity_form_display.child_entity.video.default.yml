@@ -1,0 +1,46 @@
+uuid: 25489f67-0853-4b36-8708-a02f987657f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.video
+    - field.field.child_entity.video.field_video
+    - field.field.child_entity.video.field_video_date
+    - field.field.child_entity.video.field_video_duration
+  module:
+    - datetime
+    - duration_field
+    - video_embed_field
+id: child_entity.video.default
+targetEntityType: child_entity
+bundle: video
+mode: default
+content:
+  field_video:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: video_embed_field_textfield
+    region: content
+  field_video_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_video_duration:
+    weight: 2
+    settings:
+      duration: ''
+    third_party_settings: {  }
+    type: duration_widget
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

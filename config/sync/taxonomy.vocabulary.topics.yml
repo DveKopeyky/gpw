@@ -1,0 +1,9 @@
+uuid: 08faa3bc-5c5c-4845-9516-15016946383a
+langcode: en
+status: true
+dependencies: {  }
+name: Topics
+vid: topics
+description: 'Each taxonomy term represents an environmental topic.'
+hierarchy: 0
+weight: 0

@@ -1,0 +1,21 @@
+uuid: 7b7f7511-55a6-4ab6-99cd-2e6955b05317
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.field_author_name
+field_name: field_author_name
+entity_type: child_entity
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

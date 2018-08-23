@@ -1,0 +1,19 @@
+uuid: 3cdd2189-97e1-41e0-b9a5-627961c4aee9
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.field_videos
+field_name: field_videos
+entity_type: child_entity
+type: entity_reference
+settings:
+  target_type: child_entity
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

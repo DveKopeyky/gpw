@@ -1,0 +1,10 @@
+uuid: 5929551a-875b-4976-b148-b66d07d3af54
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.listing
+label: Listing
+targetEntityType: child_entity
+cache: true

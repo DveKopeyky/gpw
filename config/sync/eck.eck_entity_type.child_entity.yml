@@ -1,0 +1,10 @@
+uuid: 925facf7-feee-4c96-85a2-0853decbd9eb
+langcode: en
+status: true
+dependencies: {  }
+id: child_entity
+label: 'Child entity'
+created: false
+changed: false
+uid: false
+title: true

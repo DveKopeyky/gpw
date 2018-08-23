@@ -1,0 +1,25 @@
+uuid: 3cce6f02-a426-4d52-a4cb-106b8008451b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.video
+    - field.storage.child_entity.field_video
+  module:
+    - video_embed_field
+id: child_entity.video.field_video
+field_name: field_video
+entity_type: child_entity
+bundle: video
+label: Video
+description: 'Link to YouTube or Vimeo video.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube_playlist: '0'
+    vimeo: '0'
+    youtube: '0'
+field_type: video_embed_field

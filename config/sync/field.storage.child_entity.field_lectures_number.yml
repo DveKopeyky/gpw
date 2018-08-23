@@ -1,0 +1,20 @@
+uuid: 13fb5dcc-51a9-4bbb-ba2a-bac1d8366644
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.field_lectures_number
+field_name: field_lectures_number
+entity_type: child_entity
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

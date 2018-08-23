@@ -1,0 +1,19 @@
+uuid: a674a18d-d9ea-4101-92e6-8eecb336d6e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.field_review_text
+field_name: field_review_text
+entity_type: child_entity
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

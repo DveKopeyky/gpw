@@ -1,0 +1,23 @@
+uuid: fcb7c9e9-05af-403e-9986-dc7b3d6a6208
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_link
+    - taxonomy.vocabulary.topics
+  module:
+    - link
+id: taxonomy_term.topics.field_link
+field_name: field_link
+entity_type: taxonomy_term
+bundle: topics
+label: Link
+description: 'Link to elearning.informea.org topic page (e.g. <em>https://elearning.informea.org/course/index.php?categoryid=8</em>)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

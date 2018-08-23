@@ -4,11 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.webinar.body
-    - field.field.node.webinar.field_date
     - field.field.node.webinar.field_files
+    - field.field.node.webinar.field_video
     - node.type.webinar
   module:
-    - datetime
     - file
     - text
     - user
@@ -18,30 +17,32 @@ bundle: webinar
 mode: default
 content:
   body:
-    label: hidden
+    label: above
     type: text_default
-    weight: 101
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_date:
-    weight: 103
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_files:
-    weight: 102
+    weight: 3
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     region: content
-  links:
-    weight: 100
+  field_video:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
     region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

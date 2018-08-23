@@ -1,0 +1,21 @@
+uuid: 6048479b-f689-410b-b233-7bb4975650de
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.video
+    - field.storage.child_entity.field_video_date
+  module:
+    - datetime
+id: child_entity.video.field_video_date
+field_name: field_video_date
+entity_type: child_entity
+bundle: video
+label: 'Recorded on'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

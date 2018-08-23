@@ -1,0 +1,9 @@
+uuid: 86973849-426c-46bd-8b0f-34b4be6ea985
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.child_entity
+name: 'Course section'
+type: course_section
+description: ''

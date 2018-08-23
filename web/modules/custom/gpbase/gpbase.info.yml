@@ -1,0 +1,5 @@
+name: 'Global Pact Base Module'
+type: module
+description: 'Includes basic website features'
+core: 8.x
+package: 'Custom'

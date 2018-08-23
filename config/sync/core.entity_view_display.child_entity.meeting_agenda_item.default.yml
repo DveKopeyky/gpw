@@ -1,0 +1,52 @@
+uuid: b10b5933-aaf0-44af-b1c3-9760d4a0a5d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_agenda_item
+    - field.field.child_entity.meeting_agenda_item.field_agenda_item_category
+    - field.field.child_entity.meeting_agenda_item.field_date_range
+    - field.field.child_entity.meeting_agenda_item.field_files
+  module:
+    - datetime_range
+    - file
+id: child_entity.meeting_agenda_item.default
+targetEntityType: child_entity
+bundle: meeting_agenda_item
+mode: default
+content:
+  field_agenda_item_category:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_date_range:
+    weight: 3
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: short_date_no_time
+      separator: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_files:
+    weight: 2
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 1
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

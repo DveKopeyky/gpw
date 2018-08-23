@@ -1,0 +1,29 @@
+uuid: 381bdfe6-3348-4923-83c2-cdfe7abb4bf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_agenda_item
+    - field.storage.child_entity.field_agenda_item_category
+    - taxonomy.vocabulary.agenda_items_categories
+id: child_entity.meeting_agenda_item.field_agenda_item_category
+field_name: field_agenda_item_category
+entity_type: child_entity
+bundle: meeting_agenda_item
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      agenda_items_categories: agenda_items_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

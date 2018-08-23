@@ -1,15 +1,16 @@
-uuid: 1e92ebbb-ef2e-498b-857f-1d3eb3ee61ab
+uuid: eab6badd-1ab8-4035-a63d-7178204d86b0
 langcode: en
 status: true
 dependencies:
   module:
+    - eck
     - node
 id: node.field_agenda_items
 field_name: field_agenda_items
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: child_entity
 module: core
 locked: false
 cardinality: -1
