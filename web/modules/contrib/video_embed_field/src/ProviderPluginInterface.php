@@ -64,6 +64,14 @@ interface ProviderPluginInterface extends PluginInspectionInterface {
   public function downloadThumbnail();
 
   /**
+   * Get the duration of the video.
+   *
+   * @return string
+   *   The duration of the video.
+   */
+  public function getDuration();
+
+  /**
    * Render embed code.
    *
    * @param string $width

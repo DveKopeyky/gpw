@@ -149,6 +149,13 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
   /**
    * {@inheritdoc}
    */
+  public function getDuration() {
+    return '';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getName() {
     return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $this->getVideoId()]);
   }

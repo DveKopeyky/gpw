@@ -117,6 +117,14 @@ class VideoEmbedField extends MediaSourceBase {
         }
         return FALSE;
 
+      case 'duration':
+        if ($provider = $this->providerManager->loadProviderFromInput($url)) {
+          if (method_exists($provider, 'getDuration')) {
+            return $provider->getDuration();
+          }
+        }
+        return FALSE;
+
       case 'image_local':
       case 'image_local_uri':
         $thumbnail_uri = $this->getMetadata($media, 'thumbnail_uri');
@@ -147,6 +155,7 @@ class VideoEmbedField extends MediaSourceBase {
       'id' => $this->t('Video ID.'),
       'source' => $this->t('Video source machine name.'),
       'source_name' => $this->t('Video source human name.'),
+      'duration' => $this->t('Video duration.'),
       'image_local' => $this->t('Copies thumbnail image to the local filesystem and returns the URI.'),
       'image_local_uri' => $this->t('Gets URI of the locally saved image.'),
     ];

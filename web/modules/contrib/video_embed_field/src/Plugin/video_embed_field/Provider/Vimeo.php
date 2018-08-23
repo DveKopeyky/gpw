@@ -58,6 +58,13 @@ class Vimeo extends ProviderPluginBase {
   /**
    * {@inheritdoc}
    */
+  public function getDuration() {
+    return $this->oEmbedData()->duration;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public static function getIdFromInput($input) {
     preg_match('/^https?:\/\/(www\.)?vimeo.com\/(channels\/[a-zA-Z0-9]*\/)?(?<id>[0-9]*)(\/[a-zA-Z0-9]+)?(\#t=(\d+)s)?$/', $input, $matches);
     return isset($matches['id']) ? $matches['id'] : FALSE;

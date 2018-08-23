@@ -63,6 +63,11 @@ class ProvidedFieldsTest extends MediaKernelTestBase {
         'source',
         'vimeo',
       ],
+      'Video Duration (Vimeo)' => [
+        'https://vimeo.com/channels/staffpicks/153786080',
+        'duration',
+        '123',
+      ],
       'Video Thumbnail (YouTube)' => [
         'https://www.youtube.com/watch?v=gnERPdAiuSo',
         'image_local_uri',
