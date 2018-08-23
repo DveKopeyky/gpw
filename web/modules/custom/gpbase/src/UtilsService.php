@@ -31,12 +31,12 @@ class UtilsService implements UtilsServiceInterface {
    */
   public function convertDateIntervalToDurationString(\DateInterval $dateInterval) {
     return [
-      'year' => $duration->y,
-      'month' => $duration->m,
-      'day' => $duration->d,
-      'hour' => $duration->h,
-      'minute' => $duration->m,
-      'second' => $duration->s,
+      'year' => $dateInterval->y,
+      'month' => $dateInterval->m,
+      'day' => $dateInterval->d,
+      'hour' => $dateInterval->h,
+      'minute' => $dateInterval->i,
+      'second' => $dateInterval->s,
     ];
   }
 }

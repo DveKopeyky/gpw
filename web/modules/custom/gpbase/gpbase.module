@@ -37,7 +37,7 @@ function gpbase_child_entity_presave(EckEntityInterface $entity) {
       $lectures = array_column($entity->field_videos->getValue(), 'target_id');
       $entity->set('field_lectures_number', count($lectures));
 
-      $duration = new \DateInterval();
+      $duration = new \DateInterval('PT0S');
       if (!empty($lectures)) {
         $durationChildValues = [];
         foreach ($lectures as $lectureId) {
