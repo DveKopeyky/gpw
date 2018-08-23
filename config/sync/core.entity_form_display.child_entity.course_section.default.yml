@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - eck.eck_type.child_entity.course_section
+    - field.field.child_entity.course_section.field_lectures_number
+    - field.field.child_entity.course_section.field_video_duration
     - field.field.child_entity.course_section.field_videos
   module:
     - inline_entity_form
@@ -13,7 +15,7 @@ bundle: course_section
 mode: default
 content:
   field_videos:
-    weight: 3
+    weight: 1
     settings:
       form_mode: default
       override_labels: true
@@ -30,10 +32,12 @@ content:
     region: content
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_lectures_number: true
+  field_video_duration: true

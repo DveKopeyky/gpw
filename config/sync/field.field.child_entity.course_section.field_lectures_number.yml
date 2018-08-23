@@ -1,0 +1,25 @@
+uuid: 1c45e2d2-2d3a-40b6-9785-ba1f4340f944
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.course_section
+    - field.storage.child_entity.field_lectures_number
+id: child_entity.course_section.field_lectures_number
+field_name: field_lectures_number
+entity_type: child_entity
+bundle: course_section
+label: 'Lectures number'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100000
+  prefix: ''
+  suffix: ' Lectures'
+field_type: integer

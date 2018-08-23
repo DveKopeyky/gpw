@@ -6,6 +6,9 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\eck\EckEntityInterface;
+use Drupal\eck\Entity\EckEntity;
+use Drupal\duration_field\Service\DurationService;
 
 /**
  * Implements hook_help().
@@ -21,4 +24,40 @@ function gpbase_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function gpbase_child_entity_presave(EckEntityInterface $entity) {
+  switch ($entity->bundle()) {
+    case 'course_section':
+      $lectures = array_column($entity->field_videos->getValue(), 'target_id');
+      $entity->set('field_lectures_number', count($lectures));
+
+      $d1 = new DateTime();
+      $d2 = new DateTime();
+      foreach ($lectures as $lectureId) {
+        $video = EckEntity::load($lectureId);
+        $d2->add(new \DateInterval($video->field_video_duration->value));
+      }
+      $duration = $d2->diff($d1);
+      $value = [
+        'year' => $duration->y,
+        'month' => $duration->m,
+        'day' => $duration->d,
+        'hour' => $duration->h,
+        'minute' => $duration->m,
+        'second' => $duration->s,
+      ];
+      $entity->set('field_video_duration', DurationService::convertValue($value));
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function gpbase_child_entity_update(EckEntityInterface $entity) {
+  // @todo update course_section fields after video has been updated
 }

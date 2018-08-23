@@ -4,14 +4,36 @@ status: true
 dependencies:
   config:
     - eck.eck_type.child_entity.course_section
+    - field.field.child_entity.course_section.field_lectures_number
+    - field.field.child_entity.course_section.field_video_duration
     - field.field.child_entity.course_section.field_videos
+  module:
+    - duration_field
 id: child_entity.course_section.default
 targetEntityType: child_entity
 bundle: course_section
 mode: default
 content:
+  field_lectures_number:
+    weight: 1
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_video_duration:
+    weight: 2
+    label: hidden
+    settings:
+      text_length: short
+      separator: space
+    third_party_settings: {  }
+    type: duration_human_display
+    region: content
   field_videos:
-    weight: -4
+    weight: 3
     label: hidden
     settings:
       view_mode: listing
@@ -22,7 +44,7 @@ content:
   title:
     label: hidden
     type: string
-    weight: -5
+    weight: 0
     region: content
     settings:
       link_to_entity: false
