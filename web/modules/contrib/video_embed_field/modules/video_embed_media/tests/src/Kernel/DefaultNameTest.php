@@ -52,7 +52,7 @@ class DefaultNameTest extends MediaKernelTestBase {
       ],
       'Vimeo' => [
         'https://vimeo.com/21681203',
-        'Drupal Commerce at DrupalCon Chicago',
+        'Vimeo Video (21681203)',
       ],
     ];
   }

@@ -52,14 +52,7 @@ class Vimeo extends ProviderPluginBase {
    *   An array of data from the oembed endpoint.
    */
   protected function oEmbedData() {
-    return json_decode(file_get_contents('http://vimeo.com/api/oembed.json?url=' . $this->getInput()));
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getDuration() {
-    return $this->oEmbedData()->duration;
+    return json_decode(file_get_contents('https://vimeo.com/api/oembed.json?url=' . $this->getInput()));
   }
 
   /**
@@ -86,6 +79,13 @@ class Vimeo extends ProviderPluginBase {
    */
   public function getName() {
     return $this->oEmbedData()->title;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getDescription() {
+    return $this->oEmbedData()->description;
   }
 
 }

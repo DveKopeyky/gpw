@@ -149,15 +149,25 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
   /**
    * {@inheritdoc}
    */
-  public function getDuration() {
-    return '';
+  public function getDefaultName() {
+    return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $this->getVideoId()]);
   }
 
   /**
-   * {@inheritdoc}
+   * Fallback if the method is not override.
+   *
+   * @return \Drupal\Core\StringTranslation\TranslatableMarkup|string
+   *   The video name.
    */
   public function getName() {
-    return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $this->getVideoId()]);
+    return $this->getDefaultName();
+  }
+
+  /**
+   * Fallback if the method is not override.
+   */
+  public function getDescription() {
+    return '';
   }
 
 }

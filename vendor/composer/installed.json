@@ -3194,7 +3194,7 @@
                 "package": "Field types"
             },
             "patches_applied": {
-                "Add duration to video meta data / field mapping": "https://www.drupal.org/files/issues/2018-08-06/add-duration-support-2974154-6.patch"
+                "Retrieve title & description for videos": "https://www.drupal.org/files/issues/2018-07-09/retrieve-title-2913925-5.patch"
             }
         },
         "installation-source": "dist",

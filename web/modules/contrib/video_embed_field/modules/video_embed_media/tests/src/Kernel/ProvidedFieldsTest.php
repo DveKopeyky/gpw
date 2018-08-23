@@ -63,11 +63,6 @@ class ProvidedFieldsTest extends MediaKernelTestBase {
         'source',
         'vimeo',
       ],
-      'Video Duration (Vimeo)' => [
-        'https://vimeo.com/channels/staffpicks/153786080',
-        'duration',
-        '123',
-      ],
       'Video Thumbnail (YouTube)' => [
         'https://www.youtube.com/watch?v=gnERPdAiuSo',
         'image_local_uri',
@@ -77,6 +72,21 @@ class ProvidedFieldsTest extends MediaKernelTestBase {
         'https://vimeo.com/channels/staffpicks/153786080',
         'image_local_uri',
         'public://video_thumbnails/153786080.jpg',
+      ],
+      'Video Title (YouTube)' => [
+        'https://www.youtube.com/watch?v=gnERPdAiuSo',
+        'video_title',
+        'DrupalCon Austin 2014: Keynote: Dries Buytaert',
+      ],
+      'Video Title (Vimeo)' => [
+        'https://vimeo.com/21681203',
+        'video_title',
+        'Drupal Commerce at DrupalCon Chicago',
+      ],
+      'Video Description (Vimeo)' => [
+        'https://vimeo.com/21681203',
+        'video_description',
+        'Drupal Commerce at DrupalCon Chicago',
       ],
     ];
   }

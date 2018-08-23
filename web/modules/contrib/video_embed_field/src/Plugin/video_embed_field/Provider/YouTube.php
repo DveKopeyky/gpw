@@ -86,4 +86,21 @@ class YouTube extends ProviderPluginBase {
     return isset($matches['id']) ? $matches['id'] : FALSE;
   }
 
+  /**
+   * Get the Youtube oEmbed data.
+   *
+   * @return array
+   *   An array of data from the oEmbed endpoint.
+   */
+  protected function oEmbedData() {
+    return json_decode(file_get_contents('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' . $this->getVideoId() . '&format=json'));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getName() {
+    return $this->oEmbedData()->title;
+  }
+
 }
