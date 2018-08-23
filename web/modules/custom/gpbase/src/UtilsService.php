@@ -54,19 +54,12 @@ class UtilsService implements UtilsServiceInterface {
     $lectures = array_column($entity->field_videos->getValue(), 'target_id');
     $entity->set('field_lectures_number', count($lectures));
 
-    try {
-      $durationChildValues = [];
-      foreach ($lectures as $lectureId) {
-        $video = EckEntity::load($lectureId);
-        $durationChildValues[] = $video->field_video_duration->value;
-      }
-      $duration = $this->durationFieldsSum(...$durationChildValues);
+    $durationChildValues = [];
+    foreach ($lectures as $lectureId) {
+      $video = EckEntity::load($lectureId);
+      $durationChildValues[] = $video->field_video_duration->value;
     }
-    catch (\Exception $e) {
-      \Drupal::logger('gpbase')
-        ->error(t('Could not compute the duration field of course_section entity (%id).', ['%id' => $entity->id()]));
-      $duration = new \DateInterval('PT0S');
-    }
+    $duration = $this->durationFieldsSum(...$durationChildValues);
 
     $entity->set('field_video_duration', DurationService::convertValue($this->convertDateIntervalToDurationString($duration)));
   }
