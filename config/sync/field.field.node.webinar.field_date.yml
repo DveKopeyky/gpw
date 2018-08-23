@@ -11,7 +11,7 @@ id: node.webinar.field_date
 field_name: field_date
 entity_type: node
 bundle: webinar
-label: Date
+label: 'Recorded on'
 description: ''
 required: false
 translatable: false

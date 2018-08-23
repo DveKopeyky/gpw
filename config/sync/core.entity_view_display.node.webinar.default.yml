@@ -6,27 +6,30 @@ dependencies:
     - field.field.node.webinar.body
     - field.field.node.webinar.field_date
     - field.field.node.webinar.field_files
+    - field.field.node.webinar.field_video
+    - image.style.large
     - node.type.webinar
   module:
     - datetime
     - file
     - text
     - user
+    - video_embed_field
 id: node.webinar.default
 targetEntityType: node
 bundle: webinar
 mode: default
 content:
   body:
-    label: hidden
+    label: above
     type: text_default
-    weight: 101
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
   field_date:
-    weight: 103
-    label: above
+    weight: 2
+    label: inline
     settings:
       format_type: medium
       timezone_override: ''
@@ -34,14 +37,29 @@ content:
     type: datetime_default
     region: content
   field_files:
-    weight: 102
+    weight: 4
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     region: content
-  links:
-    weight: 100
+  field_video:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: large
+      link_image_to: ''
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+    type: video_embed_field_lazyload
     region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }
