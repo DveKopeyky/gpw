@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.course.field_course_reviews
     - field.field.node.course.field_course_sections
     - field.field.node.course.field_key_points
+    - field.field.node.course.field_lectures_number
     - field.field.node.course.field_topic
     - field.field.node.course.field_video
+    - field.field.node.course.field_video_duration
     - node.type.course
   module:
     - inline_entity_form
@@ -136,4 +138,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_lectures_number: true
+  field_video_duration: true

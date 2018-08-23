@@ -13,13 +13,6 @@ use Drupal\node\NodeInterface;
 class UtilsService implements UtilsServiceInterface {
 
   /**
-   * Constructs a new UtilsService object.
-   */
-  public function __construct() {
-
-  }
-
-  /**
    * @inheritdoc
    */
   public function durationFieldsSum($field1 = 'PT0S', $field2 = 'PT0S', $_ = NULL) {

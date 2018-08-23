@@ -1,0 +1,7 @@
+name: 'Global Pact Course'
+type: module
+description: 'Holds functionalities regarding course entities'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - gpbase

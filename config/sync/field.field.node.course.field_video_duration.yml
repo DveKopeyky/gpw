@@ -1,0 +1,28 @@
+uuid: 002249b1-b475-45fa-9fdb-b0b709a9af50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_duration
+    - node.type.course
+  module:
+    - duration_field
+id: node.course.field_video_duration
+field_name: field_video_duration
+entity_type: node
+bundle: course
+label: Duration
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  granularity:
+    hour: true
+    minute: true
+    second: true
+    year: false
+    month: false
+    day: false
+field_type: duration
