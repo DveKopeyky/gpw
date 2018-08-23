@@ -2,6 +2,10 @@
 
 namespace Drupal\gpbase;
 
+use Drupal\duration_field\Service\DurationService;
+use Drupal\eck\EckEntityInterface;
+use Drupal\eck\Entity\EckEntity;
+
 /**
  * Class UtilsService.
  */
@@ -17,7 +21,7 @@ class UtilsService implements UtilsServiceInterface {
   /**
    * @inheritdoc
    */
-  public function durationFieldsSum($field1, $field2, $_ = null) {
+  public function durationFieldsSum($field1 = 'PT0S', $field2 = 'PT0S', $_ = NULL) {
     $d1 = new \DateTime();
     $d2 = new \DateTime();
     foreach (func_get_args() as $value) {
@@ -38,5 +42,32 @@ class UtilsService implements UtilsServiceInterface {
       'minute' => $dateInterval->i,
       'second' => $dateInterval->s,
     ];
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function computeCourseSectionFields(EckEntityInterface &$entity) {
+    if ($entity->bundle() != 'course_section') {
+      throw new \InvalidArgumentException();
+    }
+    $lectures = array_column($entity->field_videos->getValue(), 'target_id');
+    $entity->set('field_lectures_number', count($lectures));
+
+    try {
+      $durationChildValues = [];
+      foreach ($lectures as $lectureId) {
+        $video = EckEntity::load($lectureId);
+        $durationChildValues[] = $video->field_video_duration->value;
+      }
+      $duration = $this->durationFieldsSum(...$durationChildValues);
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('gpbase')
+        ->error(t('Could not compute the duration field of course_section entity (%id).', ['%id' => $entity->id()]));
+      $duration = new \DateInterval('PT0S');
+    }
+
+    $entity->set('field_video_duration', DurationService::convertValue($this->convertDateIntervalToDurationString($duration)));
   }
 }

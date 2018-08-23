@@ -2,6 +2,8 @@
 
 namespace Drupal\gpbase;
 
+use Drupal\eck\EckEntityInterface;
+
 /**
  * Interface UtilsServiceInterface.
  */
@@ -34,4 +36,12 @@ interface UtilsServiceInterface {
    */
   public function convertDateIntervalToDurationString(\DateInterval $dateInterval);
 
+  /**
+   * Computes duration and lectures number of course section entity.
+   *
+   * @param \Drupal\eck\EckEntityInterface $entity
+   *
+   * @throws \Exception
+   */
+  public function computeCourseSectionFields(EckEntityInterface &$entity);
 }

@@ -7,8 +7,8 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\eck\EckEntityInterface;
+use Drupal\node\NodeInterface;
 use Drupal\eck\Entity\EckEntity;
-use Drupal\duration_field\Service\DurationService;
 
 /**
  * Implements hook_help().
@@ -34,23 +34,13 @@ function gpbase_child_entity_presave(EckEntityInterface $entity) {
   $utils = \Drupal::service('gpbase.utils');
   switch ($entity->bundle()) {
     case 'course_section':
-      $lectures = array_column($entity->field_videos->getValue(), 'target_id');
-      $entity->set('field_lectures_number', count($lectures));
-
       try {
-        $durationChildValues = [];
-        foreach ($lectures as $lectureId) {
-          $video = EckEntity::load($lectureId);
-          $durationChildValues[] = $video->field_video_duration->value;
-        }
-        $duration = $utils->durationFieldsSum(...$durationChildValues);
+        $utils->computeCourseSectionFields($entity);
       }
       catch (\Exception $e) {
-        \Drupal::logger('gpbase')->error(t('Could not compute the duration field of course_section entity.'));
-        $duration = new \DateInterval('PT0S');
+        \Drupal::logger('gpbase')
+          ->error(t('Could not compute the fields of course_section entity (%id).', ['%id' => $entity->id()]));
       }
-
-      $entity->set('field_video_duration', DurationService::convertValue($utils->convertDateIntervalToDurationString($duration)));
       break;
   }
 }
@@ -58,6 +48,27 @@ function gpbase_child_entity_presave(EckEntityInterface $entity) {
 /**
  * Implements hook_ENTITY_TYPE_update().
  */
-function gpbase_child_entity_update(EckEntityInterface $entity) {
-  // @todo update course_section fields after video has been updated
+function gpbase_node_update(NodeInterface $node) {
+  /** @var \Drupal\gpbase\UtilsServiceInterface $utils */
+  $utils = \Drupal::service('gpbase.utils');
+  switch ($node->bundle()) {
+    case 'course':
+      $sections = array_column($node->field_course_sections->getValue(), 'target_id');
+      foreach ($sections as $sectionId) {
+        $section = EckEntity::load($sectionId);
+        try {
+          $original = $section->field_video_duration->value;
+          $utils->computeCourseSectionFields($section);
+          $updated = $section->field_video_duration->value;
+          if ($original != $updated) {
+            $section->save();
+          }
+        }
+        catch (\Exception $e) {
+          \Drupal::logger('gpbase')
+            ->error(t('Could not compute the fields of course_section entity (%id).', ['%id' => $entity->id()]));
+        }
+      }
+      break;
+  }
 }
