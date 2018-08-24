@@ -1,0 +1,7 @@
+:root {
+  --some-length: 32px;
+}
+
+.btn {
+  height: var(--some-length);
+}
