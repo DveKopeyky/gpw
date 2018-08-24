@@ -21,6 +21,7 @@ module:
   fixed_block_content: 0
   gpbase: 0
   gpcourse: 0
+  gpmeeting: 0
   hal: 0
   image: 0
   inline_entity_form: 0

@@ -1,0 +1,7 @@
+name: 'Global Pact Meeting'
+type: module
+description: 'Holds functionalities regarding meeting entities'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - gpbase
