@@ -6,3 +6,6 @@
  *
  * Place your custom PHP code in this file.
  */
+
+function gpw_preprocess_page(&$variables) {
+}

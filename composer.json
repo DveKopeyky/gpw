@@ -29,6 +29,7 @@
         "drupal/eck": "^1.0@alpha",
         "drupal/fixed_block_content": "^1.0@RC",
         "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/menu_link_attributes": "^1.0",
         "drupal/video_embed_field": "^2.0",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
