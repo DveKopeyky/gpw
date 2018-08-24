@@ -13,7 +13,7 @@ bootstrap:
 
 header:
   css:
-    component:
+    theme:
       dist/components/navbar/navbar.css: {}
   js:
     dist/components/navbar/navbar.js: {}
@@ -22,7 +22,7 @@ framework:
   css: {}
   js: {}
   dependencies:
-    - gpw/bootstrap
     - gpw/fonts
+    - gpw/bootstrap
     - gpw/header
 

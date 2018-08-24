@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const sassImportOnce = require('gulp-sass-import-once');
 const postcss = require('gulp-postcss');
 const postcssPresetEnv = require('postcss-preset-env');
 const sourcemaps = require('gulp-sourcemaps');
@@ -14,16 +15,39 @@ const cache = require('gulp-cached');
 const cssnano = require('cssnano');
 
 const plugins = [
-  postcssPresetEnv({
-    browsers: ['last 2 versions']
-  }),
+  postcssPresetEnv(),
   cssnano()
 ];
 
+gulp.task('css', (cb) => {
+  pump([
+    gulp.src(['./src/**/*.scss', '!./src/bootstrap-scss/**/*.scss']),
+    sourcemaps.init(),
+    sassImportOnce(),
+    sass(),
+    postcss(plugins),
+    sourcemaps.write('.'),
+    gulp.dest('./dist'),
+  ], cb);
+});
+
+gulp.task('js', (cb) => {
+  pump([
+    gulp.src('./src/components/**/*.js', {
+      base: './src/components'
+    }),
+    sourcemaps.init(),
+    babel(),
+    uglify(),
+    sourcemaps.write('.'),
+    gulp.dest('./dist/components')
+  ], cb);
+});
+
 gulp.task('bootstrap:css', (cb) => {
   pump([
-    gulp.src('./src/bootstrap/style.scss', {
-      base: './src/*'
+    gulp.src('./src/bootstrap-scss/style.scss', {
+      base: './src/bootstrap-scss'
     }),
     sourcemaps.init(),
     sass(),
@@ -56,30 +80,19 @@ gulp.task('bootstrap:js', (cb) => {
   ], cb);
 });
 
-gulp.task('components:css', (cb) => {
-  pump([
-    gulp.src(['./src/components/*/*.scss'], {
-      base: './src/components'
-    }),
-    sourcemaps.init(),
-    sass(),
-    postcss(plugins),
-    sourcemaps.write('.'),
-    gulp.dest('./dist/components'),
-  ], cb);
-});
+// gulp.task('components:css', (cb) => {
+//   pump([
+//     gulp.src(['./src/components/*/*.scss'], {
+//       base: './src/components'
+//     }),
+//     sourcemaps.init(),
+//     sass(),
+//     postcss(plugins),
+//     sourcemaps.write('.'),
+//     gulp.dest('./dist/components'),
+//   ], cb);
+// });
 
-gulp.task('components:js', (cb) => {
-  pump([
-    gulp.src('./src/components/**/*.js', {
-      base: './src/components'
-    }),
-    sourcemaps.init(),
-    babel(),
-    sourcemaps.write('.'),
-    gulp.dest('./dist/components')
-  ], cb);
-});
 
 gulp.task('postcss', (cb) => {
   pump([
@@ -109,16 +122,16 @@ gulp.task('imagemin', (cb) => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(['./src/bootstrap/**/*.scss'], gulp.series('bootstrap:css'));
-  gulp.watch(['./src/components/**/*.scss'], gulp.series('components:css'));
-  gulp.watch(['./src/components/**/*.js'], gulp.series('components:js', 'uglify'));
+  gulp.watch(['./src/bootstrap-scss/**/*.scss'], gulp.series('bootstrap:css'));
+  gulp.watch(['./src/**/*.scss', '!./src/bootstrap/**/*.scss'], gulp.series('css'));
+  gulp.watch(['./src/**/*.js'], gulp.series('js'));
   gulp.watch(['./src/images/*'], gulp.series('imagemin'))
 });
 
 gulp.task('bootstrap', gulp.series('bootstrap:css', 'bootstrap:js'));
 
-gulp.task('components', gulp.series('components:css', 'components:js'));
+gulp.task('theme', gulp.series('css', 'js'));
 
-gulp.task('build', gulp.series('bootstrap', 'components', 'uglify', 'imagemin'));
+gulp.task('build', gulp.series('bootstrap', 'theme', 'imagemin'));
 
 gulp.task('default', gulp.series('build', 'watch'));

@@ -2,7 +2,6 @@
   "name": "gpw",
   "version": "1.0.0",
   "description": "Global Pact Website theme",
-  "main": "dist/app.bundle.js",
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -18,6 +17,7 @@
     "gulp-imagemin": "^4.1.0",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.1",
+    "gulp-sass-import-once": "^2.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
     "postcss-loader": "^3.0.0",

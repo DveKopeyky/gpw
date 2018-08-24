@@ -1,0 +1,10 @@
+//
+// Common variables to be used across components. Include Bootstrap variables and their overrides.
+//
+
+@import 'colors';
+@import 'bootstrap-scss/default-variables';
+@import '../bootstrap/assets/stylesheets/bootstrap/variables';
+@import '../bootstrap/assets/stylesheets/bootstrap/mixins';
+
+$font-family-accent: 'AlternateGotNo2DRegular', sans-serif;
