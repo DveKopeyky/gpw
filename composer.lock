@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "536bc5c7cb5ed21366b0ea3005ddf9d0",
+    "content-hash": "e037ffab6787521098e3ecd64ca72273",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2238,17 +2238,11 @@
         },
         {
             "name": "drupal/content_sync",
-            "version": "2.0.0",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/content_sync",
-                "reference": "8.x-2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/content_sync-8.x-2.0.zip",
-                "reference": "8.x-2.0",
-                "shasum": "8382a422c907f353bdbaad13ea788390a13038eb"
+                "reference": "4c259ebbde12c4ca02612112bcaddb3ba581d0f3"
             },
             "require": {
                 "drupal/core": "*"
@@ -2259,11 +2253,11 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0",
-                    "datestamp": "1514473985",
+                    "version": "8.x-2.0+3-dev",
+                    "datestamp": "1524798184",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -2293,7 +2287,8 @@
             "homepage": "https://www.drupal.org/project/content_sync",
             "support": {
                 "source": "http://cgit.drupalcode.org/content_sync"
-            }
+            },
+            "time": "2018-05-12T00:09:17+00:00"
         },
         {
             "name": "drupal/core",
@@ -8359,6 +8354,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/content_sync": 20,
         "drupal/eck": 15,
         "drupal/fixed_block_content": 5,
         "drupal/inline_entity_form": 5
