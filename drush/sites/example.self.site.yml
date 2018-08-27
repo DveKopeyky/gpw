@@ -3,5 +3,5 @@ test:
   paths:
     drush-script: /var/www/html/gpw/vendor/bin/drush
   root: /var/www/html/gpw/web
-  uri: gpw.edw.ro
+  uri: global-pact-website.edw.ro
   user: USER
