@@ -1,0 +1,5 @@
+services:
+  gpbase.commands:
+    class: \Drupal\gpbase\Commands\GpbaseCommands
+    tags:
+      - { name: drush.command }

@@ -23,6 +23,7 @@ then
                                                       --account-mail="drupal@eaudeweb.ro"\
                                                       --site-mail="drupal@eaudeweb.ro"\
                                                       --account-pass="password"
+    ../vendor/bin/drush gpbase:importContent
     # Site:install removes write permission after it's finished
     chmod u+w sites/default/ sites/default/settings.php
 fi
