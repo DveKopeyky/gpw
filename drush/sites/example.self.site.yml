@@ -2,6 +2,7 @@ test:
   host: 195.201.116.201
   paths:
     drush-script: /var/www/html/gpw/vendor/bin/drush
+    files: /var/www/html/gpw/web/sites/default/files
   root: /var/www/html/gpw/web
   uri: global-pact-website.edw.ro
   user: USER
