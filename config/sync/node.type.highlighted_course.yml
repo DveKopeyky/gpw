@@ -10,7 +10,7 @@ third_party_settings:
     parent: ''
 name: 'Highlighted course'
 type: highlighted_course
-description: ''
+description: '<em>Highlighted courses</em> will be rendered in the <em>Related courses</em> section on the <b>Course</b> page.'
 help: ''
 new_revision: true
 preview_mode: 1

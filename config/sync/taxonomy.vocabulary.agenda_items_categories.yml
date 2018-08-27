@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: 'Agenda items categories'
 vid: agenda_items_categories
-description: ''
+description: 'E.g. <em>Administrative and financial matters</em>, <em>Strategic matters</em>.'
 hierarchy: 0
 weight: 0
