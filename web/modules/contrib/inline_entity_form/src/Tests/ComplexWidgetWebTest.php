@@ -69,27 +69,27 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->updateSetting('allow_existing', FALSE);
     $this->drupalGet($this->formContentAddUrl);
 
-    $this->assertFieldByName('multi[form][inline_entity_form][title][0][value]', NULL, 'Title field on inline form exists.');
-    $this->assertFieldByName('multi[form][inline_entity_form][first_name][0][value]', NULL, 'First name field on inline form exists.');
-    $this->assertFieldByName('multi[form][inline_entity_form][last_name][0][value]', NULL, 'Last name field on inline form exists.');
+    $this->assertFieldByName('multi[0][title][0][value]', NULL, 'Title field on inline form exists.');
+    $this->assertFieldByName('multi[0][first_name][0][value]', NULL, 'First name field on inline form exists.');
+    $this->assertFieldByName('multi[0][last_name][0][value]', NULL, 'Last name field on inline form exists.');
     $this->assertFieldByXpath('//input[@type="submit" and @value="Create node"]', NULL, 'Found "Create node" submit button');
 
     // Allow addition of existing nodes.
     $this->updateSetting('allow_existing', TRUE);
     $this->drupalGet($this->formContentAddUrl);
 
-    $this->assertNoFieldByName('multi[form][inline_entity_form][title][0][value]', NULL, 'Title field does not appear.');
-    $this->assertNoFieldByName('multi[form][inline_entity_form][first_name][0][value]', NULL, 'First name field does not appear.');
-    $this->assertNoFieldByName('multi[form][inline_entity_form][last_name][0][value]', NULL, 'Last name field does not appear.');
+    $this->assertNoFieldByName('multi[0][title][0][value]', NULL, 'Title field does not appear.');
+    $this->assertNoFieldByName('multi[0][first_name][0][value]', NULL, 'First name field does not appear.');
+    $this->assertNoFieldByName('multi[0][last_name][0][value]', NULL, 'Last name field does not appear.');
     $this->assertFieldByXpath('//input[@type="submit" and @value="Add new node"]', NULL, 'Found "Add new node" submit button');
     $this->assertFieldByXpath('//input[@type="submit" and @value="Add existing node"]', NULL, 'Found "Add existing node" submit button');
 
     // Now submit 'Add new node' button.
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add new node" and @data-drupal-selector="edit-multi-actions-ief-add"]'));
 
-    $this->assertFieldByName('multi[form][inline_entity_form][title][0][value]', NULL, 'Title field on inline form exists.');
-    $this->assertFieldByName('multi[form][inline_entity_form][first_name][0][value]', NULL, 'First name field on inline form exists.');
-    $this->assertFieldByName('multi[form][inline_entity_form][last_name][0][value]', NULL, 'Second name field on inline form exists.');
+    $this->assertFieldByName('multi[0][title][0][value]', NULL, 'Title field on inline form exists.');
+    $this->assertFieldByName('multi[0][first_name][0][value]', NULL, 'First name field on inline form exists.');
+    $this->assertFieldByName('multi[0][last_name][0][value]', NULL, 'Second name field on inline form exists.');
     $this->assertFieldByXpath('//input[@type="submit" and @value="Create node"]', NULL, 'Found "Create node" submit button');
     $this->assertFieldByXpath('//input[@type="submit" and @value="Cancel"]', NULL, 'Found "Cancel" submit button');
 
@@ -97,7 +97,7 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->drupalGet($this->formContentAddUrl);
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add existing node" and @data-drupal-selector="edit-multi-actions-ief-add-existing"]'));
 
-    $this->assertFieldByName('multi[form][entity_id]', NULL, 'Existing entity reference autocomplete field found.');
+    $this->assertFieldByName('multi[0][entity_id]', NULL, 'Existing entity reference autocomplete field found.');
     $this->assertFieldByXpath('//input[@type="submit" and @value="Add node"]', NULL, 'Found "Add node" submit button');
     $this->assertFieldByXpath('//input[@type="submit" and @value="Cancel"]', NULL, 'Found "Cancel" submit button');
   }
@@ -113,7 +113,7 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add new node" and @data-drupal-selector="edit-multi-actions-ief-add"]'));
     $this->assertResponse(200, 'Opening new inline form was successful.');
 
-    $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-multi-form-inline-entity-form-actions-ief-add-save"]'));
+    $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-multi-0-actions-ief-add-save"]'));
     $this->assertResponse(200, 'Submitting empty form was successful.');
     $this->assertText('First name field is required.', 'Validation failed for empty "First name" field.');
     $this->assertText('Last name field is required.', 'Validation failed for empty "Last name" field.');
@@ -125,11 +125,11 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->assertResponse(200, 'Opening new inline form was successful.');
 
     $edit = [
-      'multi[form][inline_entity_form][title][0][value]' => 'Some reference',
-      'multi[form][inline_entity_form][first_name][0][value]' => 'John',
-      'multi[form][inline_entity_form][last_name][0][value]' => 'Doe',
+      'multi[0][title][0][value]' => 'Some reference',
+      'multi[0][first_name][0][value]' => 'John',
+      'multi[0][last_name][0][value]' => 'Doe',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-multi-form-inline-entity-form-actions-ief-add-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-multi-0-actions-ief-add-save"]'));
     $this->assertResponse(200, 'Creating node via inline form was successful.');
 
     // Tests if correct fields appear in the table.
@@ -143,7 +143,7 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     // Test edit functionality.
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Edit"]'));
     $edit = [
-      'multi[form][inline_entity_form][entities][0][form][title][0][value]' => 'Some changed reference',
+      'multi[0][inline_entity_form][entities][0][form][title][0][value]' => 'Some changed reference',
     ];
     $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node"]'));
     $this->assertTrue((bool) $this->xpath('//td[@class="inline-entity-form-node-label" and contains(.,"Some changed reference")]'), 'Node title field appears in the table');
@@ -187,14 +187,14 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
       $nested2_title = 'nested2 title steps ' . ($required ? 'required' : 'not required');
       $nested1_title = 'nested1 title steps ' . ($required ? 'required' : 'not required');
       $edit = [
-        'test_ref_nested1[form][inline_entity_form][test_ref_nested2][form][inline_entity_form][title][0][value]' => $nested3_title,
+        'test_ref_nested1[0][test_ref_nested2][0][title][0][value]' => $nested3_title,
       ];
       $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Create node 3"]'));
       $this->assertText($nested3_title, 'Title of second nested node found.');
       $this->assertNoNodeByTitle($nested3_title, 'Second nested entity is not saved yet.');
 
       $edit = [
-        'test_ref_nested1[form][inline_entity_form][title][0][value]' => $nested2_title,
+        'test_ref_nested1[0][title][0][value]' => $nested2_title,
       ];
       $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Create node 2"]'));
       $this->assertText($nested2_title, 'Title of first nested node found.');
@@ -226,13 +226,13 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     // edit-test-ref-nested1-entities-0-actions-ief-entity-edit
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-test-ref-nested1-entities-0-actions-ief-entity-edit"]'));
     // edit-test-ref-nested1-form-inline-entity-form-entities-0-form-test-ref-nested2-entities-0-actions-ief-entity-edit
-    $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-test-ref-nested1-form-inline-entity-form-entities-0-form-test-ref-nested2-entities-0-actions-ief-entity-edit"]'));
-    $edit['test_ref_nested1[form][inline_entity_form][entities][0][form][test_ref_nested2][form][inline_entity_form][entities][0][form][title][0][value]'] = $level_2_node_update_title;
+    $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-test-ref-nested1-0-inline-entity-form-entities-0-form-test-ref-nested2-entities-0-actions-ief-entity-edit"]'));
+    $edit['test_ref_nested1[0][test_ref_nested2][0][inline_entity_form][entities][0][form][title][0][value]'] = $level_2_node_update_title;
     if ($ajax_submit) {
       // Close IEF Forms with AJAX posts
       // edit-test-ref-nested1-form-inline-entity-form-entities-0-form-test-ref-nested2-form-inline-entity-form-entities-0-form-actions-ief-edit-save
-      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-test-ref-nested1-form-inline-entity-form-entities-0-form-test-ref-nested2-form-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
-      $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-test-ref-nested1-form-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
+      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-test-ref-nested1-0-test-ref-nested2-0-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
+      $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-test-ref-nested1-0-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
       $this->drupalPostForm(NULL, [], t('Save'));
     }
     else {
@@ -263,8 +263,8 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
 
       $edit = [
         'title[0][value]' => $nested1_title,
-        'test_ref_nested1[form][inline_entity_form][title][0][value]' => $nested2_title,
-        'test_ref_nested1[form][inline_entity_form][test_ref_nested2][form][inline_entity_form][title][0][value]' => $nested3_title,
+        'test_ref_nested1[0][title][0][value]' => $nested2_title,
+        'test_ref_nested1[0][test_ref_nested2][0][title][0][value]' => $nested3_title,
       ];
       $this->drupalPostForm(NULL, $edit, t('Save'));
       $this->checkNestedNodes($nested1_title, $nested2_title, $nested3_title);
@@ -297,10 +297,10 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->assertResponse(200, 'Opening inline edit form was successful.');
 
     $edit = [
-      'multi[form][inline_entity_form][entities][1][form][first_name][0][value]' => 'John',
-      'multi[form][inline_entity_form][entities][1][form][last_name][0][value]' => 'Doe',
+      'multi[1][inline_entity_form][entities][1][form][first_name][0][value]' => 'John',
+      'multi[1][inline_entity_form][entities][1][form][last_name][0][value]' => 'Doe',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-inline-entity-form-entities-1-form-actions-ief-edit-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-1-inline-entity-form-entities-1-form-actions-ief-edit-save"]'));
     $this->assertResponse(200, 'Saving inline edit form was successful.');
 
     // Save the ief_test_complex node.
@@ -321,7 +321,7 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->assertResponse(200, 'Opening inline remove confirm form was successful.');
     $this->assertText('Are you sure you want to remove', 'Remove warning message is displayed.');
 
-    $this->drupalPostAjaxForm(NULL, ['multi[form][entities][1][form][delete]' => TRUE], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-entities-1-form-actions-ief-remove-confirm"]'));
+    $this->drupalPostAjaxForm(NULL, ['multi[1][entities][1][form][delete]' => TRUE], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-1-entities-1-form-actions-ief-remove-confirm"]'));
     $this->assertResponse(200, 'Removing inline entity was successful.');
     $this->assertNoText($title, 'Deleted inline entity is not present on the page.');
 
@@ -346,7 +346,7 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @id="edit-multi-entities-1-actions-ief-entity-remove"]'));
     $this->assertResponse(200, 'Opening inline remove confirm form was successful.');
 
-    $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-entities-1-form-actions-ief-remove-confirm"]'));
+    $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-1-entities-1-form-actions-ief-remove-confirm"]'));
     $this->assertResponse(200, 'Removing inline entity was successful.');
 
     // Save the ief_test_complex node.
@@ -394,21 +394,26 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
       $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add existing node" and @data-drupal-selector="edit-multi-actions-ief-add-existing"]'));
       $this->assertResponse(200, 'Opening reference form was successful.');
       $title = 'Some reference ' . $i;
+      // Note that since we already have a single value in the multi field,
+      // which was set above, the add existing form will begin at delta 1. This
+      // is why we are offsetting $i by 1 here.
       $edit = [
-        'multi[form][entity_id]' => $title . ' (' . $referenceNodes[$title] . ')',
+        'multi[' . ($i - 1) . '][entity_id]' => $title . ' (' . $referenceNodes[$title] . ')',
       ];
-      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-actions-ief-reference-save"]'));
+      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-' . ($i - 1) . '-actions-ief-reference-save"]'));
       $this->assertResponse(200, 'Adding new referenced entity was successful.');
     }
     // Add all remaining nodes from all bundles.
+    $i = 1;
     foreach ($bundle_nodes as $id => $title) {
       $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add existing node" and @data-drupal-selector="edit-all-bundles-actions-ief-add-existing"]'));
       $this->assertResponse(200, 'Opening reference form was successful.');
       $edit = [
-        'all_bundles[form][entity_id]' => $title . ' (' . $id . ')',
+        'all_bundles[' . $i . '][entity_id]' => $title . ' (' . $id . ')',
       ];
-      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-all-bundles-form-actions-ief-reference-save"]'));
+      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-all-bundles-' . $i . '-actions-ief-reference-save"]'));
       $this->assertResponse(200, 'Adding new referenced entity was successful.');
+      $i++;
     }
     // Save the node.
     $this->drupalPostForm(NULL, [], t('Save'));
@@ -430,7 +435,8 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
   }
 
   /**
-   * Test if invalid values get correct validation messages in reference existing entity form.
+   * Test if invalid values get correct validation messages in reference
+   * existing entity form.
    *
    * Also checks if existing entity reference form can be canceled.
    */
@@ -450,16 +456,18 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     }
 
     $nodes = $this->createReferenceContent(2);
+    $i = 0;
     foreach ($nodes as $title => $id) {
-      $this->openMultiExistingForm();
+      $this->openMultiExistingForm($i);
       $edit = [
-        'multi[form][entity_id]' => "$title ($id)",
+        'multi[' . $i . '][entity_id]' => "$title ($id)",
       ];
       // Add a node successfully.
-      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-actions-ief-reference-save"]'));
-      $this->assertNoFieldByName('multi[form][entity_id]', NULL, 'Existing entity reference autocomplete field removed.');
+      $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-' . $i . '-actions-ief-reference-save"]'));
+      $this->assertNoFieldByName('multi[' . $i . '][entity_id]', NULL, 'Existing entity reference autocomplete field removed.');
       // Try to add the same node again.
-      $this->checkExistingValidationExpectation("$title ($id)", 'The selected node has already been added.');
+      $this->checkExistingValidationExpectation("$title ($id)", 'The selected node has already been added.', $i + 1);
+      $i++;
     }
   }
 
@@ -483,10 +491,10 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->assertResponse(200, 'Opening inline duplicate form was successful.');
 
     $edit = [
-      'multi[form][inline_entity_form][entities][0][form][title][0][value]' => 'Duplicate!',
-      'multi[form][inline_entity_form][entities][0][form][first_name][0][value]' => 'Bojan',
+      'multi[0][inline_entity_form][entities][0][form][title][0][value]' => 'Duplicate!',
+      'multi[0][inline_entity_form][entities][0][form][first_name][0][value]' => 'Bojan',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-inline-entity-form-entities-0-form-actions-ief-duplicate-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-0-inline-entity-form-entities-0-form-actions-ief-duplicate-save"]'));
     $this->assertResponse(200, 'Saving inline duplicate form was successful.');
 
     $this->assertText('Some reference 1');
@@ -502,8 +510,10 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
   }
 
   /**
-   * Tests if a referenced content can be edited while the referenced content is
-   * newer than the referencing parent node.
+   * Tests if a referenced content can be edited.
+   *
+   * Especially while the referenced content is newer than the referencing
+   * parent node.
    */
   public function testEditedInlineEntityValidation() {
     $this->updateSetting('allow_existing', TRUE);
@@ -533,9 +543,9 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     // Edit referenced node.
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Edit" and @data-drupal-selector="edit-multi-entities-0-actions-ief-entity-edit"]'));
     $edit = [
-      'multi[form][inline_entity_form][entities][0][form][title][0][value]' => 'Some reference updated',
+      'multi[0][inline_entity_form][entities][0][form][title][0][value]' => 'Some reference updated',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-form-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-0-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
 
     // Save the first node after editing the reference.
     $edit = ['title[0][value]' => 'First node updated'];
@@ -550,9 +560,9 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     // Edit referenced node.
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Edit" and @data-drupal-selector="edit-multi-entities-0-actions-ief-entity-edit"]'));
     $edit = [
-      'multi[form][inline_entity_form][entities][0][form][title][0][value]' => 'Some reference updated the second time',
+      'multi[0][inline_entity_form][entities][0][form][title][0][value]' => 'Some reference updated the second time',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-form-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-0-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
 
     // Save the second node after editing the reference.
     $edit = ['title[0][value]' => 'Second node updated'];
@@ -673,18 +683,18 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
   /**
    * Closes the existing node form on the "multi" field.
    */
-  protected function cancelExistingMultiForm($edit) {
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-actions-ief-reference-cancel"]'));
-    $this->assertNoFieldByName('multi[form][entity_id]', NULL, 'Existing entity reference autocomplete field removed.');
+  protected function cancelExistingMultiForm($edit, $delta = 0) {
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-' . $delta . '-actions-ief-reference-cancel"]'));
+    $this->assertNoFieldByName('multi[' . $delta . '][form][entity_id]', NULL, 'Existing entity reference autocomplete field removed.');
   }
 
   /**
    * Opens the existing node form on the "multi" field.
    */
-  protected function openMultiExistingForm() {
+  protected function openMultiExistingForm($delta = 0) {
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add existing node" and @data-drupal-selector="edit-multi-actions-ief-add-existing"]'));
     $this->assertResponse(200, 'Opening reference form was successful.');
-    $this->assertFieldByName('multi[form][entity_id]', NULL, 'Existing entity reference autocomplete field found.');
+    $this->assertFieldByName('multi[' . $delta . '][entity_id]', NULL, 'Existing entity reference autocomplete field found.');
   }
 
   /**
@@ -694,16 +704,18 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
    *   The text to enter into the existing node text field.
    * @param $expected_error
    *   The error message that is expected to be shown.
+   * @param int $delta
+   *  The delta of the multi node to be edited.
    */
-  protected function checkExistingValidationExpectation($existing_node_text, $expected_error) {
+  protected function checkExistingValidationExpectation($existing_node_text, $expected_error, $delta = 0) {
     $edit = [
-      'multi[form][entity_id]' => $existing_node_text,
+      'multi[' . $delta . '][entity_id]' => $existing_node_text,
     ];
-    $this->openMultiExistingForm();
+    $this->openMultiExistingForm($delta);
 
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-actions-ief-reference-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-' . $delta . '-actions-ief-reference-save"]'));
     $this->assertText($expected_error);
-    $this->cancelExistingMultiForm($edit);
+    $this->cancelExistingMultiForm($edit, $delta);
   }
 
   /**
@@ -716,8 +728,8 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     ];
     $this->setupNestedComplexForm(TRUE, $permissions);
     $this->assertFieldByName('title[0][value]');
-    $this->assertFieldByName('test_ref_nested1[form][inline_entity_form][title][0][value]');
-    $this->assertNoFieldByName('test_ref_nested1[form][inline_entity_form][test_ref_nested2][form][inline_entity_form][title][0][value]', NULL);
+    $this->assertFieldByName('test_ref_nested1[0][title][0][value]');
+    $this->assertNoFieldByName('test_ref_nested1[0][test_ref_nested2][0][title][0][value]', NULL);
 
     $this->setupNestedComplexForm(FALSE, $permissions);
     $this->assertNoFieldByXPath('//input[@type="submit" and @value="Add new node 3"]');
@@ -734,7 +746,7 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
 
     $this->drupalGet('node/add/ief_test_complex');
     $this->assertNoFieldByName('all_bundles[actions][bundle]', NULL, 'Bundle select is not shown when only one bundle is available.');
-    $this->assertNoFieldByName('multi[form][inline_entity_form][title][0][value]', NULL);
+    $this->assertNoFieldByName('multi[0][title][0][value]', NULL);
 
     $user = $this->createUser([
       'create ief_test_complex content',
@@ -746,7 +758,7 @@ class ComplexWidgetWebTest extends InlineEntityFormTestBase {
     $this->assertFieldByName('all_bundles[actions][bundle]', NULL, 'Bundle select is shown when more than one bundle is available.');
     $this->assertOption('edit-all-bundles-actions-bundle', 'ief_reference_type');
     $this->assertOption('edit-all-bundles-actions-bundle', 'ief_test_complex');
-    $this->assertFieldByName('multi[form][inline_entity_form][title][0][value]');
+    $this->assertFieldByName('multi[0][title][0][value]');
   }
 
   /**

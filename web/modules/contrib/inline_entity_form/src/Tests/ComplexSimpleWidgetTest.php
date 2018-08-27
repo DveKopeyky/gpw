@@ -61,8 +61,8 @@ class ComplexSimpleWidgetTest extends InlineEntityFormTestBase {
         $field_storage->save();
 
         $this->drupalGet('node/add/ief_complex_simple');
-        $outer_title_field = 'ief_complex_outer[form][inline_entity_form][title][0][value]';
-        $inner_title_field = 'ief_complex_outer[form][inline_entity_form][single][0][inline_entity_form][title][0][value]';
+        $outer_title_field = 'ief_complex_outer[0][title][0][value]';
+        $inner_title_field = 'ief_complex_outer[0][single][0][inline_entity_form][title][0][value]';
         if (!$outer_required_option) {
           $this->assertText('Complex Outer', 'Complex Inline entity field widget title found.');
           // Field should not be available before ajax submit.
@@ -75,7 +75,7 @@ class ComplexSimpleWidgetTest extends InlineEntityFormTestBase {
 
         $edit[$outer_title_field] = $outer_title = $this->randomMachineName(8);
         $edit[$inner_title_field] = $inner_title = $this->randomMachineName(8);
-        $create_outer_button_selector = '//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-ief-complex-outer-form-inline-entity-form-actions-ief-add-save"]';
+        $create_outer_button_selector = '//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-ief-complex-outer-0-actions-ief-add-save"]';
         $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName($create_outer_button_selector));
         // After ajax submit the ief title fields should be gone.
         $this->assertNoFieldByName($outer_title_field, NULL);

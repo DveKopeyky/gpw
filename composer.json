@@ -93,6 +93,9 @@
             },
             "drupal/duration_field": {
                 "Undefined index: #states in drupal_process_states()": "https://www.drupal.org/files/issues/2018-06-08/2978206-2.patch"
+            },
+            "drupal/inline_entity_form": {
+                "Unable to keep nested IEF data separate with multivalue fields.": "https://www.drupal.org/files/issues/2018-05-30/multivalue-complex-and-simple-ief-fix-2653574-100.patch"
             }
         }
     }

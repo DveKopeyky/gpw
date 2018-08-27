@@ -564,4 +564,73 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
     return !empty($create_bundles);
   }
 
+  /**
+   * Produce a unique identifier for a IEF parent structure from an array.
+   *
+   * @param array $parents
+   *   Array of values that uniquely identifies the parent structure of an IEF.
+   *
+   * @return string
+   *   A hash or $parents.
+   */
+  protected function iefIdFromParents(array $parents) {
+    return sha1(implode('-', $parents));
+  }
+
+  /**
+   * Return a #parents array for a given IEF field to uniquely identify it.
+   *
+   * For use with InlineEntityFormComplex::trimIefIdParents() to generate a
+   * unique key against form_state storage.
+   *
+   * @param string $field_name
+   *   Name of the IEF field.
+   * @param array $parents
+   *   Current $parents structure for the form element.
+   *
+   * @return array
+   *   Array of identifiers.
+   */
+  protected function iefIdParents($field_name, array $parents) {
+    if (empty($parents)) {
+      $parents[] = $field_name;
+    }
+    else {
+      $parents = $this->trimIefIdParents($parents);
+
+      // Look to the parents storage, if it exists, to work out the delta of
+      // this field.
+      $parents[] = $field_name;
+    }
+    return $parents;
+  }
+
+  /**
+   * Trims a parents array to be used as the IEF id down to the bare minimum.
+   *
+   * Specifically only what is necessary to uniquely identify the data for a
+   * single inline entity form.
+   *
+   * @param array $parents
+   *   Array of identifiers.
+   *
+   * @return array
+   *   Stripped down array of identifiers.
+   */
+  protected function trimIefIdParents(array $parents) {
+    // Remove 'form' and 'inline_entity_form' values in the array, as they are
+    // redundant. Also remove 'entities' and the following numerical key, which
+    // is irrelevant and we take out for consistency in keys between and edit
+    // IEF and a create IEF.
+    foreach (['form', 'inline_entity_form', 'entities'] as $value) {
+      while (($key = array_search($value, $parents, TRUE)) !== FALSE) {
+        unset($parents[$key]);
+        if ($value === 'entities' && is_numeric($parents[$key + 1])) {
+          unset($parents[$key + 1]);
+        }
+      }
+    }
+    return array_values($parents);
+  }
+
 }
