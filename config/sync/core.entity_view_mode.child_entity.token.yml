@@ -1,0 +1,10 @@
+uuid: cec577df-fe66-4032-a9b4-a128b3b04648
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.token
+label: Token
+targetEntityType: child_entity
+cache: true
