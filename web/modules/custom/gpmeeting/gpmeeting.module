@@ -10,8 +10,9 @@ use Drupal\node\NodeInterface;
  * Implements hook_ENTITY_TYPE_presave().
  */
 function gpmeeting_node_presave(NodeInterface $node) {
-  if ($node->getType() == 'meeting' && !empty($node->field_date_range->value)) {
-    $node->set('field_start_date', date('Y-m-d', strtotime($node->field_date_range->value)));
+  if ($node->getType() == 'meeting') {
+    // We are using field_start_date for views sorting.
+    $node->set('field_start_date', $node->field_date_range->value);
   }
 }
 
