@@ -5,20 +5,39 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.meeting.field_address
+    - field.field.node.meeting.field_agenda_items
+    - field.field.node.meeting.field_date_range
+    - field.field.node.meeting.field_files
+    - field.field.node.meeting.field_start_date
     - node.type.meeting
   module:
+    - address
+    - datetime_range
     - user
 id: node.meeting.teaser
 targetEntityType: node
 bundle: meeting
 mode: teaser
 content:
-  links:
-    weight: 100
+  field_address:
+    type: address_default
+    weight: 0
     region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_date_range:
+    type: daterange_default
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: short_date_no_time
+      separator: '-'
+    third_party_settings: {  }
 hidden:
-  field_address: true
   field_agenda_items: true
-  field_date_range: true
   field_files: true
   field_start_date: true
+  links: true
