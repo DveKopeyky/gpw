@@ -21,3 +21,4 @@ hidden:
   field_agenda_items: true
   field_date_range: true
   field_files: true
+  field_start_date: true
