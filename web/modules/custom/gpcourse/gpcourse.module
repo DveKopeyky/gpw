@@ -200,5 +200,8 @@ function gpcourse_child_entity_view_alter(array &$build, EckEntityInterface $ent
   if ($entity->bundle() == 'video' && $build['#view_mode'] == 'listing') {
     $build['title'][0]['#attributes']['class'][] = 'use-ajax';
     $build['title'][0]['#attributes']['data-dialog-type'] = 'modal';
+    $build['#attached']['library'][] = 'core/drupal.ajax';
+    $build['#attached']['library'][] = 'core/drupal.dialog';
+    $build['#attached']['library'][] = 'core/drupal.dialog.ajax';
   }
 }
