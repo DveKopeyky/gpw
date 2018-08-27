@@ -3,8 +3,46 @@
 //
 
 @import 'colors';
-@import 'bootstrap-scss/default-variables';
-@import '../bootstrap/assets/stylesheets/bootstrap/variables';
-@import '../bootstrap/assets/stylesheets/bootstrap/mixins';
 
-$font-family-accent: 'AlternateGotNo2DRegular', sans-serif;
+// @see https://stackoverflow.com/questions/31329177/bootstrap-sass-variable-override-challenge
+%scope {
+  @import '../bootstrap/assets/stylesheets/bootstrap/variables';
+
+  /* ==========================================================================
+   Bootstrap overrides
+   ========================================================================== */
+
+  // Set the proper directory for the Bootstrap Glyphicon font.
+  $icon-font-path:            '../bootstrap/assets/fonts/bootstrap/' !global;
+
+  $images-path:               '../dist/images/' !global;
+  $components-images-path:    '../../images/' !global;
+
+  $font-family-sans-serif:    'Roboto Condensed', sans-serif !global;
+
+  $border-radius-base:        0 !global;
+
+  $navbar-height:             80px !global;
+  $navbar-default-bg:         transparent !global;
+  $navbar-default-border:     $navbar-default-bg !global;
+  $navbar-default-link-color: #000 !global;
+
+  $mobile:          "screen and (max-width: #{$screen-xs-max})" !global;
+  $tablet:          "screen and (min-width: #{$screen-sm-min})" !global;
+  $normal:          "screen and (min-width: #{$screen-md-min})" !global;
+  $wide:            "screen and (min-width: #{$screen-lg-min})" !global;
+  $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})" !global;
+
+  /* ==========================================================================
+     Custom theme variables
+     ========================================================================== */
+
+  $font-family-accent: 'AlternateGotNo2DRegular', sans-serif !global;
+
+}
+
+/* ==========================================================================
+   Bootstrap variables & mixins imports
+   ========================================================================== */
+@import "../bootstrap/assets/stylesheets/bootstrap/variables";
+@import "../bootstrap/assets/stylesheets/bootstrap/mixins";

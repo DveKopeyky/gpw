@@ -23,7 +23,6 @@ gulp.task('css', (cb) => {
   pump([
     gulp.src(['./src/**/*.scss', '!./src/bootstrap-scss/**/*.scss']),
     sourcemaps.init(),
-    sassImportOnce(),
     sass(),
     postcss(plugins),
     sourcemaps.write('.'),
@@ -122,9 +121,30 @@ gulp.task('imagemin', (cb) => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(['./src/bootstrap-scss/**/*.scss'], gulp.series('bootstrap:css'));
-  gulp.watch(['./src/**/*.scss', '!./src/bootstrap/**/*.scss'], gulp.series('css'));
+  gulp.watch(
+    [
+      './src/bootstrap-scss/**/*.scss',
+      '!./src/_colors.scss',
+      '!./src/_utilities.scss'
+     ],
+     gulp.series('bootstrap:css'));
+
+  gulp.watch(
+    [
+      './src/**/*.scss',
+      '!./src/bootstrap-scss/**/*.scss',
+      '!./src/_colors.scss',
+      '!./src/_utilities.scss'
+    ], gulp.series('css'));
+
+  gulp.watch(
+    [
+      './src/_colors.scss',
+      './src/_utilities.scss'
+    ], gulp.series('bootstrap:css', 'css'));
+
   gulp.watch(['./src/**/*.js'], gulp.series('js'));
+
   gulp.watch(['./src/images/*'], gulp.series('imagemin'))
 });
 
