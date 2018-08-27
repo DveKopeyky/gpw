@@ -9,6 +9,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\eck\EckEntityInterface;
 use Drupal\node\NodeInterface;
 use Drupal\eck\Entity\EckEntity;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
 /**
  * Implements hook_help().
@@ -189,5 +190,15 @@ function gpcourse_node_update(NodeInterface $node) {
     case 'course':
       _gpcourse_course_update_child_sections($node);
       break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
+function gpcourse_child_entity_view_alter(array &$build, EckEntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($entity->bundle() == 'video' && $build['#view_mode'] == 'listing') {
+    $build['title'][0]['#attributes']['class'][] = 'use-ajax';
+    $build['title'][0]['#attributes']['data-dialog-type'] = 'modal';
   }
 }
