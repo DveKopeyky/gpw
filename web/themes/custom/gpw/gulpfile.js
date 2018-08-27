@@ -52,7 +52,7 @@ gulp.task('bootstrap:css', (cb) => {
     sass(),
     postcss(plugins),
     sourcemaps.write('.'),
-    gulp.dest('./dist/bootstrap'),
+    gulp.dest('./dist/bootstrap/overrides'),
   ], cb);
 });
 
@@ -75,7 +75,7 @@ gulp.task('bootstrap:js', (cb) => {
     babel(),
     concat('bootstrap.js'),
     uglify(),
-    gulp.dest('./dist/bootstrap')
+    gulp.dest('./dist/bootstrap/overrides')
   ], cb);
 });
 

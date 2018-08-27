@@ -13,10 +13,9 @@
    ========================================================================== */
 
   // Set the proper directory for the Bootstrap Glyphicon font.
-  $icon-font-path:            '../bootstrap/assets/fonts/bootstrap/' !global;
+  $icon-font-path:            '../../../bootstrap/assets/fonts/bootstrap/' !global;
 
-  $images-path:               '../dist/images/' !global;
-  $components-images-path:    '../../images/' !global;
+  $images-path:               '../../images/' !global;
 
   $font-family-sans-serif:    'Roboto Condensed', sans-serif !global;
 

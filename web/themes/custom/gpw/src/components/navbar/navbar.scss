@@ -1,7 +1,7 @@
 @import '../../utilities';
 
 .navbar-inverse {
-  background-image: url(#{$components-images-path}bg.png);
+  background-image: url(#{$images-path}bg.png);
   background-position: center -50px;
   background-size: cover;
 }

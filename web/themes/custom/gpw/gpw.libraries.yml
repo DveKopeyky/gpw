@@ -7,9 +7,9 @@ fonts:
 bootstrap:
   css:
     theme:
-      dist/bootstrap/style.css: {}
+      dist/bootstrap/overrides/style.css: {}
   js:
-    dist/bootstrap/bootstrap.js: {}
+    dist/bootstrap/overrides/bootstrap.js: {}
 
 header:
   css:
