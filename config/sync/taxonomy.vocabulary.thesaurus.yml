@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: Thesaurus
 vid: thesaurus
-description: ''
+description: 'Store term concepts.'
 hierarchy: 0
 weight: 0

@@ -1,10 +1,17 @@
 uuid: d942682e-3859-4c1a-9fb8-b1860d90fd81
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: Webinar
 type: webinar
-description: ''
+description: 'Use <em>webinars</em> to display presentations, lectures, workshops or seminars.'
 help: ''
 new_revision: true
 preview_mode: 1
