@@ -60,6 +60,30 @@ class RoboFile extends Tasks {
   }
 
   /**
+   * Sync public files from staging server.
+   *
+   * @return null|\Robo\Result
+   * @throws \Robo\Exception\TaskException
+   *
+   * @command files:rsync
+   */
+  public function filesRsync() {
+    $config = Robo::config();
+    $url =  $config->get('project.sync.sql.files_url');
+    $username = $config->get('project.sync.sql.username');
+    $password = $config->get('project.sync.sql.password');
+    $files_tar_gz = 'files.tar.gz';
+
+    $execStack = $this->taskExecStack()->stopOnFail()->dir('../web/sites/default');
+    $execStack->exec("rm -f $files_tar_gz");
+    $execStack->exec("curl $url -o $files_tar_gz -u $username:$password");
+    $execStack->exec("rm -rf files/*");
+    $execStack->exec("tar -xzvf $files_tar_gz");
+    $execStack->exec("rm -f $files_tar_gz");
+    return $execStack->run();
+  }
+
+  /**
    * Install the local instance.
    *
    * @return bool|null|\Robo\Result
