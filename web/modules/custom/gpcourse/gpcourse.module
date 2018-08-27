@@ -84,6 +84,8 @@ function gpcourse_child_entity_presave(EckEntityInterface $entity) {
  * Implements hook_ENTITY_TYPE_insert().
  */
 function gpcourse_child_entity_insert(EckEntityInterface $entity) {
+  /** @var \Drupal\gpbase\UtilsServiceInterface $utils */
+  $utils = \Drupal::service('gpbase.utils');
   switch ($entity->bundle()) {
     case 'course_section':
       try {
