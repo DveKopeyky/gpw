@@ -9,3 +9,19 @@
 
 function gpw_preprocess_page(&$variables) {
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+function gpw_preprocess_block(&$variables) {
+  // @todo: get .svg logo
+  switch ($variables['base_plugin_id']) {
+    case 'system_branding_block':
+      $variables['site_logo'] = '';
+      if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+        $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
+      }
+      break;
+
+  }
+}
