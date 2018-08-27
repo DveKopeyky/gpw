@@ -3,6 +3,7 @@
 
 # Ignore sensitive information
 /web/sites/*/settings.local.php
+/drush/sites/self.site.yml
 
 # Ignore Drupal's file directory
 /web/sites/*/files/
