@@ -1,0 +1,7 @@
+test:
+  host: 159.69.53.136
+  paths:
+    drush-script: /v/var/www/html/gpw/vendor/bin/drush
+  root: /var/www/html/gpw/web
+  uri: gpw.edw.ro
+  user: USER
