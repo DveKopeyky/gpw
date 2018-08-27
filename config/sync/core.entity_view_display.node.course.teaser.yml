@@ -5,6 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.course.body
+    - field.field.node.course.field_course_reviews
+    - field.field.node.course.field_course_sections
+    - field.field.node.course.field_includes
+    - field.field.node.course.field_key_points
+    - field.field.node.course.field_lectures_number
+    - field.field.node.course.field_topic
+    - field.field.node.course.field_video
+    - field.field.node.course.field_video_duration
     - node.type.course
   module:
     - text
@@ -17,14 +25,20 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 0
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
+  field_video:
+    type: entity_reference_entity_view
+    weight: 1
     region: content
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
 hidden:
   field_course_reviews: true
   field_course_sections: true
@@ -32,5 +46,5 @@ hidden:
   field_key_points: true
   field_lectures_number: true
   field_topic: true
-  field_video: true
   field_video_duration: true
+  links: true

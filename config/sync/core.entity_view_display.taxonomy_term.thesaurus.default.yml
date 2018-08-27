@@ -1,0 +1,30 @@
+uuid: 6d16296f-c75b-4154-b923-a518a5b1ecac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.thesaurus.field_topics
+    - taxonomy.vocabulary.thesaurus
+  module:
+    - text
+id: taxonomy_term.thesaurus.default
+targetEntityType: taxonomy_term
+bundle: thesaurus
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_topics:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

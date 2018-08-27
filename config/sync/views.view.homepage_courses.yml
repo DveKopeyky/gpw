@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 id: homepage_courses
-label: 'Homepage Courses'
+label: 'Homepage courses'
 module: views
 description: ''
 tag: ''
