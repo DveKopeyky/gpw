@@ -1,0 +1,63 @@
+uuid:
+  -
+    value: 4a2f0389-22ef-44cb-b91d-9abb958c2572
+langcode:
+  -
+    value: en
+type:
+  -
+    target_id: page
+    target_type: node_type
+    target_uuid: 92270de2-8205-4874-ad0c-3e875a3d5f2c
+revision_timestamp:
+  -
+    value: '2018-08-27T09:45:29+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_uid:
+  -
+    target_type: user
+    target_uuid: 4324bc83-7540-4641-b7ed-99897ebd02ed
+revision_log: {  }
+status:
+  -
+    value: true
+title:
+  -
+    value: Homepage
+uid:
+  -
+    target_type: user
+    target_uuid: 4324bc83-7540-4641-b7ed-99897ebd02ed
+created:
+  -
+    value: '2018-08-27T09:37:00+00:00'
+    format: 'Y-m-d\TH:i:sP'
+changed:
+  -
+    value: '2018-08-27T09:45:29+00:00'
+    format: 'Y-m-d\TH:i:sP'
+promote:
+  -
+    value: false
+sticky:
+  -
+    value: false
+default_langcode:
+  -
+    value: true
+revision_translation_affected:
+  -
+    value: true
+body:
+  -
+    value: "<h2>Roadmap towards the <span style=\"color: #A9C511;\">Global Pact</span> on the Environemnt</h2>\r\n"
+    format: full_html
+    processed: "<h2>Roadmap towards the <span style=\"color: #A9C511;\">Global Pact</span> on the Environemnt</h2>\n"
+    summary: ''
+    summary_processed: ''
+_content_sync:
+  entity_type: node
+  entity_dependencies:
+    user:
+      - user.user.4324bc83-7540-4641-b7ed-99897ebd02ed
+      - user.user.4324bc83-7540-4641-b7ed-99897ebd02ed

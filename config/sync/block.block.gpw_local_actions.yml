@@ -9,7 +9,7 @@ _core:
 id: gpw_local_actions
 theme: gpw
 region: content
-weight: -2
+weight: -5
 provider: null
 plugin: local_actions_block
 settings:

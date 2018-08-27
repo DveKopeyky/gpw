@@ -1,0 +1,30 @@
+uuid: 4a8c2543-4c70-4357-a822-b0643e418e33
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.homepage_courses
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: views_block__homepage_courses_elearning_block
+theme: gpw
+region: content
+weight: 1
+provider: null
+plugin: 'views_block:homepage_courses-elearning_block'
+settings:
+  id: 'views_block:homepage_courses-elearning_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
