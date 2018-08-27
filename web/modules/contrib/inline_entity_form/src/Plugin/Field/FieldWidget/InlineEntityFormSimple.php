@@ -31,8 +31,8 @@ class InlineEntityFormSimple extends InlineEntityFormBase {
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     // Trick inline_entity_form_form_alter() into attaching the handlers,
     // WidgetSubmit will be needed once extractFormValues fills the $form_state.
-    $parents = array_merge($element['#field_parents'], [$items->getName()]);
-    $ief_id = sha1(implode('-', $parents));
+    $parents = $this->iefIdParents($items->getName(), $element['#field_parents']);
+    $ief_id = $this->iefIdFromParents($parents);
     $form_state->set(['inline_entity_form', $ief_id], []);
 
     $element = [
@@ -152,7 +152,7 @@ class InlineEntityFormSimple extends InlineEntityFormBase {
 
     // Populate the IEF form state with $items so that WidgetSubmit can
     // perform the necessary saves.
-    $ief_id = sha1(implode('-', $parents));
+    $ief_id = $this->iefIdFromParents($this->iefIdParents($field_name, $form['#parents']));
     $widget_state = [
       'instance' => $this->fieldDefinition,
       'delete' => [],

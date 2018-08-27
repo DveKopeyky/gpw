@@ -3282,6 +3282,9 @@
                     "status": "not-covered",
                     "message": "RC releases are not covered by Drupal security advisories."
                 }
+            },
+            "patches_applied": {
+                "Unable to keep nested IEF data separate with multivalue fields.": "https://www.drupal.org/files/issues/2018-05-30/multivalue-complex-and-simple-ief-fix-2653574-100.patch"
             }
         },
         "installation-source": "dist",

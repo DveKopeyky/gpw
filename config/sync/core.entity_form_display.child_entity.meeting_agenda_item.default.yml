@@ -17,12 +17,9 @@ mode: default
 content:
   field_agenda_item_category:
     weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_date_range:
     weight: 2

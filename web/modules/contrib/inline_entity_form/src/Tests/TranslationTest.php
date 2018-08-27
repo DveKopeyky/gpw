@@ -81,19 +81,19 @@ class TranslationTest extends InlineEntityFormTestBase {
     // Reference the German node.
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add existing node" and @data-drupal-selector="edit-multi-actions-ief-add-existing"]'));
     $edit = [
-      'multi[form][entity_id]' => 'An inline node (' . $first_inline_node->id() . ')',
+      'multi[0][entity_id]' => 'An inline node (' . $first_inline_node->id() . ')',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-form-actions-ief-reference-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @data-drupal-selector="edit-multi-0-actions-ief-reference-save"]'));
     $this->assertResponse(200, 'Adding a new referenced entity was successful.');
 
     // Add a new English inline node.
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Add new node" and @data-drupal-selector="edit-multi-actions-ief-add"]'));
     $edit = [
-      'multi[form][inline_entity_form][title][0][value]' => 'Another inline node',
-      'multi[form][inline_entity_form][first_name][0][value]' => 'John',
-      'multi[form][inline_entity_form][last_name][0][value]' => 'Smith',
+      'multi[1][title][0][value]' => 'Another inline node',
+      'multi[1][first_name][0][value]' => 'John',
+      'multi[1][last_name][0][value]' => 'Smith',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-multi-form-inline-entity-form-actions-ief-add-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Create node" and @data-drupal-selector="edit-multi-1-actions-ief-add-save"]'));
     $this->assertResponse(200, 'Creating a new inline entity was successful.');
 
     $edit = [
@@ -141,17 +141,17 @@ class TranslationTest extends InlineEntityFormTestBase {
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Edit" and @data-drupal-selector="edit-multi-entities-0-actions-ief-entity-edit"]'));
     $this->assertNoText('Last name', 'The non-translatable last_name field is hidden.');
     $edit = [
-      'multi[form][inline_entity_form][entities][0][form][title][0][value]' => 'An inline node in French!',
-      'multi[form][inline_entity_form][entities][0][form][first_name][0][value]' => 'Damien',
+      'multi[0][inline_entity_form][entities][0][form][title][0][value]' => 'An inline node in French!',
+      'multi[0][inline_entity_form][entities][0][form][first_name][0][value]' => 'Damien',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-form-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-0-inline-entity-form-entities-0-form-actions-ief-edit-save"]'));
 
     $this->drupalPostAjaxForm(NULL, [], $this->getButtonName('//input[@type="submit" and @value="Edit" and @data-drupal-selector="edit-multi-entities-1-actions-ief-entity-edit"]'));
     $edit = [
-      'multi[form][inline_entity_form][entities][1][form][title][0][value]' => 'Another inline node in French!',
-      'multi[form][inline_entity_form][entities][1][form][first_name][0][value]' => 'Jacques',
+      'multi[1][inline_entity_form][entities][1][form][title][0][value]' => 'Another inline node in French!',
+      'multi[1][inline_entity_form][entities][1][form][first_name][0][value]' => 'Jacques',
     ];
-    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-form-inline-entity-form-entities-1-form-actions-ief-edit-save"]'));
+    $this->drupalPostAjaxForm(NULL, $edit, $this->getButtonName('//input[@type="submit" and @value="Update node" and @data-drupal-selector="edit-multi-1-inline-entity-form-entities-1-form-actions-ief-edit-save"]'));
 
     $this->drupalPostForm(NULL, [], t('Save (this translation)'));
     $this->assertResponse(200, 'Saving the parent entity was successful.');

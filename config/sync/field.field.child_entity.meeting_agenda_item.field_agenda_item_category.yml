@@ -11,7 +11,7 @@ field_name: field_agenda_item_category
 entity_type: child_entity
 bundle: meeting_agenda_item
 label: Category
-description: ''
+description: '<a href="[site:url]admin/structure/taxonomy/manage/agenda_items_categories/add" target="_blank">Click here</a> to add categories.'
 required: false
 translatable: false
 default_value: {  }
