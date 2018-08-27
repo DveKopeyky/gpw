@@ -1,0 +1,30 @@
+uuid: 40ce60fb-e355-4a95-9d17-4c18557b2df6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: views_block__news_latest_news
+theme: gpw
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:news-latest_news'
+settings:
+  id: 'views_block:news-latest_news'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

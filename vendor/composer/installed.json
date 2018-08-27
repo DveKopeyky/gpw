@@ -2678,6 +2678,61 @@
         "description": "Drupal Console Extend Plugin"
     },
     {
+        "name": "drupal/content_sync",
+        "version": "dev-2.x",
+        "version_normalized": "dev-2.x",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/content_sync",
+            "reference": "4c259ebbde12c4ca02612112bcaddb3ba581d0f3"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-2.x": "2.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-2.0+3-dev",
+                "datestamp": "1524798184",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Dev releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "source",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Blanca.Esqueda",
+                "homepage": "https://www.drupal.org/user/3082389"
+            },
+            {
+                "name": "chris.smith",
+                "homepage": "https://www.drupal.org/user/1812018"
+            },
+            {
+                "name": "dabito",
+                "homepage": "https://www.drupal.org/user/2400660"
+            },
+            {
+                "name": "david4lim",
+                "homepage": "https://www.drupal.org/user/934262"
+            }
+        ],
+        "description": "Allows to import/export content using YAML files",
+        "homepage": "https://www.drupal.org/project/content_sync",
+        "support": {
+            "source": "http://cgit.drupalcode.org/content_sync"
+        }
+    },
+    {
         "name": "drupal/core",
         "version": "8.5.6",
         "version_normalized": "8.5.6.0",

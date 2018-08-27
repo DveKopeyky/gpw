@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "236d063f8dd7f780e2d9806e14ba96b4",
+    "content-hash": "e037ffab6787521098e3ecd64ca72273",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2235,6 +2235,60 @@
             ],
             "description": "Drupal Console Extend Plugin",
             "time": "2017-07-28T17:11:54+00:00"
+        },
+        {
+            "name": "drupal/content_sync",
+            "version": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/content_sync",
+                "reference": "4c259ebbde12c4ca02612112bcaddb3ba581d0f3"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0+3-dev",
+                    "datestamp": "1524798184",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Blanca.Esqueda",
+                    "homepage": "https://www.drupal.org/user/3082389"
+                },
+                {
+                    "name": "chris.smith",
+                    "homepage": "https://www.drupal.org/user/1812018"
+                },
+                {
+                    "name": "dabito",
+                    "homepage": "https://www.drupal.org/user/2400660"
+                },
+                {
+                    "name": "david4lim",
+                    "homepage": "https://www.drupal.org/user/934262"
+                }
+            ],
+            "description": "Allows to import/export content using YAML files",
+            "homepage": "https://www.drupal.org/project/content_sync",
+            "support": {
+                "source": "http://cgit.drupalcode.org/content_sync"
+            },
+            "time": "2018-05-12T00:09:17+00:00"
         },
         {
             "name": "drupal/core",
@@ -8351,6 +8405,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/content_sync": 20,
         "drupal/eck": 15,
         "drupal/fixed_block_content": 5,
         "drupal/inline_entity_form": 5

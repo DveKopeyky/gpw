@@ -773,6 +773,9 @@ $settings['file_scan_ignore_directories'] = [
  */
 $settings['entity_update_batch_size'] = 50;
 
+global $content_directories;
+$content_directories['sync'] = $app_root . '/../content/sync';
+
 /**
  * Load local development override configuration, if available.
  *

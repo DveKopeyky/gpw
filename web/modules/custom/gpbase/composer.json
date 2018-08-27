@@ -1,0 +1,21 @@
+{
+    "name": "org/gpbase",
+    "description": "This extension provides new commands for Drush.",
+    "type": "drupal-drush",
+    "authors": [
+        {
+            "name": "Drupal Team",
+            "email": "drupal@eaudeweb.ro"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9"
+            }
+        }
+    }
+}
