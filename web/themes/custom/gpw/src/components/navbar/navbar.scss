@@ -1,11 +1,5 @@
 @import '../../utilities';
 
-.navbar-inverse {
-  background-image: url(#{$images-path}bg.png);
-  background-position: center -50px;
-  background-size: cover;
-}
-
 .navbar > .container {
   @media #{$grid-breakpoint} {
     align-items: center;
@@ -21,6 +15,14 @@
 }
 
 .navbar-nav {
+  > li > a {
+    transition: .2s;
+    &:hover,
+    &:focus {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+
   @media #{$grid-breakpoint} {
     display: flex;
     font-size: 16px;
@@ -45,4 +47,10 @@
 
     }
   }
+}
+
+.navbar-inverse {
+  background-image: url(#{$images-path}bg.png);
+  background-position: center -50px;
+  background-size: cover;
 }
