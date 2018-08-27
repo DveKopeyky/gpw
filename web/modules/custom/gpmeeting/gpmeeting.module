@@ -1,12 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: stefan
- * Date: 8/24/18
- * Time: 11:28 AM
- */
-
-/**
  * @file
  * Contains gpmeeting.module.
  */
@@ -17,9 +10,8 @@ use Drupal\node\NodeInterface;
  * Implements hook_ENTITY_TYPE_presave().
  */
 function gpmeeting_node_presave(NodeInterface $node) {
-  if ($node->getType() == 'meeting') {
-    $startDateString = $node->get('field_date_range')->getEntity()->toArray()['field_date_range'][0]['value'];
-    $node->set('field_start_date', date('Y-m-d', strtotime($startDateString)));
+  if ($node->getType() == 'meeting' && !empty($node->field_date_range->value)) {
+    $node->set('field_start_date', date('Y-m-d', strtotime($node->field_date_range->value)));
   }
 }
 
