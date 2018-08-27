@@ -28,6 +28,9 @@ content:
 hidden:
   field_course_reviews: true
   field_course_sections: true
+  field_includes: true
   field_key_points: true
+  field_lectures_number: true
   field_topic: true
   field_video: true
+  field_video_duration: true

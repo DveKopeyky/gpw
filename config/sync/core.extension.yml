@@ -25,6 +25,7 @@ module:
   image: 0
   inline_entity_form: 0
   link: 0
+  menu_link_attributes: 0
   menu_ui: 0
   node: 0
   page_cache: 0
