@@ -3564,6 +3564,9 @@
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
                 }
+            },
+            "patches_applied": {
+                "Notice: Undefined index: views_slideshow_pager_bullets": "https://www.drupal.org/files/issues/2018-03-27/2926311-8.patch"
             }
         },
         "installation-source": "dist",
