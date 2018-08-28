@@ -84,6 +84,21 @@ class RoboFile extends Tasks {
   }
 
   /**
+   * Archive files into sites/default/files/sync/files.tar.gz
+   *
+   * @return null|\Robo\Result
+   * @throws \Robo\Exception\TaskException
+   *
+   * @command files:archive
+   */
+  public function filesArchive() {
+    $execStack = $this->taskExecStack()->stopOnFail()->dir('../web/sites/default/files/sync/');
+    $execStack->exec("rm -f files.tar.gz");
+    $execStack->exec("tar cvfz files.tar.gz --exclude=files/sync ../../files");
+    return $execStack->run();
+  }
+
+  /**
    * Install the local instance.
    *
    * @return bool|null|\Robo\Result
