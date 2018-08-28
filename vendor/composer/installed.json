@@ -359,6 +359,19 @@
         ]
     },
     {
+        "name": "briancherne/jquery.hoverIntent",
+        "version": "1.9.0",
+        "version_normalized": "1.9.0.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/briancherne/jquery-hoverIntent/archive/v1.9.0.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "drupal-library",
+        "installation-source": "dist"
+    },
+    {
         "name": "chi-teck/drupal-code-generator",
         "version": "1.26.0",
         "version_normalized": "1.26.0.0",
@@ -1996,6 +2009,19 @@
         "keywords": [
             "reflection"
         ]
+    },
+    {
+        "name": "douglascrockford/json2",
+        "version": "2017-06-12",
+        "version_normalized": "2017.06.12",
+        "dist": {
+            "type": "file",
+            "url": "https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "drupal-library",
+        "installation-source": "dist"
     },
     {
         "name": "drupal-composer/drupal-scaffold",
@@ -4507,6 +4533,19 @@
             "provider",
             "service"
         ]
+    },
+    {
+        "name": "malsup/jquery.cycle",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
+        "dist": {
+            "type": "file",
+            "url": "https://malsup.github.io/jquery.cycle.all.js",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "drupal-library",
+        "installation-source": "dist"
     },
     {
         "name": "masterminds/html5",

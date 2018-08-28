@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00e042672101db8cb8a0739731acd731",
+    "content-hash": "f9f7bfa46d49cc263f46a6205a176469",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -121,6 +121,17 @@
                 "stack"
             ],
             "time": "2017-12-20T14:37:45+00:00"
+        },
+        {
+            "name": "briancherne/jquery.hoverIntent",
+            "version": "1.9.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/briancherne/jquery-hoverIntent/archive/v1.9.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "drupal-library"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -1654,6 +1665,17 @@
                 "reflection"
             ],
             "time": "2018-06-14T14:45:07+00:00"
+        },
+        {
+            "name": "douglascrockford/json2",
+            "version": "2017-06-12",
+            "dist": {
+                "type": "file",
+                "url": "https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "drupal-library"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -3702,6 +3724,17 @@
                 "service"
             ],
             "time": "2017-05-10T09:20:27+00:00"
+        },
+        {
+            "name": "malsup/jquery.cycle",
+            "version": "3.0.3",
+            "dist": {
+                "type": "file",
+                "url": "https://malsup.github.io/jquery.cycle.all.js",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "drupal-library"
         },
         {
             "name": "masterminds/html5",
