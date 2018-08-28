@@ -1,0 +1,5 @@
+{% macro get(icon, iconClass, theme_path, width, height) %}
+  <svg class="{{ iconClass|default('') }}" width="{{ width|default(32) }}" height={{ height|default(32) }} aria-hidden="true">
+    <use xlink:href={{ theme_path ~ '/dist/images/symbol/svg/sprite.symbol.svg#' ~  icon }} ></use>
+  </svg>
+{% endmacro %}

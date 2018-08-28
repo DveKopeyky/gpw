@@ -6,8 +6,16 @@
  *
  * Place your custom PHP code in this file.
  */
+function gpw_preprocess(&$variables) {
+  $variables['base_path'] = base_path();
+}
 
 function gpw_preprocess_page(&$variables) {
+  // @todo: Implement field on page.
+  // Enable inverse navbar based on page setting.
+  if($variables['is_front']) {
+    $variables['page']['navbar_inverse'] = true;
+  }
 }
 
 /**

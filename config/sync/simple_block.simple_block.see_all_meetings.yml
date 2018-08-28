@@ -7,5 +7,5 @@ dependencies:
 id: see_all_meetings
 title: 'See all meetings'
 content:
-  value: '<a href="/meetings">See all meetings</a>'
+  value: "<p><a class=\"btn btn-primary\" href=\"/meetings\">See all meetings</a></p>\r\n"
   format: full_html
