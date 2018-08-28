@@ -1,0 +1,29 @@
+uuid: 5eb0f904-4900-4824-9bf2-3953f679bdd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - fixed_block_content.fixed_block_content.see_all_meetings
+  module:
+    - fixed_block_content
+    - system
+  theme:
+    - gpw
+id: seeallmeetings
+theme: gpw
+region: content_3
+weight: 0
+provider: null
+plugin: 'fixed_block_content:see_all_meetings'
+settings:
+  id: 'fixed_block_content:see_all_meetings'
+  label: 'See all meetings'
+  provider: fixed_block_content
+  label_display: '0'
+  view_mode: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
