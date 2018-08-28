@@ -173,7 +173,8 @@ display:
           exposed: false
           expose:
             label: ''
-          plugin_id: standard
+          plugin_id: datetime
+          entity_type: node
       filters:
         status:
           value: '1'
@@ -195,10 +196,10 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_start_date_value:
-          id: field_start_date_value
-          table: node__field_start_date
-          field: field_start_date_value
+        field_date_range_value:
+          id: field_date_range_value
+          table: node__field_date_range
+          field: field_date_range_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -421,7 +422,8 @@ display:
           exposed: false
           expose:
             label: ''
-          plugin_id: standard
+          plugin_id: datetime
+          entity_type: node
       defaults:
         sorts: false
         filters: false
@@ -447,10 +449,10 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_start_date_value:
-          id: field_start_date_value
-          table: node__field_start_date
-          field: field_start_date_value
+        field_date_range_value:
+          id: field_date_range_value
+          table: node__field_date_range
+          field: field_date_range_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -523,7 +525,8 @@ display:
           exposed: false
           expose:
             label: ''
-          plugin_id: standard
+          plugin_id: datetime
+          entity_type: node
       defaults:
         sorts: false
         filters: false
