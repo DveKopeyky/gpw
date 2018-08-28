@@ -300,6 +300,18 @@ display:
           quantity: 9
       defaults:
         pager: false
+        style: false
+        row: false
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          view_mode: teaser
     cache_metadata:
       max-age: -1
       contexts:
