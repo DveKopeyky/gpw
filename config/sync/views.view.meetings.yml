@@ -8,6 +8,7 @@ dependencies:
     - system.menu.main
   module:
     - datetime
+    - gpmeeting
     - node
     - user
 id: meetings
@@ -195,19 +196,15 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_start_date_value:
-          id: field_start_date_value
-          table: node__field_start_date
-          field: field_start_date_value
+        upcoming_meetings_filter:
+          id: upcoming_meetings_filter
+          table: node_field_data
+          field: upcoming_meetings_filter
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: now
-            type: offset
+          operator: '='
+          value: ''
           group: 1
           exposed: false
           expose:
@@ -222,9 +219,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -237,7 +231,8 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: datetime
+          entity_type: node
+          plugin_id: upcoming_meetings_filter
       filter_groups:
         operator: AND
         groups:
@@ -447,19 +442,15 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_start_date_value:
-          id: field_start_date_value
-          table: node__field_start_date
-          field: field_start_date_value
+        previous_meetings_filter:
+          id: previous_meetings_filter
+          table: node_field_data
+          field: previous_meetings_filter
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '<'
-          value:
-            min: ''
-            max: ''
-            value: now
-            type: offset
+          operator: '='
+          value: ''
           group: 1
           exposed: false
           expose:
@@ -474,9 +465,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -489,7 +477,8 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: datetime
+          entity_type: node
+          plugin_id: previous_meetings_filter
       filter_groups:
         operator: AND
         groups:

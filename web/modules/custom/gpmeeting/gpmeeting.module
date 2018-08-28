@@ -16,3 +16,28 @@ function gpmeeting_node_presave(NodeInterface $node) {
   }
 }
 
+/**
+ * Implements hook_views_data_alter().
+ */
+function gpmeeting_views_data_alter(&$data)
+{
+  $data['node_field_data']['previous_meetings_filter'] = [
+    'title' => t('Custom Previous Meetings Filter'),
+    'filter' => [
+      'title' => t('Custom Previous Meetings Filter'),
+      'help' => 'Filters meetings that happened before the current date ',
+      'field' => 'nid',
+      'id' => 'previous_meetings_filter',
+    ]
+  ];
+
+  $data['node_field_data']['upcoming_meetings_filter'] = [
+    'title' => t('Custom Upcoming Meetings Filter'),
+    'filter' => [
+      'title' => t('Custom Upcoming Meetings Filter'),
+      'help' => 'Filters meetings that will happen after the current date ',
+      'field' => 'nid',
+      'id' => 'upcoming_meetings_filter',
+    ]
+  ];
+}
