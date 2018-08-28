@@ -11,8 +11,8 @@ dependencies:
     - gpw
 id: views_block__homepage_courses_elearning_block
 theme: gpw
-region: content
-weight: 1
+region: content_5
+weight: -7
 provider: null
 plugin: 'views_block:homepage_courses-elearning_block'
 settings:

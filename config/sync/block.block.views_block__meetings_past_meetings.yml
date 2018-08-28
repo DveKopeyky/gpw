@@ -11,8 +11,8 @@ dependencies:
     - gpw
 id: views_block__meetings_past_meetings
 theme: gpw
-region: content
-weight: -1
+region: content_2
+weight: -6
 provider: null
 plugin: 'views_block:meetings-past_meetings'
 settings:

@@ -145,6 +145,28 @@
           <a id="main-content"></a>
           {{ page.content }}
         {% endblock %}
+
+        {# Other content regions #}
+        {% if page.content_2 %}
+          {% block content_2 %}
+              {{ page.content_2 }}
+          {% endblock %}
+        {% endif %}
+        {% if page.content_3 %}
+          {% block content_3 %}
+              {{ page.content_3 }}
+          {% endblock %}
+        {% endif %}
+        {% if page.content_4 %}
+          {% block content_4 %}
+              {{ page.content_4 }}
+          {% endblock %}
+        {% endif %}
+        {% if page.content_5 %}
+          {% block content_5 %}
+              {{ page.content_5 }}
+          {% endblock %}
+        {% endif %}
       </section>
 
       {# Sidebar Second #}
