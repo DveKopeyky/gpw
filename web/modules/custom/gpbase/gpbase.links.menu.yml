@@ -1,0 +1,17 @@
+gpbase.footer.meetings:
+  title: 'Meetings'
+  menu_name: footer
+  route_name: view.meetings.page_1
+  weight: 0
+
+gpbase.footer.news:
+  title: 'News'
+  menu_name: footer
+  route_name: view.news.page_1
+  weight: 1
+
+gpbase.footer.glossary:
+  title: 'Glossary'
+  menu_name: footer
+  route_name: view.glossary.page_1
+  weight: 2
