@@ -1,26 +1,25 @@
-uuid: 1dc4ccfe-49aa-4e78-b9a9-0bba7c1413f4
+uuid: a70b3e9e-3d9c-4a11-b9be-74e64b6f027a
 langcode: en
 status: true
 dependencies:
   config:
-    - fixed_block_content.fixed_block_content.related_courses
+    - simple_block.simple_block.related_courses
   module:
-    - fixed_block_content
     - node
+    - simple_block
   theme:
     - gpw
-id: relatedcourses
+id: relatedcourses_2
 theme: gpw
 region: content
-weight: -3
+weight: -2
 provider: null
-plugin: 'fixed_block_content:related_courses'
+plugin: 'simple_block:related_courses'
 settings:
-  id: 'fixed_block_content:related_courses'
+  id: 'simple_block:related_courses'
   label: 'Related courses'
-  provider: fixed_block_content
-  label_display: visible
-  view_mode: ''
+  provider: simple_block
+  label_display: '0'
 visibility:
   node_type:
     id: node_type

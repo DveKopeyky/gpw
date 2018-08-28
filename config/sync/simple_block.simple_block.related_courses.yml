@@ -1,0 +1,11 @@
+uuid: 0fc563ef-3c1b-4b7b-bbb8-0989e827fc31
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: related_courses
+title: 'Related courses'
+content:
+  value: "<h3>Looking for more environment-related courses?</h3>\r\n\r\n<p>Get free unlimited access to well-crafted environment-related courses. Start with a foundation course or deepen your knowledge with our advanced courses.</p>\r\n"
+  format: full_html

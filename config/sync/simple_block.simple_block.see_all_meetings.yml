@@ -1,0 +1,11 @@
+uuid: 7b2c57f9-b5ec-41a2-a28e-f6b65899b8f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: see_all_meetings
+title: 'See all meetings'
+content:
+  value: '<a href="/meetings">See all meetings</a>'
+  format: full_html
