@@ -66,92 +66,94 @@
 
 {# Main #}
 {% block main %}
-  <div role="main" class="main-container js-quickedit-main-content">
-    {# Title #}
-    {% block title %}
-      <a id="main-content"></a>
-      {{ page.title }}
-    {% endblock %}
+  <div class="holygrail-body">
+    <div role="main" class="main-container js-quickedit-main-content">
+      {# Title #}
+      {% block title %}
+        <a id="main-content"></a>
+        {{ page.title }}
+      {% endblock %}
 
-    {# Help #}
-    {% if page.help %}
-      {% block help %}
-        <div class="help container">
-          {{ page.help }}
+      {# Help #}
+      {% if page.help %}
+        {% block help %}
+          <div class="help container">
+            {{ page.help }}
+          </div>
+        {% endblock %}
+      {% endif %}
+
+      {# Highlighted #}
+      {% if page.highlighted %}
+        {% block highlighted %}
+          <div class="highlighted container">{{ page.highlighted }}</div>
+        {% endblock %}
+      {% endif %}
+
+      {# Content wrapper #}
+      {% block content_wrapper %}
+        <div class="content-wrapper container">
+          <div class="row">
+
+            {# Sidebar First #}
+            {% if page.sidebar_first %}
+              {% block sidebar_first %}
+                <aside class="col-sm-3" role="complementary">
+                  {{ page.sidebar_first }}
+                </aside>
+              {% endblock %}
+            {% endif %}
+
+            {%
+              set content_classes = [
+                page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+                page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
+                page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
+                page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+              ]
+            %}
+            <section{{ content_attributes.addClass(content_classes) }}>
+
+              {# Content #}
+              {% block content %}
+                {{ page.content }}
+              {% endblock %}
+
+              {# Other content regions #}
+              {% if page.content_2 %}
+                {% block content_2 %}
+                    {{ page.content_2 }}
+                {% endblock %}
+              {% endif %}
+              {% if page.content_3 %}
+                {% block content_3 %}
+                    {{ page.content_3 }}
+                {% endblock %}
+              {% endif %}
+              {% if page.content_4 %}
+                {% block content_4 %}
+                    {{ page.content_4 }}
+                {% endblock %}
+              {% endif %}
+              {% if page.content_5 %}
+                {% block content_5 %}
+                    {{ page.content_5 }}
+                {% endblock %}
+              {% endif %}
+            </section>
+
+            {# Sidebar Second #}
+            {% if page.sidebar_second %}
+              {% block sidebar_second %}
+                <aside class="col-sm-3" role="complementary">
+                  {{ page.sidebar_second }}
+                </aside>
+              {% endblock %}
+            {% endif %}
+          </div>
         </div>
       {% endblock %}
-    {% endif %}
-
-    {# Highlighted #}
-    {% if page.highlighted %}
-      {% block highlighted %}
-        <div class="highlighted container">{{ page.highlighted }}</div>
-      {% endblock %}
-    {% endif %}
-
-    {# Content wrapper #}
-    {% block content_wrapper %}
-      <div class="content-wrapper container">
-        <div class="row">
-
-          {# Sidebar First #}
-          {% if page.sidebar_first %}
-            {% block sidebar_first %}
-              <aside class="col-sm-3" role="complementary">
-                {{ page.sidebar_first }}
-              </aside>
-            {% endblock %}
-          {% endif %}
-
-          {%
-            set content_classes = [
-              page.sidebar_first and page.sidebar_second ? 'col-sm-6',
-              page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
-              page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
-              page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
-            ]
-          %}
-          <section{{ content_attributes.addClass(content_classes) }}>
-
-            {# Content #}
-            {% block content %}
-              {{ page.content }}
-            {% endblock %}
-
-            {# Other content regions #}
-            {% if page.content_2 %}
-              {% block content_2 %}
-                  {{ page.content_2 }}
-              {% endblock %}
-            {% endif %}
-            {% if page.content_3 %}
-              {% block content_3 %}
-                  {{ page.content_3 }}
-              {% endblock %}
-            {% endif %}
-            {% if page.content_4 %}
-              {% block content_4 %}
-                  {{ page.content_4 }}
-              {% endblock %}
-            {% endif %}
-            {% if page.content_5 %}
-              {% block content_5 %}
-                  {{ page.content_5 }}
-              {% endblock %}
-            {% endif %}
-          </section>
-
-          {# Sidebar Second #}
-          {% if page.sidebar_second %}
-            {% block sidebar_second %}
-              <aside class="col-sm-3" role="complementary">
-                {{ page.sidebar_second }}
-              </aside>
-            {% endblock %}
-          {% endif %}
-        </div>
-      </div>
-    {% endblock %}
+    </div>
   </div>
 {% endblock %}
 

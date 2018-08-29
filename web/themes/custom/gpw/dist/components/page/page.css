@@ -1,2 +1,2 @@
-.content-wrapper,.help,.highlighted .alert{margin-top:3rem}
+.content-wrapper,.help,.highlighted .alert{margin-top:3rem}.dialog-off-canvas-main-canvas{display:flex;flex-direction:column;min-height:100vh}.dialog-off-canvas-main-canvas .holygrail-body{display:flex;flex:1 0 auto}.dialog-off-canvas-main-canvas .holygrail-body .main-container{flex:1 0 auto}@media screen and (max-width:767px){.dialog-off-canvas-main-canvas .holygrail-body{flex-direction:column}}
 /*# sourceMappingURL=page.css.map */
