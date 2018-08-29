@@ -1,0 +1,11 @@
+uuid: b89187dd-2e83-420d-8712-a5051ba154d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: glossary_title_description
+title: 'Glossary title description'
+content:
+  value: "<p>Search through all glossary for terms related to the Global Pact of the Environment</p>\r\n"
+  format: full_html

@@ -1,0 +1,28 @@
+uuid: 73b97477-0827-48c0-8541-101ca2be7f57
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.glossary_title_description
+  module:
+    - simple_block
+    - system
+  theme:
+    - gpw
+id: glossarytitledescription
+theme: gpw
+region: title
+weight: 0
+provider: null
+plugin: 'simple_block:glossary_title_description'
+settings:
+  id: 'simple_block:glossary_title_description'
+  label: 'Glossary title description'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /glossary
+    negate: false
+    context_mapping: {  }

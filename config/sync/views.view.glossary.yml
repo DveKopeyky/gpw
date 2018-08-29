@@ -292,20 +292,7 @@ display:
           entity_field: name
           plugin_id: standard
       title: Glossary
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'Search through all glossary for terms related to the Global Pact of the Environment'
-            format: full_html
-          plugin_id: text
+      header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
