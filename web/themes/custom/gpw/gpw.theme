@@ -49,3 +49,13 @@ function gpw_preprocess_views_view(&$variables) {
 function gpw_preprocess_menu__footer(&$variables) {
   $variables['attributes']['class'][] = 'navbar-nav';
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gpw_preprocess_region(&$variables) {
+  if($variables['region'] == 'title') {
+    $variables['attributes']['class'][] = 'hero';
+  }
+}
+

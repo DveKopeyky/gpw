@@ -52,22 +52,37 @@
  * @see html.html.twig
  */
 #}
-{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-
-{% include "@gpw/includes/_header.html.twig" %}
+{% extends '@gpw/system/page.html.twig' %}
 
 {# Main #}
 {% block main %}
   <div role="main" class="main-container js-quickedit-main-content">
-    {# Title #}
-    {% block title %}
-      <a id="main-content"></a>
-      {{ page.title }}
-    {% endblock %}
+      {# Header #}
+      {% if page.header %}
+        {% block header %}
+          <div role="heading">
+            {{ page.header }}
+          </div>
+        {% endblock %}
+      {% endif %}
 
+      {# Sidebar First #}
+      {% if page.sidebar_first %}
+        {% block sidebar_first %}
+          <aside class="col-sm-3" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endblock %}
+      {% endif %}
 
-    <div class="container">
-      <div class="row">
+      <section{{ content_attributes }}>
+
+        {# Highlighted #}
+        {% if page.highlighted %}
+          {% block highlighted %}
+            <div class="highlighted">{{ page.highlighted }}</div>
+          {% endblock %}
+        {% endif %}
 
         {# Help #}
         {% if page.help %}
@@ -76,82 +91,47 @@
           {% endblock %}
         {% endif %}
 
-        {# Header #}
-        {% if page.header %}
-          {% block header %}
-            <div class="col-sm-12" role="heading">
-              {{ page.header }}
-            </div>
-          {% endblock %}
-        {% endif %}
-
-        {# Sidebar First #}
-        {% if page.sidebar_first %}
-          {% block sidebar_first %}
-            <aside class="col-sm-3" role="complementary">
-              {{ page.sidebar_first }}
-            </aside>
-          {% endblock %}
-        {% endif %}
+        {# Title #}
+        {% block title %}
+          <a id="main-content"></a>
+          {{ page.title }}
+        {% endblock %}
 
         {# Content #}
-        {%
-          set content_classes = [
-            page.sidebar_first and page.sidebar_second ? 'col-sm-6',
-            page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
-            page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
-            page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
-          ]
-        %}
-        <section{{ content_attributes.addClass(content_classes) }}>
+        {% block content %}
+          {{ parent() }}
+        {% endblock %}
 
-          {# Highlighted #}
-          {% if page.highlighted %}
-            {% block highlighted %}
-              <div class="highlighted">{{ page.highlighted }}</div>
-            {% endblock %}
-          {% endif %}
-
-          {# Content #}
-          {% block content %}
-            {{ page.content }}
-          {% endblock %}
-
-          {# Other content regions #}
-          {% if page.content_2 %}
-            {% block content_2 %}
-                {{ page.content_2 }}
-            {% endblock %}
-          {% endif %}
-          {% if page.content_3 %}
-            {% block content_3 %}
-                {{ page.content_3 }}
-            {% endblock %}
-          {% endif %}
-          {% if page.content_4 %}
-            {% block content_4 %}
-                {{ page.content_4 }}
-            {% endblock %}
-          {% endif %}
-          {% if page.content_5 %}
-            {% block content_5 %}
-                {{ page.content_5 }}
-            {% endblock %}
-          {% endif %}
-        </section>
-
-        {# Sidebar Second #}
-        {% if page.sidebar_second %}
-          {% block sidebar_second %}
-            <aside class="col-sm-3" role="complementary">
-              {{ page.sidebar_second }}
-            </aside>
+        {# Other content regions #}
+        {% if page.content_2 %}
+          {% block content_2 %}
+              {{ page.content_2 }}
           {% endblock %}
         {% endif %}
-      </div>
-    </div>
+        {% if page.content_3 %}
+          {% block content_3 %}
+              {{ page.content_3 }}
+          {% endblock %}
+        {% endif %}
+        {% if page.content_4 %}
+          {% block content_4 %}
+              {{ page.content_4 }}
+          {% endblock %}
+        {% endif %}
+        {% if page.content_5 %}
+          {% block content_5 %}
+              {{ page.content_5 }}
+          {% endblock %}
+        {% endif %}
+      </section>
+
+      {# Sidebar Second #}
+      {% if page.sidebar_second %}
+        {% block sidebar_second %}
+          <aside class="col-sm-3" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endblock %}
+      {% endif %}
   </div>
 {% endblock %}
-
-
-{% include "@gpw/includes/_footer.html.twig" %}

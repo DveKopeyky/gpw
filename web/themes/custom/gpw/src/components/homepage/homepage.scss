@@ -23,7 +23,8 @@
     }
   }
 
-  .hero {
+  .hero--frontpage {
+    padding-top: 3rem;
     .row {
       @media #{$grid-breakpoint} {
         align-items: center;

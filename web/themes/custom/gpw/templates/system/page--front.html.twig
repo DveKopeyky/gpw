@@ -52,15 +52,11 @@
  * @see html.html.twig
  */
 #}
-{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-
-{% include "@gpw/includes/_header.html.twig" %}
+{% extends '@gpw/system/page.html.twig' %}
 
 {# Main #}
 {% block main %}
   <div role="main" class="main-container js-quickedit-main-content">
-    {# <div class="row"> #}
-
       {# Header #}
       {% if page.header %}
         {% block header %}
@@ -104,7 +100,7 @@
           {% endblock %}
         {% endif %}
 
-        <div class="hero container">
+        <div class="hero--frontpage container">
           <div class="row">
             <div class="col-sm-5">
               {# Title #}
@@ -156,8 +152,5 @@
           </aside>
         {% endblock %}
       {% endif %}
-    {# </div> #}
   </div>
 {% endblock %}
-
-{% include "@gpw/includes/_footer.html.twig" %}

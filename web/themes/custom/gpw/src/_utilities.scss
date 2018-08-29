@@ -25,6 +25,7 @@
   $nav-link-hover-bg:         transparent !global;
 
   $navbar-height:             80px !global;
+  $navbar-margin-bottom:      0 !global;
   $navbar-default-bg:         transparent !global;
   $navbar-default-border:     transparent !global;
   $navbar-default-link-color: #000 !global;
@@ -40,6 +41,11 @@
   $btn-primary-bg:                 $gpw-secondary !global;
   $btn-primary-border:             $btn-primary-bg !global;
 
+
+  /* ==========================================================================
+     Custom theme variables
+     ========================================================================== */
+
   $mobile:          "screen and (max-width: #{$screen-xs-max})" !global;
   $tablet:          "screen and (min-width: #{$screen-sm-min})" !global;
   $normal:          "screen and (min-width: #{$screen-md-min})" !global;
@@ -47,10 +53,7 @@
   $grid-breakpoint-max: "screen and (max-width: #{$grid-float-breakpoint-max})" !global;
   $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})" !global;
 
-  /* ==========================================================================
-     Custom theme variables
-     ========================================================================== */
-
+  $font-family-regular: 'Roboto', sans-serif !global;
   $font-family-accent: 'AlternateGotNo2DRegular', sans-serif !global;
 
   $view-next-meetings: 'block-views-blockmeetings-next-meetings' !global;
