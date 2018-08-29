@@ -1,0 +1,22 @@
+uuid: 115ca1a7-5a2d-4f59-9367-745f38de6e61
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: courses
+label: Courses
+type: 'canonical_entities:node'
+pattern: 'elearning/[node:title]'
+selection_criteria:
+  5f8792d1-dc7a-453d-8c69-f70739771cd8:
+    id: node_type
+    bundles:
+      course: course
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 5f8792d1-dc7a-453d-8c69-f70739771cd8
+selection_logic: and
+weight: -5
+relationships: {  }
