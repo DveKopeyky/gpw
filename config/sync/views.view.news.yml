@@ -63,7 +63,7 @@ display:
           slideshow_skin: default
           slideshow_type: views_slideshow_cycle
           views_slideshow_cycle:
-            effect: scrollLeft
+            effect: fade
             transition_advanced: 0
             timeout: '5000'
             speed: '700'
@@ -93,6 +93,10 @@ display:
             advanced_options: '{}'
           widgets:
             top:
+              views_slideshow_slide_counter:
+                enable: false
+                weight: '1'
+                hide_on_single_slide: '0'
               views_slideshow_controls:
                 enable: false
                 weight: '1'
@@ -107,11 +111,13 @@ display:
                   views_slideshow_pager_fields_fields:
                     title: 0
                   views_slideshow_pager_fields_hover: 0
+                views_slideshow_pager_bullets:
+                  views_slideshow_pager_bullets: 0
+            bottom:
               views_slideshow_slide_counter:
                 enable: false
                 weight: '1'
                 hide_on_single_slide: '0'
-            bottom:
               views_slideshow_controls:
                 enable: false
                 weight: '1'
@@ -126,10 +132,8 @@ display:
                   views_slideshow_pager_fields_fields:
                     title: 0
                   views_slideshow_pager_fields_hover: 0
-              views_slideshow_slide_counter:
-                enable: false
-                weight: '1'
-                hide_on_single_slide: '0'
+                views_slideshow_pager_bullets:
+                  views_slideshow_pager_bullets: 0
       row:
         type: 'entity:node'
         options:
