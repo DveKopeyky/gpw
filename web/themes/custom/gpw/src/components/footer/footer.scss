@@ -1,0 +1,15 @@
+@import '../../utilities';
+
+.footer .nav > li > a {
+  color: $text-color;
+
+  &:hover, &:focus {
+    color: $navbar-default-link-hover-color;
+  }
+}
+
+.footer-logos {
+  .logo {
+    margin-left: 1rem;
+  }
+}

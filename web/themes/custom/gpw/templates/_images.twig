@@ -1,0 +1,5 @@
+{% macro get(image, theme_path, width, height, class) %}
+  <img class="{{ class|default('') }}" width="{{ width|default(100) }}" height={{ height|default(100) }} src="{{ theme_path ~ '/dist/images/' ~  image }}" />
+{% endmacro %}
+
+  {# '#attributes': { class: 'swiper-image' }, #}

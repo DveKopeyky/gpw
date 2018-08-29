@@ -28,6 +28,12 @@
     margin-top: 3rem;
     > a {
       color: inherit;
+
+      &:hover,
+      &:focus {
+        color: $gpw-primary;
+      }
+
     }
   }
 

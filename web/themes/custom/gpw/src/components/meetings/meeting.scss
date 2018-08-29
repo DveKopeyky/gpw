@@ -72,6 +72,11 @@
 .webinar.teaser {
   h2 > a {
     color: $gpw-primary;
+
+    &:hover,
+    &:focus {
+      color: darken($gpw-primary, 5%);
+    }
   }
   .view-recording-link {
     .path-frontpage & {

@@ -16,6 +16,21 @@ header:
     theme:
       dist/components/navbar/navbar.css: {}
 
+footer:
+  css:
+    theme:
+      dist/components/footer/footer.css: {}
+
+base:
+  css:
+    theme:
+      dist/components/base/base.css: {}
+
+address:
+  css:
+    theme:
+      dist/components/address/address.css: {}
+
 buttons:
   css:
     theme:
@@ -43,15 +58,16 @@ homepage:
       dist/components/homepage/homepage.css: {}
 
 framework:
-  css:
-    theme:
-      dist/components/address/address.css: {}
+  css: {}
   js: {}
   dependencies:
     - gpw/fonts
     - gpw/bootstrap
-    - gpw/header
+    - gpw/base
+    - gpw/address
     - gpw/buttons
+    - gpw/header
+    - gpw/footer
     - gpw/meetings
     - gpw/news
     - gpw/courses
