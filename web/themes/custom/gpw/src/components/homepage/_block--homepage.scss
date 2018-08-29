@@ -4,10 +4,16 @@
       text-align: right;
       h2 {
         margin-right: 2em;
+        margin-top: 0;
       }
     }
   }
   .block-title {
     @extend %heading-default;
+  }
+
+  .more-link > a {
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
