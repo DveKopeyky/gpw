@@ -1,0 +1,22 @@
+uuid: 33fbf6d0-7807-41ea-add1-36e3fa99a68a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: webinars
+label: Webinars
+type: 'canonical_entities:node'
+pattern: '/meetings/webinar/[node:title]'
+selection_criteria:
+  7eb35837-eb31-4219-b49b-08b24ef25dab:
+    id: node_type
+    bundles:
+      webinar: webinar
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 7eb35837-eb31-4219-b49b-08b24ef25dab
+selection_logic: and
+weight: -5
+relationships: {  }

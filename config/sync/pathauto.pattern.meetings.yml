@@ -1,0 +1,22 @@
+uuid: b4a28c0a-7bb2-4698-92c1-b3116a1b1bc9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: meetings
+label: Meetings
+type: 'canonical_entities:node'
+pattern: '/meetings/meeting/[node:title]'
+selection_criteria:
+  ce3b20f9-1110-420f-9ef7-a231c6e310a7:
+    id: node_type
+    bundles:
+      meeting: meeting
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ce3b20f9-1110-420f-9ef7-a231c6e310a7
+selection_logic: and
+weight: -5
+relationships: {  }
