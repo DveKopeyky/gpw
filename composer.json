@@ -141,7 +141,8 @@
                 "Unable to keep nested IEF data separate with multivalue fields.": "https://www.drupal.org/files/issues/2018-05-30/multivalue-complex-and-simple-ief-fix-2653574-100.patch"
             },
             "drupal/views_slideshow": {
-                "Notice: Undefined index: views_slideshow_pager_bullets": "https://www.drupal.org/files/issues/2018-03-27/2926311-8.patch"
+                "Notice: Undefined index: views_slideshow_pager_bullets": "https://www.drupal.org/files/issues/2018-03-27/2926311-8.patch",
+                "Fix bullets hover": "patches/views_slideshow/bullets-hover-fix.patch"
             }
         }
     }
