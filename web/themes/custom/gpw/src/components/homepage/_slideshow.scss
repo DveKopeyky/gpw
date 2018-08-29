@@ -1,0 +1,36 @@
+.#{$homepage-slideshow} {
+  align-items: center;
+  background-image: url(#{$images-path}bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $text-muted-inverse;
+  display: flex;
+  min-height: 40rem;
+
+  .col-sm-3 {
+    text-align: right;
+  }
+
+  h2 > a {
+    color: inherit;
+  }
+
+  .block-title {
+  }
+
+  .views-slideshow-pager-bullets {
+    width: (2 / 3) * 100%;
+    li {
+      $bullet-radius: 3px;
+      background: none;
+      border: 1px solid $text-muted-inverse;
+      border-radius: 50%;
+      padding: 0 $bullet-radius;
+      line-height: (2 * $bullet-radius);
+    }
+    li.active {
+      background-color: $text-muted-inverse;
+    }
+  }
+}

@@ -5,3 +5,7 @@ Notice: Undefined index: views_slideshow_pager_bullets
 Source: https://www.drupal.org/files/issues/2018-03-27/2926311-8.patch
 
 
+Fix bullets hover
+Source: patches/views_slideshow/bullets-hover-fix.patch
+
+

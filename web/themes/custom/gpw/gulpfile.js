@@ -8,6 +8,7 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
+const svgSprite = require('gulp-svg-sprite');
 
 const pump = require('pump');
 const cache = require('gulp-cached');
@@ -18,6 +19,20 @@ const plugins = [
   postcssPresetEnv(),
   cssnano()
 ];
+
+// More complex configuration example
+const spriteConfig = {
+  shape: {
+    dimension: { // Set maximum dimensions
+      maxWidth: 32,
+      maxHeight: 32
+    }
+  },
+  mode: {
+    symbol: { // Activate the «symbol» mode
+    }
+  }
+};
 
 gulp.task('css', (cb) => {
   pump([
@@ -79,20 +94,6 @@ gulp.task('bootstrap:js', (cb) => {
   ], cb);
 });
 
-// gulp.task('components:css', (cb) => {
-//   pump([
-//     gulp.src(['./src/components/*/*.scss'], {
-//       base: './src/components'
-//     }),
-//     sourcemaps.init(),
-//     sass(),
-//     postcss(plugins),
-//     sourcemaps.write('.'),
-//     gulp.dest('./dist/components'),
-//   ], cb);
-// });
-
-
 gulp.task('postcss', (cb) => {
   pump([
     gulp.src('./dist/**/*.css'),
@@ -113,11 +114,19 @@ gulp.task('uglify', (cb) => {
 
 gulp.task('imagemin', (cb) => {
   pump([
-    gulp.src('./src/images/**/*'),
+    gulp.src('./src/images/**/*', '!./src/images/**/*.svg'),
     cache('imagemin'),
     imagemin(),
     gulp.dest('./dist/images')
   ], cb);
+});
+
+gulp.task('sprite', (cb) => {
+  pump([
+    gulp.src('./src/images/**/*.svg'),
+    svgSprite(spriteConfig),
+    gulp.dest('./dist/images')
+  ], cb)
 });
 
 gulp.task('watch', () => {
@@ -134,24 +143,29 @@ gulp.task('watch', () => {
       './src/**/*.scss',
       '!./src/bootstrap-scss/**/*.scss',
       '!./src/_colors.scss',
-      '!./src/_utilities.scss'
+      '!./src/_utilities.scss',
+      '!./src/_mixins.scss'
     ], gulp.series('css'));
 
   gulp.watch(
     [
       './src/_colors.scss',
-      './src/_utilities.scss'
+      './src/_utilities.scss',
+      './src/_mixins.scss'
     ], gulp.series('bootstrap:css', 'css'));
 
   gulp.watch(['./src/**/*.js'], gulp.series('js'));
 
-  gulp.watch(['./src/images/*'], gulp.series('imagemin'))
+  gulp.watch(['./src/images/**/*', '!./src/images/**/*.svg'], gulp.series('imagemin'));
+
+  gulp.watch(['./src/images/**/*.svg'], gulp.series('sprite'));
+
 });
 
 gulp.task('bootstrap', gulp.series('bootstrap:css', 'bootstrap:js'));
 
 gulp.task('theme', gulp.series('css', 'js'));
 
-gulp.task('build', gulp.series('bootstrap', 'theme', 'imagemin'));
+gulp.task('build', gulp.series('bootstrap', 'theme', 'imagemin', 'sprite'));
 
 gulp.task('default', gulp.series('build', 'watch'));

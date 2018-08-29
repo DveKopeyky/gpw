@@ -1,0 +1,11 @@
+.address {
+  display: flex;
+
+  span:not(:first-child) {
+    &:before {
+      content: ', ';
+    }
+
+  }
+
+}

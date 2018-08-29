@@ -1,0 +1,54 @@
+@mixin button-fill-variant($color, $background, $background-hover: darken($background, 10%)) {
+  color: $color;
+  background-color: $background;
+  border-color: $background;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.focus {
+    color: $color;
+    background-color: $background-hover;
+    border-color: $background-hover;
+  }
+  // .open > &.dropdown-toggle {
+  //   color: $color;
+  //   background-color: darken($background, 10%);
+
+  //   &:hover,
+  //   &:focus,
+  //   &.focus {
+  //     color: $color;
+  //     background-color: darken($background, 17%);
+  //   }
+  // }
+  // &:active,
+  // &.active,
+  // .open > &.dropdown-toggle {
+  //   background-image: none;
+  // }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background-hover;
+    }
+  }
+
+  // .badge {
+  //   color: $background;
+  //   background-color: $color;
+  // }
+}
+
+%heading-default {
+  align-items: center;
+  border-bottom: 1px solid #b7b7b7;
+  display: inline-flex;
+  font-size: 1.4rem;
+  padding: .4rem .6rem;
+  text-transform: uppercase;
+}

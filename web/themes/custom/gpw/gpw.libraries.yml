@@ -18,11 +18,33 @@ header:
   js:
     dist/components/navbar/navbar.js: {}
 
+buttons:
+  css:
+    theme:
+      dist/components/buttons/buttons.css: {}
+  js:
+    dist/components/buttons/buttons.js: {}
+
+meetings:
+  css:
+    theme:
+      dist/components/meetings/meeting.css: {}
+      dist/components/meetings/meetings-views.css: {}
+
+homepage:
+  css:
+    theme:
+      dist/components/homepage/homepage.css: {}
+
 framework:
-  css: {}
+  css:
+    theme:
+      dist/components/address/address.css: {}
   js: {}
   dependencies:
     - gpw/fonts
     - gpw/bootstrap
     - gpw/header
-
+    - gpw/buttons
+    - gpw/meetings
+    - gpw/homepage
