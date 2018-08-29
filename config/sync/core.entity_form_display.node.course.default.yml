@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.course.body
     - field.field.node.course.field_course_reviews
     - field.field.node.course.field_course_sections
+    - field.field.node.course.field_e_learning_link
     - field.field.node.course.field_includes
     - field.field.node.course.field_key_points
     - field.field.node.course.field_lectures_number
@@ -15,6 +16,7 @@ dependencies:
     - node.type.course
   module:
     - inline_entity_form
+    - link
     - text
 id: node.course.default
 targetEntityType: node
@@ -37,7 +39,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_course_reviews:
-    weight: 12
+    weight: 13
     settings:
       form_mode: default
       override_labels: true
@@ -53,7 +55,7 @@ content:
     type: inline_entity_form_complex
     region: content
   field_course_sections:
-    weight: 11
+    weight: 12
     settings:
       form_mode: default
       override_labels: true
@@ -68,8 +70,16 @@ content:
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
-  field_includes:
+  field_e_learning_link:
     weight: 10
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_includes:
+    weight: 11
     settings:
       rows: 3
       placeholder: ''

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.course.body
     - field.field.node.course.field_course_reviews
     - field.field.node.course.field_course_sections
+    - field.field.node.course.field_e_learning_link
     - field.field.node.course.field_includes
     - field.field.node.course.field_key_points
     - field.field.node.course.field_lectures_number
@@ -15,6 +16,7 @@ dependencies:
     - node.type.course
   module:
     - duration_field
+    - link
     - text
     - user
 id: node.course.default
@@ -30,7 +32,7 @@ content:
     third_party_settings: {  }
     region: content
   field_course_reviews:
-    weight: 8
+    weight: 9
     label: above
     settings:
       link: true
@@ -39,7 +41,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_course_sections:
-    weight: 7
+    weight: 8
     label: above
     settings:
       view_mode: default
@@ -47,8 +49,20 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  field_includes:
+  field_e_learning_link:
     weight: 4
+    label: hidden
+    settings:
+      trim_length: 300
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_includes:
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -63,7 +77,7 @@ content:
     type: string
     region: content
   field_lectures_number:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       thousand_separator: ''
@@ -81,7 +95,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_video_duration:
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       text_length: short
