@@ -68,4 +68,8 @@ p:last-child,
   }
 }
 
-
+.container {
+  @media #{$grid-breakpoint-max} {
+    width: 100%;
+  }
+}

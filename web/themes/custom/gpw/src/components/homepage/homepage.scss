@@ -1,6 +1,7 @@
 @import '../../utilities';
-@import 'see-all-meetings';
-@import 'slideshow';
+@import 'block--homepage';
+@import 'block-see-all-meetings';
+@import 'block-latest-news';
 
 .path-frontpage {
   .page {
@@ -12,19 +13,38 @@
 
       @media #{$tablet} {
         font-size: 6.4rem;
-        width: 90%;
+      }
+      @media #{$normal} {
+        font-size: 6.4rem;
+        width: 74%;
+        float: right;
+        margin-right: 1.5rem;
       }
     }
   }
 
-  .block-title {
-    @extend %heading-default;
+  .hero {
+    .row {
+      @media #{$grid-breakpoint} {
+        align-items: center;
+        display: flex;
+      }
+    }
   }
 
   .region-content {
   }
 
   .region-content-2 {
+  }
+
+  .region-content-3 {
+    margin-top: 3rem;
+  }
+
+  .region-content-4,
+  .region-content-5 {
+    margin-top: 5rem;
   }
 
 }

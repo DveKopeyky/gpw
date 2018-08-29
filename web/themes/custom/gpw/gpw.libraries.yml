@@ -15,21 +15,27 @@ header:
   css:
     theme:
       dist/components/navbar/navbar.css: {}
-  js:
-    dist/components/navbar/navbar.js: {}
 
 buttons:
   css:
     theme:
       dist/components/buttons/buttons.css: {}
-  js:
-    dist/components/buttons/buttons.js: {}
 
 meetings:
   css:
     theme:
       dist/components/meetings/meeting.css: {}
       dist/components/meetings/meetings-views.css: {}
+
+news:
+  css:
+    theme:
+      dist/components/news/news.css: {}
+
+courses:
+  css:
+    theme:
+      dist/components/courses/course.css: {}
 
 homepage:
   css:
@@ -47,4 +53,6 @@ framework:
     - gpw/header
     - gpw/buttons
     - gpw/meetings
+    - gpw/news
+    - gpw/courses
     - gpw/homepage

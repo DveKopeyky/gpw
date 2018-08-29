@@ -104,16 +104,16 @@
           {% endblock %}
         {% endif %}
 
-        <div class="container">
+        <div class="hero container">
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-5">
               {# Content #}
               {% block content %}
                 <a id="main-content"></a>
                 {{ page.content }}
               {% endblock %}
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
               {% if page.content_2 %}
                 <div class="has-timeline">
                   {% block content_2 %}

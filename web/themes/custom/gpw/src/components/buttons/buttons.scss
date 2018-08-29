@@ -1,9 +1,24 @@
 @import '../../utilities';
 
-// .btn-primary-outline {
-//   @include button-fill-variant($btn-primary-color, $btn-primary-bg, $gpw-primary);
-//   border: 1px solid;
-// }
+
+.btn {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.6rem;
+  justify-content: center;
+  min-height: 5rem;
+  transition: background .2s;
+  text-transform: uppercase;
+}
+
+.btn-outline {
+  border: 1px solid;
+
+  // &:hover,
+  // &:focus {
+  //   background-color:
+  // }
+}
 
 // .btn-primary--fill {
 //   @include button-fill-variant(#fff, $gpw-secondary, $gpw-primary);

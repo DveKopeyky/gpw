@@ -25,7 +25,7 @@
 
   $navbar-height:             80px !global;
   $navbar-default-bg:         transparent !global;
-  $navbar-default-border:     $navbar-default-bg !global;
+  $navbar-default-border:     transparent !global;
   $navbar-default-link-color: #000 !global;
   $navbar-default-link-hover-color: $gpw-secondary !global;
 
@@ -52,7 +52,9 @@
 
   $view-next-meetings: 'block-views-blockmeetings-next-meetings' !global;
   $view-past-meetings: 'block-views-blockmeetings-past-meetings' !global;
-  $homepage-slideshow: 'block-views-blocknews-latest-news' !global;
+  $block-latest-news: 'block-views-blocknews-latest-news' !global;
+  $block-see-all-meetings: 'block-simple-blocksee-all-meetings' !global;
+  $block-elearning-courses: 'block-views-blockhomepage-courses-elearning-block' !global;
 
 }
 

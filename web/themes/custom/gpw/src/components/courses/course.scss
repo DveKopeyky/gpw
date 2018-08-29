@@ -1,0 +1,36 @@
+@import '../../utilities';
+
+.news {
+  &.teaser {
+    h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .content {
+      font-size: 1.7rem;
+
+      .field--name-body,
+      .field--name-body *,
+      .links {
+        display: inline;
+      }
+
+    }
+
+
+    .node-readmore {
+      font-style: italic;
+      &:after {
+        content: ' »';
+      }
+    }
+
+  }
+}

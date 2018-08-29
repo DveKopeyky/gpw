@@ -1,0 +1,13 @@
+.block--homepage {
+  .col-left {
+    @media #{$tablet} {
+      text-align: right;
+      h2 {
+        margin-right: 2em;
+      }
+    }
+  }
+  .block-title {
+    @extend %heading-default;
+  }
+}
