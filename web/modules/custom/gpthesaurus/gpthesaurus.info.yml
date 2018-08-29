@@ -1,0 +1,7 @@
+name: 'Global Pact Thesaurus'
+type: module
+description: 'Holds functionalities regarding thesaurus and topics'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - gpbase

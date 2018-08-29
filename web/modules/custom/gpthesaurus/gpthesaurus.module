@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * Contains gpmeeting.module.
+ */
+
+use Drupal\taxonomy\TermInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\views\Views;
+
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
+function gpthesaurus_taxonomy_term_view_alter(array &$build, TermInterface $term, EntityViewDisplayInterface $display) {
+  if ($term->bundle() == 'topics') {
+    $view = Views::getView('topic_terms');
+    if ($build['#view_mode'] == 'full') {
+      $terms = $view->buildRenderable('block_1', [$term->id()]);
+      $build['topic_terms'] = [
+        '#prefix' => '<div class="field"><div class="field--items">',
+        '#suffix' => '</div></div>',
+        '#markup' => render($terms),
+        '#weight' => 10,
+      ];
+    }
+    elseif ($build['#view_mode'] == 'computed') {
+      $build['name'] = [];
+      $terms = $view->buildRenderable('block_2', [$term->id()]);
+      $build['topic_terms'] = [
+        '#prefix' => '<div class="field"><div class="field--items">',
+        '#suffix' => '</div></div>',
+        '#markup' => render($terms),
+      ];
+    }
+  }
+}
