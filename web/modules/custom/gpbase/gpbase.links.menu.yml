@@ -1,3 +1,13 @@
+gpbase.main.elearning:
+  title: 'Free Online Courses'
+  menu_name: main
+  url: 'https://elearning.informea.org/'
+  weight: 50
+  options:
+    attributes:
+      class: 'btn btn-outline'
+      target: '_blank'
+
 gpbase.footer.meetings:
   title: 'Meetings'
   menu_name: footer
