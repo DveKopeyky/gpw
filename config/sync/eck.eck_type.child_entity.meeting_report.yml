@@ -1,0 +1,9 @@
+uuid: a2f5ccca-f164-40ca-8fb2-d065370aecba
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.child_entity
+name: 'Meeting report'
+type: meeting_report
+description: ''

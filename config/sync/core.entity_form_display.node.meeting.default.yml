@@ -6,12 +6,11 @@ dependencies:
     - field.field.node.meeting.field_address
     - field.field.node.meeting.field_agenda_items
     - field.field.node.meeting.field_date_range
-    - field.field.node.meeting.field_files
+    - field.field.node.meeting.field_reports
     - node.type.meeting
   module:
     - address
     - datetime_range
-    - file
     - inline_entity_form
 id: node.meeting.default
 targetEntityType: node
@@ -53,12 +52,21 @@ content:
     third_party_settings: {  }
     type: daterange_default
     region: content
-  field_files:
+  field_reports:
     weight: 8
     settings:
-      progress_indicator: throbber
+      form_mode: default
+      override_labels: true
+      label_singular: report
+      label_plural: reports
+      allow_new: true
+      match_operator: CONTAINS
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
     third_party_settings: {  }
-    type: file_generic
+    type: inline_entity_form_complex
     region: content
   promote:
     type: boolean_checkbox

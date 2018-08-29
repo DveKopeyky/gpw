@@ -2,6 +2,7 @@ module:
   address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  better_exposed_filters: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -22,6 +23,7 @@ module:
   filter: 0
   gpbase: 0
   gpcourse: 0
+  gpmeeting: 0
   hal: 0
   image: 0
   inline_entity_form: 0
@@ -29,6 +31,7 @@ module:
   menu_link_attributes: 0
   menu_ui: 0
   node: 0
+  options: 0
   page_cache: 0
   serialization: 0
   simple_block: 0

@@ -1,0 +1,21 @@
+uuid: a64f31d9-f26e-4a6c-a14c-12b2e8f5e4c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_report
+    - field.storage.child_entity.field_language_list
+  module:
+    - options
+id: child_entity.meeting_report.field_language_list
+field_name: field_language_list
+entity_type: child_entity
+bundle: meeting_report
+label: Language
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,28 @@
+uuid: 4c18953f-3893-4c81-96e1-989f379a5848
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_report
+    - field.storage.node.field_reports
+    - node.type.meeting
+id: node.meeting.field_reports
+field_name: field_reports
+entity_type: node
+bundle: meeting
+label: Reports
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:child_entity'
+  handler_settings:
+    target_bundles:
+      meeting_report: meeting_report
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -5,13 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.meeting
+    - node.type.webinar
     - system.menu.main
   module:
+    - better_exposed_filters
     - datetime
     - node
     - user
 id: meetings
-label: Meetings
+label: 'Meetings & webinars'
 module: views
 description: ''
 tag: ''
@@ -41,7 +43,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
           reset_button: false
@@ -50,6 +52,24 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_hide: false
+            type:
+              bef_format: bef_links
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+          text_input_required_format: full_html
       pager:
         type: some
         options:
@@ -134,10 +154,16 @@ display:
       title: 'Past Meetings'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -191,8 +217,40 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
             meeting: meeting
+            webinar: webinar
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
@@ -265,6 +323,8 @@ display:
         filter_groups: false
         header: false
         pager: false
+        empty: false
+        sorts: false
       path: meetings
       menu:
         type: normal
@@ -291,15 +351,79 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
             meeting: meeting
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: null
+            use_operator: false
+            operator: type_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: Filters
+            description: ''
+            identifier: type
+            optional: false
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: All
+                operator: in
+                value:
+                  meeting: meeting
+                  webinar: webinar
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  news: '0'
+              2:
+                title: 'Meetings & events'
+                operator: in
+                value:
+                  meeting: meeting
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  news: '0'
+                  webinar: '0'
+              3:
+                title: Webinars
+                operator: in
+                value:
+                  webinar: webinar
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  meeting: '0'
+                  news: '0'
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_start_date_value:
-          id: field_start_date_value
-          table: node__field_start_date
-          field: field_start_date_value
+        field_date_range_value:
+          id: field_date_range_value
+          table: node__field_date_range
+          field: field_date_range_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -392,11 +516,40 @@ display:
             offset_label: Offset
           quantity: 9
       display_description: ''
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There are no future events.'
+            format: full_html
+          plugin_id: text
+      sorts:
+        field_date_range_value:
+          id: field_date_range_value
+          table: node__field_date_range
+          field: field_date_range_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          plugin_id: datetime
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -444,8 +597,62 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
             meeting: meeting
+            webinar: webinar
+          group: 1
+          exposed: false
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: null
+            use_operator: false
+            operator: type_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: Filters
+            description: ''
+            identifier: type
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Meetings & events'
+                operator: in
+                value:
+                  meeting: meeting
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  news: '0'
+                  webinar: '0'
+              2:
+                title: Webinars
+                operator: in
+                value:
+                  webinar: webinar
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  meeting: '0'
+                  news: '0'
           entity_type: node
           entity_field: type
           plugin_id: bundle
@@ -533,6 +740,8 @@ display:
         filter_groups: false
         pager: false
         title: false
+        use_ajax: false
+        empty: false
       filters:
         status:
           value: '1'
@@ -549,15 +758,79 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
             meeting: meeting
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: null
+            use_operator: false
+            operator: type_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: Filters
+            description: ''
+            identifier: type
+            optional: false
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: All
+                operator: in
+                value:
+                  meeting: meeting
+                  webinar: webinar
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  news: '0'
+              2:
+                title: 'Meetings & events'
+                operator: in
+                value:
+                  meeting: meeting
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  news: '0'
+                  webinar: '0'
+              3:
+                title: Webinars
+                operator: in
+                value:
+                  webinar: webinar
+                  all: '0'
+                  page: '0'
+                  course: '0'
+                  highlighted_course: '0'
+                  meeting: '0'
+                  news: '0'
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_start_date_value:
-          id: field_start_date_value
-          table: node__field_start_date
-          field: field_start_date_value
+        field_date_range_value:
+          id: field_date_range_value
+          table: node__field_date_range
+          field: field_date_range_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -623,11 +896,27 @@ display:
             offset_label: Offset
           quantity: 9
       title: 'Past Meetings'
+      use_ajax: true
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There are no past events.'
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions

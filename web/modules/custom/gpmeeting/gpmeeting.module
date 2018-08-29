@@ -3,3 +3,33 @@
  * @file
  * Contains gpmeeting.module.
  */
+
+use Drupal\eck\EckEntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
+function gpmeeting_child_entity_view_alter(array &$build, EckEntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($entity->bundle() == 'meeting_report' && !empty($build['field_file'][0]['#file']) && !empty($build['field_language_list'][0]['#markup'])) {
+    $build['field_file'][0]['#description'] = $build['field_language_list'][0]['#markup'];
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
+function gpmeeting_node_view_alter(array &$build, NodeInterface $node, EntityViewDisplayInterface $display) {
+  if ($node->bundle() == 'webinar' && $build['#view_mode'] == 'teaser') {
+    $build['location'] = [
+      '#prefix' => '<div class="field"><p class="address">',
+      '#suffix' => '</p></div>',
+      '#markup' => t('Online'),
+      '#weight' => -1,
+    ];
+    if (!empty($node->field_video->getValue())) {
+      $build['view_recording'] = $node->toLink(t('View recording'), 'canonical', ['attributes' => ['class' => ['view-recording-link']]])->toRenderable();
+    }
+  }
+}

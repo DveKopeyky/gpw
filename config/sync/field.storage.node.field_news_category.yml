@@ -1,0 +1,33 @@
+uuid: b77afb52-af6a-4533-b813-70dce51e10f8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_news_category
+field_name: field_news_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Story
+      label: Story
+    -
+      value: Meeting
+      label: Meeting
+    -
+      value: Webinar
+      label: Webinar
+    -
+      value: Press
+      label: Press
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
