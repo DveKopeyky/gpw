@@ -21,7 +21,15 @@ function gpmeeting_child_entity_view_alter(array &$build, EckEntityInterface $en
  * Implements hook_ENTITY_TYPE_view_alter().
  */
 function gpmeeting_node_view_alter(array &$build, NodeInterface $node, EntityViewDisplayInterface $display) {
-  if ($node->bundle() == 'webinar' && $build['#view_mode'] == 'teaser' && !empty($node->field_video->getValue())) {
-    $build['view_recording'] = $node->toLink(t('View recording'))->toRenderable();
+  if ($node->bundle() == 'webinar' && $build['#view_mode'] == 'teaser') {
+    $build['location'] = [
+      '#prefix' => '<div class="field"><p class="address">',
+      '#suffix' => '</p></div>',
+      '#markup' => t('Online'),
+      '#weight' => -1,
+    ];
+    if (!empty($node->field_video->getValue())) {
+      $build['view_recording'] = $node->toLink(t('View recording'))->toRenderable();
+    }
   }
 }

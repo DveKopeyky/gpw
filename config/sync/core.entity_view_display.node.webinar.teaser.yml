@@ -10,24 +10,26 @@ dependencies:
     - field.field.node.webinar.field_video
     - node.type.webinar
   module:
-    - text
+    - datetime_range
     - user
 id: node.webinar.teaser
 targetEntityType: node
 bundle: webinar
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
+  field_date_range:
+    type: daterange_default
     weight: 0
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
     region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: short_date_no_time
+      separator: '-'
+    third_party_settings: {  }
 hidden:
+  body: true
   field_date: true
-  field_date_range: true
   field_files: true
   field_video: true
   links: true
