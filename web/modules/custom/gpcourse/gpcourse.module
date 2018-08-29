@@ -10,6 +10,7 @@ use Drupal\eck\EckEntityInterface;
 use Drupal\node\NodeInterface;
 use Drupal\eck\Entity\EckEntity;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\views\Views;
 
 /**
  * Implements hook_help().
@@ -203,5 +204,22 @@ function gpcourse_child_entity_view_alter(array &$build, EckEntityInterface $ent
     $build['#attached']['library'][] = 'core/drupal.ajax';
     $build['#attached']['library'][] = 'core/drupal.dialog';
     $build['#attached']['library'][] = 'core/drupal.dialog.ajax';
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
+function gpcourse_node_view_alter(array &$build, NodeInterface $node, EntityViewDisplayInterface $display) {
+  if ($node->bundle() == 'course' && $build['#view_mode'] == 'full' && !empty($build['field_course_reviews'])) {
+    $childIds = array_column($node->field_course_reviews->getValue(), 'target_id');
+    $view = Views::getView('course_reviews');
+    $reviews = $view->buildRenderable('block_1', [implode('+', $childIds)]);
+    $build['field_course_reviews'] = [
+      '#prefix' => sprintf('<div class="field field--name-field-course-reviews"><div class="field--label">%s</div><div class="field--items">', $view->getTitle()),
+      '#suffix' => '</div></div>',
+      '#weight' => $build['field_course_reviews']['#weight'] ?: 0,
+      '#markup' => render($reviews),
+    ];
   }
 }
