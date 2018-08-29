@@ -43,7 +43,8 @@
     left: 0;
     right: 0;
     @media #{$tablet} {
-      width: (2 / 3) * 100%;
+      width: 50%;
+      padding-left: 0;
     }
     li {
       $bullet-radius: 3px;
