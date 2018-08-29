@@ -29,7 +29,7 @@ function gpmeeting_node_view_alter(array &$build, NodeInterface $node, EntityVie
       '#weight' => -1,
     ];
     if (!empty($node->field_video->getValue())) {
-      $build['view_recording'] = $node->toLink(t('View recording'))->toRenderable();
+      $build['view_recording'] = $node->toLink(t('View recording'), 'canonical', ['attributes' => ['class' => ['view-recording-link']]])->toRenderable();
     }
   }
 }
