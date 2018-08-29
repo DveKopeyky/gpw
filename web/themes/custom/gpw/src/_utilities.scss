@@ -22,16 +22,19 @@
   $border-radius-base:        0 !global;
 
   $link-color:                $gpw-secondary !global;
+  $nav-link-hover-bg:         transparent !global;
 
   $navbar-height:             80px !global;
   $navbar-default-bg:         transparent !global;
   $navbar-default-border:     transparent !global;
   $navbar-default-link-color: #000 !global;
   $navbar-default-link-hover-color: $gpw-secondary !global;
+  $navbar-default-link-active-color: $gpw-primary !global;
 
   $navbar-inverse-bg:         #333 !global;
   $navbar-inverse-border:     transparent !global;
   $navbar-inverse-link-color: #fff !global;
+  $navbar-inverse-link-hover-color: $gpw-primary !global;
 
   $btn-primary-color:              #fff !global;
   $btn-primary-bg:                 $gpw-secondary !global;

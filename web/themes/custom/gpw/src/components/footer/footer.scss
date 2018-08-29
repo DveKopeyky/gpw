@@ -1,0 +1,39 @@
+@import '../../utilities';
+
+.footer .nav > li > a {
+  color: $text-color;
+
+  &:hover, &:focus {
+    color: $navbar-default-link-hover-color;
+  }
+}
+
+.footer-logos {
+  .logo {
+    margin-left: 1rem;
+  }
+
+}
+
+// Mobile specific styles
+@media #{$grid-breakpoint-max} {
+  .footer > .container {
+    align-items: center;
+    display: flex;
+  }
+
+  .footer-logos {
+    flex: 1;
+    order: -1;
+
+    .logo {
+      height: 6rem;
+      width: auto;
+    }
+
+  }
+
+  .menu--footer {
+    display: none;
+  }
+}

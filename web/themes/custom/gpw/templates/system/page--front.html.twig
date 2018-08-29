@@ -54,7 +54,7 @@
 #}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 
-{% include "@gpw/includes/header.html.twig" %}
+{% include "@gpw/includes/_header.html.twig" %}
 
 {# Main #}
 {% block main %}
@@ -160,6 +160,4 @@
   </div>
 {% endblock %}
 
-{% if page.footer %}
-  {% include "@gpw/includes/footer.html.twig" %}
-{% endif %}
+{% include "@gpw/includes/_footer.html.twig" %}

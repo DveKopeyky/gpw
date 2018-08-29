@@ -20,8 +20,18 @@ gpbase.footer.news:
   route_name: view.news.page_1
   weight: 1
 
+gpbase.footer.elearning:
+  title: 'Free Online Courses'
+  menu_name: footer
+  url: 'https://elearning.informea.org/'
+  weight: 2
+  options:
+    attributes:
+      target: '_blank'
+
 gpbase.footer.glossary:
   title: 'Glossary'
   menu_name: footer
   route_name: view.glossary.page_1
-  weight: 2
+  weight: 3
+

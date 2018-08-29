@@ -1,0 +1,15 @@
+{% import "@gpw/_images.twig" as images %}
+
+{% if page.footer %}
+  {% block footer %}
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        {{ page.footer }}
+        <div class="footer-logos navbar-right">
+          {{ images.get('logo-pactenvironment.png', base_path ~ directory, 98, 69, 'logo') }}
+          {{ images.get('european-commision.png', base_path ~ directory, 73, 73, 'logo') }}
+        </div>
+      </div>
+    </footer>
+  {% endblock %}
+{% endif %}

@@ -18,6 +18,15 @@
   // &:focus {
   //   background-color:
   // }
+
+  // @todo: mixin
+  &.btn-primary {
+    color: $gpw-primary;
+  }
+
+  &.btn-secondary {
+    color: $gpw-secondary;
+  }
 }
 
 // .btn-primary--fill {
