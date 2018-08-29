@@ -292,6 +292,7 @@ display:
         header: false
         pager: false
         empty: false
+        sorts: false
       path: meetings
       menu:
         type: normal
@@ -497,6 +498,20 @@ display:
             value: 'There are no future events.'
             format: full_html
           plugin_id: text
+      sorts:
+        field_date_range_value:
+          id: field_date_range_value
+          table: node__field_date_range
+          field: field_date_range_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          plugin_id: datetime
     cache_metadata:
       max-age: -1
       contexts:
