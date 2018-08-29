@@ -32,4 +32,7 @@ function gpmeeting_node_view_alter(array &$build, NodeInterface $node, EntityVie
       $build['view_recording'] = $node->toLink(t('View recording'), 'canonical', ['attributes' => ['class' => ['view-recording-link']]])->toRenderable();
     }
   }
+  elseif ($node->bundle() == 'meeting' && $build['#view_mode'] == 'full' && !empty($build['title'][0]['#context']['value'])) {
+    $build['title'][0]['#context']['value'] .= sprintf(' - %s', t('Agenda and Documents'));
+  }
 }
