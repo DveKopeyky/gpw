@@ -1,0 +1,11 @@
+uuid: 0f58bce4-d3b3-46db-a90f-eb31ee74f001
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: meetings_title_description
+title: 'Meetings title description'
+content:
+  value: "<p>Search through all of the latest meetings and events related to the Global Pact of the Environment</p>\r\n"
+  format: full_html

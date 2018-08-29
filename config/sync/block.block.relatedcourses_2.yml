@@ -12,7 +12,7 @@ dependencies:
 id: relatedcourses_2
 theme: gpw
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: 'simple_block:related_courses'
 settings:

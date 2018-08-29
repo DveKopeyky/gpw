@@ -104,9 +104,14 @@
           {% endblock %}
         {% endif %}
 
+        {# Title #}
+        {% block title %}
+          <a id="main-content"></a>
+          {{ page.title }}
+        {% endblock %}
+
         {# Content #}
         {% block content %}
-          <a id="main-content"></a>
           {{ page.content }}
         {% endblock %}
 

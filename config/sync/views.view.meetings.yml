@@ -468,19 +468,6 @@ display:
         groups:
           1: AND
       header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'Search through all of the latest meetings and events related to the Global Pact of the Environment'
-            format: full_html
-          plugin_id: text
         area_1:
           id: area_1
           table: views
@@ -544,6 +531,7 @@ display:
             label: ''
           granularity: second
           plugin_id: datetime
+      exposed_block: true
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,4 +1,4 @@
-uuid: 09c84d17-76dd-4eff-a378-88c4a0defc0a
+uuid: ed8b6991-8dd2-48a6-917d-31f674468491
 langcode: en
 status: true
 dependencies:
@@ -9,19 +9,18 @@ dependencies:
     - views
   theme:
     - gpw
-id: views_block__meetings_past_meetings_pager
+id: exposedformmeetingspage_1
 theme: gpw
 region: content
-weight: -5
+weight: -7
 provider: null
-plugin: 'views_block:meetings-past_meetings_pager'
+plugin: 'views_exposed_filter_block:meetings-page_1'
 settings:
-  id: 'views_block:meetings-past_meetings_pager'
+  id: 'views_exposed_filter_block:meetings-page_1'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
-  items_per_page: none
 visibility:
   request_path:
     id: request_path

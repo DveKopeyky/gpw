@@ -12,6 +12,7 @@ regions:
   header: 'Top Bar'
   highlighted: 'Highlighted'
   help: 'Help'
+  title: 'Title'
   content: 'Content'
   content_2: 'Content #2'
   content_3: 'Content #3'

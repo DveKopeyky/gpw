@@ -1,0 +1,28 @@
+uuid: 6d850038-88ad-449d-b84c-27d6abb07009
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.meetings_title_description
+  module:
+    - simple_block
+    - system
+  theme:
+    - gpw
+id: meetingstitledescription
+theme: gpw
+region: title
+weight: -8
+provider: null
+plugin: 'simple_block:meetings_title_description'
+settings:
+  id: 'simple_block:meetings_title_description'
+  label: 'Meetings title description'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /meetings
+    negate: false
+    context_mapping: {  }

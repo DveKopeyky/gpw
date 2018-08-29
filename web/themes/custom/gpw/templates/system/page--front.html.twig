@@ -107,6 +107,12 @@
         <div class="hero container">
           <div class="row">
             <div class="col-sm-5">
+              {# Title #}
+              {% block title %}
+                <a id="main-content"></a>
+                {{ page.title }}
+              {% endblock %}
+              
               {# Content #}
               {% block content %}
                 <a id="main-content"></a>
