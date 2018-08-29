@@ -1,0 +1,18 @@
+uuid: c95e58da-ff0e-4665-a44f-cdc34db05452
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.computed
+    - field.field.taxonomy_term.topics.field_image
+    - field.field.taxonomy_term.topics.field_link
+    - taxonomy.vocabulary.topics
+id: taxonomy_term.topics.computed
+targetEntityType: taxonomy_term
+bundle: topics
+mode: computed
+content: {  }
+hidden:
+  description: true
+  field_image: true
+  field_link: true

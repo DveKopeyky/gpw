@@ -1,0 +1,10 @@
+uuid: f4b24890-e9af-4995-9e52-1e359a3d149a
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.computed
+label: Computed
+targetEntityType: taxonomy_term
+cache: true
