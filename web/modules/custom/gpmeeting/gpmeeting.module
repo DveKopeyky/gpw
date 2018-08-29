@@ -3,3 +3,15 @@
  * @file
  * Contains gpmeeting.module.
  */
+
+use Drupal\eck\EckEntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
+function gpmeeting_child_entity_view_alter(array &$build, EckEntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($entity->bundle() == 'meeting_report' && !empty($build['field_file'][0]['#file']) && !empty($build['field_language_list'][0]['#markup'])) {
+    $build['field_file'][0]['#description'] = $build['field_language_list'][0]['#markup'];
+  }
+}

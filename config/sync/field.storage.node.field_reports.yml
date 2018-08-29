@@ -1,0 +1,20 @@
+uuid: 375e045e-e317-45c3-97ad-b3f559b21ca6
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+id: node.field_reports
+field_name: field_reports
+entity_type: node
+type: entity_reference
+settings:
+  target_type: child_entity
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

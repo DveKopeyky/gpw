@@ -1,0 +1,33 @@
+uuid: e8a03f93-1fb3-4a1c-87f5-1f8bd5f9db33
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_report
+    - field.field.child_entity.meeting_report.field_file
+    - field.field.child_entity.meeting_report.field_language_list
+  module:
+    - file
+    - options
+id: child_entity.meeting_report.default
+targetEntityType: child_entity
+bundle: meeting_report
+mode: default
+content:
+  field_file:
+    weight: 1
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_language_list:
+    type: list_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  title: true

@@ -1,19 +1,19 @@
-uuid: 2e2dfe5b-ff9a-4d3a-b666-03b9b88228ad
+uuid: aa922374-99b5-4168-83be-951abc9d12ff
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_files
-    - node.type.meeting
+    - eck.eck_type.child_entity.meeting_report
+    - field.storage.child_entity.field_file
   module:
     - file
-id: node.meeting.field_files
-field_name: field_files
-entity_type: node
-bundle: meeting
-label: Documents
+id: child_entity.meeting_report.field_file
+field_name: field_file
+entity_type: child_entity
+bundle: meeting_report
+label: File
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
