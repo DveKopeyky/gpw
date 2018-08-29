@@ -3,16 +3,3 @@
  * @file
  * Contains gpmeeting.module.
  */
-
-use Drupal\node\NodeInterface;
-
-/**
- * Implements hook_ENTITY_TYPE_presave().
- */
-function gpmeeting_node_presave(NodeInterface $node) {
-  if ($node->getType() == 'meeting') {
-    // We are using field_start_date for views sorting.
-    $node->set('field_start_date', $node->field_date_range->value);
-  }
-}
-

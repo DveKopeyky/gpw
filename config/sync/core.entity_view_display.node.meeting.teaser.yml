@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.meeting.field_agenda_items
     - field.field.node.meeting.field_date_range
     - field.field.node.meeting.field_files
-    - field.field.node.meeting.field_start_date
     - node.type.meeting
   module:
     - address
@@ -39,5 +38,4 @@ content:
 hidden:
   field_agenda_items: true
   field_files: true
-  field_start_date: true
   links: true
