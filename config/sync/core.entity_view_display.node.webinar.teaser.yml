@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.webinar.body
+    - field.field.node.webinar.field_date_range
+    - field.field.node.webinar.field_files
+    - field.field.node.webinar.field_video
     - node.type.webinar
   module:
     - text
@@ -17,15 +20,14 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 0
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
-    region: content
 hidden:
   field_date: true
+  field_date_range: true
   field_files: true
   field_video: true
+  links: true

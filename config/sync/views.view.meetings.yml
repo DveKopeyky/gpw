@@ -154,7 +154,12 @@ display:
       title: 'Past Meetings'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
@@ -286,6 +291,7 @@ display:
         filter_groups: false
         header: false
         pager: false
+        empty: false
       path: meetings
       menu:
         type: normal
@@ -477,6 +483,20 @@ display:
             offset_label: Offset
           quantity: 9
       display_description: ''
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There are no future events.'
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -674,6 +694,7 @@ display:
         pager: false
         title: false
         use_ajax: false
+        empty: false
       filters:
         status:
           value: '1'
@@ -829,6 +850,20 @@ display:
           quantity: 9
       title: 'Past Meetings'
       use_ajax: true
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There are no past events.'
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
