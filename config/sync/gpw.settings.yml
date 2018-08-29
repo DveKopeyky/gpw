@@ -9,6 +9,9 @@ favicon:
 schemas:
   bootstrap: 8000
   gpw: 8000
+fluid_container: 1
+table_responsive: '-1'
+table: ''
 features:
   comment_user_picture: true
   comment_user_verification: true
@@ -18,6 +21,19 @@ logo:
   path: ''
   url: ''
   use_default: true
-fluid_container: 1
-table_responsive: '-1'
-table: ''
+region_wells:
+  navigation: ''
+  navigation_collapsible: ''
+  header: ''
+  highlighted: ''
+  help: ''
+  title: ''
+  content: ''
+  content_2: ''
+  content_3: ''
+  content_4: ''
+  content_5: ''
+  sidebar_first: ''
+  sidebar_second: well
+  footer: ''
+modal_size: modal-lg
