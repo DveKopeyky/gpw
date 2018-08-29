@@ -27,6 +27,13 @@
 
     .more-link {
       margin-top: 3rem;
+      > a {
+        &:hover,
+        &:focus {
+          color: $gpw-primary;
+        }
+      }
+
     }
 
   }
