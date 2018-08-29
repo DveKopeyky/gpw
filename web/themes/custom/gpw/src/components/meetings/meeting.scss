@@ -107,7 +107,8 @@
   }
 
    // Solid lines
-  .#{$view-past-meetings} .meeting.teaser {
+  .#{$view-past-meetings} .meeting.teaser,
+  .#{$view-past-meetings} .webinar.teaser {
     &:before {
       content: "";
       display: block;
