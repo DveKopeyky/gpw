@@ -1,4 +1,5 @@
 @import '../../utilities';
+@import 'page-header';
 
 .hero {
   align-items: center;
@@ -9,14 +10,9 @@
   display: flex;
   flex-direction: column;
   font-family: $font-family-regular;
+  font-size: 1.7rem;
   justify-content: center;
   min-height: 20rem;
-  padding: 3rem ($grid-gutter-width / 2);
+  padding: 3rem 0;
   text-align: center;
-}
-
-.page-header {
-  border-bottom: none;
-  font-family: $font-family-accent;
-  text-transform: uppercase;
 }

@@ -12,25 +12,26 @@ bootstrap:
   js:
     dist/bootstrap/overrides/bootstrap.js: {}
 
+base:
+  css:
+    theme:
+      dist/components/base/base.css: {}
+      dist/components/address/address.css: {}
+
 header:
   css:
     theme:
       dist/components/navbar/navbar.css: {}
 
+hero:
+  css:
+    theme:
+      dist/components/hero/hero.css: {}
+
 footer:
   css:
     theme:
       dist/components/footer/footer.css: {}
-
-base:
-  css:
-    theme:
-      dist/components/base/base.css: {}
-
-address:
-  css:
-    theme:
-      dist/components/address/address.css: {}
 
 buttons:
   css:
@@ -53,15 +54,19 @@ courses:
     theme:
       dist/components/courses/course.css: {}
 
+page:
+  css:
+    theme:
+      dist/components/page/page.css: {}
+  dependencies:
+    - gpw/header
+    - gpw/hero
+    - gpw/footer
+
 homepage:
   css:
     theme:
       dist/components/homepage/homepage.css: {}
-
-hero:
-  css:
-    theme:
-      dist/components/hero/hero.css: {}
 
 framework:
   css: {}
@@ -70,12 +75,10 @@ framework:
     - gpw/fonts
     - gpw/bootstrap
     - gpw/base
-    - gpw/address
     - gpw/buttons
-    - gpw/header
-    - gpw/footer
+    - gpw/page
     - gpw/meetings
     - gpw/news
     - gpw/courses
     - gpw/homepage
-    - gpw/hero
+

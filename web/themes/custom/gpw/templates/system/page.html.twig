@@ -76,15 +76,22 @@
     {# Help #}
     {% if page.help %}
       {% block help %}
-        <div class="container">
+        <div class="help container">
           {{ page.help }}
         </div>
       {% endblock %}
     {% endif %}
 
+    {# Highlighted #}
+    {% if page.highlighted %}
+      {% block highlighted %}
+        <div class="highlighted container">{{ page.highlighted }}</div>
+      {% endblock %}
+    {% endif %}
+
     {# Content wrapper #}
     {% block content_wrapper %}
-      <div class="container">
+      <div class="content-wrapper container">
         <div class="row">
 
           {# Sidebar First #}
@@ -105,13 +112,6 @@
             ]
           %}
           <section{{ content_attributes.addClass(content_classes) }}>
-
-            {# Highlighted #}
-            {% if page.highlighted %}
-              {% block highlighted %}
-                <div class="highlighted">{{ page.highlighted }}</div>
-              {% endblock %}
-            {% endif %}
 
             {# Content #}
             {% block content %}

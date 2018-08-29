@@ -56,58 +56,54 @@
 
 {# Content wrapper #}
 {% block content_wrapper %}
-  {# Sidebar First #}
-  {% if page.sidebar_first %}
-    {% block sidebar_first %}
-      <aside class="col-sm-3" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endblock %}
-  {% endif %}
+  <div class="content-wrapper">
 
-  <section{{ content_attributes }}>
-
-    {# Highlighted #}
-    {% if page.highlighted %}
-      {% block highlighted %}
-        <div class="highlighted">{{ page.highlighted }}</div>
+    {# Sidebar First #}
+    {% if page.sidebar_first %}
+      {% block sidebar_first %}
+        <aside class="col-sm-3" role="complementary">
+          {{ page.sidebar_first }}
+        </aside>
       {% endblock %}
     {% endif %}
 
-    {# Content #}
-    {% block content %}
-      {{ page.content }}
-    {% endblock %}
+    <section{{ content_attributes }}>
 
-    {# Other content regions #}
-    {% if page.content_2 %}
-      {% block content_2 %}
-          {{ page.content_2 }}
+      {# Content #}
+      {% block content %}
+        {{ page.content }}
       {% endblock %}
-    {% endif %}
-    {% if page.content_3 %}
-      {% block content_3 %}
-          {{ page.content_3 }}
-      {% endblock %}
-    {% endif %}
-    {% if page.content_4 %}
-      {% block content_4 %}
-          {{ page.content_4 }}
-      {% endblock %}
-    {% endif %}
-    {% if page.content_5 %}
-      {% block content_5 %}
-          {{ page.content_5 }}
-      {% endblock %}
-    {% endif %}
-  </section>
 
-  {# Sidebar Second #}
-  {% if page.sidebar_second %}
-    {% block sidebar_second %}
-      <aside class="col-sm-3" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endblock %}
-  {% endif %}
+      {# Other content regions #}
+      {% if page.content_2 %}
+        {% block content_2 %}
+            {{ page.content_2 }}
+        {% endblock %}
+      {% endif %}
+      {% if page.content_3 %}
+        {% block content_3 %}
+            {{ page.content_3 }}
+        {% endblock %}
+      {% endif %}
+      {% if page.content_4 %}
+        {% block content_4 %}
+            {{ page.content_4 }}
+        {% endblock %}
+      {% endif %}
+      {% if page.content_5 %}
+        {% block content_5 %}
+            {{ page.content_5 }}
+        {% endblock %}
+      {% endif %}
+    </section>
+
+    {# Sidebar Second #}
+    {% if page.sidebar_second %}
+      {% block sidebar_second %}
+        <aside class="col-sm-3" role="complementary">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endblock %}
+    {% endif %}
+  </div>
 {% endblock %}
