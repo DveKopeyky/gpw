@@ -56,6 +56,7 @@ function gpw_preprocess_menu__footer(&$variables) {
 function gpw_preprocess_region(&$variables) {
   if($variables['region'] == 'title') {
     $variables['attributes']['class'][] = 'hero';
+    $variables['attributes']['role'] = 'heading';
   }
 }
 

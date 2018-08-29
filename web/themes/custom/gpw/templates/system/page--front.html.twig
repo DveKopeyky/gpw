@@ -54,103 +54,83 @@
 #}
 {% extends '@gpw/system/page.html.twig' %}
 
-{# Main #}
-{% block main %}
-  <div role="main" class="main-container js-quickedit-main-content">
-      {# Header #}
-      {% if page.header %}
-        {% block header %}
-          <div role="heading">
-            {{ page.header }}
-          </div>
-        {% endblock %}
-      {% endif %}
+{# Content wrapper #}
+{% block content_wrapper %}
+  {# Sidebar First #}
+  {% if page.sidebar_first %}
+    {% block sidebar_first %}
+      <aside role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endblock %}
+  {% endif %}
 
-      {# Sidebar First #}
-      {% if page.sidebar_first %}
-        {% block sidebar_first %}
-          <aside role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
-        {% endblock %}
-      {% endif %}
+  <section{{ content_attributes }}>
 
-      {# Content #}
-      {%
-        set content_classes = [
-          page.sidebar_first and page.sidebar_second ? 'col-sm-6',
-          page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
-          page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
-          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
-        ]
-      %}
-      <section{{ content_attributes }}>
+    {# Highlighted #}
+    {% if page.highlighted %}
+      {% block highlighted %}
+        <div class="highlighted">{{ page.highlighted }}</div>
+      {% endblock %}
+    {% endif %}
 
-        {# Highlighted #}
-        {% if page.highlighted %}
-          {% block highlighted %}
-            <div class="highlighted">{{ page.highlighted }}</div>
+    {# Help #}
+    {% if page.help %}
+      {% block help %}
+        {{ page.help }}
+      {% endblock %}
+    {% endif %}
+
+    <div class="hero--frontpage container">
+      <div class="row">
+        <div class="col-sm-5">
+          {# Title #}
+          {% block title %}
+            <a id="main-content"></a>
+            {{ page.title }}
           {% endblock %}
-        {% endif %}
 
-        {# Help #}
-        {% if page.help %}
-          {% block help %}
-            {{ page.help }}
+          {# Content #}
+          {% block content %}
+            {{ page.content }}
           {% endblock %}
-        {% endif %}
-
-        <div class="hero--frontpage container">
-          <div class="row">
-            <div class="col-sm-5">
-              {# Title #}
-              {% block title %}
-                <a id="main-content"></a>
-                {{ page.title }}
-              {% endblock %}
-
-              {# Content #}
-              {% block content %}
-                {{ page.content }}
-              {% endblock %}
-            </div>
-            <div class="col-sm-7">
-              {% if page.content_2 %}
-                <div class="has-timeline">
-                  {% block content_2 %}
-                    {{ page.content_2 }}
-                  {% endblock %}
-                </div>
-              {% endif %}
-            </div>
-          </div>
         </div>
+        <div class="col-sm-7">
+          {% if page.content_2 %}
+            <div class="has-timeline">
+              {% block content_2 %}
+                {{ page.content_2 }}
+              {% endblock %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
 
-        {# Other content regions #}
-        {% if page.content_3 %}
-          {% block content_3 %}
-              {{ page.content_3 }}
-          {% endblock %}
-        {% endif %}
-        {% if page.content_4 %}
-          {% block content_4 %}
-              {{ page.content_4 }}
-          {% endblock %}
-        {% endif %}
-        {% if page.content_5 %}
-          {% block content_5 %}
-              {{ page.content_5 }}
-          {% endblock %}
-        {% endif %}
-      </section>
+    {# Other content regions #}
+    {% if page.content_3 %}
+      {% block content_3 %}
+          {{ page.content_3 }}
+      {% endblock %}
+    {% endif %}
+    {% if page.content_4 %}
+      {% block content_4 %}
+          {{ page.content_4 }}
+      {% endblock %}
+    {% endif %}
+    {% if page.content_5 %}
+      {% block content_5 %}
+          {{ page.content_5 }}
+      {% endblock %}
+    {% endif %}
+  </section>
 
-      {# Sidebar Second #}
-      {% if page.sidebar_second %}
-        {% block sidebar_second %}
-          <aside role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endblock %}
-      {% endif %}
-  </div>
+  {# Sidebar Second #}
+  {% if page.sidebar_second %}
+    {% block sidebar_second %}
+      <aside role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endblock %}
+  {% endif %}
 {% endblock %}
