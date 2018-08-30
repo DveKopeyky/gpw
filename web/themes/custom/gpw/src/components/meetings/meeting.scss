@@ -6,14 +6,15 @@
     position: relative;
     padding-left: 5.5rem;
     padding-top: 1.4rem;
+    background-color: $body-bg;
 
     h2 {
       font-size: 2.1rem;
       margin-top: 0;
+      background-color: inherit;
 
       // Dot
-      &:before,
-      &:after {
+      &:before {
         border: 1px solid;
         border-radius: 50%;
         content: "";
@@ -24,21 +25,12 @@
         top: 2rem;
         left: -.4rem;
         z-index: 2;
+        box-shadow: 0 0 0 1rem $body-bg;
+        background-color: inherit;
       }
 
-      &:after {
-        border-radius: 0;
-        background: $body-bg;
-        border: none;
-        z-index: 1;
-        height: 2.4rem;
-        width: 2.4rem;
-        left: -1.2rem;
-        top: 1.2rem;
-        z-index: 1;
-      }
-
-      .#{$view-past-meetings} &:before {
+      .view-display-id-past_meetings_pager &:before,
+      .block-views-blockmeetings-past-meetings &:before {
         background-color: $text-color;
       }
 
@@ -79,82 +71,9 @@
     }
   }
   .view-recording-link {
-    .path-frontpage & {
+    .view-meetings.view-display-id-next_meetings &,
+    .view-meetings.view-display-id-past_meetings & {
       display: none;
     }
   }
-}
-
-// @todo: separate this into mixin to reuse
-.has-timeline {
-  // Timeline 'line'
-  position: relative;
-  padding-left: 0;
-
-  // Dashed line
-  &:before {
-    background-image: linear-gradient(#000 60%, transparent 0%);
-    background-position: right;
-    background-repeat: repeat-y;
-    background-size: 1px 15px;
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1px;
-  }
-
-   // Solid lines
-  .#{$view-past-meetings} .meeting.teaser,
-  .#{$view-past-meetings} .webinar.teaser {
-    &:before {
-      content: "";
-      display: block;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    &:before {
-      width: 1px;
-      background-color: #000;
-      background-position: right;
-      background-size: 1px 15px;
-      background-repeat: repeat-y;
-    }
-  }
-}
-
-.block-views-blockmeetings-past-meetings-pager,
-.view-meetings {
-  position: relative;
-  .block-title {
-    @extend %heading-default;
-  }
-}
-
-.view-meetings {
-  // Timeline 'line'
-  padding-left: 0;
-  margin-left: 8rem;
-
-  // Dashed line
-  &:before {
-    background-image: linear-gradient(#000 60%, transparent 0%);
-    background-position: right;
-    background-repeat: repeat-y;
-    background-size: 1px 15px;
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1px;
-  }
-
-
 }

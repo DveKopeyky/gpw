@@ -21,7 +21,7 @@
   }
 
    // Solid lines
-  .#{$view-past-meetings} .meeting.teaser {
+  .block-views-blockmeetings-past-meetings .meeting.teaser {
     &:before {
       content: "";
       display: block;

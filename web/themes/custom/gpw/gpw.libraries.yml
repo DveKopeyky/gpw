@@ -54,6 +54,11 @@ news:
     theme:
       dist/components/news/news.css: {}
 
+filter:
+  css:
+    theme:
+      dist/components/filter/filter.css: {}
+
 courses:
   css:
     theme:
@@ -86,6 +91,7 @@ framework:
     - gpw/page
     - gpw/meetings
     - gpw/news
+    - gpw/filter
     - gpw/courses
     - gpw/homepage
 

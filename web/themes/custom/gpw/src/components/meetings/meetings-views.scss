@@ -1,23 +1,148 @@
 @import '../../utilities';
 
-.#{$view-next-meetings},
-.#{$view-past-meetings} {
+.block-views-blockmeetings-next-meetings, .block-views-blockmeetings-past-meetings {
   .block-title {
     @extend %heading-default;
     color: $gpw-secondary;
+    margin-left: $grid-gutter-width;
+  }
 
-    .has-timeline & {
-      margin-left: 2rem;
-    }
+}
 
-    .icon {
-      fill: currentColor;
-      height: 2.5rem;
-      margin-right: .4em;
-      width: 2.5rem;
+.block-views-blockmeetings-past-meetings-pager, .view-meetings {
+  .block-title {
+    @extend %heading-default;
+  }
+
+}
+
+.block-views-blockmeetings-past-meetings-pager, .view-meetings.view-display-id-page_1 {
+  .block-title {
+    left: $grid-gutter-width / 2;
+    margin-top: -3.5rem;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+%timeline {
+  position: relative;
+  padding-left: 0;
+
+  // Timeline 'line'
+
+  // Dashed line
+  &:before {
+    background-image: linear-gradient(#000 60%, transparent 0%);
+    background-position: right;
+    background-repeat: repeat-y;
+    background-size: 1px 1.5rem;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1px;
+    z-index: 1;
+  }
+}
+
+
+.path-meetings .views-element-container,
+.block-views-blockmeetings-past-meetings-pager,
+.block-views-blockmeetings-next-meetings,
+.block-views-blockmeetings-past-meetings {
+  @extend %timeline;
+}
+
+.block-views-blockmeetings-next-meetings,
+.path-meetings .views-element-container {
+  margin-bottom: 0;
+  padding-top: 3rem;
+}
+
+$timeline-horizontal-margin: 20rem;
+
+.view-display-id-past_meetings,
+.view-display-id-past_meetings_pager {
+  .teaser:before {
+    background-image: linear-gradient(#000 100%, transparent 0%);
+    background-position: right;
+    background-repeat: repeat-y;
+    background-size: 1px 15px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 1.4rem;
+    width: 1px;
+    z-index: 1;
+  }
+
+}
+
+.block-views-blockmeetings-past-meetings-pager {
+  .pager-nav {
+    position: relative;
+    &:before {
+      background-image: linear-gradient(#000 100%, transparent 0%);
+      background-position: right;
+      background-repeat: repeat-y;
+      background-size: 1px 15px;
+      content: "";
+      display: block;
+      height: 100%;
+      left: $timeline-horizontal-margin;
+      position: absolute;
+      top: 1.4rem;
+      width: 1px;
+      z-index: 1;
     }
   }
 }
 
-// .view-meetings.view
-// .view-filters
+// Meeting page
+.path-meetings .views-element-container,
+.block-views-blockmeetings-past-meetings-pager {
+  &:before {
+    left: $timeline-horizontal-margin;
+  }
+}
+
+.view-display-id-past_meetings_pager {
+  .view-filters {
+    display: none;
+  }
+
+}
+
+.view-meetings.view-display-id-page_1 {
+  margin-top: 3rem;
+}
+
+.view-meetings.view-display-id-page_1,
+.view-display-id-past_meetings_pager {
+  .teaser {
+    padding-left: (5.5rem + $timeline-horizontal-margin);
+    padding-right: $timeline-horizontal-margin;
+    padding-bottom: 1.4rem;
+    &:before {
+      left: $timeline-horizontal-margin;
+    }
+    h2:before {
+      left: (-.4rem + $timeline-horizontal-margin);
+
+    }
+
+    &:hover {
+      $teaser-hover: #f6f6f6;
+      background-color: $teaser-hover;
+      h2:before {
+        box-shadow: 0 0 0 1rem $teaser-hover;
+      }
+    }
+  }
+}
+
