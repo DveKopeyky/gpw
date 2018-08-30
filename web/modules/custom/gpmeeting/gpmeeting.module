@@ -7,7 +7,7 @@
 use Drupal\eck\EckEntityInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-
+use Drupal\views\ViewExecutable;
 /**
  * Implements hook_ENTITY_TYPE_view_alter().
  */
@@ -35,4 +35,39 @@ function gpmeeting_node_view_alter(array &$build, NodeInterface $node, EntityVie
   elseif ($node->bundle() == 'meeting' && $build['#view_mode'] == 'full' && !empty($build['title'][0]['#context']['value'])) {
     $build['title'][0]['#context']['value'] .= sprintf(' - %s', t('Agenda and Documents'));
   }
+}
+
+function gpmeeting_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  if ($view->id() == 'meetings' && $display_id === 'page_1') {
+    $headerContent = [
+      '#theme' => 'next_meetings_header',
+    ];
+    $options = array(
+      'id' => 'area_next_meetings_header',
+      'table' => 'views',
+      'field' => 'area',
+      'relationship' => 'none',
+      'group_type' => 'none',
+      'admin_label' => '',
+      'empty' => TRUE,
+      'tokenize' => FALSE,
+      'content' => array(
+        'value' => \Drupal::service('renderer')->render($headerContent),
+        'format' => 'full_html',
+      ),
+      'plugin_id' => 'text',
+    );
+    $view->setHandler($display_id, 'header', 'area_next_meetings_header', $options);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function gpmeeting_theme($existing, $type, $theme, $path) {
+  return array(
+    'next_meetings_header' => array(
+      'variables' => array()
+    )
+  );
 }

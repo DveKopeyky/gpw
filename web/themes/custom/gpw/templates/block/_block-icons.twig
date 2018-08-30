@@ -1,0 +1,14 @@
+{% macro get(key, class, theme_path, width, height) %}
+
+{% set mapping = {
+    'views-blockmeetings-past-meetings-pager':  'past-meetings',
+    'views-blockmeetings-past-meetings':        'past-meetings',
+    'views-blockmeetings-next-meetings':        'next-meetings',
+  }
+%}
+{% if key in mapping|keys %}
+  <svg class="icon icon-{{ mapping[key] }} {{ class|default('')}}" width="{{ width|default(32) }}" height={{ height|default(32) }} aria-hidden="true">
+    <use xlink:href={{ theme_path ~ '/dist/images/symbol/svg/sprite.symbol.svg#' ~  mapping[key] }} ></use>
+  </svg>
+{% endif %}
+{% endmacro %}

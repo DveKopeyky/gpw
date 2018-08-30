@@ -127,3 +127,34 @@
     }
   }
 }
+
+.block-views-blockmeetings-past-meetings-pager,
+.view-meetings {
+  position: relative;
+  .block-title {
+    @extend %heading-default;
+  }
+}
+
+.view-meetings {
+  // Timeline 'line'
+  padding-left: 0;
+  margin-left: 8rem;
+
+  // Dashed line
+  &:before {
+    background-image: linear-gradient(#000 60%, transparent 0%);
+    background-position: right;
+    background-repeat: repeat-y;
+    background-size: 1px 15px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+
+
+}

@@ -467,20 +467,7 @@ display:
         operator: AND
         groups:
           1: AND
-      header:
-        area_1:
-          id: area_1
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: '<h2 class="block-title">Next Meetings</h2>'
-            format: full_html
-          plugin_id: text
+      header: {  }
       pager:
         type: full
         options:

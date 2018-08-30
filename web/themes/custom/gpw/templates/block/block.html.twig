@@ -45,7 +45,8 @@
  * @see template_process()
  */
 #}
-{% import "@gpw/_icons.twig" as icons %}
+
+{% import "@gpw/block/_block-icons.twig" as icons %}
 
 {%
   set classes = [
@@ -59,7 +60,7 @@
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>
-      {{ icons.get('past-meetings', 'icon icon-past-meetings', base_path ~ directory) }}
+      {{ icons.get(plugin_id|clean_class, 'icon', base_path ~ directory) }}
       {{ label }}
     </h2>
   {% endif %}

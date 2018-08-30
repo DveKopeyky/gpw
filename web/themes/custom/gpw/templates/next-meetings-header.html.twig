@@ -1,0 +1,7 @@
+{% import "@gpw/_icons.twig" as icons %}
+{% spaceless %}
+  <h2 class="block-title">
+    {{ icons.get('next-meetings', 'icon', base_path ~ directory) }}
+    {% trans %}Next Meetings{% endtrans %}
+  </h2>
+{% endspaceless %}
