@@ -27,6 +27,7 @@
     .content {
       color: $text-muted;
       display: flex;
+      flex-wrap: wrap;
 
       .field + .field:before {
         content: '|';

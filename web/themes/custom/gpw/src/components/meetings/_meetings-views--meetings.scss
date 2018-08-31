@@ -8,10 +8,15 @@ $timeline-horizontal-margin: 25vw;
 .block-views-blockmeetings-past-meetings-pager, .view-meetings {
   .block-title {
     @extend %heading-default;
-    left:  calc(#{$grid-gutter-width / 2} + #{$timeline-horizontal-margin} - 190px);
     margin-top: -3.5rem;
-    position: absolute;
     z-index: 1;
+    position: relative;
+    left: $grid-gutter-width;
+
+    @media #{$grid-breakpoint} {
+      position: absolute;
+      left:  calc(#{$grid-gutter-width / 2} + #{$timeline-horizontal-margin} - 190px);
+    }
   }
 
 }
@@ -21,7 +26,11 @@ $timeline-horizontal-margin: 25vw;
   @extend %timeline;
   &:before {
     @extend %timeline-line-dashed;
-    left: $timeline-horizontal-margin;
+    left: $grid-gutter-width / 2;
+
+    @media #{$grid-breakpoint} {
+      left: $timeline-horizontal-margin;
+    }
   }
 }
 
@@ -35,12 +44,19 @@ $timeline-horizontal-margin: 25vw;
 .view-meetings.view-display-id-page_1,
 .view-display-id-past_meetings_pager {
   .teaser {
-    padding-left: calc(5.5rem + #{$timeline-horizontal-margin});
-    padding-right: $timeline-horizontal-margin;
     padding-bottom: 1.4rem;
 
     &:before {
-      left: $timeline-horizontal-margin;
+      left: $grid-gutter-width / 2;
+    }
+
+    @media #{$grid-breakpoint} {
+      padding-left: calc(5.5rem + #{$timeline-horizontal-margin});
+      padding-right: $timeline-horizontal-margin;
+
+      &:before {
+        left: $timeline-horizontal-margin;
+      }
     }
 
     &:hover {
@@ -54,7 +70,11 @@ $timeline-horizontal-margin: 25vw;
     h2 {
       @extend %timeline-dot;
       &:before {
-        left: calc(-.4rem + #{$timeline-horizontal-margin});
+        left: calc(-.4rem + #{$grid-gutter-width} / 2);
+
+        @media #{$grid-breakpoint} {
+          left: calc(-.4rem + #{$timeline-horizontal-margin});
+        }
       }
     }
 
@@ -74,8 +94,12 @@ $timeline-horizontal-margin: 25vw;
     position: relative;
     &:before {
       @extend %timeline-line-solid;
-      left: $timeline-horizontal-margin;
       top: 1.4rem;
+      left: $grid-gutter-width / 2;
+
+      @media #{$grid-breakpoint} {
+        left: $timeline-horizontal-margin;
+      }
     }
   }
 }
