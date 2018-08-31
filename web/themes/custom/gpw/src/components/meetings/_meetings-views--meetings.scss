@@ -1,0 +1,92 @@
+$timeline-horizontal-margin: 25vw;
+
+.path-meetings .views-element-container {
+  padding-top: 3rem;
+  margin-bottom: 0;
+}
+
+.block-views-blockmeetings-past-meetings-pager, .view-meetings {
+  .block-title {
+    @extend %heading-default;
+    left:  calc(#{$grid-gutter-width / 2} + #{$timeline-horizontal-margin} - 190px);
+    margin-top: -3.5rem;
+    position: absolute;
+    z-index: 1;
+  }
+
+}
+
+.path-meetings .views-element-container,
+.block-views-blockmeetings-past-meetings-pager {
+  @extend %timeline;
+  &:before {
+    @extend %timeline-line-dashed;
+    left: $timeline-horizontal-margin;
+  }
+}
+
+.view-display-id-past_meetings_pager {
+  .teaser:before {
+    @extend %timeline-line-solid;
+    top: 1.4rem;
+  }
+}
+
+.view-meetings.view-display-id-page_1,
+.view-display-id-past_meetings_pager {
+  .teaser {
+    padding-left: calc(5.5rem + #{$timeline-horizontal-margin});
+    padding-right: $timeline-horizontal-margin;
+    padding-bottom: 1.4rem;
+
+    &:before {
+      left: $timeline-horizontal-margin;
+    }
+
+    &:hover {
+      $teaser-hover: #f6f6f6;
+      background-color: $teaser-hover;
+      h2:before {
+        box-shadow: 0 0 0 1rem $teaser-hover;
+      }
+    }
+
+    h2 {
+      @extend %timeline-dot;
+      &:before {
+        left: calc(-.4rem + #{$timeline-horizontal-margin});
+      }
+    }
+
+  }
+}
+
+.view-display-id-past_meetings_pager {
+  .teaser {
+    h2 {
+      @extend %timeline-dot-full;
+    }
+  }
+}
+
+.block-views-blockmeetings-past-meetings-pager {
+  .pager-nav {
+    position: relative;
+    &:before {
+      @extend %timeline-line-solid;
+      left: $timeline-horizontal-margin;
+      top: 1.4rem;
+    }
+  }
+}
+
+.view-display-id-past_meetings_pager {
+  .view-filters {
+    display: none;
+  }
+
+}
+
+.view-meetings.view-display-id-page_1 {
+  margin-top: 3rem;
+}
