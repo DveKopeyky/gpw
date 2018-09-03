@@ -2,7 +2,7 @@ fonts:
   css:
     theme:
       '//fonts.googleapis.com/css?family=Roboto+Condensed': { type: external, minified: true }
-      '//fonts.googleapis.com/css?family=Roboto': { type: external, minified: true }
+      '//fonts.googleapis.com/css?family=Roboto:400,700': { type: external, minified: true }
       fonts/alternategotno2dregular.css: {}
 
 bootstrap:
@@ -54,6 +54,11 @@ news:
     theme:
       dist/components/news/news.css: {}
 
+glossary:
+  css:
+    theme:
+      dist/components/glossary/glossary.css: {}
+
 filter:
   css:
     theme:
@@ -94,4 +99,5 @@ framework:
     - gpw/filter
     - gpw/courses
     - gpw/homepage
+    - gpw/glossary
 

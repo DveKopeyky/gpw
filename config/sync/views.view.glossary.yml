@@ -61,10 +61,10 @@ display:
         options:
           grouping: {  }
           columns: 3
-          automatic_width: true
+          automatic_width: false
           alignment: horizontal
-          col_class_default: true
-          col_class_custom: col-sm-4
+          col_class_default: false
+          col_class_custom: 'col col-sm-4'
           row_class_default: true
           row_class_custom: ''
       row:
