@@ -59,3 +59,41 @@ function gpw_preprocess_region(&$variables) {
     $variables['attributes']['role'] = 'heading';
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gpw_preprocess_page_title(&$variables) {
+  /** @var \Drupal\node\Entity\Node $node */
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if ($node->bundle() == 'meeting') {
+      if (empty($node->field_address->getValue()) || empty($node->field_date_range->getValue())) {
+        return;
+      }
+      $countries = \Drupal\Core\Locale\CountryManager::getStandardList();
+      $address = $node->field_address->first()->getValue();
+      /** @var \Drupal\Core\StringTranslation\TranslatableMarkup $country */
+      $country = $countries[$address['country_code']];
+      $country = $country->render();
+
+      $city = $address['locality'];
+      $variables['city'] = $city;
+
+      /** @var \Drupal\Core\Datetime\DrupalDateTime $start_date */
+      $start_date = $node->field_date_range->start_date;
+      /** @var \Drupal\Core\Datetime\DrupalDateTime $end_date */
+      $end_date = $node->field_date_range->end_date;
+      $start_year = $start_date->format('Y');
+      $end_year = $end_date->format('Y');
+      $date_label = $start_date->format('d F');
+      if ($start_year != $end_year) {
+        $date_label .= " $start_year";
+      }
+      $end_date = $end_date->format('d F Y');
+      $date_label .= " - $end_date";
+
+      $subtitle = "$city ($country), $date_label";
+      $variables['subtitle'] = $subtitle;
+    }
+  }
+}
