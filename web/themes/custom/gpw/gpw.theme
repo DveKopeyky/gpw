@@ -59,4 +59,3 @@ function gpw_preprocess_region(&$variables) {
     $variables['attributes']['role'] = 'heading';
   }
 }
-

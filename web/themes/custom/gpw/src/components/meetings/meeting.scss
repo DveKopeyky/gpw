@@ -37,7 +37,16 @@
 
     }
 
+    .btn-outline {
+      &:hover,
+      &:focus {
+        background-color: $link-color;
+        color: #fff;
+      }
+    }
+
   }
+
 
 }
 

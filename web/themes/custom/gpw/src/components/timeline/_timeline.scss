@@ -39,12 +39,12 @@
     left: -.4rem;
     z-index: 2;
     box-shadow: 0 0 0 1rem $body-bg;
-    background-color: inherit;
+    background-color: $body-bg;
   }
 }
 
 %timeline-dot-full {
   &:before {
-    background-color: $text-color;
+    background-color: $text-color !important;
   }
 }
