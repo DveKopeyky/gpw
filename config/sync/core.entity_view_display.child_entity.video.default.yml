@@ -34,8 +34,8 @@ content:
     weight: 2
     label: inline
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: human_friendly
     third_party_settings: {  }
     type: datetime_default
     region: content

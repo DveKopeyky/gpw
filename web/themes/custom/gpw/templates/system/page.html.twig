@@ -68,6 +68,13 @@
 {% block main %}
   <div class="holygrail-body">
     <div role="main" class="main-container js-quickedit-main-content">
+      {# Highlighted #}
+      {% if page.highlighted %}
+        {% block highlighted %}
+          <div class="highlighted container">{{ page.highlighted }}</div>
+        {% endblock %}
+      {% endif %}
+
       {# Title #}
       {% block title %}
         <a id="main-content"></a>
@@ -83,12 +90,6 @@
         {% endblock %}
       {% endif %}
 
-      {# Highlighted #}
-      {% if page.highlighted %}
-        {% block highlighted %}
-          <div class="highlighted container">{{ page.highlighted }}</div>
-        {% endblock %}
-      {% endif %}
 
       {# Content wrapper #}
       {% block content_wrapper %}

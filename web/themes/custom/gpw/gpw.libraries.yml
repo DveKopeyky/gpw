@@ -49,6 +49,11 @@ meetings:
       dist/components/meetings/meeting.css: {}
       dist/components/meetings/meetings-views.css: {}
 
+webinars:
+  css:
+    theme:
+      dist/components/webinars/webinar.css: {}
+
 news:
   css:
     theme:
@@ -95,6 +100,7 @@ framework:
     - gpw/block
     - gpw/page
     - gpw/meetings
+    - gpw/webinars
     - gpw/news
     - gpw/filter
     - gpw/courses

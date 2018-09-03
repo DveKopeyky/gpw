@@ -8,7 +8,7 @@ _core:
   default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
 id: gpw_local_actions
 theme: gpw
-region: content
+region: highlighted
 weight: -8
 provider: null
 plugin: local_actions_block
