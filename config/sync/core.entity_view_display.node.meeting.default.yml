@@ -21,7 +21,7 @@ content:
     type: address_default
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
   field_agenda_items:
@@ -37,11 +37,11 @@ content:
     type: daterange_default
     weight: 1
     region: content
-    label: above
+    label: hidden
     settings:
-      separator: '-'
-      format_type: medium
       timezone_override: ''
+      format_type: human_friendly
+      separator: '-'
     third_party_settings: {  }
   links:
     weight: 2
