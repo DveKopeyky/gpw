@@ -11,6 +11,7 @@ is_admin: false
 permissions:
   - 'access administration pages'
   - 'access content'
+  - 'access site-wide contact form'
   - 'access toolbar'
   - 'view any child_entity entities'
   - 'view own unpublished content'
