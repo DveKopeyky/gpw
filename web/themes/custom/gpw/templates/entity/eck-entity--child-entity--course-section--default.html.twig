@@ -1,0 +1,16 @@
+<div {{ attributes }}>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">
+                        {{ entity['title'] }} {{ entity['field_lectures_number'] }} {{ entity['field_videos_duration'] }}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">{{ entity.field_videos }}</div>
+            </div>
+        </div>
+    </div>
+</div>

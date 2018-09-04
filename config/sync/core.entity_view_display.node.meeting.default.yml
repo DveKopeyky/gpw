@@ -9,27 +9,36 @@ dependencies:
     - field.field.node.meeting.field_reports
     - node.type.meeting
   module:
+    - address
+    - datetime_range
     - user
 id: node.meeting.default
 targetEntityType: node
 bundle: meeting
 mode: default
 content:
-  field_agenda_items:
-    weight: 1
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
-  links:
+  field_address:
+    type: address_default
     weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_date_range:
+    type: daterange_default
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: human_friendly
+      separator: '-'
+    third_party_settings: {  }
+  links:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_address: true
-  field_date_range: true
+  field_agenda_items: true
   field_reports: true

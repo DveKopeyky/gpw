@@ -16,10 +16,34 @@
  * @see template_preprocess_page_title()
  */
 #}
+{% if is_full_course %}
+  <div class="row">
+    <div class="col-left col-sm-8">
+{% endif %}
+
 {% if title %}
     <h1{{ title_attributes.addClass('page-header') }}>{{ title }}</h1>
 {% endif %}
 
 {% if subtitle %}
-    <h2 class="subtitle" }}>{{ subtitle }}</h2>
+    <h2 class="subtitle">{{ subtitle }}</h2>
+{% endif %}
+
+{% if content_left %}
+    <div class="content-group">{{ content_left }}</div>
+{% endif %}
+
+{% if is_full_course %}
+    </div>
+{% endif %}
+
+{% if is_full_course and content_right %}
+  <div class="col-right col-sm-4">
+    <div class="content-group">{{ content_right }}</div>
+  </div>
+{% endif %}
+
+{% if is_full_course %}
+    </div>
+  </div>
 {% endif %}

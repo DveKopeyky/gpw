@@ -16,6 +16,15 @@ function gpw_preprocess_page(&$variables) {
   if($variables['is_front']) {
     $variables['page']['navbar_inverse'] = true;
   }
+
+  // Check for video field on webinar full page and mark title.
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if ($node->bundle() == 'webinar') {
+      if (!empty($node->field_video->getValue()) && !empty($variables['page']['title'])) {
+        $variables['page']['title']['#attributes']['class'][] = 'has-video';
+      }
+    }
+  }
 }
 
 /**
@@ -66,34 +75,47 @@ function gpw_preprocess_region(&$variables) {
 function gpw_preprocess_page_title(&$variables) {
   /** @var \Drupal\node\Entity\Node $node */
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // fields removed in node--meeting--full.html.twig
     if ($node->bundle() == 'meeting') {
-      if (empty($node->field_address->getValue()) || empty($node->field_date_range->getValue())) {
-        return;
+      if (!empty($node->field_address)) {
+        $variables['subtitle']['address'] = $node->field_address->view('full');
       }
-      $countries = \Drupal\Core\Locale\CountryManager::getStandardList();
-      $address = $node->field_address->first()->getValue();
-      /** @var \Drupal\Core\StringTranslation\TranslatableMarkup $country */
-      $country = $countries[$address['country_code']];
-      $country = $country->render();
-
-      $city = $address['locality'];
-      $variables['city'] = $city;
-
-      /** @var \Drupal\Core\Datetime\DrupalDateTime $start_date */
-      $start_date = $node->field_date_range->start_date;
-      /** @var \Drupal\Core\Datetime\DrupalDateTime $end_date */
-      $end_date = $node->field_date_range->end_date;
-      $start_year = $start_date->format('Y');
-      $end_year = $end_date->format('Y');
-      $date_label = $start_date->format('d F');
-      if ($start_year != $end_year) {
-        $date_label .= " $start_year";
+      if (!empty($node->field_date_range)) {
+        $variables['subtitle']['date'] = $node->field_date_range->view('full');
       }
-      $end_date = $end_date->format('d F Y');
-      $date_label .= " - $end_date";
+    }
 
-      $subtitle = "$city ($country), $date_label";
-      $variables['subtitle'] = $subtitle;
+    // fields removed in node--course--full.html.twig
+    if ($node->bundle() == 'course') {
+      $variables['is_full_course'] = TRUE;
+      if (!empty($node->body->getValue())) {
+        $variables['content_left']['body'] = $node->body->view('full');
+      }
+      if (!empty($node->field_key_points->getValue())) {
+        $variables['content_left']['field_key_points'] = $node->field_key_points->view('full');
+      }
+      if (!empty($node->field_video->getValue())) {
+        $variables['content_right']['field_video'] = $node->field_video->view('full');
+      }
+      if (!empty($node->field_e_learning_link->getValue())) {
+        $variables['content_right']['field_e_learning_link'] = $node->field_e_learning_link->view('full');
+      }
+      if (!empty($node->field_includes->getValue())) {
+        $variables['content_right']['field_includes'] = $node->field_includes->view('full');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function gpw_preprocess_field(&$variables) {
+  if ($variables['field_name'] == 'field_e_learning_link') {
+    if (!empty($variables['items'])) {
+      foreach ($variables['items'] as &$item) {
+        $item['content']['#options']['attributes']['class'][] = 'btn';
+      }
     }
   }
 }
