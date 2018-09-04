@@ -109,11 +109,21 @@ function gpw_preprocess_page_title(&$variables) {
 
     // fields removed in node--course--full.html.twig
     if ($node->bundle() == 'course') {
+      $variables['is_full_course'] = TRUE;
       if (!empty($node->body->getValue())) {
-        $variables['content']['body'] = $node->body->view('full');
+        $variables['content_left']['body'] = $node->body->view('full');
       }
       if (!empty($node->field_key_points->getValue())) {
-        $variables['content']['field_key_points'] = $node->field_key_points->view('full');
+        $variables['content_left']['field_key_points'] = $node->field_key_points->view('full');
+      }
+      if (!empty($node->field_video->getValue())) {
+        $variables['content_right']['field_video'] = $node->field_video->view('full');
+      }
+      if (!empty($node->field_e_learning_link->getValue())) {
+        $variables['content_right']['field_e_learning_link'] = $node->field_e_learning_link->view('full');
+      }
+      if (!empty($node->field_includes->getValue())) {
+        $variables['content_right']['field_includes'] = $node->field_includes->view('full');
       }
     }
   }

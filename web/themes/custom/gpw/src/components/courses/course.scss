@@ -1,8 +1,14 @@
 @import '../../utilities';
 
 .page-node-type-course {
+  .hero {
+    text-align: left;
+    font-family: $font-family-regular;
+  }
   .page-header {
     color: $gpw-primary;
+    font-family: $font-family-sans-serif;
+    font-size: 4rem;
     text-transform: none;
   }
 }
