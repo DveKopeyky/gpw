@@ -1,0 +1,12 @@
+uuid: 9d54355c-d4e6-4508-9654-c9fc0977f1f6
+langcode: en
+status: true
+dependencies: {  }
+id: contact
+label: Contact
+recipients:
+  - drupal@eaudeweb.ro
+reply: ''
+weight: 0
+message: ''
+redirect: /contact

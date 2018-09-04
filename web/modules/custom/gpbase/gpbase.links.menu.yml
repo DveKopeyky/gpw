@@ -1,3 +1,9 @@
+gpbase.main.contact:
+  title: 'Contact'
+  menu_name: main
+  route_name: contact.site_page
+  weight: 5
+
 gpbase.main.elearning:
   title: 'Free Online Courses'
   menu_name: main
@@ -34,4 +40,10 @@ gpbase.footer.glossary:
   menu_name: footer
   route_name: view.glossary.page_1
   weight: 3
+
+gpbase.footer.contact:
+  title: 'Contact'
+  menu_name: footer
+  route_name: contact.site_page
+  weight: 5
 
