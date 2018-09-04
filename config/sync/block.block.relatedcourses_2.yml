@@ -19,7 +19,7 @@ settings:
   id: 'simple_block:related_courses'
   label: 'Related courses'
   provider: simple_block
-  label_display: '0'
+  label_display: visible
 visibility:
   node_type:
     id: node_type
