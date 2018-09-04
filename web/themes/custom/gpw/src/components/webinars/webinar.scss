@@ -43,7 +43,13 @@
     }
 
     .content-group {
-      margin-top: 5rem;
+      clear: both;
+      > .col {
+        margin-top: 3rem;
+        @media #{$tablet} {
+          margin-top: 5rem;
+        }
+      }
     }
 
     .field--name-field-video-duration, .field--name-field-video-date {
