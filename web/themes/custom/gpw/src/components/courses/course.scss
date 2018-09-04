@@ -1,5 +1,13 @@
 @import '../../utilities';
 
+.page-node-type-course {
+  .page-header {
+    color: $gpw-primary;
+    text-transform: none;
+  }
+}
+
+
 // @todo:mixin from news & this
 .course {
   &.teaser {
@@ -38,4 +46,9 @@
 
   }
 
+  &.full {
+
+  }
+
 }
+

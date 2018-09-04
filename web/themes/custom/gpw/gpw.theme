@@ -75,6 +75,7 @@ function gpw_preprocess_region(&$variables) {
 function gpw_preprocess_page_title(&$variables) {
   /** @var \Drupal\node\Entity\Node $node */
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // fields removed in node--meeting--full.html.twig
     if ($node->bundle() == 'meeting') {
       if (empty($node->field_address->getValue()) || empty($node->field_date_range->getValue())) {
         return;
@@ -102,7 +103,18 @@ function gpw_preprocess_page_title(&$variables) {
       $date_label .= " - $end_date";
 
       $subtitle = "$city ($country), $date_label";
-      $variables['subtitle'] = $subtitle;
+      // $variables['subtitle'] = $subtitle;
+      $variables['subtitle'] = $node->field_address->view('full');
+    }
+
+    // fields removed in node--course--full.html.twig
+    if ($node->bundle() == 'course') {
+      if (!empty($node->body->getValue())) {
+        $variables['content']['body'] = $node->body->view('full');
+      }
+      if (!empty($node->field_key_points->getValue())) {
+        $variables['content']['field_key_points'] = $node->field_key_points->view('full');
+      }
     }
   }
 }
