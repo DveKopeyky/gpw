@@ -27,6 +27,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  preview:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   subject:
     type: string_textfield
     weight: 2
@@ -37,4 +42,3 @@ content:
     third_party_settings: {  }
 hidden:
   copy: true
-  preview: true
