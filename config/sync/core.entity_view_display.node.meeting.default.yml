@@ -10,7 +10,7 @@ dependencies:
     - node.type.meeting
   module:
     - address
-    - datetime_range
+    - date_range_formatter
     - user
 id: node.meeting.default
 targetEntityType: node
@@ -25,14 +25,20 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_date_range:
-    type: daterange_default
+    type: date_range_without_time
     weight: 1
     region: content
     label: hidden
     settings:
       timezone_override: ''
-      format_type: human_friendly
+      single: 'd F Y'
+      single_all_day: 'd F Y'
+      one_day: 'd F Y'
+      one_month: 'd - {d} F Y'
+      several_months: 'd F - {d} {F} Y'
+      several_years: 'd F Y - {d} {F} {Y}'
       separator: '-'
+      date_format: 'Y-m-d\TH:i:s'
     third_party_settings: {  }
   links:
     weight: 2

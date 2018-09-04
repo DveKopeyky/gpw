@@ -77,6 +77,7 @@ function gpw_preprocess_page_title(&$variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     // fields removed in node--meeting--full.html.twig
     if ($node->bundle() == 'meeting') {
+      $variables['subtitle']['#class'] = 'meeting-subtitle';
       if (!empty($node->field_address)) {
         $variables['subtitle']['address'] = $node->field_address->view('full');
       }

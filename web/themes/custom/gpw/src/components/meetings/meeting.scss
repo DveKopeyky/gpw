@@ -62,3 +62,15 @@
   }
 
 }
+
+.meeting-subtitle {
+  display:inline-flex;
+  flex-wrap: wrap;
+  .field {
+    &:not(:first-child) {
+      &:before {
+        content: ', ';
+      }
+    }
+  }
+}

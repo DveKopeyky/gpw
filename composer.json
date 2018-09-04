@@ -65,6 +65,7 @@
         "drupal/console": "^1.0.2",
         "drupal/content_sync": "2.x-dev",
         "drupal/core": "~8.5.3",
+        "drupal/date_range_formatter": "^3.1",
         "drupal/duration_field": "^1.6",
         "drupal/eck": "^1.0@alpha",
         "drupal/fixed_block_content": "^1.0@RC",
