@@ -5,11 +5,19 @@
     background-color: $gpw-primary;
     background-image: none;
     color: #111111;
-    padding-bottom: 29rem;
+    &.has-video {
+      padding-bottom: 40vw;
+      @media #{$tablet} {
+        padding-bottom: 29rem;
+      }
+    }
   }
 
-  .content-wrapper {
-    margin-top: -29rem;
+  .hero.has-video ~ .content-wrapper {
+    margin-top: -40vw;
+    @media #{$tablet} {
+      margin-top: -29rem;
+    }
   }
 
   .page-header {
@@ -26,9 +34,11 @@
     }
 
     .field--name-field-video.field--type-entity-reference {
+      background-color: $text-color;
       border: 2rem solid $body-bg;
       border-top-width: 1.7rem;
       margin: 0 auto;
+      max-width: 100%;
       width: 64rem;
     }
 
@@ -38,7 +48,7 @@
 
     .field--name-field-video-duration, .field--name-field-video-date {
       display: flex;
-      margin-top: 1rem;
+     margin-top: 1rem;
 
       > .field--label {
         padding-right: .2em;
