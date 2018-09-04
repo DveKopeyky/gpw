@@ -97,7 +97,7 @@
 
   <div{{ content_attributes.addClass('content') }}>
     {# 'field_address', #}
-    {{ content|without( 'field_date_range') }}
+    {{ content | without('field_date_range', 'field_address') }}
   </div>
 
 </article>
