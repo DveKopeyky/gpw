@@ -47,6 +47,7 @@
 #}
 
 {% import "@gpw/block/_block-icons.twig" as block_icons %}
+{% import "@gpw/_icons.twig" as icons %}
 
 {%
   set classes = [
@@ -57,6 +58,7 @@
   ]
 %}
 <section{{ attributes.addClass(classes) }}>
+  {{ icons.get('courses', base_path ~ directory, '', 45, 75) }}
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>
