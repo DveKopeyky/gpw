@@ -1,4 +1,5 @@
 @import '../../utilities';
+@import 'language-switcher';
 
 .navbar > .container {
   @media #{$grid-breakpoint} {
@@ -112,4 +113,11 @@
     border-color: transparent;
   }
 
+}
+
+.region-navigation-collapsible {
+  @media #{$grid-breakpoint} {
+    align-items: center;
+    display: flex;
+  }
 }

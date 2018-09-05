@@ -1,0 +1,20 @@
+.dropdown-language-item {
+  .btn, &.btn-group.open .dropdown-toggle, &.open > .btn.dropdown-toggle {
+    &, &:hover, &:focus {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+  }
+
+  .language-link {
+    padding-right: 0;
+  }
+
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+
+}
