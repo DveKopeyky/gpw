@@ -7,6 +7,7 @@ dependencies:
     - field.field.child_entity.meeting_agenda_item.field_agenda_item_category
     - field.field.child_entity.meeting_agenda_item.field_date_range
     - field.field.child_entity.meeting_agenda_item.field_files
+    - field.field.child_entity.meeting_agenda_item.field_is_child
   module:
     - datetime_range
     - file
@@ -49,4 +50,5 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_is_child: true

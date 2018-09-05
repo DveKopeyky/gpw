@@ -1,0 +1,22 @@
+uuid: d348d6d2-8d26-4162-bc31-ef8bdd3327e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.agenda_items_categories
+id: taxonomy_term.agenda_items_categories.default
+targetEntityType: taxonomy_term
+bundle: agenda_items_categories
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

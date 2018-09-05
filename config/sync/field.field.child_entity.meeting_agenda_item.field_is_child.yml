@@ -1,0 +1,23 @@
+uuid: 8f83875d-2bd1-4cf5-930b-92bd70e28f21
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_agenda_item
+    - field.storage.child_entity.field_is_child
+id: child_entity.meeting_agenda_item.field_is_child
+field_name: field_is_child
+entity_type: child_entity
+bundle: meeting_agenda_item
+label: 'Is child of previous item'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
