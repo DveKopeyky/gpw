@@ -245,8 +245,8 @@ display:
           label: Date
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<div class="start-date">{{ field_date_range__value }}</div> <div class="start-date">{{ field_date_range__end_value }}</div>'
             make_link: false
             path: ''
             absolute: false
@@ -288,7 +288,7 @@ display:
           settings:
             timezone_override: ''
             date_format: d/m/Y
-            separator: /n
+            separator: ''
           group_column: value
           group_columns: {  }
           group_rows: true
