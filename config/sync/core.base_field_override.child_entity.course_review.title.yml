@@ -1,0 +1,18 @@
+uuid: e92d6b22-1b05-4905-a97a-0343c5728c4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.course_review
+id: child_entity.course_review.title
+field_name: title
+entity_type: child_entity
+bundle: course_review
+label: Title
+description: 'The title of the entity.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

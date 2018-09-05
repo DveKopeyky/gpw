@@ -1,0 +1,20 @@
+uuid: 4029f6b9-3499-4700-bac6-a82167d7044b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.highlighted_course
+  module:
+    - path
+id: node.highlighted_course.path
+field_name: path
+entity_type: node
+bundle: highlighted_course
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

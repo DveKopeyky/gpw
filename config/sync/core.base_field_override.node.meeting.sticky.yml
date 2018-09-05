@@ -1,0 +1,22 @@
+uuid: 14749911-7306-4af9-8a8c-2a0f178d395e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.meeting
+id: node.meeting.sticky
+field_name: sticky
+entity_type: node
+bundle: meeting
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

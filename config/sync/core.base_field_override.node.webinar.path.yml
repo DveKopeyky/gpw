@@ -1,0 +1,20 @@
+uuid: ec765c3d-3def-482e-8282-e679f5b2e7ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webinar
+  module:
+    - path
+id: node.webinar.path
+field_name: path
+entity_type: node
+bundle: webinar
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

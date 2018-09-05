@@ -1,0 +1,20 @@
+uuid: 4d0f89e9-9eff-4ebe-b4ca-5094842a0617
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.course
+id: node.course.uid
+field_name: uid
+entity_type: node
+bundle: course
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getCurrentUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

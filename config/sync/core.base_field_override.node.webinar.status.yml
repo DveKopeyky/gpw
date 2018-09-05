@@ -1,0 +1,22 @@
+uuid: 720b084d-eeb5-470e-a5b9-5f9d2f19e4e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webinar
+id: node.webinar.status
+field_name: status
+entity_type: node
+bundle: webinar
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

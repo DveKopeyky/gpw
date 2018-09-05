@@ -1,0 +1,18 @@
+uuid: bcab0487-442f-45cc-9987-cbe00ac2d1ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.meeting
+id: node.meeting.title
+field_name: title
+entity_type: node
+bundle: meeting
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

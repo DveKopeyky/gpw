@@ -1,0 +1,20 @@
+uuid: 62653346-fcbc-4ef5-bcbb-139083dda670
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webinar
+id: node.webinar.menu_link
+field_name: menu_link
+entity_type: node
+bundle: webinar
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

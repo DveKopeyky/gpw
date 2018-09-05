@@ -1,0 +1,20 @@
+uuid: 903747e2-fe3b-48b3-9490-023f0e163a42
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.meeting
+  module:
+    - path
+id: node.meeting.path
+field_name: path
+entity_type: node
+bundle: meeting
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

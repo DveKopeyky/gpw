@@ -1,0 +1,18 @@
+uuid: dbe18a05-20c9-4b49-9554-9d7d7c379577
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.meeting_agenda_item
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: child_entity.meeting_agenda_item
+target_entity_type_id: child_entity
+target_bundle: meeting_agenda_item
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,18 @@
+uuid: 102ea79a-0641-4780-a5c2-2f9265dd6652
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.video
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: child_entity.video
+target_entity_type_id: child_entity
+target_bundle: video
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,18 @@
+uuid: fa0bf044-2444-4753-84fb-bfad458e86d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.meeting
+id: node.meeting.changed
+field_name: changed
+entity_type: node
+bundle: meeting
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed
