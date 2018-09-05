@@ -5,3 +5,7 @@ The Views integration Datetime Range fields should extend the views integration 
 Source: https://www.drupal.org/files/issues/2786577-270_0.patch
 
 
+Programmatically created translatable content type returns SQL error on content creation
+Source: https://www.drupal.org/files/issues/2018-08-08/2599228-58.patch
+
+
