@@ -113,6 +113,8 @@ class RoboFile extends Tasks {
       $execStack->exec("{$this->drush} updatedb -y");
       $execStack->exec("{$this->drush} entup -y");
       $execStack->exec("{$this->drush} cim sync -y");
+      $execStack->exec("{$this->drush} en config devel webprofiler -y");
+      $execStack->exec("{$this->drush} cim dev --partial -y");
       $execStack->exec("{$this->drush} cr");
       return $execStack->run();
     }

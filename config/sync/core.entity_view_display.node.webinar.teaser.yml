@@ -32,4 +32,5 @@ hidden:
   field_date: true
   field_files: true
   field_video: true
+  langcode: true
   links: true

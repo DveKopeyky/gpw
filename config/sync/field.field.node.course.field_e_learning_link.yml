@@ -14,7 +14,7 @@ bundle: course
 label: 'E-learning link'
 description: '<b>FREE SIGNUP & ENROLL</b> button will redirect the user to this link.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

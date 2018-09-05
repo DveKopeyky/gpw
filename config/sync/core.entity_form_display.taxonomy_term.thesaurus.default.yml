@@ -6,6 +6,7 @@ dependencies:
     - field.field.taxonomy_term.thesaurus.field_topics
     - taxonomy.vocabulary.thesaurus
   module:
+    - path
     - text
 id: taxonomy_term.thesaurus.default
 targetEntityType: taxonomy_term
@@ -26,6 +27,13 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -33,5 +41,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

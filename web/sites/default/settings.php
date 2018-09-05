@@ -253,6 +253,7 @@ $databases = array();
  */
 $config_directories = array(
   CONFIG_SYNC_DIRECTORY => '../config/sync',
+  'dev' => '../config/dev',
 );
 
 /**

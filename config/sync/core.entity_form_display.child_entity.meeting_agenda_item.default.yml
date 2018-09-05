@@ -42,6 +42,13 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 1
@@ -50,4 +57,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
 hidden: {  }

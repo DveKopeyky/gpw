@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - node.type.page
   module:
+    - path
     - text
 id: node.page.default
 targetEntityType: node
@@ -24,6 +25,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -56,6 +63,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 2
@@ -65,4 +77,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true

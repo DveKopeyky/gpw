@@ -3033,7 +3033,8 @@
                 "merge-extra": false
             },
             "patches_applied": {
-                "The Views integration Datetime Range fields should extend the views integration for regular Datetime fields.": "https://www.drupal.org/files/issues/2786577-270_0.patch"
+                "The Views integration Datetime Range fields should extend the views integration for regular Datetime fields.": "https://www.drupal.org/files/issues/2786577-270_0.patch",
+                "Programmatically created translatable content type returns SQL error on content creation": "https://www.drupal.org/files/issues/2018-08-08/2599228-58.patch"
             }
         },
         "installation-source": "dist",
@@ -3155,6 +3156,59 @@
         }
     },
     {
+        "name": "drupal/date_range_formatter",
+        "version": "3.1.0",
+        "version_normalized": "3.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/date_range_formatter",
+            "reference": "8.x-3.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/date_range_formatter-8.x-3.1.zip",
+            "reference": "8.x-3.1",
+            "shasum": "a98c511ac90eb92879235bc82a3aa643f7b5c173"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-3.x": "3.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-3.1",
+                "datestamp": "1502454544",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Sudishth",
+                "homepage": "https://www.drupal.org/user/1440562"
+            },
+            {
+                "name": "maximpodorov",
+                "homepage": "https://www.drupal.org/user/515310"
+            }
+        ],
+        "description": "Formats date ranges.",
+        "homepage": "https://www.drupal.org/project/date_range_formatter",
+        "support": {
+            "source": "http://cgit.drupalcode.org/date_range_formatter"
+        }
+    },
+    {
         "name": "drupal/devel",
         "version": "1.2.0",
         "version_normalized": "1.2.0.0",
@@ -3236,6 +3290,55 @@
             "source": "http://cgit.drupalcode.org/devel",
             "issues": "http://drupal.org/project/devel",
             "irc": "irc://irc.freenode.org/drupal-contribute"
+        }
+    },
+    {
+        "name": "drupal/dropdown_language",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/dropdown_language",
+            "reference": "8.x-2.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/dropdown_language-8.x-2.1.zip",
+            "reference": "8.x-2.1",
+            "shasum": "7724e425d7b4568d36077ce761c527564259d6ab"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-2.x": "2.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-2.1",
+                "datestamp": "1530187125",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "SKAUGHT",
+                "homepage": "https://www.drupal.org/user/297907"
+            }
+        ],
+        "description": "Provides a block with a Dropdown Language Switcher",
+        "homepage": "https://www.drupal.org/project/dropdown_language",
+        "support": {
+            "source": "http://cgit.drupalcode.org/dropdown_language"
         }
     },
     {
@@ -9246,58 +9349,5 @@
             "stdlib",
             "zf"
         ]
-    },
-    {
-        "name": "drupal/date_range_formatter",
-        "version": "3.1.0",
-        "version_normalized": "3.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/date_range_formatter",
-            "reference": "8.x-3.1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/date_range_formatter-8.x-3.1.zip",
-            "reference": "8.x-3.1",
-            "shasum": "a98c511ac90eb92879235bc82a3aa643f7b5c173"
-        },
-        "require": {
-            "drupal/core": "*"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-3.x": "3.x-dev"
-            },
-            "drupal": {
-                "version": "8.x-3.1",
-                "datestamp": "1502454544",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packages.drupal.org/8/downloads",
-        "license": [
-            "GPL-2.0-or-later"
-        ],
-        "authors": [
-            {
-                "name": "Sudishth",
-                "homepage": "https://www.drupal.org/user/1440562"
-            },
-            {
-                "name": "maximpodorov",
-                "homepage": "https://www.drupal.org/user/515310"
-            }
-        ],
-        "description": "Formats date ranges.",
-        "homepage": "https://www.drupal.org/project/date_range_formatter",
-        "support": {
-            "source": "http://cgit.drupalcode.org/date_range_formatter"
-        }
     }
 ]

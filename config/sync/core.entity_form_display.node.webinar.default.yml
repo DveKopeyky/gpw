@@ -12,6 +12,7 @@ dependencies:
     - datetime_range
     - file
     - inline_entity_form
+    - path
     - text
 id: node.webinar.default
 targetEntityType: node
@@ -62,6 +63,12 @@ content:
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
+  path:
+    type: path
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
@@ -91,6 +98,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 1
@@ -100,4 +112,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true

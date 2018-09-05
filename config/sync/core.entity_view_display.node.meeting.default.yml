@@ -48,3 +48,4 @@ content:
 hidden:
   field_agenda_items: true
   field_reports: true
+  langcode: true

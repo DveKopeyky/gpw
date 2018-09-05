@@ -1,0 +1,18 @@
+uuid: 20a44297-4a17-4fa2-a57e-b5edd7bbb117
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webinar
+id: node.webinar.created
+field_name: created
+entity_type: node
+bundle: webinar
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

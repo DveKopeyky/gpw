@@ -1,0 +1,20 @@
+uuid: 67682ad6-38cc-458b-b549-ceaae51d08dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webinar
+id: node.webinar.uid
+field_name: uid
+entity_type: node
+bundle: webinar
+label: 'Authored by'
+description: 'The username of the content author.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\node\Entity\Node::getCurrentUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

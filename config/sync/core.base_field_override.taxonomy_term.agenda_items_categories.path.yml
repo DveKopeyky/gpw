@@ -1,0 +1,20 @@
+uuid: 3f0011a2-dfe3-4f6e-8364-c175bd8e0497
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.agenda_items_categories
+  module:
+    - path
+id: taxonomy_term.agenda_items_categories.path
+field_name: path
+entity_type: taxonomy_term
+bundle: agenda_items_categories
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

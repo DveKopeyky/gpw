@@ -66,6 +66,7 @@
         "drupal/content_sync": "2.x-dev",
         "drupal/core": "~8.5.3",
         "drupal/date_range_formatter": "^3.1",
+        "drupal/dropdown_language": "^2.1",
         "drupal/duration_field": "^1.6",
         "drupal/eck": "^1.0@alpha",
         "drupal/fixed_block_content": "^1.0@RC",
@@ -150,7 +151,8 @@
                 "Fix bullets hover": "patches/views_slideshow/bullets-hover-fix.patch"
             },
             "drupal/core": {
-                "The Views integration Datetime Range fields should extend the views integration for regular Datetime fields.": "https://www.drupal.org/files/issues/2786577-270_0.patch"
+                "The Views integration Datetime Range fields should extend the views integration for regular Datetime fields.": "https://www.drupal.org/files/issues/2786577-270_0.patch",
+                "Programmatically created translatable content type returns SQL error on content creation": "https://www.drupal.org/files/issues/2018-08-08/2599228-58.patch"
             }
         }
     }

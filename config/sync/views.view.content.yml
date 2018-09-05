@@ -26,6 +26,12 @@ display:
         type: tag
       query:
         type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
       exposed_form:
         type: basic
         options:
@@ -590,6 +596,7 @@ display:
         menu_name: admin
         weight: -10
       display_extenders: {  }
+      rendering_language: '***LANGUAGE_entity_translation***'
     display_plugin: page
     display_title: Page
     id: page_1

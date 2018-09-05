@@ -1,0 +1,18 @@
+uuid: 9fa873c6-e3dd-4da0-9a79-fc1bc4c7f5f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webinar
+id: node.webinar.changed
+field_name: changed
+entity_type: node
+bundle: webinar
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed
