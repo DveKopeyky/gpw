@@ -11,6 +11,7 @@ use Drupal\node\NodeInterface;
 use Drupal\eck\Entity\EckEntity;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\views\Views;
+use Drupal\Component\Serialization\Json;
 
 /**
  * Implements hook_help().
@@ -201,6 +202,9 @@ function gpcourse_child_entity_view_alter(array &$build, EckEntityInterface $ent
   if ($entity->bundle() == 'video' && $build['#view_mode'] == 'listing') {
     $build['title'][0]['#attributes']['class'][] = 'use-ajax';
     $build['title'][0]['#attributes']['data-dialog-type'] = 'modal';
+    $build['title'][0]['#attributes']['data-dialog-options'] = Json::encode([
+     'title' => $entity->title->value,
+   ]);
     $build['#attached']['library'][] = 'core/drupal.ajax';
     $build['#attached']['library'][] = 'core/drupal.dialog';
     $build['#attached']['library'][] = 'core/drupal.dialog.ajax';
