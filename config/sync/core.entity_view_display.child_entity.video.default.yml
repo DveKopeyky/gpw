@@ -49,4 +49,5 @@ content:
     type: duration_human_display
     region: content
 hidden:
+  langcode: true
   title: true

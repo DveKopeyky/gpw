@@ -27,4 +27,5 @@ content:
     type: basic_string
     region: content
 hidden:
+  langcode: true
   title: true

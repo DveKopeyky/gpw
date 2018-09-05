@@ -32,4 +32,5 @@ content:
 hidden:
   field_video_date: true
   field_video_duration: true
+  langcode: true
   title: true

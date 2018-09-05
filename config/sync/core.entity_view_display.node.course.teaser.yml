@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.course.body
     - field.field.node.course.field_course_reviews
     - field.field.node.course.field_course_sections
+    - field.field.node.course.field_e_learning_link
     - field.field.node.course.field_includes
     - field.field.node.course.field_key_points
     - field.field.node.course.field_lectures_number
@@ -42,9 +43,11 @@ content:
 hidden:
   field_course_reviews: true
   field_course_sections: true
+  field_e_learning_link: true
   field_includes: true
   field_key_points: true
   field_lectures_number: true
   field_topic: true
   field_video_duration: true
+  langcode: true
   links: true

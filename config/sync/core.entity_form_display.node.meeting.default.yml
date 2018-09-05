@@ -12,6 +12,7 @@ dependencies:
     - address
     - datetime_range
     - inline_entity_form
+    - path
 id: node.meeting.default
 targetEntityType: node
 bundle: meeting
@@ -68,6 +69,19 @@ content:
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:

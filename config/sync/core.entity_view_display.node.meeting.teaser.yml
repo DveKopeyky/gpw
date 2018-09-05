@@ -46,4 +46,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_agenda_items: true
+  langcode: true
   links: true

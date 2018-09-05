@@ -10,6 +10,7 @@ dependencies:
   module:
     - image
     - link
+    - path
 id: node.highlighted_course.default
 targetEntityType: node
 bundle: highlighted_course
@@ -37,6 +38,19 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:

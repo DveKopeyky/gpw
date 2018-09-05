@@ -110,3 +110,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_topic: true
+  langcode: true
