@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81ae147733a257c9120eacd7c6afb78c",
+    "content-hash": "7381532221642bb5ed16a29b20a83be8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2368,7 +2368,8 @@
             "homepage": "https://www.drupal.org/project/content_sync",
             "support": {
                 "source": "http://cgit.drupalcode.org/content_sync"
-            }
+            },
+            "time": "2018-05-12T00:09:17+00:00"
         },
         {
             "name": "drupal/core",
@@ -2750,6 +2751,53 @@
             "homepage": "https://www.drupal.org/project/date_range_formatter",
             "support": {
                 "source": "http://cgit.drupalcode.org/date_range_formatter"
+            }
+        },
+        {
+            "name": "drupal/dropdown_language",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/dropdown_language",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/dropdown_language-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "7724e425d7b4568d36077ce761c527564259d6ab"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1530187125",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "SKAUGHT",
+                    "homepage": "https://www.drupal.org/user/297907"
+                }
+            ],
+            "description": "Provides a block with a Dropdown Language Switcher",
+            "homepage": "https://www.drupal.org/project/dropdown_language",
+            "support": {
+                "source": "http://cgit.drupalcode.org/dropdown_language"
             }
         },
         {
