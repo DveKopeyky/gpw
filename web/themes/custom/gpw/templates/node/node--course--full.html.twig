@@ -98,7 +98,11 @@
   <div{{ content_attributes.addClass('content') }}>
     <div class="row-course-content row">
       <div class="col-left col-sm-8">
-        {{ content|without('body', 'field_key_points', 'field_video', 'field_e_learning_link', 'field_includes', 'field_course_reviews') }}
+        <div class="courses-totals">
+          <div class="course-lectures-number">{{ content.field_lectures_number }}</div>
+          <div class="course-videos-duration">{{ content.field_video_duration }}</div>
+        </div>
+        {{ content|without('body', 'field_key_points', 'field_video', 'field_e_learning_link', 'field_includes', 'field_course_reviews', 'field_lectures_number', 'field_video_duration') }}
       </div>
       <div class="col-right col-sm-4 col-reviews">
         {{ content.field_course_reviews }}
