@@ -96,7 +96,15 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('content') }}>
-    {{ content|without('body', 'field_key_points', 'field_video', 'field_e_learning_link', 'field_includes') }}
+    <div class="row-course-content row">
+      <div class="col-left col-sm-8">
+        {{ content|without('body', 'field_key_points', 'field_video', 'field_e_learning_link', 'field_includes', 'field_course_reviews') }}
+      </div>
+      <div class="col-right col-sm-4 col-reviews">
+        {{ content.field_course_reviews }}
+      </div>
+    </div>
+
   </div>
 
 </article>

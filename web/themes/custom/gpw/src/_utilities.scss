@@ -9,6 +9,25 @@
   @import '../bootstrap/assets/stylesheets/bootstrap/variables';
 
   /* ==========================================================================
+     Custom theme variables
+     ========================================================================== */
+
+  $mobile:          "screen and (max-width: #{$screen-xs-max})" !global;
+  $tablet:          "screen and (min-width: #{$screen-sm-min})" !global;
+  $normal:          "screen and (min-width: #{$screen-md-min})" !global;
+  $wide:            "screen and (min-width: #{$screen-lg-min})" !global;
+  $grid-breakpoint-max: "screen and (max-width: #{$grid-float-breakpoint-max})" !global;
+  $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})" !global;
+
+  $font-family-regular: 'Roboto', sans-serif !global;
+  $font-family-condensed: 'Roboto Condensed', sans-serif !global;
+  $font-family-accent: 'AlternateGotNo2DRegular', sans-serif !global;
+
+  $block-latest-news: 'block-views-blocknews-latest-news' !global;
+  $block-see-all-meetings: 'block-simple-blocksee-all-meetings' !global;
+  $block-elearning-courses: 'block-views-blockhomepage-courses-elearning-block' !global;
+
+  /* ==========================================================================
    Bootstrap overrides
    ========================================================================== */
 
@@ -17,7 +36,7 @@
 
   $images-path:               '../../images/' !global;
 
-  $font-family-sans-serif:    'Roboto Condensed', sans-serif !global;
+  $font-family-sans-serif:    $font-family-condensed !global;
 
   $border-radius-base:        0 !global;
 
@@ -42,25 +61,6 @@
   $btn-primary-color:              #fff !global;
   $btn-primary-bg:                 $gpw-secondary !global;
   $btn-primary-border:             $btn-primary-bg !global;
-
-
-  /* ==========================================================================
-     Custom theme variables
-     ========================================================================== */
-
-  $mobile:          "screen and (max-width: #{$screen-xs-max})" !global;
-  $tablet:          "screen and (min-width: #{$screen-sm-min})" !global;
-  $normal:          "screen and (min-width: #{$screen-md-min})" !global;
-  $wide:            "screen and (min-width: #{$screen-lg-min})" !global;
-  $grid-breakpoint-max: "screen and (max-width: #{$grid-float-breakpoint-max})" !global;
-  $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})" !global;
-
-  $font-family-regular: 'Roboto', sans-serif !global;
-  $font-family-accent: 'AlternateGotNo2DRegular', sans-serif !global;
-
-  $block-latest-news: 'block-views-blocknews-latest-news' !global;
-  $block-see-all-meetings: 'block-simple-blocksee-all-meetings' !global;
-  $block-elearning-courses: 'block-views-blockhomepage-courses-elearning-block' !global;
 
 }
 
