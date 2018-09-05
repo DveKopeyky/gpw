@@ -69,3 +69,26 @@ function gpmeeting_theme($existing, $type, $theme, $path) {
     'next_meetings_header' => ['variables' => []],
   );
 }
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function gpmeeting_views_pre_render(ViewExecutable $view) {
+  // Order agenda items by their weight inside the parent meeting.
+  if ($view->id() == 'agenda_items' && $view->current_display == 'block_1') {
+    $row1 = reset($view->result);
+    $meeting = $row1->_relationship_entities['reverse__node__field_agenda_items'];
+    $agenda_items = $meeting->field_agenda_items->getValue();
+    usort($view->result, function($a, $b) use ($agenda_items) {
+      foreach ($agenda_items as $agenda_item) {
+        if ($agenda_item['target_id'] == $a->_entity->id()) {
+          return -1;
+        }
+        elseif ($agenda_item['target_id'] == $b->_entity->id()) {
+          return 1;
+        }
+      }
+      return 0;
+    });
+  }
+}
