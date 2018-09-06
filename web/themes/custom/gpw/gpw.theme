@@ -86,6 +86,13 @@ function gpw_preprocess_page_title(&$variables) {
       }
     }
 
+    // fields removed in node--webinar--full.html.twig
+    if ($node->bundle() == 'webinar') {
+      if (!empty($node->field_video->entity)) {
+        $variables['video'] = $node->field_video->view('full');
+      }
+    }
+
     // fields removed in node--course--full.html.twig
     if ($node->bundle() == 'course') {
       $variables['is_full_course'] = TRUE;
