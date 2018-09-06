@@ -75,6 +75,9 @@ function gpmeeting_theme($existing, $type, $theme, $path) {
  */
 function gpmeeting_views_pre_render(ViewExecutable $view) {
   if ($view->id() == 'agenda_items' && $view->current_display == 'block_1') {
+    if (empty($view->result)) {
+      return;
+    }
     $row1 = reset($view->result);
     $meeting = $row1->_relationship_entities['reverse__node__field_agenda_items'];
     if (empty($meeting->field_agenda_items->entity)) {
