@@ -164,13 +164,3 @@ $timeline-horizontal-margin: 25vw;
     }
   }
 }
-
-.block-views-blockagenda-items-block-1 {
-  .view-content {
-    .table-responsive:not(:first-child) {
-      thead {
-        display: none;
-      }
-    }
-  }
-}
