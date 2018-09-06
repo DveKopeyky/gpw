@@ -154,7 +154,7 @@ gulp.task('watch', () => {
       './src/_mixins.scss'
     ], gulp.series('bootstrap:css', 'css'));
 
-  gulp.watch(['./src/**/*.js'], gulp.series('js'));
+  gulp.watch(['./src/components/**/*.js'], gulp.series('js'));
 
   gulp.watch(['./src/images/**/*', '!./src/images/**/*.svg'], gulp.series('imagemin'));
 
