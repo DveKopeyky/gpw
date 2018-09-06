@@ -5,7 +5,9 @@
 }
 
 .view-agenda-items {
-  border-bottom: 2px solid #000;
+  > .view-content {
+    border-bottom: 2px solid #000;
+  }
 
   .table-responsive:not(:first-child) {
     caption {
