@@ -41,6 +41,7 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  responsive_favicons: 0
   serialization: 0
   simple_block: 0
   smtp: 0

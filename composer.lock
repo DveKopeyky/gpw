@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7381532221642bb5ed16a29b20a83be8",
+    "content-hash": "c19c566c896fa8c40b255d0e37103816",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2368,8 +2368,7 @@
             "homepage": "https://www.drupal.org/project/content_sync",
             "support": {
                 "source": "http://cgit.drupalcode.org/content_sync"
-            },
-            "time": "2018-05-12T00:09:17+00:00"
+            }
         },
         {
             "name": "drupal/core",
@@ -2583,7 +2582,8 @@
                     "merge-extra": false
                 },
                 "patches_applied": {
-                    "The Views integration Datetime Range fields should extend the views integration for regular Datetime fields.": "https://www.drupal.org/files/issues/2786577-270_0.patch"
+                    "The Views integration Datetime Range fields should extend the views integration for regular Datetime fields.": "https://www.drupal.org/files/issues/2786577-270_0.patch",
+                    "Programmatically created translatable content type returns SQL error on content creation": "https://www.drupal.org/files/issues/2018-08-08/2599228-58.patch"
                 }
             },
             "autoload": {
@@ -3169,6 +3169,63 @@
             "homepage": "https://www.drupal.org/project/pathauto",
             "support": {
                 "source": "http://cgit.drupalcode.org/pathauto"
+            }
+        },
+        {
+            "name": "drupal/responsive_favicons",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/responsive_favicons",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/responsive_favicons-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "966d4d20b8bb41ecef8a3d9fa87777926eea3542"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1495624384",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "liuba",
+                    "homepage": "https://www.drupal.org/user/318617"
+                },
+                {
+                    "name": "wiifm",
+                    "homepage": "https://www.drupal.org/user/358731"
+                }
+            ],
+            "description": "Add responsive favicons to your site based on the code from http://realfavicongenerator.net/",
+            "homepage": "https://www.drupal.org/project/responsive_favicons",
+            "keywords": [
+                "Drupal",
+                "Favicon",
+                "realfavicongenerator"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/responsive_favicons",
+                "issues": "https://www.drupal.org/project/issues/responsive_favicons"
             }
         },
         {
