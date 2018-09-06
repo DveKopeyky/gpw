@@ -125,7 +125,24 @@ function gpw_preprocess_field(&$variables) {
  * Implements hook_preprocess_views_view_table().
  */
 function gpw_preprocess_views_view_table(&$variables) {
-  if($variables['view']->element['#view_id'] == 'agenda_items') {
+  if ($variables['view']->element['#view_id'] == 'agenda_items') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if (!$node instanceof \Drupal\node\NodeInterface) {
+      return;
+    }
+    if (empty($node->field_agenda_items->entity)) {
+      return;
+    }
+    // Add a class to child agenda items.
+    $agenda_items = $node->field_agenda_items->getValue();
+    foreach ($variables['rows'] as $idx => $row) {
+      $agenda_id = $agenda_items[$idx]['target_id'];
+      $agenda_item = \Drupal\eck\Entity\EckEntity::load($agenda_id);
+      $is_child = $agenda_item->field_is_child->value;
+      if (!empty($is_child)) {
+        $variables['rows'][$idx]['attributes']->addClass('is-child');
+      }
+    }
     $variables['striped'] = FALSE;
     $variables['header']['field_file']['content'] = array(
       '#theme' => 'table_header_with_icon',
