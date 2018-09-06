@@ -28,7 +28,8 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
     "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "svg4everybody": "^2.1.9"
   },
   "scripts": {
     "build": "NODE_ENV=production webpack -p",
