@@ -107,15 +107,11 @@ class RoboFile extends Tasks {
    * @command site:install
    */
   public function siteInstall() {
-    if ($this->sqlSync()->wasSuccessful()) {
+    if ($this->sqlSync()->wasSuccessful() && $this->siteUpdate()->wasSuccessful()) {
       $execStack = $this->taskExecStack()->stopOnFail();
       $execStack->exec("{$this->drush} user:password drupal@eaudeweb.ro password");
-      $execStack->exec("{$this->drush} updatedb -y");
-      $execStack->exec("{$this->drush} entup -y");
-      $execStack->exec("{$this->drush} cim sync -y");
       $execStack->exec("{$this->drush} en config devel webprofiler -y");
       $execStack->exec("{$this->drush} cim dev --partial -y");
-      $execStack->exec("{$this->drush} cr");
       return $execStack->run();
     }
     return FALSE;
@@ -129,12 +125,12 @@ class RoboFile extends Tasks {
    *
    * @command site:update
    */
-  public function siteupdate() {
+  public function siteUpdate() {
     $execStack = $this->taskExecStack()->stopOnFail();
+    $execStack->exec("{$this->drush} cr");
     $execStack->exec("{$this->drush} updatedb -y");
     $execStack->exec("{$this->drush} entup -y");
     $execStack->exec("{$this->drush} cim sync -y");
-    $execStack->exec("{$this->drush} cr");
     return $execStack->run();
   }
 }
