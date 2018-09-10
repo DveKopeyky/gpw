@@ -15,4 +15,4 @@ id: child_entity.video
 target_entity_type_id: child_entity
 target_bundle: video
 default_langcode: site_default
-language_alterable: true
+language_alterable: false

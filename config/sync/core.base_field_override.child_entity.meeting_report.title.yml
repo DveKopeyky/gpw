@@ -11,7 +11,7 @@ bundle: meeting_report
 label: Title
 description: 'The title of the entity.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -15,4 +15,4 @@ id: child_entity.course_review
 target_entity_type_id: child_entity
 target_bundle: course_review
 default_langcode: site_default
-language_alterable: true
+language_alterable: false
