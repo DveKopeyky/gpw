@@ -99,9 +99,11 @@
     }
   }
 
-  .btn {
+  .btn,
+  .open > .btn-default.dropdown-toggle {
     color: $navbar-inverse-link-color;
   }
+
 
 }
 
