@@ -1,15 +1,6 @@
 // see node--course--full.html.twig
-.row-course-content {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .col-reviews {
-  padding-top: 10rem;
-  > .field--name-field-course-reviews {
-    flex: 1;
-  }
-
+  vertical-align: middle!important;
 }
 
 .field--name-field-course-reviews {

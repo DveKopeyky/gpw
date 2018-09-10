@@ -43,6 +43,13 @@
 }
 
 .row-course-content {
+  display: table;
+  width: 100%;
+  > [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
   .field--name-field-video-duration,
   .course-lectures-number, .course-videos-duration {
     width: 10rem;
