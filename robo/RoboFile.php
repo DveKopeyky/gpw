@@ -120,4 +120,21 @@ class RoboFile extends Tasks {
     }
     return FALSE;
   }
+
+  /**
+   * Update the local instance.
+   *
+   * @return \Robo\Result
+   * @throws \Robo\Exception\TaskException
+   *
+   * @command site:update
+   */
+  public function siteupdate() {
+    $execStack = $this->taskExecStack()->stopOnFail();
+    $execStack->exec("{$this->drush} updatedb -y");
+    $execStack->exec("{$this->drush} entup -y");
+    $execStack->exec("{$this->drush} cim sync -y");
+    $execStack->exec("{$this->drush} cr");
+    return $execStack->run();
+  }
 }
