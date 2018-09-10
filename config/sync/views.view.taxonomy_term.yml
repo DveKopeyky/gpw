@@ -146,7 +146,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            '***LANGUAGE_language_content***': '***LANGUAGE_language_content***'
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
           group: 1
           exposed: false
           expose:
@@ -303,6 +303,7 @@ display:
         options: {  }
       path: taxonomy/term/%
       display_extenders: {  }
+      rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
       contexts:
         - 'languages:language_interface'

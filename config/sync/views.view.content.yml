@@ -497,9 +497,10 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: langcode_op
             label: Language
@@ -596,14 +597,13 @@ display:
         menu_name: admin
         weight: -10
       display_extenders: {  }
-      rendering_language: '***LANGUAGE_entity_translation***'
+      rendering_language: '***LANGUAGE_language_interface***'
     display_plugin: page
     display_title: Page
     id: page_1
     position: 1
     cache_metadata:
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
