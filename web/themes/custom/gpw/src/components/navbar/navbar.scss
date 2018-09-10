@@ -1,4 +1,5 @@
 @import '../../utilities';
+@import 'language-switcher';
 
 .navbar > .container {
   @media #{$grid-breakpoint} {
@@ -44,10 +45,13 @@
 
   @media #{$grid-breakpoint} {
     display: flex;
-    font-size: 16px;
+    flex-wrap: wrap;
+    font-size: 1.6rem;
+    justify-content: flex-end;
     > li {
-      display: flex;
       align-items: center;
+      display: flex;
+      min-height: $navbar-height;
       > .btn {
         padding: .8em 2.5em;
       }
@@ -112,4 +116,11 @@
     border-color: transparent;
   }
 
+}
+
+.region-navigation-collapsible {
+  @media #{$grid-breakpoint} {
+    align-items: flex-start;
+    display: flex;
+  }
 }

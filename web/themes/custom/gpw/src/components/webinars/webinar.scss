@@ -1,24 +1,25 @@
 @import '../../utilities';
+@import '../video/video';
 
 .page-node-type-webinar {
   .hero {
     background-color: $gpw-primary;
     background-image: none;
     color: #111111;
-    &.has-video {
-      padding-bottom: 40vw;
-      @media #{$tablet} {
-        padding-bottom: 29rem;
-      }
-    }
+    // &.has-video {
+    //   padding-bottom: 40vw;
+    //   @media #{$tablet} {
+    //     padding-bottom: 29rem;
+    //   }
+    // }
   }
 
-  .hero.has-video ~ .content-wrapper {
-    margin-top: -40vw;
-    @media #{$tablet} {
-      margin-top: -29rem;
-    }
-  }
+  // .hero.has-video ~ .content-wrapper {
+  //   margin-top: -40vw;
+  //   @media #{$tablet} {
+  //     margin-top: -29rem;
+  //   }
+  // }
 
   .page-header {
     text-transform: none;
@@ -33,15 +34,6 @@
       margin-bottom: 3rem;
     }
 
-    .field--name-field-video.field--type-entity-reference {
-      background-color: #333;
-      border: 2rem solid $body-bg;
-      border-top-width: 1.7rem;
-      margin: 0 auto;
-      max-width: 100%;
-      width: 64rem;
-    }
-
     .content-group {
       clear: both;
       > .col {
@@ -50,27 +42,6 @@
           margin-top: 5rem;
         }
       }
-    }
-
-    .field--name-field-video-duration, .field--name-field-video-date {
-      display: flex;
-     margin-top: 1rem;
-
-      > .field--label {
-        padding-right: .2em;
-      }
-
-      > .field--label:after {
-        display: none;
-      }
-    }
-
-    .field--name-field-video-duration {
-      float: left;
-    }
-
-    .field--name-field-video-date {
-      float: right;
     }
 
     .field--name-field-files {

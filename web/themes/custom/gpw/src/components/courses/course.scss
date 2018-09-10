@@ -1,8 +1,11 @@
 @import '../../utilities';
+@import '../video/video';
 @import 'key-points';
 @import 'elearning-link';
 @import 'includes';
 @import 'reviews';
+@import 'course-sections';
+@import 'blocks';
 
 .page-node-type-course {
   .hero {
@@ -92,4 +95,3 @@
   }
 
 }
-
