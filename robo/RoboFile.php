@@ -32,7 +32,7 @@ class RoboFile extends Tasks {
 
     $execStack = $this->taskExecStack()->stopOnFail();
     $execStack->exec("rm -f $sql_dump $sql_dump_gz");
-    $execStack->exec("curl $url --create-dirs -o $sql_dump_gz -u $username:$password");
+    $execStack->exec("curl -L $url --create-dirs -o $sql_dump_gz -u $username:$password");
     $execStack->exec("gzip -d $sql_dump_gz");
     $execStack->exec("{$this->drush} sql:drop -y");
     $execStack->exec("{$this->drush} sql:query --file=$sql_dump -y");
@@ -76,7 +76,7 @@ class RoboFile extends Tasks {
 
     $execStack = $this->taskExecStack()->stopOnFail()->dir('../web/sites/default');
     $execStack->exec("rm -f $files_tar_gz");
-    $execStack->exec("curl $url -o $files_tar_gz -u $username:$password");
+    $execStack->exec("curl -L $url -o $files_tar_gz -u $username:$password");
     $execStack->exec("rm -rf files/*");
     $execStack->exec("tar -xzvf $files_tar_gz");
     $execStack->exec("rm -f $files_tar_gz");
