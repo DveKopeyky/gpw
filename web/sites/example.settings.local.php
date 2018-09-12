@@ -129,3 +129,34 @@ $settings['rebuild_access'] = TRUE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = TRUE;
+
+$settings['trusted_host_patterns'] = array(
+  '.local$'
+);
+
+$settings['hash_salt'] = 'xxxxxxxxxxx';
+
+$settings['smtp.settings'] = [
+  'smtp_on' => 'true',
+  'smtp_host' => '',
+  'smtp_hostbackup' => '',
+  'smtp_port' => '',
+  'smtp_protocol' => '',
+  'smtp_username' => '',
+  'smtp_password' => '',
+];
+
+$databases['default']['default'] = array (
+  'database' => '',
+  'username' => '',
+  'password' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'driver' => 'mysql',
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+);
+
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
