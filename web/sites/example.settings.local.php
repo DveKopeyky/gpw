@@ -136,15 +136,8 @@ $settings['trusted_host_patterns'] = array(
 
 $settings['hash_salt'] = 'xxxxxxxxxxx';
 
-$settings['smtp.settings'] = [
-  'smtp_on' => 'true',
-  'smtp_host' => '',
-  'smtp_hostbackup' => '',
-  'smtp_port' => '',
-  'smtp_protocol' => '',
-  'smtp_username' => '',
-  'smtp_password' => '',
-];
+$config['smtp.settings']['smtp_username'] = 'xxx';
+$config['smtp.settings']['smtp_password'] = 'xxx';
 
 $databases['default']['default'] = array (
   'database' => '',
