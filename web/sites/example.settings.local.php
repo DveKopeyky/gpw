@@ -137,6 +137,8 @@ $settings['trusted_host_patterns'] = array(
 $settings['hash_salt'] = 'xxxxxxxxxxx';
 
 $config['smtp.settings']['smtp_username'] = 'xxx';
+$config['smtp.settings']['smtp_from'] = 'xxx';
+$config['smtp.settings']['smtp_fromname'] = 'xxx';
 $config['smtp.settings']['smtp_password'] = 'xxx';
 
 $databases['default']['default'] = array (
