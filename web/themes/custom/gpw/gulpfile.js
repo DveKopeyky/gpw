@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const sassImportOnce = require('gulp-sass-import-once');
 const postcss = require('gulp-postcss');
 const postcssPresetEnv = require('postcss-preset-env');
+const rtl = require('postcss-rtl');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
@@ -16,6 +17,7 @@ const cache = require('gulp-cached');
 const cssnano = require('cssnano');
 
 const plugins = [
+  rtl(),
   postcssPresetEnv(),
   cssnano()
 ];

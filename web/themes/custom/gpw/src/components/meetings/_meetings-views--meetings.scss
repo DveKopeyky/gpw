@@ -21,7 +21,7 @@ $timeline-horizontal-margin: 25vw;
 
 }
 
-.path-meetings .views-element-container,
+.view-meetings.view-display-id-page_1,
 .block-views-blockmeetings-past-meetings-pager {
   @extend %timeline;
   &:before {
@@ -47,6 +47,16 @@ $timeline-horizontal-margin: 25vw;
 
 .view-meetings.view-display-id-page_1,
 .view-display-id-past_meetings_pager {
+  min-height: 5em;
+
+  .view-empty {
+    padding-left: 5.5rem;
+    @media #{$grid-breakpoint} {
+      padding-left: calc(5.5rem + #{$timeline-horizontal-margin});
+      padding-right: 10vw;
+    }
+  }
+
   .views-row:first-child > .teaser {
     // Artifice to hide the top part of the dashed line
     top: -1.4rem;
