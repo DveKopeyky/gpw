@@ -1,8 +1,9 @@
 # Global Pact Website
 
 ## Installation
-* Clone the repository
-* Copy `web/sites/example.settings.local.php` to `web/sites/default/settings.local.php` and customize database credentials.
+* Clone this repository
+* Copy `web/sites/example.settings.local.php` to `web/sites/default/settings.local.php` and customize database credentials
+* Copy `robo/example.robo.yml` to `robo/robo.yml` and customize the username and password to ones provided by system administrator
 * Run `./install.sh`
 
 ## Updating Drupal Core
