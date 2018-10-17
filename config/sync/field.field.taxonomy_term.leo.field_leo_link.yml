@@ -11,7 +11,7 @@ id: taxonomy_term.leo.field_leo_link
 field_name: field_leo_link
 entity_type: taxonomy_term
 bundle: leo
-label: leo_link
+label: Link
 description: ''
 required: false
 translatable: false

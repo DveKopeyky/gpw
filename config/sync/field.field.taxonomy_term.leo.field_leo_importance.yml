@@ -9,7 +9,7 @@ id: taxonomy_term.leo.field_leo_importance
 field_name: field_leo_importance
 entity_type: taxonomy_term
 bundle: leo
-label: leo_importance
+label: Importance
 description: ''
 required: false
 translatable: false

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.taxonomy_term.leo.field_leo_importance
     - field.field.taxonomy_term.leo.field_leo_link
+    - field.field.taxonomy_term.leo.field_leo_show
     - taxonomy.vocabulary.leo
   module:
     - link
@@ -37,6 +38,13 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_leo_show:
+    weight: 33
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   langcode:
     type: language_select

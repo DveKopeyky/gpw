@@ -27,15 +27,17 @@ class GPLeoBlock extends BlockBase {
     foreach ($terms as $term) {
       $termEtity = Term::load($term->tid);
 
-      $link = '';
-      if ($termEtity->get('field_leo_link')->getValue()) {
-        $link = $termEtity->get('field_leo_link')[0]->getValue()['uri'];
+      if ($termEtity->get('field_leo_show')->getValue()) {
+        $link = '';
+        if ($termEtity->get('field_leo_link')->getValue()) {
+          $link = $termEtity->get('field_leo_link')[0]->getValue()['uri'];
+        }
+        $TermsList[] = [
+          'text' => $term->name,
+          'link' => $link,
+          'importance' => $termEtity->get('field_leo_importance')[0]->getValue()['value'],
+        ];
       }
-      $TermsList[] = [
-        'text' => $term->name,
-        'link' => $link,
-        'importance' => $termEtity->get('field_leo_importance')[0]->getValue()['value'],
-      ];
     }
 
     return array(
