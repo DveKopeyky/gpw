@@ -11,8 +11,8 @@ dependencies:
     - gpw
 id: views_block__news_latest_news
 theme: gpw
-region: content_4
-weight: -7
+region: content_5
+weight: -10
 provider: null
 plugin: 'views_block:news-latest_news'
 settings:

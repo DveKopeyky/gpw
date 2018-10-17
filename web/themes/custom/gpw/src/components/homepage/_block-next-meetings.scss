@@ -1,0 +1,17 @@
+.block-views-blockmeetings-next-meetings {
+
+  .more-link {
+    padding-top: 1.4rem;
+
+    > a {
+      margin-left: 30px;
+      padding-right: 5rem;
+      padding-left: 5rem;
+
+      &:hover {
+        color: $gpw-primary;
+        border: 1px solid $gpw-primary;
+      }
+    }
+  }
+}

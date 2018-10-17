@@ -153,7 +153,12 @@ display:
       sorts: {  }
       title: 'Past Meetings'
       header: {  }
-      footer: {  }
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
       empty:
         area:
           id: area
@@ -164,6 +169,9 @@ display:
       arguments: {  }
       display_extenders: {  }
       use_ajax: false
+      use_more: false
+      use_more_always: true
+      use_more_text: 'See all meetings'
     cache_metadata:
       max-age: -1
       contexts:
@@ -186,6 +194,10 @@ display:
         sorts: false
         filters: false
         filter_groups: false
+        use_more: true
+        use_more_always: true
+        use_more_text: true
+        footer: false
       block_description: 'Next Meetings'
       sorts:
         field_date_range_value:
@@ -342,6 +354,20 @@ display:
         groups:
           1: AND
       rendering_language: '***LANGUAGE_language_interface***'
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<div class="more-link form-group"><a class="btn btn-outline btn-secondary" href="/meetings">See all meetings</a></div>'
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:

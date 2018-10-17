@@ -27,6 +27,7 @@ module:
   filter: 0
   gpbase: 0
   gpcourse: 0
+  gpleo: 0
   gpmeeting: 0
   gpthesaurus: 0
   hal: 0

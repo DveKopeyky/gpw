@@ -12,7 +12,7 @@ dependencies:
 id: views_block__meetings_next_meetings
 theme: gpw
 region: content_2
-weight: -7
+weight: -9
 provider: null
 plugin: 'views_block:meetings-next_meetings'
 settings:
