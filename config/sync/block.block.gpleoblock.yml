@@ -1,0 +1,26 @@
+uuid: 97225289-3235-44bd-86d6-cb82f52dc670
+langcode: en
+status: true
+dependencies:
+  module:
+    - gpleo
+    - system
+  theme:
+    - gpw
+id: gpleoblock
+theme: gpw
+region: content_2
+weight: -10
+provider: null
+plugin: gpleo_block
+settings:
+  id: gpleo_block
+  label: 'GP LEO Block'
+  provider: gpleo
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
