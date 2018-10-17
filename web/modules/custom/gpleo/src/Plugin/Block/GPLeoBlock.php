@@ -3,6 +3,7 @@
 namespace Drupal\gpleo\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Url;
 use Drupal\taxonomy\Entity\Term;
 
 /**
@@ -32,7 +33,15 @@ class GPLeoBlock extends BlockBase {
     $terms = Term::loadMultiple($tids);
     /** @var \Drupal\taxonomy\TermInterface $term */
     foreach ($terms as $term) {
-      $link = $term->get('field_leo_link')->getString();
+      $link = '';
+      if (!empty($term->get('field_leo_link')->getString())) {
+        try {
+          $link = Url::fromUri($term->get('field_leo_link')->getString());
+          $link = $link->toString();
+        } catch (\Exception $e) {
+          watchdog_exception('GPLeoBlock', $e);
+        }
+      }
       $render[] = [
         'tid' => $term->id(),
         'text' => $term->label(),
