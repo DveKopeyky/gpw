@@ -42,9 +42,12 @@
       .style("font-size", function(_term) {
         return _term.size + "px";
       })
+      .style("cursor", function (_term, i) {
+        return _term.link ? 'pointer' : 'unset';
+      })
       .style("fill", function(_term, i) {
-        var colorNum = Math.round(Math.random() * 100) % 2;
-        var color = 'white';
+        let colorNum = Math.round(Math.random() * 100) % 2;
+        let color = 'white';
         switch (colorNum) {
           case 0:
             color = '#434343';
@@ -78,3 +81,4 @@
   };
 
 }(jQuery, Drupal));
+
