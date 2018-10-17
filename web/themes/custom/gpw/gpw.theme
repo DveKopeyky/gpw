@@ -40,6 +40,9 @@ function gpw_preprocess_block(&$variables) {
       }
       break;
 
+    case 'gpleo_block':
+      $variables['#cache']['tags'][] = 'taxonomy_term_list';
+      break;
   }
 }
 

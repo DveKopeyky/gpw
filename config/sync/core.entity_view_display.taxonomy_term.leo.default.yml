@@ -1,0 +1,57 @@
+uuid: 2570cd53-30ee-4f6c-aa46-a47b44124436
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.leo.field_leo_importance
+    - field.field.taxonomy_term.leo.field_leo_link
+    - field.field.taxonomy_term.leo.field_leo_show
+    - taxonomy.vocabulary.leo
+  module:
+    - link
+    - text
+id: taxonomy_term.leo.default
+targetEntityType: taxonomy_term
+bundle: leo
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_leo_importance:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_leo_link:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_leo_show:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  langcode: true

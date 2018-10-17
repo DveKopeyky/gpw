@@ -1,0 +1,23 @@
+uuid: 4fe17d06-5727-41a5-9df8-1a04ff37b9e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_leo_show
+    - taxonomy.vocabulary.leo
+id: taxonomy_term.leo.field_leo_show
+field_name: field_leo_show
+entity_type: taxonomy_term
+bundle: leo
+label: 'Show in term cloud'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

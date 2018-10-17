@@ -2,7 +2,8 @@
   margin-bottom: 0;
 }
 
-.block-views-blockmeetings-next-meetings, .block-views-blockmeetings-past-meetings {
+.block-views-blockmeetings-next-meetings,
+.block-views-blockmeetings-past-meetings {
   .block-title {
     @extend %heading-default;
     color: $gpw-secondary;
@@ -14,24 +15,12 @@
 .block-views-blockmeetings-next-meetings,
 .block-views-blockmeetings-past-meetings {
   @extend %timeline;
-  &:before {
-    @extend %timeline-line-dashed;
-  }
 }
 
 .view-display-id-past_meetings {
   .teaser:before {
     @extend %timeline-line-solid;
     top: 1.4rem;
-  }
-}
-
-.block-views-blockmeetings-next-meetings,
-.block-views-blockmeetings-past-meetings {
-  .teaser {
-    h2 {
-      @extend %timeline-dot;
-    }
   }
 }
 

@@ -1,0 +1,16 @@
+uuid: 9538a583-f66d-48e4-886a-6a88bdffe5cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.leo
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.leo
+target_entity_type_id: taxonomy_term
+target_bundle: leo
+default_langcode: und
+language_alterable: true

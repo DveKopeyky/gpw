@@ -1,7 +1,9 @@
 @import '../../utilities';
 @import 'block--homepage';
-@import 'block-see-all-meetings';
 @import 'block-latest-news';
+@import 'block-next-meetings';
+@import 'block-elearning';
+@import 'block-gpleoblock';
 
 .homepage-header {
   font-family: $font-family-accent;
@@ -25,7 +27,7 @@
   .hero--frontpage {
     .row {
       @media #{$grid-breakpoint} {
-        align-items: center;
+        //align-items: center;
         display: flex;
       }
     }
@@ -41,9 +43,12 @@
     margin-top: 3rem;
   }
 
-  .region-content-4,
-  .region-content-5 {
+  .region-content-4 {
     margin-top: 5rem;
+  }
+
+  .footer {
+    margin-top: 0;
   }
 
 }
