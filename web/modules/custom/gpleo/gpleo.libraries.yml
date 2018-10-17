@@ -1,9 +1,9 @@
 leo-terms:
   version: 1.x
   js:
-    js/leo-terms.js: {}
-    https://d3js.org/d3.v3.min.js: { type: external, minified: true }
-    https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js: { type: external, minified: false }
+    js/d3.v3.min.js: { minified: true }
+    js/d3.layout.cloud.js: { minified: false }
+    js/leo-terms.js: { minified: false }
   dependencies:
   - core/jquery
   - core/drupalSettings
