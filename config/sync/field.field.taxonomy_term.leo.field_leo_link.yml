@@ -12,7 +12,7 @@ field_name: field_leo_link
 entity_type: taxonomy_term
 bundle: leo
 label: Link
-description: ''
+description: 'Define the link to open when clicking the term on the home page term cloud.'
 required: false
 translatable: false
 default_value: {  }

@@ -10,7 +10,7 @@ field_name: field_leo_importance
 entity_type: taxonomy_term
 bundle: leo
 label: Importance
-description: ''
+description: 'Controls the size of the term in home page term cloud. Between 0 and 100. The bigger the importance, the bigger the size on the home page term cloud.'
 required: false
 translatable: false
 default_value:

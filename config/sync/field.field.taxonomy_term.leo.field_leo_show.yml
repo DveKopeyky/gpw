@@ -10,7 +10,7 @@ field_name: field_leo_show
 entity_type: taxonomy_term
 bundle: leo
 label: 'Show in term cloud'
-description: ''
+description: 'Show the term in the home page term cloud.'
 required: false
 translatable: false
 default_value:
