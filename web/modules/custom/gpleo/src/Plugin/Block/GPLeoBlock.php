@@ -21,32 +21,32 @@ class GPLeoBlock extends BlockBase {
    */
   public function build() {
     $vid = 'leo';
-    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
-
-    $TermsList = [];
+    $render = [];
+    $tids = \Drupal::database()
+      ->select('taxonomy_term__field_leo_show', 'a')
+      ->fields('a', ['entity_id'])
+      ->condition('a.bundle', $vid)
+      ->condition('a.field_leo_show_value', 1)
+      ->execute()
+      ->fetchCol();
+    $terms = Term::loadMultiple($tids);
+    /** @var \Drupal\taxonomy\TermInterface $term */
     foreach ($terms as $term) {
-      $termEtity = Term::load($term->tid);
-
-      if ($termEtity->get('field_leo_show')->getValue()) {
-        $link = '';
-        if ($termEtity->get('field_leo_link')->getValue()) {
-          $link = $termEtity->get('field_leo_link')[0]->getValue()['uri'];
-        }
-        $TermsList[] = [
-          'text' => $term->name,
-          'link' => $link,
-          'importance' => $termEtity->get('field_leo_importance')[0]->getValue()['value'],
-        ];
-      }
+      $link = $term->get('field_leo_link')->getString();
+      $render[] = [
+        'tid' => $term->id(),
+        'text' => $term->label(),
+        'link' => $link,
+        'importance' => $term->get('field_leo_importance')->getString(),
+      ];
     }
-
     return array(
       '#markup' => ' ',
       '#attached' => [
         'library' => ['gpleo/leo-terms'],
         'drupalSettings' => [
           'leoTerms' => [
-            'termsList' => $TermsList,
+            'termsList' => $render,
           ],
         ],
       ],
