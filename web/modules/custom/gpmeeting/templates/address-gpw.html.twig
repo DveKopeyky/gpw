@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default template for the 'plain' address formatter.
+ *
+ * Available variables:
+ *   - address_line1: First address line.
+ *   - locality: The locality subdivision.
+ *     - locality.code: Locality code.
+ *     - locality.name: Locality name.
+ *   - country: The country.
+ *     - country.code: Country code.
+ *     - country.name: Country name.
+ *
+ * if a subdivision (dependent_locality, locality, administrative_area) was
+ * entered, the array will always have a code. If it's a predefined subdivision,
+ * it will also have a name. The code is always prefered.
+ *
+ * @ingroup themeable
+ */
+#}
+<p class="address" translate="no">
+  {% if locality %}{% if locality.code %}{{ locality.code }}{% else %}{{ locality }}{% endif %}{% endif %}{% if address_line1 %} ({{ address_line1 }}){% endif %}{% if address_line1 or locality %}, {% endif %}{{ country.name }}
+</p>
