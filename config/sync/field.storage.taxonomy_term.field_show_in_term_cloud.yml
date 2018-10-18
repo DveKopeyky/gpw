@@ -1,16 +1,14 @@
-uuid: 2d5fed93-ba5c-4e2a-b640-cf8031eee17f
+uuid: 8504b09c-a3d1-42bd-9e43-78e95cba851f
 langcode: en
 status: true
 dependencies:
   module:
     - taxonomy
-id: taxonomy_term.field_leo_importance
-field_name: field_leo_importance
+id: taxonomy_term.field_show_in_term_cloud
+field_name: field_show_in_term_cloud
 entity_type: taxonomy_term
-type: integer
-settings:
-  unsigned: false
-  size: normal
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

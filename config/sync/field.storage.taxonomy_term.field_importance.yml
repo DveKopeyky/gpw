@@ -1,16 +1,17 @@
-uuid: 7b3ba588-60cc-4762-82c5-7ff5bb4793b1
+uuid: d433899c-f573-4272-906b-d8ed0c11bb74
 langcode: en
 status: true
 dependencies:
   module:
-    - link
     - taxonomy
-id: taxonomy_term.field_leo_link
-field_name: field_leo_link
+id: taxonomy_term.field_importance
+field_name: field_importance
 entity_type: taxonomy_term
-type: link
-settings: {  }
-module: link
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
 locked: false
 cardinality: 1
 translatable: true
