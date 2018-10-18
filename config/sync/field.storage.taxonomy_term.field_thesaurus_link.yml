@@ -1,15 +1,16 @@
-uuid: 2f7bfdd7-6281-495b-a1e9-86b98cd0d214
+uuid: 170b88bb-d82b-4841-983e-8e4520cf430a
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - taxonomy
-id: taxonomy_term.field_leo_show
-field_name: field_leo_show
+id: taxonomy_term.field_thesaurus_link
+field_name: field_thesaurus_link
 entity_type: taxonomy_term
-type: boolean
+type: link
 settings: {  }
-module: core
+module: link
 locked: false
 cardinality: 1
 translatable: true

@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.thesaurus.field_importance
+    - field.field.taxonomy_term.thesaurus.field_show_in_term_cloud
+    - field.field.taxonomy_term.thesaurus.field_thesaurus_link
     - field.field.taxonomy_term.thesaurus.field_topics
     - taxonomy.vocabulary.thesaurus
   module:
+    - link
     - path
     - text
 id: taxonomy_term.thesaurus.default
@@ -21,6 +25,28 @@ content:
       placeholder: ''
       rows: 5
     third_party_settings: {  }
+  field_importance:
+    weight: 31
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_show_in_term_cloud:
+    weight: 33
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_thesaurus_link:
+    weight: 32
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_topics:
     weight: 1
     settings: {  }
@@ -45,6 +71,11 @@ content:
   path:
     type: path
     weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
