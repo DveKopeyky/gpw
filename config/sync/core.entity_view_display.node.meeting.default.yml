@@ -7,10 +7,11 @@ dependencies:
     - field.field.node.meeting.field_agenda_items
     - field.field.node.meeting.field_date_range
     - field.field.node.meeting.field_reports
+    - field.field.node.meeting.field_tentative
     - node.type.meeting
   module:
-    - address
     - date_range_formatter
+    - gpmeeting
     - user
 id: node.meeting.default
 targetEntityType: node
@@ -18,7 +19,7 @@ bundle: meeting
 mode: default
 content:
   field_address:
-    type: address_default
+    type: addess_field_formatter
     weight: 0
     region: content
     label: hidden
@@ -40,6 +41,16 @@ content:
       separator: '-'
       date_format: 'Y-m-d\TH:i:s'
     third_party_settings: {  }
+  field_tentative:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   links:
     weight: 2
     region: content

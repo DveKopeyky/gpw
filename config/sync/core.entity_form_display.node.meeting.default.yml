@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.meeting.field_agenda_items
     - field.field.node.meeting.field_date_range
     - field.field.node.meeting.field_reports
+    - field.field.node.meeting.field_tentative
     - node.type.meeting
   module:
     - address
@@ -32,7 +33,7 @@ content:
     type: address_default
     region: content
   field_agenda_items:
-    weight: 9
+    weight: 10
     settings:
       form_mode: default
       override_labels: true
@@ -54,7 +55,7 @@ content:
     type: daterange_default
     region: content
   field_reports:
-    weight: 8
+    weight: 9
     settings:
       form_mode: default
       override_labels: true
@@ -69,9 +70,16 @@ content:
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
+  field_tentative:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   path:
     type: path
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -105,7 +113,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
