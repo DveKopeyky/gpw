@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.meeting.field_date_range
     - field.field.node.meeting.field_reports
     - field.field.node.meeting.field_tentative
+    - field.field.node.meeting.field_thesaurus
     - node.type.meeting
   module:
     - date_range_formatter
@@ -50,4 +51,5 @@ hidden:
   field_agenda_items: true
   field_reports: true
   field_tentative: true
+  field_thesaurus: true
   langcode: true
