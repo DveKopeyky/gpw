@@ -181,6 +181,29 @@ function gpw_preprocess_views_view_table(&$variables) {
       }
     }
   }
+  if ($variables['view']->element['#view_id'] == 'reports') {
+
+
+
+    foreach ($variables['header'] as $key => &$header){
+      $icon = FALSE;
+      switch ($key){
+        case 'field_file':
+          $icon = 'file';
+          break;
+        default:
+          break;
+      }
+      if($icon) {
+        $header['content'] = array(
+          '#theme' => 'table_header_with_icon',
+          '#icon' => $icon,
+          '#content' => $variables['header'][$key]['content'],
+        );
+      }
+    }
+    $variables['striped'] = FALSE;
+  }
 }
 
 /**
