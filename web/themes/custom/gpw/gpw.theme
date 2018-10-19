@@ -86,7 +86,12 @@ function gpw_preprocess_page_title(&$variables) {
       }
       if (!empty($node->field_date_range)) {
         $variables['subtitle']['date'] = $node->field_date_range->view('full');
+
+        if ($node->field_tentative->value) {
+          $variables['subtitle']['date']['#suffix'] = " (" . \Drupal::translation()->translate("Tentative") . ")";
+        }
       }
+
     }
 
     // fields removed in node--webinar--full.html.twig

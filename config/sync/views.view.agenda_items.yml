@@ -246,7 +246,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="start-date">{{ field_date_range__value }}</div> <div class="start-date">{{ field_date_range__end_value }}</div>'
+            text: '<div class="start-date">{{ field_date_range__value }}</div> {% if field_date_range__end_value != field_date_range__value %} <div class="start-date">{{ field_date_range__end_value }}</div> {% endif %}'
             make_link: false
             path: ''
             absolute: false

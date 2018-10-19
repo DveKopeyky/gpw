@@ -41,16 +41,6 @@ content:
       separator: '-'
       date_format: 'Y-m-d\TH:i:s'
     third_party_settings: {  }
-  field_tentative:
-    weight: 3
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   links:
     weight: 2
     region: content
@@ -59,4 +49,5 @@ content:
 hidden:
   field_agenda_items: true
   field_reports: true
+  field_tentative: true
   langcode: true
