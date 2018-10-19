@@ -58,6 +58,7 @@ news:
   css:
     theme:
       dist/components/news/news.css: {}
+      dist/components/news/news-views.css: {}
 
 glossary:
   css:

@@ -1,0 +1,14 @@
+uuid: 4bd92404-9f4e-4163-86ff-e2e42df058e1
+langcode: en
+status: true
+dependencies: {  }
+name: news_thumbnail
+label: 'News thumbnail'
+effects:
+  eede4a64-9e9c-41c8-8922-6eee47ba0839:
+    uuid: eede4a64-9e9c-41c8-8922-6eee47ba0839
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 200
