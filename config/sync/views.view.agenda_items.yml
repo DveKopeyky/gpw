@@ -6,7 +6,7 @@ dependencies:
     - eck.eck_type.child_entity.meeting_agenda_item
     - field.storage.child_entity.field_agenda_item_category
     - field.storage.child_entity.field_date_range
-    - field.storage.child_entity.field_file
+    - field.storage.child_entity.field_files
   module:
     - datetime_range
     - eck
@@ -172,10 +172,10 @@ display:
           entity_type: null
           entity_field: title
           plugin_id: field
-        field_file:
-          id: field_file
-          table: child_entity__field_file
-          field: field_file
+        field_files:
+          id: field_files
+          table: child_entity__field_files
+          field: field_files
           relationship: none
           group_type: group
           admin_label: ''
@@ -197,7 +197,7 @@ display:
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
+            nl2br: true
             max_length: 0
             word_boundary: true
             ellipsis: true
@@ -216,10 +216,10 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: '<span class="empty">-</span>'
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: target_id
           type: file_default
           settings:
@@ -232,7 +232,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: '<br/>'
           field_api_classes: false
           plugin_id: field
         field_date_range:
@@ -429,6 +429,15 @@ display:
           required: true
           entity_type: child_entity
           plugin_id: entity_reverse
+        field_files_target_id:
+          id: field_files_target_id
+          table: child_entity__field_files
+          field: field_files_target_id
+          relationship: none
+          group_type: group
+          admin_label: Documents
+          required: false
+          plugin_id: standard
       arguments:
         nid:
           id: nid
@@ -467,6 +476,7 @@ display:
           entity_field: nid
           plugin_id: node_nid
       display_extenders: {  }
+      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -476,7 +486,7 @@ display:
       tags:
         - 'config:field.storage.child_entity.field_agenda_item_category'
         - 'config:field.storage.child_entity.field_date_range'
-        - 'config:field.storage.child_entity.field_file'
+        - 'config:field.storage.child_entity.field_files'
   block_1:
     display_plugin: block
     id: block_1
@@ -493,4 +503,4 @@ display:
       tags:
         - 'config:field.storage.child_entity.field_agenda_item_category'
         - 'config:field.storage.child_entity.field_date_range'
-        - 'config:field.storage.child_entity.field_file'
+        - 'config:field.storage.child_entity.field_files'

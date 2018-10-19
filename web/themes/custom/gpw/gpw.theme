@@ -159,16 +159,27 @@ function gpw_preprocess_views_view_table(&$variables) {
       }
     }
     $variables['striped'] = FALSE;
-    $variables['header']['field_file']['content'] = array(
-      '#theme' => 'table_header_with_icon',
-      '#icon' => 'file',
-      '#content' => $variables['header']['field_file']['content'],
-    );
-    $variables['header']['field_date_range']['content'] = array(
-      '#theme' => 'table_header_with_icon',
-      '#icon' => 'calendar',
-      '#content' => $variables['header']['field_date_range']['content'],
-    );
+
+    foreach ($variables['header'] as $key => &$header){
+      $icon = FALSE;
+      switch ($key){
+        case 'field_files':
+          $icon = 'file';
+          break;
+        case 'field_date_range':
+          $icon = 'calendar';
+          break;
+        default:
+        break;
+      }
+      if($icon) {
+        $header['content'] = array(
+          '#theme' => 'table_header_with_icon',
+          '#icon' => $icon,
+          '#content' => $variables['header'][$key]['content'],
+        );
+      }
+    }
   }
 }
 

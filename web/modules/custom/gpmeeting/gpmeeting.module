@@ -95,6 +95,16 @@ function gpmeeting_views_pre_render(ViewExecutable $view) {
 
     $agenda_items = $meeting->field_agenda_items->getValue();
 
+    // Remove duplicates.
+    $ids = [];
+    foreach($view->result as $key => $result) {
+      if (!in_array($result->_entity->id(), $ids)) {
+        $ids[] =$result->_entity->id();
+      } else {
+        unset($view->result[$key]);
+      }
+    }
+
     // Order agenda items by their weight inside the parent meeting.
     usort($view->result, function($a, $b) use ($agenda_items) {
       foreach ($agenda_items as $agenda_item) {
