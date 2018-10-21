@@ -96,6 +96,34 @@ function gpw_preprocess_page_title(&$variables) {
 
     // fields removed in node--webinar--full.html.twig
     if ($node->bundle() == 'webinar') {
+
+      if (!empty($node->field_date_range)) {
+        $variables['subtitle']['date'] = $node->field_date_range->view('full');
+      }
+
+      if (!empty($node->field_signup_link)) {
+        $signup_link = $node->field_signup_link->getValue();
+        if (isset($signup_link[0]['uri'])) {
+            if ($node->field_date_range && $date_range = $node->field_date_range->getValue()) {
+              if (isset($date_range[0]['end_value']) && !empty($date_range[0]['end_value'])) {
+                if (date("Y-m-d") <= $date_range[0]['end_value']) {
+                  $variables['signup_link'] = [
+                    '#title' => t('Sign up now'),
+                    '#type' => 'link',
+                    '#attributes' => [
+                      'class' => [
+                        'btn',
+                        'btn-outline',
+                      ],
+                      'target' => '_blank',
+                    ],
+                    '#url' => Drupal\Core\Url::fromUri($signup_link[0]['uri']),
+                  ];
+                }
+              }
+            }
+          }
+      }
       if (!empty($node->field_video->entity)) {
         $variables['video'] = $node->field_video->view('full');
       }
