@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.webinar.body
     - field.field.node.webinar.field_date_range
     - field.field.node.webinar.field_files
+    - field.field.node.webinar.field_thesaurus
     - field.field.node.webinar.field_video
     - node.type.webinar
   module:
@@ -46,6 +47,15 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
+    region: content
+  field_thesaurus:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_video:
     weight: 7

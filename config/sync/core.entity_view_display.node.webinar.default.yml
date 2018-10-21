@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.webinar.body
     - field.field.node.webinar.field_date_range
     - field.field.node.webinar.field_files
+    - field.field.node.webinar.field_thesaurus
     - field.field.node.webinar.field_video
     - node.type.webinar
   module:
@@ -48,4 +49,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_date_range: true
+  field_thesaurus: true
   langcode: true
