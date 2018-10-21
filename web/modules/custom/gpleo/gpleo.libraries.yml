@@ -7,3 +7,7 @@ leo-terms:
   dependencies:
   - core/jquery
   - core/drupalSettings
+
+thesaurus:
+  js:
+    js/thesaurus.js: {}

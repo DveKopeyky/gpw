@@ -1,0 +1,29 @@
+uuid: 2e78bc2e-f74b-4828-97b0-17bbd55bdeaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.thesaurus
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: thesaurus_filter_topic_block
+theme: gpw
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:thesaurus-page_alphabetically'
+settings:
+  id: 'views_exposed_filter_block:thesaurus-page_alphabetically'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: 'Filter by topic'
+visibility:
+  request_path:
+    id: request_path
+    pages: /glossary/alphabetically
+    negate: false
+    context_mapping: {  }
