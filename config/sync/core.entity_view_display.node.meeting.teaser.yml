@@ -8,10 +8,12 @@ dependencies:
     - field.field.node.meeting.field_agenda_items
     - field.field.node.meeting.field_date_range
     - field.field.node.meeting.field_reports
+    - field.field.node.meeting.field_tentative
+    - field.field.node.meeting.field_thesaurus
     - node.type.meeting
   module:
-    - address
     - datetime_range
+    - gpmeeting
     - user
 id: node.meeting.teaser
 targetEntityType: node
@@ -19,7 +21,7 @@ bundle: meeting
 mode: teaser
 content:
   field_address:
-    type: address_default
+    type: addess_field_formatter
     weight: 0
     region: content
     label: hidden
@@ -27,7 +29,7 @@ content:
     third_party_settings: {  }
   field_date_range:
     type: daterange_default
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings:
@@ -37,14 +39,25 @@ content:
     third_party_settings: {  }
   field_reports:
     type: entity_reference_entity_view
-    weight: 2
+    weight: 4
     region: content
     label: inline
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+  field_tentative:
+    type: boolean
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: (Tentative)
+      format_custom_false: ''
+    third_party_settings: {  }
 hidden:
   field_agenda_items: true
+  field_thesaurus: true
   langcode: true
   links: true
