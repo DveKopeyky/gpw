@@ -119,6 +119,13 @@ class LEOImport {
         case 'topics':
           $topics = [];
           foreach($row->topics as $topicName) {
+            // "Fix" ... you know
+            if (strtolower($topicName) == 'biodiversity') {
+              $topicName = 'Biological Diversity';
+            }
+            else if (strtolower($topicName) == 'climate change and atmosphere') {
+              $topicName = 'Climate and Atmosphere';
+            }
             if ($topicId = self::getTopicByName($topicName)) {
               $topics[] = $topicId;
             }
