@@ -1,0 +1,18 @@
+uuid: 3305a75b-425f-40ef-83a6-5fa6e2df4e65
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tentative
+field_name: field_tentative
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
