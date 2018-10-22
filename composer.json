@@ -52,6 +52,7 @@
         }
     ],
     "require": {
+        "ext-json": "*",
         "briancherne/jquery.hoverIntent": "^1.9",
         "composer/installers": "^1.2",
         "consolidation/robo": "^1.3",
