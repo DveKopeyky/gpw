@@ -23,6 +23,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /glossary
+    pages: "/glossary\r\n/glossary/alphabetically"
     negate: false
     context_mapping: {  }

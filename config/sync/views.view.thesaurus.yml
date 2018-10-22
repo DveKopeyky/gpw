@@ -289,7 +289,7 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: standard
-      title: Alphabetically
+      title: Glossary
       header: {  }
       footer: {  }
       empty: {  }
