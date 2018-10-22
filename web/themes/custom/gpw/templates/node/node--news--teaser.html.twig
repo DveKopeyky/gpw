@@ -91,7 +91,10 @@
 
 
   <div{{ content_attributes.addClass('content') }}>
-    {{ content|without('field_image') }}
+    {{ content|without('field_image', 'body') }}
+  </div>
+  <div{{ content_attributes.addClass('content-body') }}>
+    {{ content.body }}
   </div>
 
     <div class="more-link see-news">
