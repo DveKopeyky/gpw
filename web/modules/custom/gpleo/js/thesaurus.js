@@ -39,6 +39,24 @@
       else {
         _parent.removeClass('active')
       }
+
+      // BEF autosubmit works incorrect.
+      $('#topic-apply').click();
+    });
+  };
+
+  Drupal.thesaurusView.prepareColumns = function() {
+    if ($('#column-1').length == 0) {
+      var columnsMarkup = '<div id="column-1" class="col-sm-4"></div>'
+        + '<div id="column-2" class="col-sm-4"></div>'
+        + '<div id="column-3" class="col-sm-4"></div>';
+      $('.view-id-thesaurus.view-display-id-page_alphabetically .view-content').append(columnsMarkup);
+    }
+
+    $('.thesaurus-column').each(function() {
+      var _columnNumber = $(this).attr('columnNumber');
+      var _columnID = '#column-' + _columnNumber;
+      $(this).appendTo(_columnID);
     });
   };
 
@@ -74,9 +92,12 @@
       $('#block-thesaurus-filter-topic-block #edit-submit-thesaurus').click();
       Drupal.thesaurusView.prepareSelectedTopics();
     });
-    $('#edit-clear').on('click', function(event) {
+    $('#topic-clear').on('click', function(event) {
       event.preventDefault();
-      $('#block-thesaurus-filter-topic-block #edit-reset').click();
+      $('#edit-topics input.form-checkbox')
+        .prop("checked", false)
+        .parents('.form-type-checkbox').removeClass('active');
+      $('#block-thesaurus-filter-topic-block #edit-submit-thesaurus').click();
       Drupal.thesaurusView.prepareSelectedTopics();
     });
   };
@@ -86,6 +107,7 @@
       $('#block-thesaurus-filter-topic-block').once('topic-filter-ready').each(function() {
         Drupal.thesaurusView.init();
       });
+      Drupal.thesaurusView.prepareColumns();
     }
   };
 
