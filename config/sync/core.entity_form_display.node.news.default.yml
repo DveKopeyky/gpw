@@ -4,13 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_date
     - field.field.node.news.field_image
     - field.field.node.news.field_news_category
     - field.field.node.news.field_thesaurus
-    - image.style.thumbnail
+    - image.style.news_thumbnail
     - node.type.news
   module:
-    - image
+    - datetime
+    - image_widget_crop
     - path
     - text
 id: node.news.default
@@ -33,13 +35,27 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_image:
     weight: 1
     settings:
+      show_default_crop: true
+      warn_multiple_usages: true
+      preview_image_style: news_thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - thumbnail_crop_type
+      crop_types_required:
+        - thumbnail_crop_type
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      show_crop_area: false
     third_party_settings: {  }
-    type: image_image
+    type: image_widget_crop
     region: content
   field_news_category:
     weight: 7
