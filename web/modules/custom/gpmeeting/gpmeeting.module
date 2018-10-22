@@ -28,8 +28,38 @@ function gpmeeting_node_view_alter(array &$build, NodeInterface $node, EntityVie
       '#markup' => t('Online'),
       '#weight' => -1,
     ];
-    if (!empty($node->field_video->getValue())) {
-      $build['view_recording'] = $node->toLink(t('View recording'), 'canonical', ['attributes' => ['class' => ['view-recording-link', 'btn', 'btn-outline']]])->toRenderable();
+
+
+    if ($node->field_date_range && $date_range = $node->field_date_range->getValue()) {
+      if (isset($date_range[0]['end_value']) && !empty($date_range[0]['end_value'])) {
+        if (date("Y-m-d") <= $date_range[0]['end_value']) {
+          // Show signup link.
+          if (!empty($node->field_signup_link)) {
+            $signup_link = $node->field_signup_link->getValue();
+            if (isset($signup_link[0]['uri'])) {
+              $build['view_recording'] = [
+                '#title' => t('Sign up now'),
+                '#type' => 'link',
+                '#attributes' => [
+                  'class' => [
+                    'view-recording-link',
+                    'btn',
+                    'btn-outline',
+                  ],
+                  'target' => '_blank',
+                ],
+                '#url' => Drupal\Core\Url::fromUri($signup_link[0]['uri']),
+              ];
+            }
+          }
+
+        } else {
+          // Show view recording.
+          if (!empty($node->field_video->getValue())) {
+            $build['view_recording'] = $node->toLink(t('View recording'), 'canonical', ['attributes' => ['class' => ['view-recording-link', 'btn', 'btn-outline']]])->toRenderable();
+          }
+        }
+      }
     }
   }
   elseif ($node->bundle() == 'meeting' && $build['#view_mode'] == 'full' && !empty($build['title'][0]['#context']['value'])) {
@@ -65,9 +95,18 @@ function gpmeeting_views_pre_view(ViewExecutable $view, $display_id, array &$arg
  * Implements hook_theme().
  */
 function gpmeeting_theme($existing, $type, $theme, $path) {
-  return array(
-    'next_meetings_header' => ['variables' => []],
-  );
+  return [
+      'next_meetings_header' => [
+        'variables' => []
+      ],
+      'address_gpw' => [
+        'variables' => [
+          'address_line1' => '',
+          'locality' => [],
+          'country' => [],
+        ],
+      ],
+    ];
 }
 
 /**
@@ -85,6 +124,16 @@ function gpmeeting_views_pre_render(ViewExecutable $view) {
     }
 
     $agenda_items = $meeting->field_agenda_items->getValue();
+
+    // Remove duplicates.
+    $ids = [];
+    foreach($view->result as $key => $result) {
+      if (!in_array($result->_entity->id(), $ids)) {
+        $ids[] =$result->_entity->id();
+      } else {
+        unset($view->result[$key]);
+      }
+    }
 
     // Order agenda items by their weight inside the parent meeting.
     usort($view->result, function($a, $b) use ($agenda_items) {

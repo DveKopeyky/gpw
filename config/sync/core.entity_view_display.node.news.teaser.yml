@@ -5,9 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.news.body
+    - field.field.node.news.field_image
     - field.field.node.news.field_news_category
+    - field.field.node.news.field_thesaurus
+    - image.style.news_thumbnail
     - node.type.news
   module:
+    - image
     - text
     - user
 id: node.news.teaser
@@ -18,15 +22,27 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 0
+    weight: 2
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: news_thumbnail
+      image_link: content
+    third_party_settings: {  }
+  field_thesaurus:
+    type: entity_reference_label
     weight: 1
     region: content
-    settings: {  }
+    label: inline
+    settings:
+      link: true
     third_party_settings: {  }
 hidden:
   field_news_category: true
