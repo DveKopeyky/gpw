@@ -1,0 +1,29 @@
+uuid: c7102a47-b44b-438d-b1ff-b28b529f1620
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.tags
+  module:
+    - facets
+    - system
+  theme:
+    - gpw
+id: tags
+theme: gpw
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:tags'
+settings:
+  id: 'facet_block:tags'
+  label: Tags
+  provider: facets
+  label_display: visible
+  block_id: tags
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/gpe"
+    negate: false
+    context_mapping: {  }
