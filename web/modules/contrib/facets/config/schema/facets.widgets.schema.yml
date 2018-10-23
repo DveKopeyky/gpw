@@ -21,6 +21,9 @@ facet.widget.config.dropdown:
     default_option_label:
       type: label
       label: 'Default option label'
+    use_chosen:
+      type: boolean
+      label: 'Use chosen'
 
 # Config schema for links, you can find the implementation in
 # Drupal\facets\Plugin\facets\widget\LinksWidget. Options for this widget are

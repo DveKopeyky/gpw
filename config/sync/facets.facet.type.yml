@@ -1,4 +1,4 @@
-uuid: b7e64546-d3cf-4f1e-86f1-bc8420ff4de3
+uuid: 46ede011-b358-4041-9d7b-4cd7f1ebe0bf
 langcode: en
 status: true
 dependencies:
@@ -18,8 +18,8 @@ facet_source_id: 'search_api:views_page__gpe_search_page__page_1'
 widget:
   type: dropdown
   config:
-    show_numbers: true
-    default_option_label: Choose
+    show_numbers: false
+    default_option_label: 'Select option(s)'
     use_chosen: 1
 query_operator: or
 use_hierarchy: false
@@ -47,8 +47,8 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
-  list_item:
-    processor_id: list_item
+  translate_entity:
+    processor_id: translate_entity
     weights:
       build: 5
     settings: {  }

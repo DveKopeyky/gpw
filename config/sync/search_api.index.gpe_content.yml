@@ -7,20 +7,19 @@ dependencies:
     - node
     - search_api
     - search_api_attachments
-    - taxonomy
   config:
-    - field.storage.node.field_agenda_items
     - field.storage.node.body
-    - field.storage.node.field_news_category
-    - field.storage.node.field_video
-    - field.storage.node.field_video_duration
+    - field.storage.node.field_agenda_items
     - field.storage.node.field_e_learning_link
+    - field.storage.node.field_files
     - field.storage.node.field_image
     - field.storage.node.field_link
+    - field.storage.node.field_news_category
     - field.storage.node.field_reports
-    - field.storage.node.field_files
     - field.storage.node.field_thesaurus
     - field.storage.node.field_topic
+    - field.storage.node.field_video
+    - field.storage.node.field_video_duration
     - search_api.server.default
 third_party_settings:
   search_api_solr:
@@ -224,15 +223,6 @@ datasource_settings:
     bundles:
       default: true
       selected: {  }
-    languages:
-      default: true
-      selected: {  }
-  'entity:taxonomy_term':
-    bundles:
-      default: false
-      selected:
-        - thesaurus
-        - topics
     languages:
       default: true
       selected: {  }

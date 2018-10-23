@@ -3732,6 +3732,9 @@
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
                 }
+            },
+            "patches_applied": {
+                "Add chosen support (https://www.drupal.org/project/facets/issues/2853121)": "patches/facets/chosen-support.patch"
             }
         },
         "installation-source": "dist",
