@@ -16,11 +16,16 @@ show_only_one_result: true
 field_identifier: type
 facet_source_id: 'search_api:views_page__gpe_search_page__page_1'
 widget:
-  type: dropdown
+  type: enhanced_checkboxes
   config:
     show_numbers: false
-    default_option_label: 'Select option(s)'
-    use_chosen: 1
+    soft_limit: '0'
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
+    default_option_label: Choose
+    subtitle: 'Filter by type of content'
+    collapsed: 1
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -29,18 +34,6 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
-  active_widget_order:
-    processor_id: active_widget_order
-    weights:
-      sort: 20
-    settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: 30
-    settings:
-      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
@@ -60,4 +53,4 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
-show_title: false
+show_title: true

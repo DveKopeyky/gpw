@@ -49,9 +49,7 @@ class GPHeaderSearchForm extends FormBase {
     $form['actions']['reset'] = [
       '#attributes' => [
         'class' => ['btn', 'btn-default', 'btn-sm', 'search-reset'],
-        'href' => Url::fromRoute(
-          \Drupal::request()->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_NAME)
-        )->toString(),
+        'href' => '#',
       ],
       '#tag' => 'a',
       '#type' => 'html_tag',

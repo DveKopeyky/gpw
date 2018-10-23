@@ -1,0 +1,31 @@
+body.path-search {
+  .region-sidebar-first {
+    h2.block-title {
+      font-size: 18px;
+
+    }
+
+    .chosen-container-single .chosen-single {
+      border-radius: 0;
+      background: none;
+      height: 35px;
+      padding-top: 5px;
+      color: #848484;
+      border-color: #ccc;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+
+      b {
+        background: none;
+      }
+
+      b:before {
+        content: "\2304";
+        font-size: 18px;
+        margin-right: 5px;
+      }
+
+    }
+  }
+}
