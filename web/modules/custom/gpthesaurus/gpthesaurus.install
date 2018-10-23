@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Initial thesaurus import from InforMEA API.
+ */
+function gpthesaurus_update_8001() {
+  try {
+    $l = new \Drupal\gpthesaurus\LEOImport();
+    $terms = $l->load('https://www.informea.org/ws/leo');
+    $l->import($terms);
+  }
+  catch (Exception $e) {
+    var_dump($e);
+  }
+}

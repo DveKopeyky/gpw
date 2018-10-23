@@ -12,6 +12,19 @@
     //     padding-bottom: 29rem;
     //   }
     // }
+    .subtitle {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .signup-link {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      > a {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+      }
+    }
   }
 
   // .hero.has-video ~ .content-wrapper {
@@ -55,5 +68,7 @@
     }
 
   }
+
+
 
 }

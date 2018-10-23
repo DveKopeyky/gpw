@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.meeting.field_date_range
     - field.field.node.meeting.field_reports
     - field.field.node.meeting.field_tentative
+    - field.field.node.meeting.field_thesaurus
+    - field.field.node.meeting.field_topic
     - node.type.meeting
   module:
     - date_range_formatter
@@ -41,15 +43,13 @@ content:
       separator: '-'
       date_format: 'Y-m-d\TH:i:s'
     third_party_settings: {  }
-  field_tentative:
+  field_topic:
     weight: 3
     label: above
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      link: true
     third_party_settings: {  }
-    type: boolean
+    type: entity_reference_label
     region: content
   links:
     weight: 2
@@ -59,4 +59,6 @@ content:
 hidden:
   field_agenda_items: true
   field_reports: true
+  field_tentative: true
+  field_thesaurus: true
   langcode: true

@@ -1,0 +1,24 @@
+uuid: 4bd92404-9f4e-4163-86ff-e2e42df058e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.thumbnail_crop_type
+  module:
+    - crop
+name: news_thumbnail
+label: 'News thumbnail'
+effects:
+  7212bdae-4075-4102-924d-467266ef27c3:
+    uuid: 7212bdae-4075-4102-924d-467266ef27c3
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: thumbnail_crop_type
+  4673f586-38e4-4b84-ae66-08b2a6f6a5d3:
+    uuid: 4673f586-38e4-4b84-ae66-08b2a6f6a5d3
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 200
+      height: 200

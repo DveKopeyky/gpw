@@ -1,0 +1,29 @@
+uuid: 913e8858-b6bc-4cd7-bd0f-8271ca061e78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_topic
+    - node.type.webinar
+    - taxonomy.vocabulary.topics
+id: node.webinar.field_topic
+field_name: field_topic
+entity_type: node
+bundle: webinar
+label: Topic
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

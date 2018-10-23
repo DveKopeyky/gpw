@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Global pact leo module (aka Thesaurus).
+ */
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function gpleo_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $view = $form_state->getStorage('view');
+
+  if ($view['view']->id() == 'thesaurus') {
+    $form['topics']['#prefix'] = '<div id="topic-filter-wrapper">'
+      . '<div id="topic-label">' . t('Filter by topic') . '</div>'
+      . '<div id="topic-selected-items-wrapper"></div>';
+
+    $form['topics']['#suffix'] = '<div id="topic-actions">'
+      . '<a id="topic-clear" href="#" class="pull-left">' . t('Clear') . '</a>'
+      . '<a id="topic-apply" href="#" class="pull-right">' . t('Apply') . '</a>'
+      . '</div></div>';
+
+    $form['#attached'] = [
+      'library' => ['gpleo/thesaurus'],
+    ];
+  }
+}

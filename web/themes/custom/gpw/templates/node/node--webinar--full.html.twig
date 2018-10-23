@@ -99,7 +99,7 @@
     <div class="content-group row">
       <div class="col col-sm-8">
         {{ content.body }}
-        {{ content|without('body', 'field_video', 'field_files')}}
+        {{ content|without('body', 'field_video', 'field_files', 'field_signup_link', 'field_date_range')}}
       </div>
       <div class="col col-sm-4">
         {{ content.field_files }}
