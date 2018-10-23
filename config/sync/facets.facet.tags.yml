@@ -1,4 +1,4 @@
-uuid: 9a2cfd88-0648-45cf-b772-aa5d0fe63be3
+uuid: 32b165ab-49bd-40ab-b29b-3b97b9b00e14
 langcode: en
 status: true
 dependencies:
@@ -19,8 +19,8 @@ widget:
   type: dropdown
   config:
     show_numbers: false
-    default_option_label: Choose
-    use_chosen: 0
+    default_option_label: 'Select option(s)'
+    use_chosen: 1
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -47,8 +47,8 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
-  list_item:
-    processor_id: list_item
+  translate_entity:
+    processor_id: translate_entity
     weights:
       build: 5
     settings: {  }

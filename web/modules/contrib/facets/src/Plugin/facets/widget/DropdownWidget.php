@@ -21,9 +21,13 @@ class DropdownWidget extends WidgetPluginBase {
    * {@inheritdoc}
    */
   public function defaultConfiguration() {
-    return [
-      'default_option_label' => 'Choose',
-    ] + parent::defaultConfiguration();
+    $config = [
+        'default_option_label' => 'Choose',
+      ] + parent::defaultConfiguration();
+    if (\Drupal::moduleHandler()->moduleExists('chosen')) {
+      $config['use_chosen'] = FALSE;
+    }
+    return $config;
   }
 
   /**
@@ -34,6 +38,10 @@ class DropdownWidget extends WidgetPluginBase {
     $build['#attributes']['class'][] = 'js-facets-dropdown-links';
     $build['#attached']['drupalSettings']['facets']['dropdown_widget'][$facet->id()]['facet-default-option-label'] = $this->getConfiguration()['default_option_label'];
     $build['#attached']['library'][] = 'facets/drupal.facets.dropdown-widget';
+    if (\Drupal::moduleHandler()->moduleExists('chosen') && $this->getConfiguration()['use_chosen']) {
+      $build['#attributes']['class'][] = 'chosen-enable';
+      chosen_attach_library($build);
+    }
     return $build;
   }
 
@@ -54,6 +62,12 @@ class DropdownWidget extends WidgetPluginBase {
       '#type' => 'textfield',
       '#title' => $this->t('Default option label'),
       '#default_value' => $config['default_option_label'],
+    ];
+
+    $form['use_chosen'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Use chosen'),
+      '#default_value' => $config['use_chosen'],
     ];
 
     return $form;
