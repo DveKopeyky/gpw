@@ -76,6 +76,11 @@ courses:
     theme:
       dist/components/courses/course.css: {}
 
+search:
+  css:
+    theme:
+      dist/components/search/search.css: {}
+
 page:
   css:
     theme:
@@ -108,5 +113,6 @@ framework:
     - gpw/news
     - gpw/filter
     - gpw/courses
+    - gpw/search
     - gpw/homepage
     - gpw/glossary

@@ -19,7 +19,7 @@ settings:
   id: 'facet_block:type'
   label: Type
   provider: facets
-  label_display: visible
+  label_display: '0'
   block_id: type
 visibility:
   request_path:

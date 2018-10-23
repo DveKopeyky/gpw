@@ -1,0 +1,8 @@
+drupal.gpsearch.enhanced-checkbox-widget:
+  version: VERSION
+  js:
+    js/enhanced-checkbox-widget.js: {}
+  dependencies:
+  - core/jquery
+  - core/drupal
+  - core/jquery.once
