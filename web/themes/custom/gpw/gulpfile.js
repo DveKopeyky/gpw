@@ -36,6 +36,12 @@ const spriteConfig = {
   }
 };
 
+// Update Foundation with Bower and save to /vendor
+gulp.task('bower', function() {
+  return bower({ cmd: 'update'})
+    .pipe(gulp.dest('vendor/'))
+});
+
 gulp.task('css', (cb) => {
   pump([
     gulp.src(['./src/**/*.scss', '!./src/bootstrap-scss/**/*.scss']),
