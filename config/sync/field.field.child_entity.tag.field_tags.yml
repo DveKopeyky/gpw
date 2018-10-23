@@ -1,0 +1,29 @@
+uuid: 66285e65-be4f-4188-b53a-056436b4f5bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.tag
+    - field.storage.child_entity.field_tags
+    - taxonomy.vocabulary.thesaurus
+id: child_entity.tag.field_tags
+field_name: field_tags
+entity_type: child_entity
+bundle: tag
+label: Tag
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      thesaurus: thesaurus
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
