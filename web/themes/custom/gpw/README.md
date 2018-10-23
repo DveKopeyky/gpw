@@ -10,49 +10,28 @@ preprocessor.
 - [Additional Setup](#setup)
 - [Overrides](#overrides)
 
-## Prerequisites
-- Read the @link getting_started Getting Started @endlink and
-  @link sub_theming Sub-theming @endlink documentation topics.
-- You must understand the basic concept of using the [Sass] CSS pre-processor.
-- You must use a **[local Sass compiler](https://www.google.com/search?q=sass+compiler)**.
-- You must use the [Bootstrap Framework Source Files] ending in the `.scss`
-  extension, not files ending in `.css`.
+## Compiling the CSS files
 
-## Additional Setup {#setup}
-Download and extract the **latest** 3.x.x version of
-[Bootstrap Framework Source Files] into the root of your new sub-theme. After
-it has been extracted, the directory should be renamed (if needed) so it reads
-`./gpw/bootstrap`.
+```
+npm install
+./node_modules/.bin/gulp
+```
 
-If for whatever reason you have an additional `bootstrap` directory wrapping the
-first `bootstrap` directory (e.g. `./gpw/bootstrap/bootstrap`), remove the
-wrapping `bootstrap` directory. You will only ever need to touch these files if
-or when you upgrade your version of the [Bootstrap Framework].
+## Update Bootstrap
 
-{.alert.alert-warning} **WARNING:** Do not modify the files inside of
-`./gpw/bootstrap` directly. Doing so may cause issues when upgrading the
-[Bootstrap Framework] in the future.
+Download and extract the **latest** 3.x.x version of [Bootstrap Framework Source Files] into `bootstrap` folder.
+
+**WARNING:** Do not modify files inside `bootstrap` to allow easy upgrades in the future.
 
 ## Overrides {#overrides}
-The `./gpw/scss/_default-variables.scss` file is generally where you will
-spend the majority of your time providing any default variables that should be
-used by the [Bootstrap Framework] instead of its own.
 
-The `./gpw/scss/overrides.scss` file contains various Drupal overrides to
-properly integrate with the [Bootstrap Framework]. It may contain a few
-enhancements, feel free to edit this file as you see fit.
+The `scss/_default-variables.scss` - provide default variables used by the [Bootstrap Framework] instead of its own.
 
-The `./gpw/scss/style.scss` file is the glue that combines:
-`_default-variables.scss`, [Bootstrap Framework Source Files] and the
-`overrides.scss` file together. Generally, you will not need to modify this
-file unless you need to add or remove files to be imported. This is the file
-that you should compile to `./gpw/css/style.css` (note the same file
-name, using a different extension of course).
+The `scss/overrides.scss` - contains various Drupal overrides to integrate with the [Bootstrap Framework].
+It may contain a few enhancements, feel free to edit this file as you see fit.
 
-#### See also:
-- @link theme_settings Theme Settings @endlink
-- @link templates Templates @endlink
-- @link plugins Plugin System @endlink
+The `scss/style.scss` file is the glue that combines `_default-variables.scss` and `overrides.scss` file together.
+Edit only when need to add or remove files to be imported. It compiles to `./gpw/css/style.css`
 
 [Bootstrap Framework]: https://getbootstrap.com/docs/3.3/
 [Bootstrap Framework Source Files]: https://github.com/twbs/bootstrap-sass
