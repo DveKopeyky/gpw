@@ -1,29 +1,31 @@
-uuid: ed8b6991-8dd2-48a6-917d-31f674468491
+uuid: a7c9e57f-3ecc-418e-be38-187a905aeb31
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.meetings
+    - views.view.topic_terms
   module:
     - system
     - views
   theme:
     - gpw
-id: exposedformmeetingspage_1
+id: views_block__topic_terms_block_1
 theme: gpw
 region: content
-weight: -11
+weight: -10
 provider: null
-plugin: 'views_exposed_filter_block:meetings-page_1'
+plugin: 'views_block:topic_terms-block_1'
 settings:
-  id: 'views_exposed_filter_block:meetings-page_1'
+  id: 'views_block:topic_terms-block_1'
   label: ''
   provider: views
   label_display: '0'
   views_label: ''
+  items_per_page: none
+  context_mapping: {  }
 visibility:
   request_path:
     id: request_path
-    pages: /meetings
+    pages: '/taxonomy/term/*'
     negate: false
     context_mapping: {  }
