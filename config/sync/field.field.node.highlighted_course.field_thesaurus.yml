@@ -1,0 +1,29 @@
+uuid: 10d1837f-e299-4ac2-b666-9a86b81116f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thesaurus
+    - node.type.highlighted_course
+    - taxonomy.vocabulary.thesaurus
+id: node.highlighted_course.field_thesaurus
+field_name: field_thesaurus
+entity_type: node
+bundle: highlighted_course
+label: Tags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      thesaurus: thesaurus
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

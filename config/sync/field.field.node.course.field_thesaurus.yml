@@ -1,0 +1,29 @@
+uuid: 3b6cf7bd-6a08-4d61-8f7e-f9e227eb5a95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thesaurus
+    - node.type.course
+    - taxonomy.vocabulary.thesaurus
+id: node.course.field_thesaurus
+field_name: field_thesaurus
+entity_type: node
+bundle: course
+label: Tags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      thesaurus: thesaurus
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
