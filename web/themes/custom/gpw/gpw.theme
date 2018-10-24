@@ -155,6 +155,10 @@ function gpw_preprocess_page_title(&$variables) {
       case 'news':
         if (!empty($node->field_date)) {
           $variables['subtitle']['date'] = $node->field_date->view('full');
+
+        }
+        if (!empty($node->field_news_category)) {
+          $variables['subtitle']['news_category'] = $node->field_news_category->view('full');
         }
         break;
 
