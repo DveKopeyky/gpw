@@ -1,0 +1,28 @@
+uuid: 3040af10-0d77-4c3c-bac1-9974a11d737b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.tag
+    - field.storage.node.field_tags
+    - node.type.document
+id: node.document.field_tags
+field_name: field_tags
+entity_type: node
+bundle: document
+label: Tags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:child_entity'
+  handler_settings:
+    target_bundles:
+      tag: tag
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

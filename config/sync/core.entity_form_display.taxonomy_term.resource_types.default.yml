@@ -1,0 +1,29 @@
+uuid: e46e80c6-0fdc-4aad-9336-1c0c3f177b2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.resource_types
+id: taxonomy_term.resource_types.default
+targetEntityType: taxonomy_term
+bundle: resource_types
+mode: default
+content:
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

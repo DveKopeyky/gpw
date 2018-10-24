@@ -1,0 +1,9 @@
+uuid: 8a12b825-78ab-4d03-8274-1cb96348f1a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.child_entity
+name: Tag
+type: tag
+description: ''

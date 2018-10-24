@@ -1,6 +1,7 @@
 fonts:
   css:
     theme:
+      '//use.fontawesome.com/releases/v5.4.1/css/all.css': { type: external, minified: true }
       '//fonts.googleapis.com/css?family=Roboto+Condensed:400,700': { type: external, minified: true }
       '//fonts.googleapis.com/css?family=Roboto:400,700': { type: external, minified: true }
       fonts/alternategotno2dregular.css: {}
@@ -109,4 +110,3 @@ framework:
     - gpw/courses
     - gpw/homepage
     - gpw/glossary
-

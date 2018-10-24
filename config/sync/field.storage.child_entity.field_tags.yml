@@ -1,0 +1,20 @@
+uuid: d1f84cc8-30d5-49f4-a19f-ba5e5aa2c2af
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - taxonomy
+id: child_entity.field_tags
+field_name: field_tags
+entity_type: child_entity
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

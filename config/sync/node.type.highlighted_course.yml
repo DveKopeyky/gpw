@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: 'Highlighted course'
+name: Course
 type: highlighted_course
-description: '<em>Highlighted courses</em> will be rendered in the <em>Related courses</em> section on the <b>Course</b> page.'
+description: '<em>Courses</em> will be rendered in the <em>Related courses</em> section on the <b>Course</b> page.'
 help: ''
 new_revision: true
 preview_mode: 1

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.news.field_image
     - field.field.node.news.field_news_category
     - field.field.node.news.field_thesaurus
+    - field.field.node.news.field_topic
     - node.type.news
   module:
     - datetime
@@ -60,6 +61,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+  field_topic:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
 hidden:
   langcode: true
   links: true

@@ -1,0 +1,19 @@
+uuid: 5974d6c4-c283-4ca9-8b4e-f8afa15ca87d
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.field_description
+field_name: field_description
+entity_type: child_entity
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
