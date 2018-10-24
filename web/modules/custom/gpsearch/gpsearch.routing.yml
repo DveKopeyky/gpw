@@ -1,7 +1,7 @@
 gpsearch.thesaurus_autocomplete:
   path: '/gpsearch/autocomplete/thesaurus/{search_text}'
   defaults:
-    _controller: "\Drupal\gpsearch\Controller\GPSearchThesaurusAutocomplete::getTermsList"
+    _controller: '\Drupal\gpsearch\Controller\GPSearchThesaurusAutocomplete::getTermsList'
     _title: 'Thesaurus termslist'
   requirements:
     _permission: 'access content'
