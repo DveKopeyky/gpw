@@ -4,6 +4,7 @@
 
   Drupal.thesaurusView.init = function() {
     Drupal.thesaurusView.prepareFilter();
+    Drupal.thesaurusView.checkHashTopic();
     Drupal.thesaurusView.prepareSelectedTopics();
     Drupal.thesaurusView.prepareSubmitActions();
   };
@@ -32,6 +33,7 @@
     });
 
     $('#block-thesaurus-filter-topic-block #edit-topics .form-type-checkbox input.form-checkbox').on('change', function() {
+      location.hash = 'custom';
       var _parent = $(this).parents('.form-type-checkbox');
       if (this.checked) {
         _parent.addClass('active')
@@ -43,6 +45,12 @@
       // BEF autosubmit works incorrect.
       $('#topic-apply').click();
     });
+  };
+
+  Drupal.thesaurusView.transformTextAsHash = function(_text) {
+    var transformedText = _text.replace(/\s+/g, '-').toLowerCase();
+
+    return '#' + transformedText;
   };
 
   Drupal.thesaurusView.prepareColumns = function() {
@@ -58,6 +66,20 @@
       var _columnID = '#column-' + _columnNumber;
       $(this).appendTo(_columnID);
     });
+  };
+
+  Drupal.thesaurusView.checkHashTopic = function() {
+    if (location.hash) {
+      $('#edit-topics .form-type-checkbox .control-label').each(function () {
+
+        var label = $(this).text();
+        if (Drupal.thesaurusView.transformTextAsHash(label) == location.hash) {
+          $('#edit-topics input.form-checkbox:checked').prop('checked', false);
+          $(this).find('input.form-checkbox').prop('checked', true);
+          $('#topic-apply').click();
+        }
+      });
+    }
   };
 
   Drupal.thesaurusView.prepareSelectedTopics = function() {
@@ -104,10 +126,11 @@
 
   Drupal.behaviors.thesaurusView = {
     attach: function(context, settings) {
+      Drupal.thesaurusView.prepareColumns();
       $('#block-thesaurus-filter-topic-block').once('topic-filter-ready').each(function() {
         Drupal.thesaurusView.init();
       });
-      Drupal.thesaurusView.prepareColumns();
+      Drupal.thesaurusView.checkHashTopic();
     }
   };
 

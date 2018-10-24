@@ -1,4 +1,4 @@
-(function($, Drupal, drupalSettings) {
+(function($, Drupal) {
 
   Drupal.leoTerms = Drupal.leoTerms || {};
 
