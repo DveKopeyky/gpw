@@ -12,13 +12,13 @@ name: Type
 url_alias: type
 weight: 0
 min_count: 1
-show_only_one_result: true
+show_only_one_result: false
 field_identifier: type
 facet_source_id: 'search_api:views_page__gpe_search_page__page_1'
 widget:
   type: enhanced_checkboxes
   config:
-    show_numbers: false
+    show_numbers: true
     soft_limit: '0'
     soft_limit_settings:
       show_less_label: 'Show less'

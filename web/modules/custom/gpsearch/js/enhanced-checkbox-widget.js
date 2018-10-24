@@ -25,7 +25,7 @@
   Drupal.facets.facetsEnhancedDropdownWidget = function (context, settings) {
     $('.enhanced-select-facet').once('facets-enhanced-select-transform').each(function () {
       var $this = $(this);
-      $this.find('a.toggle').on('click', function() {
+      $this.find('legend').on('click', function() {
         $this.find('.fieldset-wrapper').toggle();
         return false;
       });

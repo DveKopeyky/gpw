@@ -24,7 +24,7 @@ widget:
       show_less_label: 'Show less'
       show_more_label: 'Show more'
     default_option_label: Choose
-    subtitle: 'Filter by tag(s)'
+    subtitle: 'Filter by glossary term(s)'
     collapsed: 1
 query_operator: or
 use_hierarchy: false
