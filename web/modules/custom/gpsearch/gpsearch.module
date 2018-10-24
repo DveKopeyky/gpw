@@ -12,8 +12,9 @@ function gpsearch_theme($existing, $type, $theme, $path) {
   return [
     'gpsearch_block_template' => [
       'template' => 'gpsearch-block-template',
-      'render element' => 'form',
-      'variables' => [],
+      'variables' => [
+        'action' => '',
+      ],
     ],
     'facets_result_item_enhanced_select' => [
       'base hook' => 'facets_result_item',

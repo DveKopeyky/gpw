@@ -1,3 +1,15 @@
-<input type="text" class="form-control" name="q" placeholder="{{ 'Search in Global Pact Website'|t }}" value="{{ q }}" {% if is_front %} autofocus {% endif %}>
-<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+{#
+  This form just for get parameter request. So I think, we should not have all Drupal Form functionality here.
+  Also this block can be cached without any problems, all data for autocomplete will be passed via AJAX.
+
+  Only 1 parameter to this template:
+    action - Form action page. In this case it is a search page.
+#}
+
+<form id="gpsearch_form" action="{{ action }}" methid="get" >
+  <input id="gpsearch_text" type="text" class="form-control" name="q" placeholder="{{ 'Search in Global Pact Website'|t }}" {% if is_front %} autofocus {% endif %}>
+  <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+  <input id="gpsearch_submit" type="submit" value="Search">
+  <input id="gpsearch_clear" type="button" value="Clear">
+</form>
 
