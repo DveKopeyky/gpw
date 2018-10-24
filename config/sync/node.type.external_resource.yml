@@ -1,4 +1,4 @@
-uuid: 46129b52-cd0c-4eba-87e5-f8b1ce202d78
+uuid: 9a33b83c-ea16-4f39-8f4d-23eae39c60f0
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Document
-type: document
-description: 'Use <em>documents</em> to store information about uploaded documents.'
+name: 'External resource'
+type: external_resource
+description: 'Use <em>external resources</em> to store information about external resources.'
 help: ''
 new_revision: true
 preview_mode: 1
