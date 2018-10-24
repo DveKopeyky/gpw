@@ -1,0 +1,29 @@
+uuid: cba1897f-23b0-4534-9421-5c0f173728fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thesaurus
+    - node.type.external_resource
+    - taxonomy.vocabulary.thesaurus
+id: node.external_resource.field_thesaurus
+field_name: field_thesaurus
+entity_type: node
+bundle: external_resource
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      thesaurus: thesaurus
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

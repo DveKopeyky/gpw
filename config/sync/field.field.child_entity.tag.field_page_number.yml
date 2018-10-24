@@ -1,0 +1,23 @@
+uuid: 9104d807-ba6d-4a87-bc58-8234f82f1fcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.child_entity.tag
+    - field.storage.child_entity.field_page_number
+id: child_entity.tag.field_page_number
+field_name: field_page_number
+entity_type: child_entity
+bundle: tag
+label: 'Page number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

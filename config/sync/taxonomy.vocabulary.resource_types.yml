@@ -1,0 +1,9 @@
+uuid: d3d39d84-5859-40dc-9621-caa446f57df7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Resource types'
+vid: resource_types
+description: 'e.g. <em>Website</em>'
+hierarchy: 0
+weight: 0

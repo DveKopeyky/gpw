@@ -1,0 +1,22 @@
+uuid: 52a68e6d-1e97-46c3-a908-bbdff7a92ad8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: external_resources
+label: 'External resources'
+type: 'canonical_entities:node'
+pattern: '/resources/[node:title]'
+selection_criteria:
+  cfa12ea6-a086-4430-9a9a-74c26f65a13f:
+    id: node_type
+    bundles:
+      external_resource: external_resource
+    negate: false
+    context_mapping:
+      node: node
+    uuid: cfa12ea6-a086-4430-9a9a-74c26f65a13f
+selection_logic: and
+weight: -5
+relationships: {  }

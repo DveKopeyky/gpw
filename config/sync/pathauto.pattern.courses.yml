@@ -7,16 +7,16 @@ dependencies:
 id: courses
 label: Courses
 type: 'canonical_entities:node'
-pattern: 'elearning/[node:title]'
+pattern: '/elearning/[node:title]'
 selection_criteria:
-  5f8792d1-dc7a-453d-8c69-f70739771cd8:
+  4e045063-d7a7-4c08-a276-2e89b4d4f0b2:
     id: node_type
     bundles:
       course: course
     negate: false
     context_mapping:
       node: node
-    uuid: 5f8792d1-dc7a-453d-8c69-f70739771cd8
+    uuid: 4e045063-d7a7-4c08-a276-2e89b4d4f0b2
 selection_logic: and
 weight: -5
 relationships: {  }

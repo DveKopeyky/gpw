@@ -1,0 +1,22 @@
+uuid: 71a8dd70-58c1-472d-a176-c2dbc94d11fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.external_resource
+  module:
+    - text
+id: node.external_resource.body
+field_name: body
+entity_type: node
+bundle: external_resource
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
