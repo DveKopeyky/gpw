@@ -26,4 +26,11 @@ content:
     weight: 100
     region: content
 hidden:
+  field_author: true
+  field_date: true
+  field_file: true
+  field_highlighted_course: true
+  field_tags: true
+  field_topic: true
+  field_type: true
   langcode: true

@@ -20,6 +20,13 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  mail:
+    weight: -2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   message:
     type: string
     weight: 0
@@ -28,5 +35,21 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  name:
+    weight: -3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  subject:
+    weight: -1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
 hidden:
   langcode: true
