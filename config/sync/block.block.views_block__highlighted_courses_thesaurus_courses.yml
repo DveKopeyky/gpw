@@ -1,22 +1,22 @@
-uuid: 09c84d17-76dd-4eff-a378-88c4a0defc0a
+uuid: 507c3c8f-bb66-4af2-9b0a-6faf76d84f60
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.meetings
+    - views.view.highlighted_courses
   module:
     - system
     - views
   theme:
     - gpw
-id: views_block__meetings_past_meetings_pager
+id: views_block__highlighted_courses_thesaurus_courses
 theme: gpw
-region: content
-weight: -10
+region: sidebar_second
+weight: -13
 provider: null
-plugin: 'views_block:meetings-past_meetings_pager'
+plugin: 'views_block:highlighted_courses-thesaurus_courses'
 settings:
-  id: 'views_block:meetings-past_meetings_pager'
+  id: 'views_block:highlighted_courses-thesaurus_courses'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /meetings
+    pages: '/glossary/*'
     negate: false
     context_mapping: {  }

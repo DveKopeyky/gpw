@@ -1,4 +1,4 @@
-uuid: 09c84d17-76dd-4eff-a378-88c4a0defc0a
+uuid: 4afb3dba-39c2-469c-922d-d85ff23a4090
 langcode: en
 status: true
 dependencies:
@@ -9,14 +9,14 @@ dependencies:
     - views
   theme:
     - gpw
-id: views_block__meetings_past_meetings_pager
+id: views_block__meetings_thesaurus_next_meetings
 theme: gpw
-region: content
-weight: -10
+region: sidebar_second
+weight: -12
 provider: null
-plugin: 'views_block:meetings-past_meetings_pager'
+plugin: 'views_block:meetings-thesaurus_next_meetings'
 settings:
-  id: 'views_block:meetings-past_meetings_pager'
+  id: 'views_block:meetings-thesaurus_next_meetings'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /meetings
+    pages: '/glossary/*'
     negate: false
     context_mapping: {  }

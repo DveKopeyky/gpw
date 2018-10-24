@@ -73,10 +73,26 @@ display:
                   filter_rewrite_values: '- Any -|All'
           text_input_required_format: full_html
       pager:
-        type: some
+        type: full
         options:
           items_per_page: 3
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: slideshow
         options:
@@ -313,6 +329,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -337,6 +354,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -511,6 +529,33 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  thesaurus_news:
+    display_plugin: block
+    id: thesaurus_news
+    display_title: 'Thesaurus news'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: 'Thesaurus news'
+      use_more: true
+      defaults:
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        title: false
+      use_more_always: true
+      use_more_text: 'See all news'
+      rendering_language: '***LANGUAGE_language_interface***'
+      title: News
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions

@@ -12,7 +12,7 @@ dependencies:
 id: views_block__reports_block_1
 theme: gpw
 region: content
-weight: 0
+weight: -5
 provider: null
 plugin: 'views_block:reports-block_1'
 settings:

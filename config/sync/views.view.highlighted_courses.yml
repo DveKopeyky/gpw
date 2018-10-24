@@ -423,3 +423,25 @@ display:
       tags:
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_link'
+  thesaurus_courses:
+    display_plugin: block
+    id: thesaurus_courses
+    display_title: 'Thesaurus courses'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      rendering_language: '***LANGUAGE_language_interface***'
+      display_description: ''
+      block_description: 'Thesaurus courses'
+      title: Courses
+      defaults:
+        title: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_image'
+        - 'config:field.storage.node.field_link'

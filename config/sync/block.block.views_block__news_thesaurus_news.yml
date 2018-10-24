@@ -1,22 +1,22 @@
-uuid: 09c84d17-76dd-4eff-a378-88c4a0defc0a
+uuid: 227e42ac-bcb2-46b8-81de-69e2d5820b77
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.meetings
+    - views.view.news
   module:
     - system
     - views
   theme:
     - gpw
-id: views_block__meetings_past_meetings_pager
+id: views_block__news_thesaurus_news
 theme: gpw
-region: content
+region: sidebar_second
 weight: -10
 provider: null
-plugin: 'views_block:meetings-past_meetings_pager'
+plugin: 'views_block:news-thesaurus_news'
 settings:
-  id: 'views_block:meetings-past_meetings_pager'
+  id: 'views_block:news-thesaurus_news'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /meetings
+    pages: '/glossary/*'
     negate: false
     context_mapping: {  }

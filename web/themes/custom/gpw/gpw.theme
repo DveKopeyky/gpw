@@ -163,6 +163,9 @@ function gpw_preprocess_page_title(&$variables) {
 
     }
   }
+
+
+
 }
 
 /**
