@@ -1,0 +1,31 @@
+uuid: 63fabb7e-adb3-4635-80cd-90703b0d006c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:simple_block:b00e7918-6136-45c2-8448-7877feaecb46'
+  module:
+    - block_content
+    - system
+  theme:
+    - gpw
+id: searchfilterregiontitle
+theme: gpw
+region: sidebar_first
+weight: -14
+provider: null
+plugin: 'block_content:b00e7918-6136-45c2-8448-7877feaecb46'
+settings:
+  id: 'block_content:b00e7918-6136-45c2-8448-7877feaecb46'
+  label: 'Search filter region title'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search/*'
+    negate: false
+    context_mapping: {  }

@@ -283,53 +283,13 @@ processor_settings:
     alt: true
     tags:
       b: 2
-      em: 1
       h1: 5
       h2: 3
       h3: 2
       strong: 2
-      u: 1
     weights:
       preprocess_index: -15
       preprocess_query: -15
-  ignore_character:
-    all_fields: false
-    fields:
-      - body
-      - field_e_learning_link
-      - field_link
-      - field_news_category
-      - field_video_duration
-      - langcode
-      - title
-      - type
-      - uuid
-    ignorable: '[''¿¡!?,.:;]'
-    strip:
-      character_sets:
-        Cc: 0
-        Cf: 0
-        Co: 0
-        Mc: 0
-        Me: 0
-        Mn: 0
-        Pc: Pc
-        Pd: Pd
-        Pe: Pe
-        Pf: Pf
-        Pi: Pi
-        Po: Po
-        Ps: Ps
-        Sc: 0
-        Sk: 0
-        Sm: 0
-        So: 0
-        Zl: 0
-        Zp: 0
-        Zs: 0
-    weights:
-      preprocess_index: -10
-      preprocess_query: -10
   ignorecase:
     all_fields: false
     fields:
@@ -349,48 +309,13 @@ processor_settings:
   solr_date_range:
     weights:
       preprocess_index: 0
-  stemmer:
-    all_fields: false
-    fields:
-      - body
-    exceptions:
-      mexican: mexic
-      texan: texa
-    weights:
-      preprocess_index: 0
-      preprocess_query: 0
-  tokenizer:
-    all_fields: false
-    fields:
-      - body
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
-    weights:
-      preprocess_index: -6
-      preprocess_query: -6
-  transliteration:
-    all_fields: false
-    fields:
-      - body
-      - field_e_learning_link
-      - field_link
-      - field_news_category
-      - field_video_duration
-      - langcode
-      - title
-      - type
-      - uuid
-    weights:
-      preprocess_index: -20
-      preprocess_query: -20
   type_boost:
     boosts:
       'entity:node':
         datasource_boost: !!float 1
         bundle_boosts:
           course: !!float 0
-          highlighted_course: !!float 2
+          highlighted_course: 0.5
           meeting: 0.3
           news: 0.1
           page: 0.2

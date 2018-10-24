@@ -8,28 +8,30 @@
 .region-sidebar-first {
 
 
-  .block-facet--enhanced-checkboxes {
-    padding-bottom: 30px;
-    border-bottom: 1px solid #ccc;
-    margin-top: 20px;
-  }
-
   .enhanced-select-facet {
 
+    min-width: 260px;
+
+    h3 {
+      margin-top: 40px;
+      font-size: $fs-filter-block-title;
+      font-weight: bold;
+    }
+
     h4 {
-      color: #737373;
-      font-size: 14px;
+      color: $text-dark;
+      font-size: $fs-filter-block-subtitle;
     }
 
     legend {
       padding: 10px 15px;
-      border: 1px solid #dedede;
+      border: 1px solid $border-color;
       cursor: pointer;
       margin-bottom: 0;
       position: relative;
-      color: #666;
+      color: $text-light;
       text-transform: none;
-      font-size: medium;
+      font-size: $font-size-base;
 
       a.toggle {
         float: right;
@@ -47,16 +49,21 @@
         height: 2rem;
         position: absolute;
         top: 10px;
-        font-size: 16px;
+        font-size: $fs-filter-block-item;
       }
     }
 
+    fieldset {
+      padding-bottom: 20px;
+      border-bottom: 1px solid $border-color;
+    }
+
     .fieldset-wrapper {
-      color: #737373;
+      color: $text-dark;
       padding: 15px;
-      border-left: 1px solid #dedede;
-      border-bottom: 1px solid #dedede;
-      border-right: 1px solid #dedede;
+      border-left: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+      border-right: 1px solid $border-color;
 
       ul {
         margin: 0;
@@ -82,7 +89,7 @@
         display: inline-block;
         margin: 5px 10px 5px 0;
         padding: 5px 15px;
-        background-color: #eee;
+        background-color: $facet-filter-background-color;
         border-radius: 2rem;
 
         a {
@@ -90,16 +97,15 @@
           text-decoration: none;
         }
         a:hover, a:active { text-decoration: none; }
-        .facet-item__status { color: #1378c5; }
+        .facet-item__status { color: $gpw-secondary; }
       }
 
       .facet-item__value {
         margin: 5px 10px 5px 0;
         padding: 5px 15px;
-        background-color: #eee;
+        background-color: $facet-filter-background-color;
         border-radius: 2rem;
       }
     }
-
   }
 }

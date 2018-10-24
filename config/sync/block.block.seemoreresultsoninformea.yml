@@ -1,0 +1,26 @@
+uuid: db74d442-1ca5-4602-8951-5e7e66daccd6
+langcode: en
+status: true
+dependencies:
+  module:
+    - gpsearch
+    - system
+  theme:
+    - gpw
+id: seemoreresultsoninformea
+theme: gpw
+region: sidebar_first
+weight: 0
+provider: null
+plugin: more_on_informea_block
+settings:
+  id: more_on_informea_block
+  label: 'See more results on InforMEA'
+  provider: gpsearch
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/gpe
+    negate: false
+    context_mapping: {  }
