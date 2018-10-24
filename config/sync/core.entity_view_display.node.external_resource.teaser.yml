@@ -1,0 +1,32 @@
+uuid: a0df6416-2634-4b20-9ad9-7ca2eefaa820
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.external_resource.body
+    - node.type.external_resource
+  module:
+    - text
+    - user
+id: node.external_resource.teaser
+targetEntityType: node
+bundle: external_resource
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_highlighted_course: true
+  field_link: true
+  field_thesaurus: true
+  langcode: true

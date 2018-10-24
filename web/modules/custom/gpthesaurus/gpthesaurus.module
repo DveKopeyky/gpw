@@ -8,25 +8,18 @@ use Drupal\taxonomy\TermInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\views\Views;
 
-
 /**
  * Implements hook_ENTITY_TYPE_view_alter().
  */
 function gpthesaurus_taxonomy_term_view_alter(array &$build, TermInterface $term, EntityViewDisplayInterface $display) {
   if ($term->bundle() == 'topics') {
     $view = Views::getView('topic_terms');
-    if ($build['#view_mode'] == 'full') {
-      $terms = $view->buildRenderable('block_1', [$term->id()]);
-      $build['topic_terms'] = [
-        '#prefix' => '<div class="field"><div class="field--items">',
-        '#suffix' => '</div></div>',
-        '#markup' => render($terms),
-        '#weight' => 10,
-      ];
-    }
-    elseif ($build['#view_mode'] == 'computed') {
+    // Have no see any reason build block programmatically for the term page. Old code was removed.
+    // Replaced with simple views block in the content region.
+    if ($build['#view_mode'] == 'computed') {
       $build['name'] = [];
-      $terms = $view->buildRenderable('block_2', [$term->id()]);
+      // In this case we can not use it with cache.
+      $terms = $view->buildRenderable('block_2', [$term->id()], FALSE);
       $build['topic_terms'] = [
         '#prefix' => '<div class="field"><div class="field--items">',
         '#suffix' => '</div></div>',

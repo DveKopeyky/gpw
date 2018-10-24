@@ -1,0 +1,33 @@
+uuid: 4f979013-6543-4f65-91c7-3289043bb5b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: videos
+label: Videos
+type: 'canonical_entities:node'
+pattern: '/videos/[node:title]'
+selection_criteria:
+  39a7b02b-578f-4b98-9267-b86910151cff:
+    id: node_type
+    bundles:
+      video: video
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 39a7b02b-578f-4b98-9267-b86910151cff
+  02ebd3c3-61dc-4937-ad70-38ecc7783e24:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 02ebd3c3-61dc-4937-ad70-38ecc7783e24
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

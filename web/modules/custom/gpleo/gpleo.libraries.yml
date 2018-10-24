@@ -11,3 +11,7 @@ leo-terms:
 thesaurus:
   js:
     js/thesaurus.js: {}
+
+glossary-tabs:
+  js:
+    js/glossary-tabs.js: {}

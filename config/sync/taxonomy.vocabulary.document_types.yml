@@ -1,0 +1,9 @@
+uuid: fc1c2b79-5776-4df1-8afe-59ccf59e73ce
+langcode: en
+status: true
+dependencies: {  }
+name: 'Document types'
+vid: document_types
+description: 'e.g. <em>Handout</em>, <em>Publication</em>'
+hierarchy: 0
+weight: 0

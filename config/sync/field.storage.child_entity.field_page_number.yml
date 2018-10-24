@@ -1,0 +1,20 @@
+uuid: c6e40a64-9b62-44ac-bf8c-9a65014f12e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: child_entity.field_page_number
+field_name: field_page_number
+entity_type: child_entity
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
