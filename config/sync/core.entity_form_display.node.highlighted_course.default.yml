@@ -5,15 +5,14 @@ dependencies:
   config:
     - field.field.node.highlighted_course.field_image
     - field.field.node.highlighted_course.field_link
-    - field.field.node.highlighted_course.field_resource_type
     - field.field.node.highlighted_course.field_thesaurus
     - field.field.node.highlighted_course.field_topic
     - image.style.thumbnail
     - node.type.highlighted_course
   module:
-    - image
     - link
     - path
+    - svg_image
 id: node.highlighted_course.default
 targetEntityType: node
 bundle: highlighted_course
@@ -34,15 +33,6 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
-    region: content
-  field_resource_type:
-    weight: 26
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_thesaurus:
     weight: 7

@@ -1,16 +1,16 @@
-uuid: 5e284e01-c705-4a2a-b386-f5b9506a6621
+uuid: 722e6d0c-d3dd-4e57-a06d-a57e13f014f8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_resource_type
-    - node.type.highlighted_course
+    - field.storage.node.field_type
+    - node.type.external_resource
     - taxonomy.vocabulary.resource_types
-id: node.highlighted_course.field_resource_type
-field_name: field_resource_type
+id: node.external_resource.field_type
+field_name: field_type
 entity_type: node
-bundle: highlighted_course
-label: Type
+bundle: external_resource
+label: 'Resource type'
 description: ''
 required: true
 translatable: false
