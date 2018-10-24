@@ -8,6 +8,7 @@
 namespace Drupal\gpsearch\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use \Drupal\Core\Url;
 
 /**
  * Global search block shown in the website's header
@@ -25,11 +26,15 @@ class GPHeaderSearchBlock extends BlockBase {
    */
   public function build() {
     $config = $this->getConfiguration();
-    $label = $config['label_display'] ? $config['label'] : NULL;
-    $form = \Drupal::formBuilder()->getForm('Drupal\gpsearch\Form\GPHeaderSearchForm', $label);
-    unset($form['form_build_id']);
-    unset($form['form_id']);
-    $form['#cache'] = ['max-age' => 0];
-    return $form;
+
+    $block = [
+      '#theme' => 'gpsearch_block_template',
+      '#attached' => [
+        'library' => ['gpsearch/autocomplete'],
+      ],
+      '#action' => Url::fromRoute('view.gpe_search_page.page_1')->toString(),
+    ];
+
+    return $block;
   }
 }
