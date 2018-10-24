@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.external_resource.body
+    - field.field.node.external_resource.field_highlighted_course
     - field.field.node.external_resource.field_link
     - field.field.node.external_resource.field_thesaurus
     - node.type.external_resource
@@ -21,6 +22,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_highlighted_course:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_link:
     weight: 9
     settings:

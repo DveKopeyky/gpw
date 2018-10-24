@@ -9,9 +9,9 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: Course
+name: 'Featured Course'
 type: course
-description: 'Use <em>courses</em> to store information about courses.'
+description: 'Use <em>featured courses</em> to store information about featured courses.'
 help: ''
 new_revision: true
 preview_mode: 1

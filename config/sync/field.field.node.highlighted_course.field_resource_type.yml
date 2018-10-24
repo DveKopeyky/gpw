@@ -1,18 +1,18 @@
-uuid: 10d1837f-e299-4ac2-b666-9a86b81116f5
+uuid: 5e284e01-c705-4a2a-b386-f5b9506a6621
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_thesaurus
+    - field.storage.node.field_resource_type
     - node.type.highlighted_course
-    - taxonomy.vocabulary.thesaurus
-id: node.highlighted_course.field_thesaurus
-field_name: field_thesaurus
+    - taxonomy.vocabulary.resource_types
+id: node.highlighted_course.field_resource_type
+field_name: field_resource_type
 entity_type: node
 bundle: highlighted_course
-label: Tags
+label: Type
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      thesaurus: thesaurus
+      resource_types: resource_types
     sort:
       field: name
       direction: asc
