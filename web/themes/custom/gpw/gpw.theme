@@ -10,6 +10,49 @@ function gpw_preprocess(&$variables) {
   $variables['base_path'] = base_path();
 }
 
+function gpw_preprocess_taxonomy_term(&$variables) {
+
+  $term = $variables['term'];
+  /** @var Drupal\taxonomy\Entity\Term $term*/
+  if ($term->bundle()== 'thesaurus') {
+
+    $gpleoTerms = \Drupal::service('gpleo.terms');
+
+    // Load Broader terms.
+    $parents = [];
+    foreach ($gpleoTerms->parents() as $tid => $label) {
+      $link = \Drupal\Core\Link::fromTextAndUrl($label, \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $tid], ['attributes' => ['class' => 'thesaurus--term']]));
+      $parents[] = $link->toRenderable();
+    }
+     if ($parents) {
+      $variables['parents'] = [
+        '#theme' => 'item_list',
+        '#list_type' => 'ul',
+        '#title' => t('Broader'),
+        '#items' => $parents,
+        '#attributes' => ['class' => 'thesaurus--terms'],
+      ];
+     }
+
+    // Load Narrower terms.
+    $children = [];
+    foreach ($gpleoTerms->children() as $tid => $label) {
+      $link = \Drupal\Core\Link::fromTextAndUrl($label, \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $tid], ['attributes' => ['class' => 'thesaurus--term']]));
+      $children[] = $link->toRenderable();
+    }
+    if ($children) {
+      $variables['children'] = [
+        '#theme' => 'item_list',
+        '#list_type' => 'ul',
+        '#title' => t('Narrower'),
+        '#items' => $children,
+        '#attributes' => ['class' => 'thesaurus--terms'],
+      ];
+    }
+
+    }
+}
+
 function gpw_preprocess_page(&$variables) {
   // @todo: Implement field on page.
   // Enable inverse navbar based on page setting.
@@ -32,10 +75,7 @@ function gpw_preprocess_page(&$variables) {
  */
 function gpw_preprocess_block(&$variables) {
 
-
-
-
-    if($variables['base_plugin_id'] == 'views_block') {
+  if ($variables['base_plugin_id'] == 'views_block') {
     switch ($variables['plugin_id']) {
       case 'views_block:documents-thesaurus_documents':
       case 'views_block:videos-thesaurus_videos':
@@ -43,8 +83,6 @@ function gpw_preprocess_block(&$variables) {
       case 'views_block:meetings-thesaurus_next_meetings':
       case 'views_block:meetings-thesaurus_past_meetings':
       case 'views_block:news-thesaurus_news':
-
-
         $variables['#cache']['max-age'] = 0;
         $variables['contexts'][] = 'url.path';
 
