@@ -13,3 +13,17 @@ function gpthesaurus_update_8001() {
     var_dump($e);
   }
 }
+
+/**
+ * Reimport all terms with their tid.
+ */
+function gpthesaurus_update_8002() {
+  try {
+    $l = new \Drupal\gpthesaurus\LEOImport();
+    $terms = $l->load('https://www.informea.org/ws/leo');
+    $l->import($terms);
+  }
+  catch (Exception $e) {
+    var_dump($e);
+  }
+}
