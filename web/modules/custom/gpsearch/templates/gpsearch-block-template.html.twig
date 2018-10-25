@@ -5,11 +5,26 @@
   Only 1 parameter to this template:
     action - Form action page. In this case it is a search page.
 #}
+{% if is_front %}
+  {% set autofocus = 'autofocus' %}
+{% else %}
+  {% set autofocus = 'a' %}
+{% endif %}
+{% set placeholder = 'Search in Global Pact Website'|t %}
+{% set help_text = 'Explore only content tagged with'|t %}
 
-<form id="gpsearch_form" action="{{ action }}" methid="get" >
-  <input id="gpsearch_text" type="text" class="form-control" name="q" placeholder="{{ 'Search in Global Pact Website'|t }}" {% if is_front %} autofocus {% endif %}>
-  <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-  <input id="gpsearch_submit" type="submit" value="Search">
-  <input id="gpsearch_clear" type="button" value="Clear">
-</form>
+<div id="gpsearch_block_form_wrapper" class="gpsearch-block-form-wrapper col-sm-5 col-sm-offset-7">
+  <form id="gpsearch_form" action="{{ action }}" methid="get" >
+    <input id="gpsearch_text" type="text" class="form-control" name="q" placeholder="{{ placeholder }}" {{ autofocus }} autocomplete="off">
+    <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" id="search_icon"></span>
+  </form>
+  <div id="gpsearch_help" class="gpsearch-help">
+    <span class="glyphicon glyphicon-tag"></span>
+    <span id="gpsearch_help_text">{{ help_text }}</span>
+    <span><a id="gpsearch_help_link">{# Text and href will be entered in the JS #}</a></span>
+  </div>
+  <div id="gpsearch_terms_list" class="gpsearch-autocomplete-list">
+    {# Elements will be added in JS. #}
+  </div>
+</div>
 

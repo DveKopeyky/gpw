@@ -33,6 +33,12 @@ class GPHeaderSearchBlock extends BlockBase {
         'library' => ['gpsearch/autocomplete'],
       ],
       '#action' => Url::fromRoute('view.gpe_search_page.page_1')->toString(),
+      '#attributes' => [
+        'class' => [
+          'gpsearch-fulltext-block',
+          'row',
+        ],
+      ]
     ];
 
     return $block;

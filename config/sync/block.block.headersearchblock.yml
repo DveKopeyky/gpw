@@ -9,7 +9,7 @@ dependencies:
 id: headersearchblock
 theme: gpw
 region: highlighted
-weight: -11
+weight: -15
 provider: null
 plugin: header_search_block
 settings:
