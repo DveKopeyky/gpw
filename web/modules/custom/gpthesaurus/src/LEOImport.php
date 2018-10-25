@@ -110,6 +110,7 @@ class LEOImport {
       'definition' => 'field_definitions',
       'synonyms' => 'field_synonyms',
       'topics' => 'field_topics',
+      'id' => 'field_informea_tid',
     ];
     foreach ($field_mapping as $api => $drupal) {
       switch ($api) {

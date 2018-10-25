@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.taxonomy_term.thesaurus.field_definitions
     - field.field.taxonomy_term.thesaurus.field_importance
+    - field.field.taxonomy_term.thesaurus.field_informea_tid
     - field.field.taxonomy_term.thesaurus.field_informea_url
     - field.field.taxonomy_term.thesaurus.field_related_leo_terms
     - field.field.taxonomy_term.thesaurus.field_semantic_uri
@@ -71,6 +72,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_informea_tid: true
   field_informea_url: true
   field_related_leo_terms: true
   field_semantic_uri: true
