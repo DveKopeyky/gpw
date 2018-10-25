@@ -66,8 +66,16 @@
   {% endif %}
   {{ title_suffix }}
 
+  {% if custom_prefix is not empty %}
+  {{ custom_prefix }}
+  {% endif %}
+
   {% block content %}
     {{ content }}
   {% endblock %}
+
+  {% if custom_suffix is not empty %}
+    {{ custom_suffix }}
+  {% endif %}
 </section>
 
