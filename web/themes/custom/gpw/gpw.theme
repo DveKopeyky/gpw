@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\taxonomy\Entity\Term;
+
 /**
  * @file
  * Bootstrap sub-theme.
@@ -59,9 +61,8 @@ function gpw_preprocess_page(&$variables) {
   if($variables['is_front']) {
     $variables['page']['navbar_inverse'] = true;
   }
-
-  // Check for video field on webinar full page and mark title.
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // Check for video field on webinar full page and mark title.
     if ($node->bundle() == 'webinar') {
       if (!empty($node->field_video->getValue()) && !empty($variables['page']['title'])) {
         $variables['page']['title']['#attributes']['class'][] = 'has-video';
@@ -328,6 +329,14 @@ function gpw_preprocess_views_view_table(&$variables) {
       }
     }
     $variables['striped'] = FALSE;
+  }
+}
+
+
+function gpw_theme_suggestions_page_alter(&$suggestions, &$vars) {
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+    $term = Term::load($tid);
+    $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
   }
 }
 
