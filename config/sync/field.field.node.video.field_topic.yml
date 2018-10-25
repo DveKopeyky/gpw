@@ -1,16 +1,16 @@
-uuid: 5e284e01-c705-4a2a-b386-f5b9506a6621
+uuid: 2a3c6834-1f24-4620-8bb8-769cd627aa95
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_resource_type
-    - node.type.highlighted_course
-    - taxonomy.vocabulary.resource_types
-id: node.highlighted_course.field_resource_type
-field_name: field_resource_type
+    - field.storage.node.field_topic
+    - node.type.video
+    - taxonomy.vocabulary.topics
+id: node.video.field_topic
+field_name: field_topic
 entity_type: node
-bundle: highlighted_course
-label: Type
+bundle: video
+label: 'Main topic'
 description: ''
 required: true
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      resource_types: resource_types
+      topics: topics
     sort:
       field: name
       direction: asc

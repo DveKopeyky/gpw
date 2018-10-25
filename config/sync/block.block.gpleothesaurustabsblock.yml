@@ -1,0 +1,26 @@
+uuid: c121df23-a541-4000-a47e-2b7417a9d619
+langcode: en
+status: true
+dependencies:
+  module:
+    - gpleo
+    - system
+  theme:
+    - gpw
+id: gpleothesaurustabsblock
+theme: gpw
+region: highlighted
+weight: -12
+provider: null
+plugin: gpleo_thesaurus_block
+settings:
+  id: gpleo_thesaurus_block
+  label: 'GP LEO thesaurus tabs Block'
+  provider: gpleo
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/glossary\r\n/glossary/*"
+    negate: false
+    context_mapping: {  }

@@ -9,7 +9,7 @@ dependencies:
     - system.menu.main
     - taxonomy.vocabulary.topics
   module:
-    - image
+    - svg_image
     - taxonomy
     - user
 id: glossary
@@ -112,7 +112,7 @@ display:
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_class: topic-svg-image
           element_default_classes: true
           empty: ''
           hide_empty: false
@@ -123,6 +123,10 @@ display:
           settings:
             image_style: medium
             image_link: ''
+            svg_render_as_image: 1
+            svg_attributes:
+              width: ''
+              height: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -251,23 +255,23 @@ display:
           view_mode: computed
           entity_type: taxonomy_term
           plugin_id: rendered_entity
-        view_taxonomy_term:
-          id: view_taxonomy_term
-          table: taxonomy_term_data
-          field: view_taxonomy_term
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
+            alter_text: true
+            text: 'See all terms »'
+            make_link: true
+            path: '/glossary/alphabetically#{{ name|lower }}'
             absolute: false
             external: false
-            replace_spaces: false
+            replace_spaces: true
             path_case: none
             trim_whitespace: false
             alt: ''
@@ -298,12 +302,8 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
-          text: 'See all terms >>'
-          output_url_as_text: false
-          absolute: false
-          entity_type: taxonomy_term
-          plugin_id: entity_link
+          hide_alter_empty: false
+          plugin_id: custom
       filters:
         vid:
           id: vid

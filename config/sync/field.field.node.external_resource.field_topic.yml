@@ -1,28 +1,29 @@
-uuid: 9c32fc80-3822-4085-83cd-f6bd581487a9
+uuid: 9e5767fb-dac4-4958-87b2-6fa1c744f1f4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_highlighted_course
+    - field.storage.node.field_topic
     - node.type.external_resource
-    - node.type.highlighted_course
-id: node.external_resource.field_highlighted_course
-field_name: field_highlighted_course
+    - taxonomy.vocabulary.topics
+id: node.external_resource.field_topic
+field_name: field_topic
 entity_type: node
 bundle: external_resource
-label: Course
+label: 'Main topic'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      highlighted_course: highlighted_course
+      topics: topics
     sort:
-      field: _none
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

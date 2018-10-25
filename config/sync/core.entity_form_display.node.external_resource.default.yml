@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.external_resource.field_highlighted_course
     - field.field.node.external_resource.field_link
     - field.field.node.external_resource.field_thesaurus
+    - field.field.node.external_resource.field_topic
+    - field.field.node.external_resource.field_type
     - node.type.external_resource
   module:
     - link
@@ -41,6 +43,21 @@ content:
     region: content
   field_thesaurus:
     weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_topic:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_type:
+    weight: 27
     settings:
       match_operator: CONTAINS
       size: 60
