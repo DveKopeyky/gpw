@@ -266,7 +266,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'See all terms >>'
+            text: 'See all terms »'
             make_link: true
             path: '/glossary/alphabetically#{{ name|lower }}'
             absolute: false
@@ -279,7 +279,7 @@ display:
             link_class: ''
             prefix: ''
             suffix: ''
-            target: _blank
+            target: ''
             nl2br: false
             max_length: 0
             word_boundary: true

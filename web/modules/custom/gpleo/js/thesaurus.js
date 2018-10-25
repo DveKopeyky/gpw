@@ -43,7 +43,7 @@
       }
 
       // BEF autosubmit works incorrect.
-      $('#topic-apply').click();
+      Drupal.thesaurusView.filterSubmit();
     });
   };
 
@@ -76,7 +76,7 @@
         if (Drupal.thesaurusView.transformTextAsHash(label) == location.hash) {
           $('#edit-topics input.form-checkbox:checked').prop('checked', false);
           $(this).find('input.form-checkbox').prop('checked', true);
-          $('#topic-apply').click();
+          Drupal.thesaurusView.filterSubmit();
         }
       });
     }
@@ -92,12 +92,13 @@
     });
 
     $('.topic-selected-item .close').on('click', function() {
+      location.hash = 'custom';
       var topicValue = $(this).attr('value');
       $('#edit-topics-' + topicValue)
         .prop("checked", false)
         .parents('.form-type-checkbox').removeClass('active');
       $(this).parents('.topic-selected-item').remove();
-      $('#topic-apply').click();
+      Drupal.thesaurusView.filterSubmit();
     });
   };
 
@@ -111,10 +112,13 @@
   Drupal.thesaurusView.prepareSubmitActions = function() {
     $('#topic-apply').on('click', function(event) {
       event.preventDefault();
-      $('#block-thesaurus-filter-topic-block #edit-submit-thesaurus').click();
+      Drupal.thesaurusView.filterClose();
+      Drupal.thesaurusView.filterSubmit();
       Drupal.thesaurusView.prepareSelectedTopics();
     });
+
     $('#topic-clear').on('click', function(event) {
+      location.hash = 'custom';
       event.preventDefault();
       $('#edit-topics input.form-checkbox')
         .prop("checked", false)
@@ -122,6 +126,14 @@
       $('#block-thesaurus-filter-topic-block #edit-submit-thesaurus').click();
       Drupal.thesaurusView.prepareSelectedTopics();
     });
+  };
+
+  Drupal.thesaurusView.filterClose = function() {
+    $('#block-thesaurus-filter-topic-block #edit-topics').removeClass('active');
+  };
+
+  Drupal.thesaurusView.filterSubmit = function() {
+    $('#block-thesaurus-filter-topic-block #edit-submit-thesaurus').click();
   };
 
   Drupal.behaviors.thesaurusView = {
