@@ -9,7 +9,7 @@ id: taxonomy_term.thesaurus.field_related_leo_terms
 field_name: field_related_leo_terms
 entity_type: taxonomy_term
 bundle: thesaurus
-label: 'Related LEO terms'
+label: 'Related terms'
 description: 'Other related terms to this term from the Thesaurus (skos:related)'
 required: false
 translatable: false
