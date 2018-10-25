@@ -36,6 +36,14 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_related_leo_terms:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_show_topic_shortlist:
     weight: 5
     label: above
@@ -55,19 +63,19 @@ content:
     type: string
     region: content
   field_topics:
-    weight: 1
+    weight: 3
     label: above
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
+    region: content
+    type: entity_reference_entity_view
 hidden:
+  field_importance: true
   field_informea_tid: true
   field_informea_url: true
-  field_related_leo_terms: true
-  field_importance: true
   field_semantic_uri: true
   field_show_in_term_cloud: true
-  field_synonyms: true
   field_thesaurus_link: true
-  field_topics: true
   langcode: true

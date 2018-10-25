@@ -42,6 +42,10 @@ class GPLeoTerms {
     }
   }
 
+  public function id() {
+    return $this->term ? $this->term->id() : NULL;
+  }
+
   public function parents(){
     $items = $this->taxonomy_term->loadAllParents($this->term->id());
     $list = [];
