@@ -9,7 +9,7 @@ dependencies:
 id: dropdownlanguage
 theme: gpw
 region: navigation_collapsible
-weight: -10
+weight: -11
 provider: null
 plugin: 'dropdown_language:language_interface'
 settings:

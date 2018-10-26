@@ -10,7 +10,7 @@ dependencies:
 id: gpleothesaurustabsblock
 theme: gpw
 region: highlighted
-weight: -12
+weight: -14
 provider: null
 plugin: gpleo_thesaurus_block
 settings:

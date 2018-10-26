@@ -1,0 +1,40 @@
+uuid: fb911cba-ab80-48dc-b866-b121197e8b2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api_solr.solr_field_type.text_ar_6_0_0
+    - search_api_solr.solr_field_type.text_en_6_0_0
+    - search_api_solr.solr_field_type.text_es_6_0_0
+    - search_api_solr.solr_field_type.text_fr_6_0_0
+    - search_api_solr.solr_field_type.text_ru_6_0_0
+    - search_api_solr.solr_field_type.text_und_6_0_0
+  module:
+    - search_api_solr
+id: default
+name: Default
+description: 'Default Solr server'
+backend: search_api_solr_multilingual
+backend_config:
+  connector: standard
+  connector_config:
+    scheme: http
+    host: localhost
+    port: '8983'
+    path: /solr
+    core: gpw
+    timeout: 5
+    index_timeout: 5
+    optimize_timeout: 10
+    finalize_timeout: 30
+    commit_within: 1000
+    solr_version: ''
+    http_method: AUTO
+  sasm_limit_search_page_to_content_language: true
+  sasm_search_page_include_language_independent: false
+  sasm_language_unspecific_fallback_on_schema_issues: true
+  retrieve_data: false
+  highlight_data: false
+  skip_schema_check: false
+  domain: generic
+  site_hash: false

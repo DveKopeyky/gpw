@@ -56,6 +56,10 @@
     'clearfix',
   ]
 %}
+
+{% if outer_prefix is not empty %}
+  {{ outer_prefix }}
+{% endif %}
 <section{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
@@ -66,8 +70,18 @@
   {% endif %}
   {{ title_suffix }}
 
+  {% if inner_prefix is not empty %}
+  {{ inner_prefix }}
+  {% endif %}
+
   {% block content %}
     {{ content }}
   {% endblock %}
-</section>
 
+  {% if inner_suffix is not empty %}
+    {{ inner_suffix }}
+  {% endif %}
+</section>
+{% if outer_suffix is not empty %}
+  {{ outer_suffix }}
+{% endif %}

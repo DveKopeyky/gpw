@@ -72,6 +72,7 @@
         "drupal/dropdown_language": "^2.1",
         "drupal/duration_field": "^1.6",
         "drupal/eck": "^1.0@alpha",
+        "drupal/facets": "^1.1",
         "drupal/fixed_block_content": "^1.0@RC",
         "drupal/image_widget_crop": "^2.2",
         "drupal/inline_entity_form": "^1.0@RC",
@@ -79,6 +80,9 @@
         "drupal/pathauto": "^1.2",
         "drupal/recaptcha": "^2.3",
         "drupal/responsive_favicons": "^1.4",
+        "drupal/search_api": "^1.10",
+        "drupal/search_api_attachments": "^1.0@beta",
+        "drupal/search_api_solr": "^2.2",
         "drupal/simple_block": "^1.0@beta",
         "drupal/smtp": "^1.0@beta",
         "drupal/svg_image": "^1.8",
@@ -160,6 +164,12 @@
             "drupal/core": {
                 "The Views integration Datetime Range fields should extend the views integration for regular Datetime fields.": "https://www.drupal.org/files/issues/2786577-270_0.patch",
                 "Programmatically created translatable content type returns SQL error on content creation": "https://www.drupal.org/files/issues/2018-08-08/2599228-58.patch"
+            },
+             "drupal/facets": {
+                "Add chosen support (https://www.drupal.org/project/facets/issues/2853121)": "patches/facets/chosen-support.patch"
+            },
+             "drupal/search_api": {
+                "Excerpt field in view mode (https://www.drupal.org/project/search_api/issues/2983606)" : "https://www.drupal.org/files/issues/2018-09-14/2983606-16--entity_excerpt_field.patch"
             }
         }
     }

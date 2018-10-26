@@ -1,5 +1,10 @@
 <?php
 
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+
 /**
  * @file
  * Bootstrap sub-theme.
@@ -10,27 +15,171 @@ function gpw_preprocess(&$variables) {
   $variables['base_path'] = base_path();
 }
 
+function gpw_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->bundle()== 'document') {
+    $variables['#cache']['max-age'] = 0;
+    if (!empty($node->field_file->getValue())) {
+      $fieldFile = $node->field_file->getValue();
+      $fid = $fieldFile[0]['target_id'];
+      if ( $file = File::load($fid)) {
+        $options = [];
+        $file_size = $file->getSize();
+        $mime_type = $file->getMimeType();
+        $options['attributes'] = [
+          'type' => "$mime_type; length=$file_size",
+          'title' => $file->getFilename(),
+          'target' =>'_blank',
+        ];
+
+        $url = file_create_url($file->getFileUri());
+
+        if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical'
+          && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')
+        ) {
+          $documentTags = \Drupal::service('gpleo.documents.tags');
+          if ($page = $documentTags->documentTagsPageNumber($tid, $node->id())) {
+            $url .= "#page=$page";
+          }
+        }
+
+        $variables['document_file'] = Link::fromTextAndUrl($file->getFilename() , Url::fromUri($url, $options));
+        $variables['document_type'] = pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
+      }
+    }
+  }
+}
+
+function gpw_preprocess_taxonomy_term(&$variables) {
+
+  $term = $variables['term'];
+  /** @var Drupal\taxonomy\Entity\Term $term */
+  if ($term->bundle()== 'thesaurus') {
+
+    $gpleoTerms = \Drupal::service('gpleo.terms');
+
+    // Load Broader terms.
+    $parents = [];
+    foreach ($gpleoTerms->parents() as $tid => $label) {
+      $link = \Drupal\Core\Link::fromTextAndUrl($label, \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $tid], ['attributes' => ['class' => 'thesaurus--term']]));
+      $parents[] = $link->toRenderable();
+    }
+     if ($parents) {
+      $info = [
+        '#theme' => 'field',
+        '#title' => t('Broader'),
+        '#label_display' => t('Broader'),
+        '#view_mode' => '',
+        '#language' => '',
+        '#field_name' => 'field_parents',
+        '#field_type' => 'entity_reference',
+        '#field_translatable' => TRUE,
+        '#entity_type' => 'taxonomy',
+        '#bundle' => 'thesaurus',
+        '#object' => [],
+        '#items' => $parents,
+        '#formatter' => '',
+        '#is_multiple' => TRUE,
+      ];
+
+       $variables['parents'] = array_merge($info, $parents);
+      }
+
+    // Load Narrower terms.
+    $children = [];
+    foreach ($gpleoTerms->children() as $tid => $label) {
+      $link = \Drupal\Core\Link::fromTextAndUrl($label, \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $tid], ['attributes' => ['class' => 'thesaurus--term']]));
+      $children[] = $link->toRenderable();
+    }
+    if ($children) {
+      $info = [
+        '#theme' => 'field',
+        '#title' => t('Narrower'),
+        '#label_display' => t('Narrower'),
+        '#view_mode' => '',
+        '#language' => '',
+        '#field_name' => 'field_children',
+        '#field_type' => 'entity_reference',
+        '#field_translatable' => TRUE,
+        '#entity_type' => 'taxonomy',
+        '#bundle' => 'thesaurus',
+        '#object' => [],
+        '#items' => $children,
+        '#formatter' => '',
+        '#is_multiple' => TRUE,
+      ];
+      $variables['children'] = array_merge($info, $children);
+    }
+
+    }
+}
+
 function gpw_preprocess_page(&$variables) {
   // @todo: Implement field on page.
   // Enable inverse navbar based on page setting.
   if($variables['is_front']) {
     $variables['page']['navbar_inverse'] = true;
   }
-
-  // Check for video field on webinar full page and mark title.
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // Check for video field on webinar full page and mark title.
     if ($node->bundle() == 'webinar') {
       if (!empty($node->field_video->getValue()) && !empty($variables['page']['title'])) {
         $variables['page']['title']['#attributes']['class'][] = 'has-video';
       }
     }
   }
+
+  // Check if it's a glossary term page.
+  /** @var \Drupal\taxonomy\Entity\Term $term */
+  if ($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
+    if ($term->getVocabularyId() == 'thesaurus') {
+      $variables['is_glossary_term'] = TRUE;
+    }
+  }
 }
 
 /**
  * Implements hook_preprocess_HOOK() for block templates.
+ *
+ * @see: \Drupal\gpw\Plugin\Preprocess\Block
  */
 function gpw_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'views_block') {
+    switch ($variables['plugin_id']) {
+      case 'views_block:documents-thesaurus_documents':
+      case 'views_block:videos-thesaurus_videos':
+      case 'views_block:highlighted_courses-thesaurus_courses':
+      case 'views_block:meetings-thesaurus_next_meetings':
+      case 'views_block:meetings-thesaurus_past_meetings':
+      case 'views_block:news-thesaurus_news':
+        $variables['#cache']['max-age'] = 0;
+        $variables['contexts'][] = 'url.path';
+
+        if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical'
+          && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')
+          ) {
+            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+            if ($term->bundle() != 'thesaurus') {
+              $variables = [
+                'plugin_id' => $variables['plugin_id'],
+                'base_plugin_id' => $variables['base_plugin_id'],
+                '#cache' => $variables['#cache'],
+                'contexts' => $variables['contexts'],
+              ];
+            }
+          } else {
+          $variables = [
+            'plugin_id' => $variables['plugin_id'],
+            'base_plugin_id' => $variables['base_plugin_id'],
+            '#cache' => $variables['#cache'],
+            'contexts' => $variables['contexts'],
+          ];
+        }
+      default:
+        break;
+    }
+  }
+
   // @todo: get .svg logo
   switch ($variables['base_plugin_id']) {
     case 'system_branding_block':
@@ -44,13 +193,15 @@ function gpw_preprocess_block(&$variables) {
       $variables['#cache']['tags'][] = 'taxonomy_term_list';
       break;
   }
+
+
 }
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function gpw_preprocess_views_view(&$variables) {
-  if($variables['id'] == 'news') {
+  if($variables['id'] == 'news' && $variables['display_id'] == 'latest_news') {
     $variables['more']['#attributes']['class'][] = 'btn btn-outline';
   }
 }
@@ -167,6 +318,9 @@ function gpw_preprocess_page_title(&$variables) {
 
     }
   }
+
+
+
 }
 
 /**
@@ -220,7 +374,7 @@ function gpw_preprocess_views_view_table(&$variables) {
       }
       if($icon) {
         $header['content'] = array(
-          '#theme' => 'table_header_with_icon',
+          '#theme' => 'icon_prefix',
           '#icon' => $icon,
           '#content' => $variables['header'][$key]['content'],
         );
@@ -242,7 +396,7 @@ function gpw_preprocess_views_view_table(&$variables) {
       }
       if($icon) {
         $header['content'] = array(
-          '#theme' => 'table_header_with_icon',
+          '#theme' => 'icon_prefix',
           '#icon' => $icon,
           '#content' => $variables['header'][$key]['content'],
         );
@@ -252,12 +406,20 @@ function gpw_preprocess_views_view_table(&$variables) {
   }
 }
 
+
+function gpw_theme_suggestions_page_alter(&$suggestions, &$vars) {
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+    $term = Term::load($tid);
+    $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
+  }
+}
+
 /**
  * Implements hook_theme().
  */
 function gpw_theme($existing, $type, $theme, $path) {
   return array(
-    'table_header_with_icon' => ['variables' => [
+    'icon_prefix' => ['variables' => [
       'icon' => null,
       'content' => null
     ]],

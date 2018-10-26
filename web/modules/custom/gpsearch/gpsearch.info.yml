@@ -1,0 +1,11 @@
+name: 'Global Pact Search functionality'
+type: module
+description: 'Full-text search pages from inside and outside the site'
+core: 8.x
+package: 'Custom'
+dependencies:
+- gpbase
+- facets
+- search_api
+- search_api_attachments
+- search_api_solr

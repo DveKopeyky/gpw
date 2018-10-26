@@ -5,6 +5,8 @@
  * Global pact leo module (aka Thesaurus).
  */
 
+use Drupal\eck\Entity\EckEntity;
+
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -26,4 +28,34 @@ function gpleo_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormState
       'library' => ['gpleo/thesaurus'],
     ];
   }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function gpleo_node_presave(\Drupal\Core\Entity\EntityInterface $node) {
+  if ($node->bundle() == 'document' && !$node->isNew) {
+    $thesaurus = [];
+    $tags = array_column($node->field_tags->getValue(), 'target_id');
+    foreach ($tags as $tag_tid) {
+      $tag = EckEntity::load($tag_tid);
+      if ($field_tags = $tag->field_tags->getValue()) {
+        foreach ($field_tags as $field_tag) {
+          $thesaurus[] = $field_tag;
+        }
+      }
+    }
+    if ($thesaurus) {
+      $node->field_thesaurus = $thesaurus;
+    }
+
+  }
+}
+
+
+function gpleo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  /*dpm($form['#form_id']);
+  dpm($form['form_id']);*/
+ /* dpm($form_state);
+  dpm(array_keys($form));*/
 }

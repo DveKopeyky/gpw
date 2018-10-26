@@ -1,0 +1,59 @@
+diff --git a/config/schema/facets.widgets.schema.yml b/config/schema/facets.widgets.schema.yml
+index 0bfecf2f..16be500e 100644
+--- a/config/schema/facets.widgets.schema.yml
++++ b/config/schema/facets.widgets.schema.yml
+@@ -21,6 +21,9 @@ facet.widget.config.dropdown:
+     default_option_label:
+       type: label
+       label: 'Default option label'
++    use_chosen:
++      type: boolean
++      label: 'Use chosen'
+ 
+ # Config schema for links, you can find the implementation in
+ # Drupal\facets\Plugin\facets\widget\LinksWidget. Options for this widget are
+diff --git a/src/Plugin/facets/widget/DropdownWidget.php b/src/Plugin/facets/widget/DropdownWidget.php
+index b2e2fa96..0ea74c06 100644
+--- a/src/Plugin/facets/widget/DropdownWidget.php
++++ b/src/Plugin/facets/widget/DropdownWidget.php
+@@ -21,9 +21,13 @@ class DropdownWidget extends WidgetPluginBase {
+    * {@inheritdoc}
+    */
+   public function defaultConfiguration() {
+-    return [
+-      'default_option_label' => 'Choose',
+-    ] + parent::defaultConfiguration();
++    $config = [
++        'default_option_label' => 'Choose',
++      ] + parent::defaultConfiguration();
++    if (\Drupal::moduleHandler()->moduleExists('chosen')) {
++      $config['use_chosen'] = FALSE;
++    }
++    return $config;
+   }
+ 
+   /**
+@@ -34,6 +38,10 @@ public function build(FacetInterface $facet) {
+     $build['#attributes']['class'][] = 'js-facets-dropdown-links';
+     $build['#attached']['drupalSettings']['facets']['dropdown_widget'][$facet->id()]['facet-default-option-label'] = $this->getConfiguration()['default_option_label'];
+     $build['#attached']['library'][] = 'facets/drupal.facets.dropdown-widget';
++    if (\Drupal::moduleHandler()->moduleExists('chosen') && $this->getConfiguration()['use_chosen']) {
++      $build['#attributes']['class'][] = 'chosen-enable';
++      chosen_attach_library($build);
++    }
+     return $build;
+   }
+ 
+@@ -56,6 +64,12 @@ public function buildConfigurationForm(array $form, FormStateInterface $form_sta
+       '#default_value' => $config['default_option_label'],
+     ];
+ 
++    $form['use_chosen'] = [
++      '#type' => 'checkbox',
++      '#title' => $this->t('Use chosen'),
++      '#default_value' => $config['use_chosen'],
++    ];
++
+     return $form;
+   }
+ 

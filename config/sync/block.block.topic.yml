@@ -1,0 +1,29 @@
+uuid: 18e7239e-7525-4f1e-a8aa-4eff920accab
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.topic
+  module:
+    - facets
+    - system
+  theme:
+    - gpw
+id: topic
+theme: gpw
+region: sidebar_first
+weight: -13
+provider: null
+plugin: 'facet_block:topic'
+settings:
+  id: 'facet_block:topic'
+  label: Topic
+  provider: facets
+  label_display: '0'
+  block_id: topic
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/gpe"
+    negate: false
+    context_mapping: {  }

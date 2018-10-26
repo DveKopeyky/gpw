@@ -1,0 +1,30 @@
+uuid: 38063b47-1077-466d-9acb-98a72a94fdec
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.meetings
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: views_block__meetings_thesaurus_past_meetings
+theme: gpw
+region: sidebar_second
+weight: -11
+provider: null
+plugin: 'views_block:meetings-thesaurus_past_meetings'
+settings:
+  id: 'views_block:meetings-thesaurus_past_meetings'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/glossary/*'
+    negate: false
+    context_mapping: {  }
