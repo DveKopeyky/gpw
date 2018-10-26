@@ -40,7 +40,7 @@ class Block extends PreprocessBase {
               '@search_link' => '/search',
               '@term_title' => $term->label(),
             ]);
-            $suffix = t('<a class="term-page-block-suffix" href="@search_link">See all videos</a>', [
+            $suffix = t('<a href="@search_link">See all videos</a>', [
               '@search_link' => '/search',
             ]);
             break;
@@ -51,7 +51,7 @@ class Block extends PreprocessBase {
               '@search_link' => '/search',
               '@term_title' => $term->label(),
             ]);
-            $suffix = t('<a class="term-page-block-suffix" href="@search_link">See all online courses</a>', [
+            $suffix = t('<a href="@search_link">See all online courses</a>', [
               '@search_link' => '/search',
             ]);
             break;
@@ -69,7 +69,7 @@ class Block extends PreprocessBase {
             $meetings_view = Url::fromRoute('view.meetings.page_1');
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
             $prefix = NULL;
-            $suffix = t('<a class="term-page-block-suffix" href="@search_link">See all meetings</a>', [
+            $suffix = t('<a href="@search_link">See all meetings</a>', [
               '@search_link' => $meetings_view->toString(),
             ]);
             break;
@@ -81,7 +81,7 @@ class Block extends PreprocessBase {
               '@search_link' => '/search',
               '@term_title' => $term->label(),
             ]);
-            $suffix = t('<a class="term-page-block-suffix" href="@search_link">See all news</a>', [
+            $suffix = t('<a href="@search_link">See all news</a>', [
               '@search_link' => $news_view->toString(),
             ]);
             break;
@@ -92,14 +92,22 @@ class Block extends PreprocessBase {
         }
         if (!empty($prefix)) {
           $variables['custom_prefix'] = [
-            '#type' => 'markup',
-            '#markup' => $prefix,
+            '#type' => 'container',
+            '#attributes' => ['class' => ['term-page-block-prefix']],
+            'prefix' => [
+              '#type' => 'markup',
+              '#markup' => $prefix,
+            ],
           ];
         }
         if (!empty($suffix)) {
           $variables['custom_suffix'] = [
-            '#type' => 'markup',
-            '#markup' => $suffix,
+            '#type' => 'container',
+            '#attributes' => ['class' => ['term-page-block-suffix']],
+            'prefix' => [
+              '#type' => 'markup',
+              '#markup' => $suffix,
+            ],
           ];
         }
       }
