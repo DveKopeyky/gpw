@@ -60,4 +60,5 @@
 .field--name-field-definitions > .field--label {
   @extend %heading-default;
   color: $text-color;
+  margin-bottom: 1em;
 }
