@@ -3,3 +3,7 @@ services:
     class: \Drupal\gpbase\Commands\GpbaseCommands
     tags:
       - { name: drush.command }
+  gpbase.import:
+    class: \Drupal\gpbase\Commands\GpbaseInitialImportContent
+    tags:
+      - { name: drush.command }
