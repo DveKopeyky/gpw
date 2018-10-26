@@ -37,5 +37,6 @@ hidden:
   field_date: true
   field_highlighted_course: true
   field_thesaurus: true
+  field_topic: true
   langcode: true
   links: true
