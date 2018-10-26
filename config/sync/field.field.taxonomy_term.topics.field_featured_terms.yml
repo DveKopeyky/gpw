@@ -1,0 +1,29 @@
+uuid: 7086604e-d931-4308-a8d5-43575fee6d70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_featured_terms
+    - taxonomy.vocabulary.thesaurus
+    - taxonomy.vocabulary.topics
+id: taxonomy_term.topics.field_featured_terms
+field_name: field_featured_terms
+entity_type: taxonomy_term
+bundle: topics
+label: 'Featured terms'
+description: 'The terms that will show up in the shortlist.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      thesaurus: thesaurus
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
