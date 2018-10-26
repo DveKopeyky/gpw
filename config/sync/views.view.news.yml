@@ -347,14 +347,18 @@ display:
         use_more: false
         use_more_always: false
         use_more_text: false
+        pager: false
       use_more_always: true
       use_more_text: 'See all news'
       rendering_language: '***LANGUAGE_language_interface***'
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -552,6 +556,7 @@ display:
         header: true
         style: false
         row: false
+        pager: false
       use_more_always: true
       use_more_text: 'See all news'
       rendering_language: '***LANGUAGE_language_interface***'
@@ -610,12 +615,16 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      pager:
+        type: some
+        options:
+          items_per_page: 4
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
