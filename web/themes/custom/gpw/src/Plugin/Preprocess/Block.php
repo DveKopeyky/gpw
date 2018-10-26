@@ -47,14 +47,19 @@ class Block extends PreprocessBase {
             $r = $total_count - $results;
             $remaining = ($r > 0) ? $r : NULL;
 
+            $search_view_link = Url::fromRoute('view.gpe_search_page.page_1')->toString();
+            $type = 'document';
+            $search_view_link .= "?f[0]=type%3A$type";
+            $search_view_link_with_tag = $search_view_link . "&f[1]=tags%3A$tid";
+
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
             $prefix = t('Documents tagged with <a href="@search_link">@term_title</a>', [
-              '@search_link' => '/search',
+              '@search_link' => $search_view_link_with_tag,
               '@term_title' => $term->label(),
             ]);
             if ($remaining) {
               $suffix = t('<a href="@search_link">See more (@remaining)</a>', [
-                '@search_link' => '/search',
+                '@search_link' => $search_view_link_with_tag,
                 '@remaining' => $remaining,
               ]);
             }
