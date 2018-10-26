@@ -12,12 +12,12 @@ field_name: field_link
 entity_type: node
 bundle: external_resource
 label: Link
-description: ''
-required: false
+description: 'Enter the link to the external website containing the resource'
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  link_type: 17
+  link_type: 16
   title: 0
 field_type: link
