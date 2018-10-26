@@ -68,3 +68,4 @@ hidden:
   field_show_in_term_cloud: true
   field_thesaurus_link: true
   langcode: true
+  search_api_excerpt: true
