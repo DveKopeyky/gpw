@@ -1316,6 +1316,7 @@ display:
           break_phrase: false
           not: false
           plugin_id: numeric
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1578,6 +1579,7 @@ display:
           break_phrase: false
           not: false
           plugin_id: numeric
+      block_hide_empty: true
       style:
         type: default
         options:

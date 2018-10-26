@@ -223,6 +223,7 @@ display:
         pager: false
       display_description: ''
       block_description: 'Thesaurus videos'
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
