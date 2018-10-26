@@ -34,6 +34,33 @@ class Block extends PreprocessBase {
         && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')
       ) {
         switch ($variables['plugin_id']) {
+
+          case 'views_block:documents-thesaurus_documents':
+            $view = $variables['content']['#view'];
+            $results = (count($view->result));
+
+            // results are now stored as an array in $view->result
+            $view->build('patient');
+            $q = $view->query->query()->countQuery()->execute()->fetchAssoc();
+            $total_count = reset($q);
+
+            $r = $total_count - $results;
+            $remaining = ($r > 0) ? $r : NULL;
+
+            $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+            $prefix = t('Documents tagged with <a href="@search_link">@term_title</a>', [
+              '@search_link' => '/search',
+              '@term_title' => $term->label(),
+            ]);
+            if ($remaining) {
+              $suffix = t('<a href="@search_link">See more (@remaining)</a>', [
+                '@search_link' => '/search',
+                '@remaining' => $remaining,
+              ]);
+            }
+            $variables['#cache']['max-age'] = 0;
+            break;
+
           case 'views_block:videos-thesaurus_videos':
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
             $prefix = t('Videos tagged with <a href="@search_link">@term_title</a>', [
