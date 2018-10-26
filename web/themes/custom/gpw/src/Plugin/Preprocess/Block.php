@@ -62,42 +62,61 @@ class Block extends PreprocessBase {
             break;
 
           case 'views_block:videos-thesaurus_videos':
+            $search_view_link = Url::fromRoute('view.gpe_search_page.page_1')->toString();
+            $type = 'video';
+            $search_view_link .= "?f[0]=type%3A$type";
+            $search_view_link_with_tag = $search_view_link . "&f[1]=tags%3A$tid";
+
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
             $prefix = t('Videos tagged with <a href="@search_link">@term_title</a>', [
-              '@search_link' => '/search',
+              '@search_link' => $search_view_link_with_tag,
               '@term_title' => $term->label(),
             ]);
             $suffix = t('<a href="@search_link">See all videos</a>', [
-              '@search_link' => '/search',
+              '@search_link' => $search_view_link,
             ]);
             break;
 
           case 'views_block:highlighted_courses-thesaurus_courses':
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+
+            $search_view_link = Url::fromRoute('view.gpe_search_page.page_1')->toString();
+            $type = 'highlighted_course';
+            $search_view_link .= "?f[0]=type%3A$type";
+            $search_view_link_with_tag = $search_view_link . "&f[1]=tags%3A$tid";
+
             $prefix = t('Online courses tagged with <a href="@search_link">@term_title</a>', [
-              '@search_link' => '/search',
+              '@search_link' => $search_view_link_with_tag,
               '@term_title' => $term->label(),
             ]);
             $suffix = t('<a href="@search_link">See all online courses</a>', [
-              '@search_link' => '/search',
+              '@search_link' => $search_view_link,
             ]);
             break;
 
           case 'views_block:meetings-thesaurus_next_meetings':
+            $search_view_link = Url::fromRoute('view.gpe_search_page.page_1')->toString();
+            $type = 'meeting';
+            $search_view_link .= "?f[0]=type%3A$type" . "&f[1]=tags%3A$tid";
+
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
             $prefix = t('Meetings and events tagged with <a href="@search_link">@term_title</a>', [
-              '@search_link' => '/search',
+              '@search_link' => $search_view_link,
               '@term_title' => $term->label(),
             ]);
             $suffix = NULL;
             break;
 
           case 'views_block:meetings-thesaurus_past_meetings':
+            $search_view_link = Url::fromRoute('view.gpe_search_page.page_1')->toString();
+            $type = 'meeting';
+            $search_view_link .= "?f[0]=type%3A$type";
+
             $meetings_view = Url::fromRoute('view.meetings.page_1');
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
             $prefix = NULL;
             $suffix = t('<a href="@search_link">See all meetings</a>', [
-              '@search_link' => $meetings_view->toString(),
+              '@search_link' => $search_view_link,
             ]);
             break;
 
