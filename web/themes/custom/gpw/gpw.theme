@@ -65,14 +65,22 @@ function gpw_preprocess_taxonomy_term(&$variables) {
       $parents[] = $link->toRenderable();
     }
      if ($parents) {
-
-       $info = [
-         '#theme' => 'field',
-         '#title' => t('Broader'),
-         '#label_display' => t('Broader'),
-         '#field_name' => 'parents',
-         '#items' => $parents,
-       ];
+      $info = [
+        '#theme' => 'field',
+        '#title' => t('Broader'),
+        '#label_display' => t('Broader'),
+        '#view_mode' => '',
+        '#language' => '',
+        '#field_name' => 'field_parents',
+        '#field_type' => 'entity_reference',
+        '#field_translatable' => TRUE,
+        '#entity_type' => 'taxonomy',
+        '#bundle' => 'thesaurus',
+        '#object' => [],
+        '#items' => $parents,
+        '#formatter' => '',
+        '#is_multiple' => TRUE,
+      ];
 
        $variables['parents'] = array_merge($info, $parents);
       }
@@ -88,10 +96,18 @@ function gpw_preprocess_taxonomy_term(&$variables) {
         '#theme' => 'field',
         '#title' => t('Narrower'),
         '#label_display' => t('Narrower'),
-        '#field_name' => 'parents',
+        '#view_mode' => '',
+        '#language' => '',
+        '#field_name' => 'field_children',
+        '#field_type' => 'entity_reference',
+        '#field_translatable' => TRUE,
+        '#entity_type' => 'taxonomy',
+        '#bundle' => 'thesaurus',
+        '#object' => [],
         '#items' => $children,
+        '#formatter' => '',
+        '#is_multiple' => TRUE,
       ];
-
       $variables['children'] = array_merge($info, $children);
     }
 
