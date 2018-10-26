@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_type.child_entity.tag
-    - field.field.child_entity.tag.field_description
     - field.field.child_entity.tag.field_page_number
     - field.field.child_entity.tag.field_tags
 id: child_entity.tag.default
@@ -12,40 +11,19 @@ targetEntityType: child_entity
 bundle: tag
 mode: default
 content:
-  field_description:
-    weight: 4
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_page_number:
-    weight: 3
+    weight: 0
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_tags:
-    weight: 3
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
+  title: true

@@ -11,7 +11,7 @@ field_name: field_tags
 entity_type: child_entity
 bundle: tag
 label: Tag
-description: ''
+description: 'Select tag that applies to this document or to specified page mentioned below.'
 required: true
 translatable: false
 default_value: {  }
