@@ -52,3 +52,12 @@
     text-decoration: none;
   }
 }
+
+.block-views-blockdocuments-thesaurus-documents > .block-title,
+.block-views-blockvideos-thesaurus-videos > .block-title,
+.block-views-blockhighlighted-courses-thesaurus-courses > .block-title,
+.block-views-blocknews-thesaurus-news > .block-title,
+.field--name-field-definitions > .field--label {
+  @extend %heading-default;
+  color: $text-color;
+}
