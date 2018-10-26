@@ -1,3 +1,4 @@
+uuid: 6db45a66-4c39-4976-970b-4b5b7f4c846c
 langcode: en
 status: true
 dependencies:
@@ -6,23 +7,22 @@ dependencies:
     - field.field.node.page.body
     - node.type.page
   module:
-    - text
     - user
 id: node.page.search_result
 targetEntityType: node
 bundle: page
 mode: search_result
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 100
-    region: content
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
   links:
-    weight: 101
+    weight: 1
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  body: true
   langcode: true

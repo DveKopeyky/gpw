@@ -1,3 +1,4 @@
+uuid: 0bbcbefe-5a2c-4dc8-ae3c-60a6b67030bb
 langcode: en
 status: true
 dependencies:
@@ -5,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.search_result
     - field.field.node.highlighted_course.field_image
     - field.field.node.highlighted_course.field_link
+    - field.field.node.highlighted_course.field_thesaurus
+    - field.field.node.highlighted_course.field_topic
     - node.type.highlighted_course
   module:
     - user
@@ -13,9 +16,32 @@ targetEntityType: node
 bundle: highlighted_course
 mode: search_result
 content:
-  links:
-    weight: 100
+  field_thesaurus:
+    type: entity_reference_label
+    weight: 2
     region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_topic:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_image: true
   field_link: true

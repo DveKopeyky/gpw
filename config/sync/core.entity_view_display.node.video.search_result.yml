@@ -1,3 +1,4 @@
+uuid: 67fa3dfd-e2e9-4fbe-a482-d8f6da2281ac
 langcode: en
 status: true
 dependencies:
@@ -7,35 +8,35 @@ dependencies:
     - field.field.node.video.field_date
     - field.field.node.video.field_highlighted_course
     - field.field.node.video.field_thesaurus
+    - field.field.node.video.field_topic
     - field.field.node.video.field_video_embed
-    - image.style.medium
     - node.type.video
   module:
+    - text
     - user
-    - video_embed_field
 id: node.video.search_result
 targetEntityType: node
 bundle: video
 mode: search_result
 content:
-  field_video_embed:
-    type: video_embed_field_lazyload
-    weight: 0
+  body:
+    type: text_summary_or_trimmed
+    weight: 1
     region: content
     label: hidden
     settings:
-      image_style: medium
-      link_image_to: content
-      autoplay: true
-      responsive: true
-      width: 854
-      height: 480
+      trim_length: 600
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
-  body: true
   field_date: true
   field_highlighted_course: true
   field_thesaurus: true
   field_topic: true
+  field_video_embed: true
   langcode: true
   links: true

@@ -1,3 +1,4 @@
+uuid: 1a8ec4bf-5476-4db0-82bb-c7c5413f7ede
 langcode: en
 status: true
 dependencies:
@@ -20,7 +21,7 @@ mode: search_result
 content:
   field_link:
     type: link
-    weight: 0
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -32,7 +33,7 @@ content:
     third_party_settings: {  }
   field_topic:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
@@ -40,11 +41,16 @@ content:
     third_party_settings: {  }
   field_type:
     type: entity_reference_label
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings:
       link: false
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   body: true

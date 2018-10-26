@@ -1,3 +1,4 @@
+uuid: 4b2dc55f-5e66-4dec-a256-a3c267b73508
 langcode: en
 status: true
 dependencies:
@@ -22,14 +23,14 @@ mode: search_result
 content:
   field_address:
     type: addess_field_formatter
-    weight: 0
+    weight: 1
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_date_range:
     type: daterange_default
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings:
@@ -39,13 +40,18 @@ content:
     third_party_settings: {  }
   field_tentative:
     type: boolean
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
       format: custom
       format_custom_true: (Tentative)
       format_custom_false: ''
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_agenda_items: true

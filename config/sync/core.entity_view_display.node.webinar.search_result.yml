@@ -1,3 +1,4 @@
+uuid: d60f1ed2-bb0b-4b8b-9cf5-b93dcab74d72
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,9 @@ dependencies:
     - field.field.node.webinar.body
     - field.field.node.webinar.field_date_range
     - field.field.node.webinar.field_files
+    - field.field.node.webinar.field_signup_link
+    - field.field.node.webinar.field_thesaurus
+    - field.field.node.webinar.field_topic
     - field.field.node.webinar.field_video
     - node.type.webinar
   module:
@@ -18,7 +22,7 @@ mode: search_result
 content:
   field_date_range:
     type: daterange_default
-    weight: 0
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -26,10 +30,18 @@ content:
       format_type: short_date_no_time
       separator: '-'
     third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   body: true
   field_date: true
   field_files: true
+  field_signup_link: true
+  field_thesaurus: true
+  field_topic: true
   field_video: true
   langcode: true
   links: true
