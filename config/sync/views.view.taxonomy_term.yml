@@ -304,6 +304,7 @@ display:
       path: taxonomy/term/%
       display_extenders: {  }
       rendering_language: '***LANGUAGE_language_interface***'
+      enabled: false
     cache_metadata:
       contexts:
         - 'languages:language_interface'

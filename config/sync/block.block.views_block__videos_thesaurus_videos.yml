@@ -1,0 +1,30 @@
+uuid: 2b1d979f-c6d3-4ccd-9f31-c7b55b5254d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.videos
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: views_block__videos_thesaurus_videos
+theme: gpw
+region: sidebar_second
+weight: -14
+provider: null
+plugin: 'views_block:videos-thesaurus_videos'
+settings:
+  id: 'views_block:videos-thesaurus_videos'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/glossary/*'
+    negate: false
+    context_mapping: {  }

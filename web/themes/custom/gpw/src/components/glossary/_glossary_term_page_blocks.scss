@@ -1,0 +1,64 @@
+.view-display-id-thesaurus_videos {
+  article {
+    padding: .2rem;
+  }
+}
+
+.block-views-blockhighlighted-courses-thesaurus-courses {
+  .featured-course-header {
+    font-family: $font-family-regular;
+    color: $gpw-primary;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    span {
+      padding-left: .5rem;
+    }
+  }
+  .featured-course-title {
+    background-color: inherit;
+    a {
+      @extend %title-links;
+    }
+    padding-top: 1rem;
+  }
+}
+
+.views-field-title {
+  background-color: inherit;
+  a {
+    @extend %title-links;
+  }
+  padding-top: 1rem;
+}
+
+.term-page-block-suffix {
+  text-transform: uppercase;
+}
+
+.view-display-id-thesaurus_videos {
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 1.4rem;
+    a {
+      @extend %title-links;
+    }
+  }
+}
+
+%title-links {
+  color: $text-color;
+  &:hover, &:focus {
+    color: $gpw-secondary;
+    text-decoration: none;
+  }
+}
+
+.block-views-blockdocuments-thesaurus-documents > .block-title,
+.block-views-blockvideos-thesaurus-videos > .block-title,
+.block-views-blockhighlighted-courses-thesaurus-courses > .block-title,
+.block-views-blocknews-thesaurus-news > .block-title,
+.field--name-field-definitions > .field--label {
+  @extend %heading-default;
+  color: $text-color;
+  margin-bottom: 1em;
+}

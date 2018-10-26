@@ -1,0 +1,26 @@
+uuid: 03b08157-b244-4e1a-aa47-93c411415d58
+langcode: en
+status: true
+dependencies:
+  module:
+    - gpleo
+    - system
+  theme:
+    - gpw
+id: gpinformeacontentblock
+theme: gpw
+region: content
+weight: -3
+provider: null
+plugin: gpinformea_content_block
+settings:
+  id: gpinformea_content_block
+  label: 'GP Informea Content Block'
+  provider: gpleo
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/glossary/*'
+    negate: false
+    context_mapping: {  }
