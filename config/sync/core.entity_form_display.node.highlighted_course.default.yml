@@ -5,25 +5,21 @@ dependencies:
   config:
     - field.field.node.highlighted_course.field_image
     - field.field.node.highlighted_course.field_link
+    - field.field.node.highlighted_course.field_thesaurus
+    - field.field.node.highlighted_course.field_topic
     - image.style.thumbnail
     - node.type.highlighted_course
   module:
-    - image
     - link
     - path
+    - svg_image
 id: node.highlighted_course.default
 targetEntityType: node
 bundle: highlighted_course
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_image:
-    weight: 8
+    weight: 4
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -31,61 +27,54 @@ content:
     type: image_image
     region: content
   field_link:
-    weight: 9
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
-  path:
-    type: path
-    weight: 6
-    region: content
+  field_thesaurus:
+    weight: 7
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
+    type: options_select
     region: content
+  field_topic:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 5
+    weight: 3
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 3
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
 hidden:
+  created: true
   langcode: true
+  promote: true
+  sticky: true
+  uid: true

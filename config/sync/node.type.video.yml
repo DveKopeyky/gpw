@@ -1,0 +1,17 @@
+uuid: b443587e-1054-4df3-a959-6b1eb39dc3ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Video
+type: video
+description: 'Use <em>Video</em> to embed youtube videos.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,28 @@
+uuid: d77096b0-0863-433c-a9a5-59a3925dcc8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highlighted_course
+    - node.type.document
+    - node.type.highlighted_course
+id: node.document.field_highlighted_course
+field_name: field_highlighted_course
+entity_type: node
+bundle: document
+label: Course
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      highlighted_course: highlighted_course
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -3,44 +3,82 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.thesaurus.field_definitions
     - field.field.taxonomy_term.thesaurus.field_importance
+    - field.field.taxonomy_term.thesaurus.field_informea_tid
+    - field.field.taxonomy_term.thesaurus.field_informea_url
+    - field.field.taxonomy_term.thesaurus.field_related_leo_terms
+    - field.field.taxonomy_term.thesaurus.field_semantic_uri
     - field.field.taxonomy_term.thesaurus.field_show_in_term_cloud
+    - field.field.taxonomy_term.thesaurus.field_show_topic_shortlist
+    - field.field.taxonomy_term.thesaurus.field_synonyms
     - field.field.taxonomy_term.thesaurus.field_thesaurus_link
     - field.field.taxonomy_term.thesaurus.field_topics
     - taxonomy.vocabulary.thesaurus
   module:
     - link
     - path
-    - text
 id: taxonomy_term.thesaurus.default
 targetEntityType: taxonomy_term
 bundle: thesaurus
 mode: default
 content:
-  description:
-    type: text_textarea
-    weight: 2
-    region: content
+  field_definitions:
+    weight: 7
     settings:
-      placeholder: ''
       rows: 5
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_importance:
-    weight: 31
+    weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  field_informea_url:
+    weight: 9
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_related_leo_terms:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_show_in_term_cloud:
-    weight: 33
+    weight: 6
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_show_topic_shortlist:
+    weight: 12
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_synonyms:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_thesaurus_link:
-    weight: 32
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -48,21 +86,21 @@ content:
     type: link_default
     region: content
   field_topics:
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 0
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -70,13 +108,16 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  translation:
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  description: true
+  field_informea_tid: true
+  field_semantic_uri: true

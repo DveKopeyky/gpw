@@ -78,32 +78,34 @@ function gpw_preprocess_region(&$variables) {
 function gpw_preprocess_page_title(&$variables) {
   /** @var \Drupal\node\Entity\Node $node */
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    // fields removed in node--meeting--full.html.twig
-    if ($node->bundle() == 'meeting') {
-      $variables['subtitle']['#class'] = 'meeting-subtitle';
-      if (!empty($node->field_address)) {
-        $variables['subtitle']['address'] = $node->field_address->view('full');
-      }
-      if (!empty($node->field_date_range)) {
-        $variables['subtitle']['date'] = $node->field_date_range->view('full');
 
-        if ($node->field_tentative->value) {
-          $variables['subtitle']['date']['#suffix'] = " (" . \Drupal::translation()->translate("Tentative") . ")";
+    switch  ($node->bundle()) {
+      // fields removed in node--meeting--full.html.twig
+      case 'meeting' :
+        $variables['subtitle']['#class'] = 'meeting-subtitle';
+        if (!empty($node->field_address)) {
+          $variables['subtitle']['address'] = $node->field_address->view('full');
         }
-      }
+        if (!empty($node->field_date_range)) {
+          $variables['subtitle']['date'] = $node->field_date_range->view('full');
 
-    }
+          if ($node->field_tentative->value) {
+            $variables['subtitle']['date']['#suffix'] = " (" . \Drupal::translation()->translate("Tentative") . ")";
+          }
+        }
 
-    // fields removed in node--webinar--full.html.twig
-    if ($node->bundle() == 'webinar') {
+        break;
 
-      if (!empty($node->field_date_range)) {
-        $variables['subtitle']['date'] = $node->field_date_range->view('full');
-      }
+      // fields removed in node--webinar--full.html.twig
+      case 'webinar':
 
-      if (!empty($node->field_signup_link)) {
-        $signup_link = $node->field_signup_link->getValue();
-        if (isset($signup_link[0]['uri'])) {
+        if (!empty($node->field_date_range)) {
+          $variables['subtitle']['date'] = $node->field_date_range->view('full');
+        }
+
+        if (!empty($node->field_signup_link)) {
+          $signup_link = $node->field_signup_link->getValue();
+          if (isset($signup_link[0]['uri'])) {
             if ($node->field_date_range && $date_range = $node->field_date_range->getValue()) {
               if (isset($date_range[0]['end_value']) && !empty($date_range[0]['end_value'])) {
                 if (date("Y-m-d") <= $date_range[0]['end_value']) {
@@ -123,30 +125,46 @@ function gpw_preprocess_page_title(&$variables) {
               }
             }
           }
-      }
-      if (!empty($node->field_video->entity)) {
-        $variables['video'] = $node->field_video->view('full');
-      }
-    }
+        }
+        if (!empty($node->field_video->entity)) {
+          $variables['video'] = $node->field_video->view('full');
+        }
+        break;
 
-    // fields removed in node--course--full.html.twig
-    if ($node->bundle() == 'course') {
-      $variables['is_full_course'] = TRUE;
-      if (!empty($node->body->getValue())) {
-        $variables['content_left']['body'] = $node->body->view('full');
-      }
-      if (!empty($node->field_key_points->getValue())) {
-        $variables['content_left']['field_key_points'] = $node->field_key_points->view('full');
-      }
-      if (!empty($node->field_video->getValue())) {
-        $variables['content_right']['field_video'] = $node->field_video->view('full');
-      }
-      if (!empty($node->field_e_learning_link->getValue())) {
-        $variables['content_right']['field_e_learning_link'] = $node->field_e_learning_link->view('full');
-      }
-      if (!empty($node->field_includes->getValue())) {
-        $variables['content_right']['field_includes'] = $node->field_includes->view('full');
-      }
+      // fields removed in node--course--full.html.twig
+      case 'course':
+        $variables['is_full_course'] = TRUE;
+        if (!empty($node->body->getValue())) {
+          $variables['content_left']['body'] = $node->body->view('full');
+        }
+        if (!empty($node->field_key_points->getValue())) {
+          $variables['content_left']['field_key_points'] = $node->field_key_points->view('full');
+        }
+        if (!empty($node->field_video->getValue())) {
+          $variables['content_right']['field_video'] = $node->field_video->view('full');
+        }
+        if (!empty($node->field_e_learning_link->getValue())) {
+          $variables['content_right']['field_e_learning_link'] = $node->field_e_learning_link->view('full');
+        }
+        if (!empty($node->field_includes->getValue())) {
+          $variables['content_right']['field_includes'] = $node->field_includes->view('full');
+        }
+        break;
+
+      // fields removed in node--news--full.html.twig
+      case 'news':
+        if (!empty($node->field_date)) {
+          $variables['subtitle']['date'] = $node->field_date->view('full');
+
+        }
+        if (!empty($node->field_news_category)) {
+          $variables['subtitle']['news_category'] = $node->field_news_category->view('full');
+        }
+        break;
+
+      default:
+        break;
+
     }
   }
 }

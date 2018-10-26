@@ -1,4 +1,6 @@
 @import '../../utilities';
+@import 'thesaurus-alpabetic-page';
+@import 'glossary-tabs-block';
 
 .view-glossary {
   font-family: $font-family-regular;
@@ -24,5 +26,7 @@
     margin-top: 1em;
   }
 
-
+  .topic-svg-image {
+    width: 25%;
+  }
 }

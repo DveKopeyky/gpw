@@ -1,0 +1,77 @@
+uuid: d878007f-468a-4278-9516-b1590e33ffa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.external_resource.body
+    - field.field.node.external_resource.field_highlighted_course
+    - field.field.node.external_resource.field_link
+    - field.field.node.external_resource.field_thesaurus
+    - field.field.node.external_resource.field_topic
+    - field.field.node.external_resource.field_type
+    - node.type.external_resource
+  module:
+    - link
+    - text
+    - user
+id: node.external_resource.default
+targetEntityType: node
+bundle: external_resource
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_highlighted_course:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_link:
+    weight: 102
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_thesaurus:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_topic:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_type:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

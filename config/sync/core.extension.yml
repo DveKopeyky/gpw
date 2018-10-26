@@ -6,11 +6,16 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  captcha: 0
+  chosen: 0
+  chosen_lib: 0
   ckeditor: 0
   config: 0
   contact: 0
+  contact_storage: 0
   content_sync: 0
   contextual: 0
+  crop: 0
   ctools: 0
   date_range_formatter: 0
   datetime: 0
@@ -32,6 +37,7 @@ module:
   gpthesaurus: 0
   hal: 0
   image: 0
+  image_widget_crop: 0
   inline_entity_form: 0
   language: 0
   link: 0
@@ -41,10 +47,12 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  recaptcha: 0
   responsive_favicons: 0
   serialization: 0
   simple_block: 0
   smtp: 0
+  svg_image: 0
   system: 0
   taxonomy: 0
   text: 0

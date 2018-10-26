@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.highlighted_course.field_image
     - field.field.node.highlighted_course.field_link
+    - field.field.node.highlighted_course.field_thesaurus
+    - field.field.node.highlighted_course.field_topic
     - node.type.highlighted_course
   module:
-    - image
     - link
+    - svg_image
     - user
 id: node.highlighted_course.default
 targetEntityType: node
@@ -35,6 +37,22 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_thesaurus:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_topic:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 100

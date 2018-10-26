@@ -4,11 +4,18 @@ status: true
 dependencies:
   config:
     - contact.form.contact
+    - field.field.contact_message.contact.field_public
 id: contact_message.contact.default
 targetEntityType: contact_message
 bundle: contact
 mode: default
 content:
+  field_public:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   langcode:
     type: language_select
     weight: 2

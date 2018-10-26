@@ -1,0 +1,28 @@
+uuid: 656deb78-2e0f-4896-aa62-84cc3e0bcfc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highlighted_course
+    - node.type.highlighted_course
+    - node.type.video
+id: node.video.field_highlighted_course
+field_name: field_highlighted_course
+entity_type: node
+bundle: video
+label: Course
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      highlighted_course: highlighted_course
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

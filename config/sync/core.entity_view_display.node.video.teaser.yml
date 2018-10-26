@@ -1,0 +1,37 @@
+uuid: 220f3a2c-8b49-465c-983a-fbbe13d7d677
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_highlighted_course
+    - field.field.node.video.field_thesaurus
+    - field.field.node.video.field_video_embed
+    - image.style.medium
+    - node.type.video
+  module:
+    - user
+    - video_embed_field
+id: node.video.teaser
+targetEntityType: node
+bundle: video
+mode: teaser
+content:
+  field_video_embed:
+    type: video_embed_field_thumbnail
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: medium
+      link_image_to: content
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_date: true
+  field_highlighted_course: true
+  field_thesaurus: true
+  langcode: true
+  links: true

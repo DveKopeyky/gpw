@@ -1,0 +1,23 @@
+uuid: e69d3095-936f-4478-935d-6de3355e9c73
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: thesaurus_taxonomy
+label: 'Thesaurus taxonomy'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/glossary/[term:name]'
+selection_criteria:
+  e8c98e94-76c3-4072-8c65-af4c9a67249c:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      thesaurus: thesaurus
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: e8c98e94-76c3-4072-8c65-af4c9a67249c
+selection_logic: and
+weight: -5
+relationships: {  }
