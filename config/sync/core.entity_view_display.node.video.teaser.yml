@@ -20,18 +20,23 @@ bundle: video
 mode: teaser
 content:
   field_video_embed:
-    type: video_embed_field_thumbnail
+    type: video_embed_field_lazyload
     weight: 0
     region: content
     label: hidden
     settings:
       image_style: medium
       link_image_to: content
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
     third_party_settings: {  }
 hidden:
   body: true
   field_date: true
   field_highlighted_course: true
   field_thesaurus: true
+  field_topic: true
   langcode: true
   links: true

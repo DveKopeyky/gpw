@@ -19,16 +19,20 @@ mode: default
 content:
   field_image:
     weight: 101
-    label: above
+    label: inline
     settings:
       image_style: ''
       image_link: ''
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
     third_party_settings: {  }
     type: image
     region: content
   field_link:
     weight: 102
-    label: above
+    label: inline
     settings:
       trim_length: 80
       url_only: false
@@ -40,7 +44,7 @@ content:
     region: content
   field_thesaurus:
     weight: 104
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
@@ -48,7 +52,7 @@ content:
     region: content
   field_topic:
     weight: 103
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
@@ -57,5 +61,7 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true
