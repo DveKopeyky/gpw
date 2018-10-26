@@ -53,3 +53,4 @@ hidden:
   field_video_duration: true
   langcode: true
   links: true
+  search_api_excerpt: true
