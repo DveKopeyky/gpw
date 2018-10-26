@@ -16,23 +16,29 @@
   }
   .featured-course-title {
     background-color: inherit;
+    padding-top: 1rem;
+    font-size: 1.8rem;
     a {
       @extend %title-links;
     }
-    padding-top: 1rem;
   }
 }
 
 .views-field-title {
   background-color: inherit;
+  padding-top: 1rem;
   a {
     @extend %title-links;
   }
-  padding-top: 1rem;
 }
 
 .term-page-block-suffix {
-  text-transform: uppercase;
+  .see-all {
+    font-size: 1.6rem;
+    margin-top: 1em;
+    text-transform: uppercase;
+    display: block;
+  }
 }
 
 .view-display-id-thesaurus_videos {
@@ -61,4 +67,9 @@
   @extend %heading-default;
   color: $text-color;
   margin-bottom: 1em;
+  padding-left: 0;
+}
+
+.term-page-block-prefix {
+  color: $text-muted;
 }

@@ -25,15 +25,23 @@
  * @ingroup themeable
  */
 #}
-<div{{ attributes }}>
-  {{ title_prefix }}
-  <h1>{{ name }}</a></h1>
-  {{ title_suffix }}
-  {{ content.field_definitions }}
-  <div class="term-page-tags">
-    {{ parents }}
-    {{ children }}
-    {{ content.field_related_leo_terms }}
-  </div>
+{% import '@gpw/_icons.twig' as icons %}
 
+<div{{ attributes }}>
+  {% spaceless %}
+  {{ title_prefix }}
+  <h1 class="page-header--thesaurus">
+    {{ icons.get('tag', base_path ~ directory, '', 20, 20) }}
+    {{ name }}
+  </h1>
+  {{ title_suffix }}
+  {% endspaceless %}
+  <div class="content--thesaurus">
+    {{ content.field_definitions }}
+    <div class="term-page-tags">
+      {{ parents }}
+      {{ children }}
+      {{ content.field_related_leo_terms }}
+    </div>
+  </div>
 </div>

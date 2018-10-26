@@ -1291,20 +1291,7 @@ display:
         groups:
           1: AND
       rendering_language: '***LANGUAGE_language_interface***'
-      footer:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: '<div class="more-link form-group"><a class="btn btn-outline btn-secondary" href="/meetings">See all meetings</a></div>'
-            format: full_html
-          plugin_id: text
+      footer: {  }
       arguments:
         field_thesaurus_target_id:
           id: field_thesaurus_target_id

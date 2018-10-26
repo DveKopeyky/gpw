@@ -1,11 +1,13 @@
 @import '../../utilities';
 
+.timeline,
 %timeline {
   position: relative;
   padding-left: 0;
 }
 // Timeline 'line'
 // Dashed line
+.timeline-line-dashed,
 %timeline-line-dashed {
   background-image: linear-gradient(#000 60%, transparent 0%);
   background-position: right;
@@ -21,11 +23,13 @@
   z-index: 1;
 }
 
+.timeline-line-solid,
 %timeline-line-solid {
   @extend %timeline-line-dashed;
   background-image: linear-gradient(#000 100%, transparent 0%);
 }
 
+.timeline-dot,
 %timeline-dot {
   &:before {
     border: 1px solid;
@@ -43,6 +47,7 @@
   }
 }
 
+.timeline-dot-full,
 %timeline-dot-full {
   &:before {
     background-color: $text-color !important;

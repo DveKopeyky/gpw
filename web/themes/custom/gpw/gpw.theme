@@ -374,7 +374,7 @@ function gpw_preprocess_views_view_table(&$variables) {
       }
       if($icon) {
         $header['content'] = array(
-          '#theme' => 'table_header_with_icon',
+          '#theme' => 'icon_prefix',
           '#icon' => $icon,
           '#content' => $variables['header'][$key]['content'],
         );
@@ -396,7 +396,7 @@ function gpw_preprocess_views_view_table(&$variables) {
       }
       if($icon) {
         $header['content'] = array(
-          '#theme' => 'table_header_with_icon',
+          '#theme' => 'icon_prefix',
           '#icon' => $icon,
           '#content' => $variables['header'][$key]['content'],
         );
@@ -419,7 +419,7 @@ function gpw_theme_suggestions_page_alter(&$suggestions, &$vars) {
  */
 function gpw_theme($existing, $type, $theme, $path) {
   return array(
-    'table_header_with_icon' => ['variables' => [
+    'icon_prefix' => ['variables' => [
       'icon' => null,
       'content' => null
     ]],

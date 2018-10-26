@@ -4,6 +4,27 @@
 @import 'glossary-view';
 @import 'glossary_term_page_blocks';
 
+.page-header--thesaurus {
+  align-items: center;
+  display: flex;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 1em;
+
+  .icon {
+    fill: $gpw-secondary;
+    float: left;
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: .5em;
+  }
+
+}
+
+.content--thesaurus {
+  font-size: 1.6rem;
+}
+
 .view-glossary {
   font-family: $font-family-regular;
   font-size: 1.7rem;

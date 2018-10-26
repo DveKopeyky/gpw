@@ -81,7 +81,7 @@ view_mode ? view_mode|clean_class,
     <div class="col-left">
       {{ content.field_image }}
     </div>
-    <div class="col-middle">
+    <div class="col-right">
       {{ title_prefix }}
       {% if not page %}
       <h2{{ title_attributes }}>
@@ -95,12 +95,11 @@ view_mode ? view_mode|clean_class,
       <div {{ content_attributes.addClass('content-body') }}>
         {{ content.body }}
       </div>
-    </div>
-    <div class="col-right">
       <div class="more-link see-news">
-        <a href="{{ url }}" class="btn btn-outline btn-secondary">{{ 'Read More'|t }}</a>
+        <a href="{{ url }}">{{ 'Read More'|t }}</a>
       </div>
     </div>
+    
   </div>
   {% if display_submitted %}
   <footer>
