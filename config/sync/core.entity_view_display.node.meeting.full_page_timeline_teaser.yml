@@ -1,9 +1,9 @@
-uuid: 628f8a68-f9ff-470e-8951-883d6a20781b
+uuid: 34a3205e-0be6-42fb-b861-d853784f4772
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.full_page_timeline_teaser
     - field.field.node.meeting.field_address
     - field.field.node.meeting.field_agenda_items
     - field.field.node.meeting.field_date_range
@@ -16,10 +16,10 @@ dependencies:
     - datetime_range
     - gpmeeting
     - user
-id: node.meeting.teaser
+id: node.meeting.full_page_timeline_teaser
 targetEntityType: node
 bundle: meeting
-mode: teaser
+mode: full_page_timeline_teaser
 content:
   field_address:
     type: addess_field_formatter
@@ -38,6 +38,15 @@ content:
       format_type: short_date_no_time
       separator: '-'
     third_party_settings: {  }
+  field_reports:
+    type: entity_reference_entity_view
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
   field_tentative:
     type: boolean
     weight: 2
@@ -50,7 +59,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_agenda_items: true
-  field_reports: true
   field_thesaurus: true
   field_topic: true
   langcode: true

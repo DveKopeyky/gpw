@@ -546,7 +546,7 @@ display:
       display_extenders: {  }
       display_description: ''
       block_description: 'Thesaurus news'
-      use_more: true
+      use_more: false
       defaults:
         use_more: false
         use_more_always: false

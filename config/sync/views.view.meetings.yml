@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full_page_timeline_teaser
     - core.entity_view_mode.node.teaser
     - node.type.meeting
     - node.type.webinar
@@ -203,6 +204,8 @@ display:
         use_more_always: true
         use_more_text: true
         footer: false
+        style: true
+        row: true
       block_description: 'Next Meetings'
       sorts:
         field_date_range_value:
@@ -396,6 +399,8 @@ display:
         pager: false
         empty: false
         sorts: false
+        style: false
+        row: false
       path: meetings
       menu:
         type: normal
@@ -631,6 +636,17 @@ display:
           plugin_id: datetime
       exposed_block: true
       rendering_language: '***LANGUAGE_language_interface***'
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: full_page_timeline_teaser
     cache_metadata:
       max-age: -1
       contexts:
@@ -868,6 +884,8 @@ display:
         title: false
         use_ajax: false
         empty: false
+        style: false
+        row: false
       filters:
         status:
           value: '1'
@@ -1078,6 +1096,17 @@ display:
             format: full_html
           plugin_id: text
       rendering_language: '***LANGUAGE_language_interface***'
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: full_page_timeline_teaser
     cache_metadata:
       max-age: -1
       contexts:
