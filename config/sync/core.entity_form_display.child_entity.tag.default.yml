@@ -28,7 +28,7 @@ content:
     type: number
     region: content
   field_tags:
-    weight: 0
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
