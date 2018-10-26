@@ -1,17 +1,18 @@
-uuid: eb13721b-ac08-4456-9641-088bfe5ffc01
+uuid: 06cf9b2c-eb1e-4b5f-9017-3181aa07028b
 langcode: en
 status: true
 dependencies:
   module:
     - taxonomy
-id: taxonomy_term.field_show_topic_shortlist
-field_name: field_show_topic_shortlist
+id: taxonomy_term.field_featured_terms
+field_name: field_featured_terms
 entity_type: taxonomy_term
-type: boolean
-settings: {  }
+type: entity_reference
+settings:
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
