@@ -84,6 +84,7 @@ display:
       row:
         type: 'entity:node'
         options:
+          relationship: none
           view_mode: teaser
       fields:
         title:
@@ -1353,6 +1354,8 @@ display:
         filter_groups: false
         exposed_form: false
         arguments: false
+        style: false
+        row: false
       filters:
         status:
           value: '1'
@@ -1577,6 +1580,17 @@ display:
           not: false
           plugin_id: numeric
       block_hide_empty: true
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
     cache_metadata:
       max-age: -1
       contexts:

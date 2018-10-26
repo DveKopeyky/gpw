@@ -4,7 +4,6 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
-use Drupal\eck\EckEntityInterface;
 use Drupal\eck\Entity\EckEntity;
 
 /**
@@ -20,6 +19,7 @@ function gpw_preprocess(&$variables) {
 function gpw_preprocess_node(&$variables) {
   $node = $variables['node'];
   if ($node->bundle()== 'document') {
+
     if (!empty($node->field_file->getValue())) {
       $fieldFile = $node->field_file->getValue();
       $fid = $fieldFile[0]['target_id'];
@@ -34,25 +34,16 @@ function gpw_preprocess_node(&$variables) {
         ];
 
         $url = file_create_url($file->getFileUri());
+
         if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical'
           && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')
         ) {
-          $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-          if ($term->bundle() == 'thesaurus') {
-            $tags = array_column($node->field_tags->getValue(), 'target_id');
-            foreach ($tags as $tag_tid) {
-              $tag = EckEntity::load($tag_tid);
-              if ($field_tags = $tag->field_tags->getValue()) {
-                if (isset($field_tags[0]['target_id']) && $field_tags[0]['target_id'] == $tid) {
-                  if ($field_page_number = $tag->field_page_number->value) {
-                    $url .= "#page=$field_page_number";
-                  }
-                  $options['attributes']['title'] = $tag->label();
-                }
-              }
-            }
+          $documentTags = \Drupal::service('gpleo.documents.tags');
+          if ($page = $documentTags->documentTagsPageNumber($tid, $node->id())) {
+            $url .= "#page=$page";
           }
         }
+
         $variables['document_file'] = Link::fromTextAndUrl($file->getFilename() , Url::fromUri($url, $options));
         $variables['document_type'] = pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
       }
@@ -295,6 +286,10 @@ function gpw_preprocess_page_title(&$variables) {
       case 'news':
         if (!empty($node->field_date)) {
           $variables['subtitle']['date'] = $node->field_date->view('full');
+
+        }
+        if (!empty($node->field_news_category)) {
+          $variables['subtitle']['news_category'] = $node->field_news_category->view('full');
         }
         break;
 

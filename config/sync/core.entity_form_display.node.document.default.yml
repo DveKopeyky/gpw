@@ -9,13 +9,14 @@ dependencies:
     - field.field.node.document.field_file
     - field.field.node.document.field_highlighted_course
     - field.field.node.document.field_tags
+    - field.field.node.document.field_thesaurus
     - field.field.node.document.field_topic
     - field.field.node.document.field_type
     - node.type.document
   module:
     - datetime
     - file
-    - inline_entity_form
+    - gpleo
     - path
 id: node.document.default
 targetEntityType: node
@@ -51,24 +52,25 @@ content:
     region: content
   field_highlighted_course:
     weight: 12
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_tags:
     weight: 15
     settings:
       form_mode: default
-      override_labels: false
       label_singular: ''
       label_plural: ''
+      allow_new: true
+      match_operator: CONTAINS
+      override_labels: false
       collapsible: false
       collapsed: false
+      allow_existing: false
+      allow_duplicate: false
     third_party_settings: {  }
-    type: inline_entity_form_simple
+    type: document_tags_inline_entity_form_complex
     region: content
   field_topic:
     weight: 11
@@ -140,3 +142,4 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_thesaurus: true
