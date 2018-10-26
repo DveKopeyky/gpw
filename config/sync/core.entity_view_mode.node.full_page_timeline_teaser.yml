@@ -1,0 +1,10 @@
+uuid: f3c93ce9-428f-433c-90fa-2868c7922130
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.full_page_timeline_teaser
+label: 'Full-page timeline teaser'
+targetEntityType: node
+cache: true
