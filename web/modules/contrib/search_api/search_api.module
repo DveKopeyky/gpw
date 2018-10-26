@@ -8,6 +8,8 @@
 use Drupal\comment\Entity\Comment;
 use Drupal\Core\Config\ConfigImporter;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\ContentEntityType;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -669,4 +671,44 @@ function _search_api_search_module_warning() {
     return t('The default Drupal core Search module is still enabled. If you are using Search API, you probably want to <a href=":url">uninstall</a> the Search module for performance reasons. For more information see <a href=":documentation">the Search API handbook</a>.', $args);
   }
   return NULL;
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function search_api_entity_extra_field_info() {
+  $extra = [];
+
+  // Add an extra "excerpt" field to every content entity.
+  $entity_types = \Drupal::entityTypeManager()->getDefinitions();
+  $bundle_info = \Drupal::getContainer()->get('entity_type.bundle.info');
+  foreach ($entity_types as $entity_type_id => $entity_type) {
+    if ($entity_type instanceof ContentEntityType) {
+      $bundles = $bundle_info->getBundleInfo($entity_type_id);
+      foreach ($bundles as $bundle => $data) {
+        $extra[$entity_type_id][$bundle]['display']['search_api_excerpt'] = [
+          'label' => t('Search result excerpt'),
+          'description' => t('An excerpt provided by Search API when rendered in a search.'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+      }
+    }
+  }
+  return $extra;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function search_api_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('search_api_excerpt') && isset($build['#search_api_excerpt'])) {
+    $build['search_api_excerpt'] = [
+      '#type' => 'markup',
+      '#markup' => $build['#search_api_excerpt'],
+      '#cache' => [
+        'contexts' => ['url.query_args']
+      ],
+    ];
+  }
 }

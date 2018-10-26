@@ -4466,6 +4466,9 @@
                 "services": {
                     "drush.services.yml": "^9"
                 }
+            },
+            "patches_applied": {
+                "Excerpt field in view mode (https://www.drupal.org/project/search_api/issues/2983606)": "https://www.drupal.org/files/issues/2018-09-14/2983606-16--entity_excerpt_field.patch"
             }
         },
         "installation-source": "dist",

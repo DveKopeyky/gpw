@@ -944,6 +944,10 @@ class ViewsTest extends SearchApiBrowserTestBase {
     $options['query']['search_api_fulltext'] = 'foo';
     $this->drupalGet($path, $options);
     $this->assertSession()->responseContains('<strong>foo</strong> bar baz');
+
+    $options['query']['search_api_fulltext'] = 'bar';
+    $this->drupalGet($path, $options);
+    $this->assertSession()->responseContains('foo <strong>bar</strong> baz');
   }
 
   /**
