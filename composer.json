@@ -167,6 +167,9 @@
             },
              "drupal/facets": {
                 "Add chosen support (https://www.drupal.org/project/facets/issues/2853121)": "patches/facets/chosen-support.patch"
+            },
+             "drupal/search_api": {
+                "Excerpt field in view mode (https://www.drupal.org/project/search_api/issues/2983606)" : "https://www.drupal.org/files/issues/2018-09-14/2983606-16--entity_excerpt_field.patch"
             }
         }
     }

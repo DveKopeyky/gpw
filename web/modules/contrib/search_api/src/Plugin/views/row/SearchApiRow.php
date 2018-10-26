@@ -198,7 +198,13 @@ class SearchApiRow extends RowPluginBase {
     }
 
     try {
-      return $this->index->getDatasource($datasource_id)->viewItem($row->_object, $view_mode);
+      $build = $this->index->getDatasource($datasource_id)
+        ->viewItem($row->_object, $view_mode);
+      // Pass the excerpt to the entity to allow a dynamic field value.
+      if (isset($row->search_api_excerpt)) {
+        $build['#search_api_excerpt'] = $row->search_api_excerpt;
+      }
+      return $build;
     }
     catch (SearchApiException $e) {
       $this->logException($e);
