@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.external_resource.body
+    - field.field.node.external_resource.field_highlighted_course
+    - field.field.node.external_resource.field_link
+    - field.field.node.external_resource.field_thesaurus
+    - field.field.node.external_resource.field_topic
+    - field.field.node.external_resource.field_type
+    - node.type.external_resource
+  module:
+    - link
+    - user
+id: node.external_resource.search_result
+targetEntityType: node
+bundle: external_resource
+mode: search_result
+content:
+  field_link:
+    type: link
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_topic:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_type:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_highlighted_course: true
+  field_thesaurus: true
+  langcode: true
+  links: true

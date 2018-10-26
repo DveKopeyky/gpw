@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.highlighted_course.field_image
+    - field.field.node.highlighted_course.field_link
+    - node.type.highlighted_course
+  module:
+    - user
+id: node.highlighted_course.search_result
+targetEntityType: node
+bundle: highlighted_course
+mode: search_result
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_image: true
+  field_link: true
+  langcode: true

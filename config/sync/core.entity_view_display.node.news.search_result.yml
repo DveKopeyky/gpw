@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.news.body
+    - field.field.node.news.field_date
+    - field.field.node.news.field_image
+    - field.field.node.news.field_news_category
+    - field.field.node.news.field_thesaurus
+    - image.style.news_thumbnail
+    - node.type.news
+  module:
+    - datetime
+    - image
+    - text
+    - user
+id: node.news.search_result
+targetEntityType: node
+bundle: news
+mode: search_result
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 3
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_date:
+    type: datetime_custom
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: d/m/Y
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: news_thumbnail
+      image_link: content
+    third_party_settings: {  }
+  field_thesaurus:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  field_news_category: true
+  field_topic: true
+  langcode: true
+  links: true

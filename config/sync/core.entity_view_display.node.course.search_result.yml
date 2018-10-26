@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.course.body
+    - field.field.node.course.field_course_reviews
+    - field.field.node.course.field_course_sections
+    - field.field.node.course.field_e_learning_link
+    - field.field.node.course.field_includes
+    - field.field.node.course.field_key_points
+    - field.field.node.course.field_lectures_number
+    - field.field.node.course.field_topic
+    - field.field.node.course.field_video
+    - field.field.node.course.field_video_duration
+    - node.type.course
+  module:
+    - text
+    - user
+id: node.course.search_result
+targetEntityType: node
+bundle: course
+mode: search_result
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_video:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: search_result
+      link: false
+    third_party_settings: {  }
+hidden:
+  field_course_reviews: true
+  field_course_sections: true
+  field_e_learning_link: true
+  field_includes: true
+  field_key_points: true
+  field_lectures_number: true
+  field_topic: true
+  field_video_duration: true
+  langcode: true
+  links: true

@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_highlighted_course
+    - field.field.node.video.field_thesaurus
+    - field.field.node.video.field_video_embed
+    - image.style.medium
+    - node.type.video
+  module:
+    - user
+    - video_embed_field
+id: node.video.search_result
+targetEntityType: node
+bundle: video
+mode: search_result
+content:
+  field_video_embed:
+    type: video_embed_field_lazyload
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: medium
+      link_image_to: content
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_date: true
+  field_highlighted_course: true
+  field_thesaurus: true
+  field_topic: true
+  langcode: true
+  links: true
