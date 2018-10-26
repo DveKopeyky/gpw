@@ -478,7 +478,7 @@ display:
           break_phrase: false
           not: false
           plugin_id: numeric
-      block_hide_empty: true
+      block_hide_empty: false
       fields:
         title:
           id: title
