@@ -550,6 +550,8 @@ display:
         title: false
         arguments: false
         header: true
+        style: false
+        row: false
       use_more_always: true
       use_more_text: 'See all news'
       rendering_language: '***LANGUAGE_language_interface***'
@@ -594,6 +596,20 @@ display:
           break_phrase: false
           not: false
           plugin_id: numeric
+      block_hide_empty: true
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
