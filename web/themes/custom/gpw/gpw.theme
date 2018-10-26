@@ -18,7 +18,7 @@ function gpw_preprocess(&$variables) {
 function gpw_preprocess_node(&$variables) {
   $node = $variables['node'];
   if ($node->bundle()== 'document') {
-
+    $variables['#cache']['max-age'] = 0;
     if (!empty($node->field_file->getValue())) {
       $fieldFile = $node->field_file->getValue();
       $fid = $fieldFile[0]['target_id'];
