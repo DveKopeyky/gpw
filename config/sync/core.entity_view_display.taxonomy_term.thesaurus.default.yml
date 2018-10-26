@@ -10,7 +10,6 @@ dependencies:
     - field.field.taxonomy_term.thesaurus.field_related_leo_terms
     - field.field.taxonomy_term.thesaurus.field_semantic_uri
     - field.field.taxonomy_term.thesaurus.field_show_in_term_cloud
-    - field.field.taxonomy_term.thesaurus.field_show_topic_shortlist
     - field.field.taxonomy_term.thesaurus.field_synonyms
     - field.field.taxonomy_term.thesaurus.field_thesaurus_link
     - field.field.taxonomy_term.thesaurus.field_topics
@@ -44,16 +43,6 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-  field_show_topic_shortlist:
-    weight: 5
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_synonyms:
     weight: 4
     label: above

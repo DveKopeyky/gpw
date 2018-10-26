@@ -3,19 +3,29 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.topics.field_featured_terms
     - field.field.taxonomy_term.topics.field_image
     - field.field.taxonomy_term.topics.field_link
     - image.style.thumbnail
     - taxonomy.vocabulary.topics
   module:
-    - image
     - link
     - path
+    - svg_image
 id: taxonomy_term.topics.default
 targetEntityType: taxonomy_term
 bundle: topics
 mode: default
 content:
+  field_featured_terms:
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_image:
     weight: 1
     settings:
@@ -53,5 +63,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
 hidden:
   description: true
