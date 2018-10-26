@@ -46,40 +46,12 @@
  */
 #}
 
-{% import "@gpw/block/_block-icons.twig" as block_icons %}
+{% extends '@gpw/block/block.html.twig' %}
 
-{%
-set classes = [
-'block',
-'block-' ~ configuration.provider|clean_class,
-'block-' ~ plugin_id|clean_class,
-'clearfix',
-]
-%}
-<section{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes.addClass('block-title') }}>
-      {{ block_icons.get(plugin_id|clean_class, base_path ~ directory) }}
-      {{ label }}
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if custom_prefix is not empty %}
-    {{ custom_prefix }}
+{% block content %}
+  {% if featured_course is not empty %}
+    {{ featured_course }}
   {% endif %}
 
-  {% block content %}
-    {% if featured_course is not empty %}
-      {{ featured_course }}
-    {% endif %}
-
-    {{ content }}
-  {% endblock %}
-
-  {% if custom_suffix is not empty %}
-    {{ custom_suffix }}
-  {% endif %}
-</section>
-
+  {{ content }}
+{% endblock %}

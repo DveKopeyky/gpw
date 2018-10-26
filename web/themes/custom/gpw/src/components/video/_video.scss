@@ -4,3 +4,7 @@
     padding-right: .2em;
   }
 }
+
+.video-embed-field-lazy-play {
+  background-image: url(#{$images-path}play.svg);
+}

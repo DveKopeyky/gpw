@@ -48,12 +48,12 @@ class Block extends PreprocessBase {
             $remaining = ($r > 0) ? $r : NULL;
 
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-            $prefix = t('Documents tagged with <a href="@search_link">@term_title</a>', [
+            $inner_prefix = t('Documents tagged with <a href="@search_link">@term_title</a>', [
               '@search_link' => '/search',
               '@term_title' => $term->label(),
             ]);
             if ($remaining) {
-              $suffix = t('<a href="@search_link">See more (@remaining)</a>', [
+              $inner_suffix = t('<a class="see-all" href="@search_link">See more (@remaining)</a>', [
                 '@search_link' => '/search',
                 '@remaining' => $remaining,
               ]);
@@ -63,77 +63,94 @@ class Block extends PreprocessBase {
 
           case 'views_block:videos-thesaurus_videos':
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-            $prefix = t('Videos tagged with <a href="@search_link">@term_title</a>', [
+            $inner_prefix = t('Videos tagged with <a href="@search_link">@term_title</a>', [
               '@search_link' => '/search',
               '@term_title' => $term->label(),
             ]);
-            $suffix = t('<a href="@search_link">See all videos</a>', [
+            $inner_suffix = t('<a class="see-all" href="@search_link">See all videos</a>', [
               '@search_link' => '/search',
             ]);
             break;
 
           case 'views_block:highlighted_courses-thesaurus_courses':
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-            $prefix = t('Online courses tagged with <a href="@search_link">@term_title</a>', [
+            $inner_prefix = t('Online courses tagged with <a href="@search_link">@term_title</a>', [
               '@search_link' => '/search',
               '@term_title' => $term->label(),
             ]);
-            $suffix = t('<a href="@search_link">See all online courses</a>', [
+            $inner_suffix = t('<a class="see-all" href="@search_link">See all online courses</a>', [
               '@search_link' => '/search',
             ]);
             break;
 
           case 'views_block:meetings-thesaurus_next_meetings':
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-            $prefix = t('Meetings and events tagged with <a href="@search_link">@term_title</a>', [
-              '@search_link' => '/search',
-              '@term_title' => $term->label(),
-            ]);
-            $suffix = NULL;
+            $variables['outer_prefix'] = [
+              '#theme' => 'icon_prefix',
+              '#icon' => 'tag',
+              '#prefix' => '<div class="h2 block-title block-title--meetings">',
+              '#suffix' => t('</div><div class="term-page-block-prefix form-group">Meetings and events tagged with <a href="@search_link">@term_title</a></div>', [
+                '@search_link' => '/search',
+                '@term_title' => $term->label(),
+              ]),
+              '#content' => 'Meetings',
+            ];
+
+            $inner_suffix = NULL;
             break;
 
           case 'views_block:meetings-thesaurus_past_meetings':
             $meetings_view = Url::fromRoute('view.meetings.page_1');
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-            $prefix = NULL;
-            $suffix = t('<a href="@search_link">See all meetings</a>', [
-              '@search_link' => $meetings_view->toString(),
-            ]);
+            $inner_prefix = NULL;
+            $inner_suffix = NULL;
+
+            $variables['outer_suffix'] = [
+              '#type' => 'container',
+              '#attributes' => ['class' => ['term-page-block-suffix']],
+              'prefix' => [
+                '#type' => 'markup',
+                '#markup' => t('<a class="see-all" href="@search_link">See all meetings</a>', [
+                  '@search_link' => $meetings_view->toString(),
+                ]),
+              ],
+            ];
+
             break;
 
           case 'views_block:news-thesaurus_news':
             $news_view = Url::fromRoute('view.news.page_1');
             $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
-            $prefix = t('News tagged with <a href="@search_link">@term_title</a>', [
+            $inner_prefix = t('News tagged with <a href="@search_link">@term_title</a>', [
               '@search_link' => '/search',
               '@term_title' => $term->label(),
             ]);
-            $suffix = t('<a href="@search_link">See all news</a>', [
+            $inner_suffix = t('<a class="see-all" href="@search_link">See all news</a>', [
               '@search_link' => $news_view->toString(),
             ]);
             break;
 
           default:
-            $prefix = NULL;
-            $suffix = NULL;
+            $inner_prefix = NULL;
+            $inner_suffix = NULL;
         }
-        if (!empty($prefix)) {
-          $variables['custom_prefix'] = [
+        if (!empty($inner_prefix)) {
+          $variables['inner_prefix'] = [
             '#type' => 'container',
             '#attributes' => ['class' => ['term-page-block-prefix']],
             'prefix' => [
               '#type' => 'markup',
-              '#markup' => $prefix,
+              '#markup' => $inner_prefix,
             ],
           ];
         }
-        if (!empty($suffix)) {
-          $variables['custom_suffix'] = [
+        if (!empty($inner_suffix)) {
+          $variables['inner_suffix'] = [
             '#type' => 'container',
             '#attributes' => ['class' => ['term-page-block-suffix']],
             'prefix' => [
               '#type' => 'markup',
-              '#markup' => $suffix,
+              '#markup' => $inner_suffix,
             ],
           ];
         }

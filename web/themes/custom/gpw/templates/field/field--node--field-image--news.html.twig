@@ -13,9 +13,8 @@
 {% if url %}
   <a href="{{ url }}">{{ responsive_image }}</a>
 {% else %}
-  <div class="col-left">
-    {% for item in items %}
-      <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
-    {% endfor %}
-  </div>
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
+  {% endfor %}
+
 {% endif %}
