@@ -1,0 +1,52 @@
+uuid: 8f9491e1-7159-49ff-9027-dd25ca3f424e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.course.body
+    - field.field.node.course.field_course_reviews
+    - field.field.node.course.field_course_sections
+    - field.field.node.course.field_e_learning_link
+    - field.field.node.course.field_includes
+    - field.field.node.course.field_key_points
+    - field.field.node.course.field_lectures_number
+    - field.field.node.course.field_thesaurus
+    - field.field.node.course.field_topic
+    - field.field.node.course.field_video
+    - field.field.node.course.field_video_duration
+    - node.type.course
+  module:
+    - text
+    - user
+id: node.course.search_result
+targetEntityType: node
+bundle: course
+mode: search_result
+content:
+  body:
+    type: text_summary_or_trimmed
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_course_reviews: true
+  field_course_sections: true
+  field_e_learning_link: true
+  field_includes: true
+  field_key_points: true
+  field_lectures_number: true
+  field_thesaurus: true
+  field_topic: true
+  field_video: true
+  field_video_duration: true
+  langcode: true
+  links: true

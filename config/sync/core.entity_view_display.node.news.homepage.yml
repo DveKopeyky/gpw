@@ -31,5 +31,6 @@ hidden:
   field_image: true
   field_news_category: true
   field_thesaurus: true
+  field_topic: true
   langcode: true
   links: true

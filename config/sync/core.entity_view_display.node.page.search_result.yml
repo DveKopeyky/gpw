@@ -1,0 +1,28 @@
+uuid: 6db45a66-4c39-4976-970b-4b5b7f4c846c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.page.body
+    - node.type.page
+  module:
+    - user
+id: node.page.search_result
+targetEntityType: node
+bundle: page
+mode: search_result
+content:
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  langcode: true
