@@ -108,13 +108,25 @@ class RoboFile extends Tasks {
    */
   public function siteInstall() {
     if ($this->sqlSync()->wasSuccessful() && $this->siteUpdate()->wasSuccessful()) {
-      $execStack = $this->taskExecStack()->stopOnFail();
-      $execStack->exec("{$this->drush} user:password drupal@eaudeweb.ro password");
-      $execStack->exec("{$this->drush} en config devel webprofiler -y");
-      $execStack->exec("{$this->drush} cim dev --partial -y");
-      return $execStack->run();
+      return $this->siteDevelop();
     }
     return FALSE;
+  }
+
+  /**
+   * Setup development.
+   *
+   * @return bool|null|\Robo\Result
+   * @throws \Robo\Exception\TaskException
+   *
+   * @command site:develop
+   */
+  public function siteDevelop() {
+    $execStack = $this->taskExecStack()->stopOnFail();
+    $execStack->exec("{$this->drush} user:password drupal@eaudeweb.ro password");
+    $execStack->exec("{$this->drush} en config devel webprofiler -y");
+    $execStack->exec("{$this->drush} cim dev --partial -y");
+    return $execStack->run();
   }
 
   /**
