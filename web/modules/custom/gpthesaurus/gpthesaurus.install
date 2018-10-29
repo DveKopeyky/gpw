@@ -27,3 +27,18 @@ function gpthesaurus_update_8002() {
     var_dump($e);
   }
 }
+
+/**
+ * #685 - Upper first letter to all terms.
+ */
+function gpthesaurus_update_8003() {
+  $q = \Drupal::entityQuery('taxonomy_term');
+  $q->condition('vid', 'thesaurus');
+  if ($r = $q->execute()) {
+    foreach ($r as $tid => $t) {
+      $term = \Drupal\taxonomy\Entity\Term::load($tid);
+      $term->setName(ucfirst($term->label()));
+      $term->save();
+    }
+  }
+}
