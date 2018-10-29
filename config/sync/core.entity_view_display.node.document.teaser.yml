@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.document.field_file
     - field.field.node.document.field_highlighted_course
     - field.field.node.document.field_tags
+    - field.field.node.document.field_thesaurus
     - field.field.node.document.field_topic
     - field.field.node.document.field_type
     - node.type.document
@@ -45,7 +46,7 @@ content:
     region: content
     label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
   field_type:
     type: entity_reference_label
@@ -53,7 +54,7 @@ content:
     region: content
     label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
 hidden:
   body: true
