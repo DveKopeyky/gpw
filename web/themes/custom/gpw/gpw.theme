@@ -139,6 +139,12 @@ function gpw_preprocess_page(&$variables) {
       $variables['is_glossary_term'] = TRUE;
     }
   }
+
+  if (\Drupal::routeMatch()->getRouteName() == 'view.thesaurus.page_alphabetically') {
+    array_unshift($variables['page']['title'], [
+      '#markup' => '<h1 class="page-header">' . new \Drupal\Core\StringTranslation\TranslatableMarkup('Glossary') . '</h1>'
+    ]);
+  }
 }
 
 /**
