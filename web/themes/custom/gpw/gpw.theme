@@ -42,9 +42,12 @@ function gpw_preprocess_node(&$variables) {
             $url .= "#page=$page";
           }
         }
-
-        $variables['document_file'] = Link::fromTextAndUrl($file->getFilename() , Url::fromUri($url, $options));
         $variables['document_type'] = pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
+        if ($variables['document_type'] == 'pdf') {
+          $url = \Drupal::request()->getSchemeAndHttpHost() . '/pdf.js/web/viewer.html?file=' . str_replace(\Drupal::request()->getSchemeAndHttpHost(), '',$url);
+        }
+        $variables['document_file'] = Link::fromTextAndUrl($file->getFilename() , Url::fromUri($url, $options));
+
       }
     }
   }
@@ -135,6 +138,12 @@ function gpw_preprocess_page(&$variables) {
     if ($term->getVocabularyId() == 'thesaurus') {
       $variables['is_glossary_term'] = TRUE;
     }
+  }
+
+  if (\Drupal::routeMatch()->getRouteName() == 'view.thesaurus.page_alphabetically') {
+    array_unshift($variables['page']['title'], [
+      '#markup' => '<h1 class="page-header">' . new \Drupal\Core\StringTranslation\TranslatableMarkup('Glossary') . '</h1>'
+    ]);
   }
 }
 
