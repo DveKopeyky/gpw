@@ -65,6 +65,8 @@
  *   in different view modes.
  */
 #}
+{% import "@gpw/_icons.twig" as icons %}
+
 {%
   set classes = [
   node.bundle|clean_class,
@@ -77,11 +79,14 @@
 %}
 <article{{ attributes.addClass(classes) }}>
   <div class="col-wrapper">
+    <div class="col-left">
+      {{ icons.get('file-alt', base_path ~ directory, '', 90, 90) }}
+    </div>
     <div class="col-right">
       {{ title_prefix }}
       {% if not page %}
         <h2{{ title_attributes }}>
-         <sup>[{{ document_type }}]</sup> {{ label }}
+         <sup class="document-file-type">[{{ document_type }}]</sup> {{ label }}
         </h2>
       {% endif %}
       {{ title_suffix }}
@@ -89,9 +94,10 @@
 
         {{ content.field_date }}
 
-        {{ content.field_type }} in <em>{{ content.field_topic }}</em>
+        <span class="document-type">{{ content.field_type }}</span> <span>in</span> <em class="document-topic">{{ content.field_topic }}</em>
 
-        {{ document_file }}
+        <span class="document-files">{% trans %} Download {% endtrans %} [{{ document_file }}]</span>
+
       </div>
 
   </div>

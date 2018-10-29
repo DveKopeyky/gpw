@@ -5,6 +5,7 @@
 .block-title--meetings {
   @extend %heading-default;
   color: $text-color;
+  padding-left: 0;
 }
 
 .block-views-blockmeetings-thesaurus-next-meetings,
