@@ -87,9 +87,10 @@
       {{ title_suffix }}
       <div{{ content_attributes.addClass('content') }}>
 
-        {{ content.field_type }} in <em>{{ content.field_topic }}</em>
+        <span class="external-resource-type">{{ content.field_type }}</span> <span>in</span> <em class="external-resource-topic">{{ content.field_topic }}</em>
 
-        {{ content.field_link }}
+        <span class="external-resource-files">{{ content.field_link }}</span>
+
       </div>
 
     </div>

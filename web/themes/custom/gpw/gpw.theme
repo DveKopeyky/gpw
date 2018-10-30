@@ -46,7 +46,7 @@ function gpw_preprocess_node(&$variables) {
         if ($variables['document_type'] == 'pdf') {
           $url = \Drupal::request()->getSchemeAndHttpHost() . '/pdf.js/web/viewer.html?file=' . str_replace(\Drupal::request()->getSchemeAndHttpHost(), '',$url);
         }
-        $variables['document_file'] = Link::fromTextAndUrl($file->getFilename() , Url::fromUri($url, $options));
+        $variables['document_file'] = Link::fromTextAndUrl(t('View') , Url::fromUri($url, $options));
 
       }
     }
