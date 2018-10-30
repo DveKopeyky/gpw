@@ -135,7 +135,7 @@ class Block extends PreprocessBase {
               'prefix' => [
                 '#type' => 'markup',
                 '#markup' => t('<a class="see-all" href="@search_link">See all meetings</a>', [
-                  '@search_link' => $search_view_link,
+                  '@search_link' => '/meetings',
                 ]),
               ],
             ];
