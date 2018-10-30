@@ -415,7 +415,18 @@ function gpw_preprocess_views_view_table(&$variables) {
   }
 }
 
+/**
+ * Implements hook_suggestions_HOOK_alter().
+ */
+// function gpw_theme_suggestions_views_view_unformatted_alter(&$suggestions, &$variables) {
+//   $view_element = $variables['view']->element;
+//   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'];
+//   // $suggestions[] = $variables['theme_hook_original'] . '--' . $view_element['#view_id'] . '--' . $view_element['#display_id'] ;
+// }
 
+/**
+ * Implements hook_suggestions_HOOK_alter().
+ */
 function gpw_theme_suggestions_page_alter(&$suggestions, &$vars) {
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical' && $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
     $term = Term::load($tid);
@@ -434,3 +445,4 @@ function gpw_theme($existing, $type, $theme, $path) {
     ]],
   );
 }
+

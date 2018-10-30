@@ -61,6 +61,11 @@ news:
       dist/components/news/news.css: {}
       dist/components/news/news-views.css: {}
 
+documents:
+  css:
+    theme:
+      dist/components/documents/documents.css: {}
+
 glossary:
   css:
     theme:
@@ -111,6 +116,7 @@ framework:
     - gpw/meetings
     - gpw/webinars
     - gpw/news
+    - gpw/documents
     - gpw/filter
     - gpw/courses
     - gpw/search
