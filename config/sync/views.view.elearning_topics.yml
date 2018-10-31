@@ -8,8 +8,8 @@ dependencies:
     - image.style.thumbnail
     - taxonomy.vocabulary.topics
   module:
-    - image
     - link
+    - svg_image
     - taxonomy
     - user
 id: elearning_topics
@@ -423,7 +423,7 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: standard
-      title: 'Advanced courses on environment'
+      title: 'See all courses on different topics'
       header: {  }
       footer: {  }
       empty: {  }

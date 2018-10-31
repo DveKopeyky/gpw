@@ -414,6 +414,9 @@ display:
     display_options:
       display_extenders: {  }
       rendering_language: '***LANGUAGE_language_interface***'
+      title: 'The related courses on environment'
+      defaults:
+        title: false
     cache_metadata:
       max-age: -1
       contexts:
