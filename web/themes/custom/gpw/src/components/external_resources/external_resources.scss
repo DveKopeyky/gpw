@@ -1,6 +1,6 @@
 @import '../../utilities';
 
-.document {
+.external-resource {
   &.teaser {
     margin-top: 2em;
 
@@ -35,7 +35,7 @@
       margin-left: .2em;
     }
 
-    .document-file-type {
+    .external-resource-file-type {
       text-transform: uppercase;
     }
 
@@ -44,11 +44,11 @@
       margin-right: 1.5em;
     }
 
-    .document-topic:not(:first-child) {
+    .external-resource-topic:not(:first-child) {
       margin-left: .2em;
     }
 
-    .document-files {
+    .external-resource-files {
       color: $link-color;
     }
 

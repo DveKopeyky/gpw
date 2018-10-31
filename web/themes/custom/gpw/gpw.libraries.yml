@@ -66,6 +66,11 @@ documents:
     theme:
       dist/components/documents/documents.css: {}
 
+external_resources:
+  css:
+    theme:
+      dist/components/external_resources/external_resources.css: {}
+
 glossary:
   css:
     theme:
@@ -117,6 +122,7 @@ framework:
     - gpw/webinars
     - gpw/news
     - gpw/documents
+    - gpw/external_resources
     - gpw/filter
     - gpw/courses
     - gpw/search

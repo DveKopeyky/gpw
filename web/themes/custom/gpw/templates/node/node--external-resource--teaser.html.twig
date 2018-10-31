@@ -65,6 +65,9 @@
  *   in different view modes.
  */
 #}
+
+{% import "@gpw/_icons.twig" as icons %}
+
 {%
   set classes = [
   node.bundle|clean_class,
@@ -77,6 +80,9 @@
 %}
 <article{{ attributes.addClass(classes) }}>
   <div class="col-wrapper">
+    <div class="col-left">
+      {{ icons.get('file-link', base_path ~ directory, '', 60, 60) }}
+    </div>
     <div class="col-right">
       {{ title_prefix }}
       {% if not page %}
@@ -87,9 +93,10 @@
       {{ title_suffix }}
       <div{{ content_attributes.addClass('content') }}>
 
-        {{ content.field_type }} in <em>{{ content.field_topic }}</em>
+        <span class="external-resource-type">{{ content.field_type }}</span> <span>in</span> <em class="external-resource-topic">{{ content.field_topic }}</em>
 
-        {{ content.field_link }}
+        <span class="external-resource-files">{{ content.field_link }}</span>
+
       </div>
 
     </div>

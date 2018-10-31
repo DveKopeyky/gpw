@@ -80,13 +80,13 @@
 <article{{ attributes.addClass(classes) }}>
   <div class="col-wrapper">
     <div class="col-left">
-      {{ icons.get('file-alt', base_path ~ directory, '', 90, 90) }}
+      {{ icons.get('file-alt', base_path ~ directory, '', 60, 60) }}
     </div>
     <div class="col-right">
       {{ title_prefix }}
       {% if not page %}
         <h2{{ title_attributes }}>
-         <sup class="document-file-type">[{{ document_type }}]</sup> {{ label }}
+         {{ label }}
         </h2>
       {% endif %}
       {{ title_suffix }}
@@ -96,7 +96,7 @@
 
         <span class="document-type">{{ content.field_type }}</span> <span>in</span> <em class="document-topic">{{ content.field_topic }}</em>
 
-        <span class="document-files">{% trans %} Download {% endtrans %} [{{ document_file }}]</span>
+        <span class="document-files">{{ document_file }}</span>
 
       </div>
 
