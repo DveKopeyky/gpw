@@ -118,6 +118,9 @@ function gpw_preprocess_taxonomy_term(&$variables) {
 }
 
 function gpw_preprocess_page(&$variables) {
+  // @todo: remove this.
+  \Drupal::messenger('gpw')->addWarning(t("This website is currently under development and will be fully available shortly"));
+
   // @todo: Implement field on page.
   // Enable inverse navbar based on page setting.
   if($variables['is_front']) {
