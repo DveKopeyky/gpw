@@ -69,7 +69,7 @@ display:
                 bef_collapsible: false
                 is_secondary: false
                 rewrite:
-                  filter_rewrite_values: ''
+                  filter_rewrite_values: Webinars|
           text_input_required_format: full_html
       pager:
         type: some
