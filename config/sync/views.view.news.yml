@@ -70,7 +70,7 @@ display:
                 bef_collapsible: false
                 is_secondary: false
                 rewrite:
-                  filter_rewrite_values: '- Any -|All'
+                  filter_rewrite_values: "- Any -|All\nWebinar|\n"
           text_input_required_format: full_html
       pager:
         type: full
