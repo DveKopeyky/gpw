@@ -32,7 +32,7 @@ class GPSearchMoreOnInforMEA extends BlockBase {
     $label = $config['label_display'] ? $config['label'] : NULL;
     $links = [
       'Treaty text' => 'https://www.informea.org/en/search?f%5B0%5D=type%3Atreaty',
-      'Treaty decisions' => 'https://www.informea.org/en/search?f%5B0%5D=type%3Acourt_decisions',
+      'Treaty decisions' => 'https://www.informea.org/en/search?f%5B0%5D=type%3Adecision',
       'Legislation' => 'https://www.informea.org/en/search?f%5B0%5D=type%3Alegislation',
       'Documents and literature' => 'https://www.informea.org/en/search?f%5B0%5D=type%3Adocument&f%5B1%5D=type%3Aliterature',
       'Goals and declarations' => 'https://www.informea.org/en/search?f%5B0%5D=type%3Agoal&f%5B1%5D=type%3Adeclaration',
