@@ -115,7 +115,7 @@ class LEOImport {
     foreach ($field_mapping as $api => $drupal) {
       switch ($api) {
         case 'name':
-          $term->setName(mb_convert_encoding($row->$api, "UTF-8", "HTML-ENTITIES"));
+          $term->setName(ucfirst(mb_convert_encoding($row->$api, "UTF-8", "HTML-ENTITIES")));
           break;
         case 'topics':
           $topics = [];
