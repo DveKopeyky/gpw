@@ -1,0 +1,75 @@
+{#
+  Available variables:
+  params
+    page - page number
+    limit - items per page
+    term_name - Term name
+    term_link - Term link
+    tid - Term ID
+    informea_term_link -
+    informea_search_term_link -
+    numFound - length of the list of elements,
+    start - offset,
+    docs - list of elements
+      tm_field_decision_number
+      is_nid
+      ss_search_api_url
+      tm_title - content title
+      file_links - list of links
+        file_link - rendered link
+#}
+
+<div class="gpleo-content-header col-sm-12">
+  <div class="row">
+    <div class="gpleo-result-info col-sm-6 text-left">
+      <span class="num-found">{{ params.numFound }}</span>
+      <span class="tab-label">{{ 'Treaty decisions'|t }}</span>
+      <span class="simple-text">{{ 'tagged with'|t }}</span>
+      <span class="term-link">{{ params.term_link }}</span>
+    </div>
+    <div class="gpleo-result-info col-sm-6 text-right">
+    <span class="gpleo-see-more-imformea">
+      {% trans %}
+        See more results on {{ informea_term_link }} in InforMEA
+      {% endtrans %}
+    </span>
+    </div>
+  </div>
+</div>
+<div class="gpleo-content col-sm-12">
+  {% set docs_length = params.docs|length %}
+  {% for doc_item in params.docs %}
+    {% if loop.index == docs_length %}
+      {% set last_class = 'last' %}
+    {% endif %}
+    <div class="gpleo-tab-content-row {{ last_class }}">
+      <div class="gp-leo-row-title">
+        <span class="leo-title">{{ doc_item.tm_title[0] }}</span>
+        <span class="leo-link">
+          <a href="{{ doc_item.ss_search_api_url }}">Link</a>
+        </span>
+      </div>
+      <div class="gp-leo-row-description">
+        {# @TODO IMPROTANT!!! Do not forget remove this test text from it. #}
+        Test text decription exmaple words without any order bla bla bla
+      </div>
+      {% if doc_item.file_links %}
+        <div class="gp-leo-row-files">
+          <span class="gpleo-download">{{ 'Download :'|t }}</span>
+          {% for file_link in doc_item.file_links %}
+            <span class="gpleo-file-link">{{ file_link }}</span>
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+<div class="gpleo-content-footer col-sm-12">
+  <div class="row">
+    <div class="gpleo-content-read-more col-sm-5 text-left">
+      <a href="{{ informea_term_link }}">{{ 'See more results on in InforMEA'|t }}</a>
+    </div>
+    <div class="gpleo-content-pager col-sm-7 text-right" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
+  </div>
+</div>
+

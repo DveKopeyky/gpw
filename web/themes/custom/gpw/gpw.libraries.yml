@@ -85,6 +85,11 @@ page:
     - gpw/hero
     - gpw/footer
 
+taxonomy_term:
+  css:
+    theme:
+      dist/components/taxonomy_term/taxonomy_term.css: {}
+
 
 homepage:
   css:
@@ -110,3 +115,4 @@ framework:
     - gpw/courses
     - gpw/homepage
     - gpw/glossary
+    - gpw/taxonomy_term

@@ -1,0 +1,40 @@
+{#
+  Available variables:
+  params
+    page - page number
+    limit - items per page
+    term_name - Term name
+    term_link - Term link
+    tid - Term ID
+    numFound - length of the list of elements,
+    start - offset,
+    docs - list of elements
+      tm_field_decision_number
+      is_nid
+      ss_search_api_url
+      tm_title
+#}
+
+<div class="gpleo-content-header">
+  <span class="num-found">{{ params.numFound }}</span>
+  <span class="tab-label">{{ 'Treaty decisions'|t }}</span>
+  <span class="simple-text">{{ 'tagged with'|t }}</span>
+  <span class="term-link">{{ params.term_link }}</span>
+</div>
+<div class="gpleo-content">
+  {% for doc_item in params.docs %}
+    <div class="gpleo-tab-content-row">
+      <div class="gp-leo-row-title">
+        <span class="leo-title">{{ doc_item.tm_title[0] }}</span>
+        <span class="leo-link">
+          <a href="{{ doc_item.ss_search_api_url }}">Link</a>
+        </span>
+      </div>
+    </div>
+
+  {% endfor %}
+</div>
+<div class="gpleo-content-footer">
+  <div class="gpleo-content-pager" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
+</div>
+
