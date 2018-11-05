@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_type.child_entity.tag
-    - field.field.child_entity.tag.field_description
     - field.field.child_entity.tag.field_page_number
     - field.field.child_entity.tag.field_tags
 id: child_entity.tag.default
@@ -12,16 +11,9 @@ targetEntityType: child_entity
 bundle: tag
 mode: default
 content:
-  field_description:
-    weight: -2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_page_number:
-    weight: -3
-    label: above
+    weight: 2
+    label: inline
     settings:
       thousand_separator: ''
       prefix_suffix: true
@@ -29,20 +21,21 @@ content:
     type: number_integer
     region: content
   field_tags:
-    weight: -4
-    label: above
+    weight: 0
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   title:
-    label: hidden
+    label: inline
     type: string
-    weight: -5
+    weight: 1
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
   langcode: true
+  search_api_excerpt: true

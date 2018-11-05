@@ -1,0 +1,30 @@
+uuid: 53434f83-d09a-49f4-a803-deea0f4de0fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.documents
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: views_block__documents_thesaurus_documents
+theme: gpw
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:documents-thesaurus_documents'
+settings:
+  id: 'views_block:documents-thesaurus_documents'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/glossary/*'
+    negate: false
+    context_mapping: {  }

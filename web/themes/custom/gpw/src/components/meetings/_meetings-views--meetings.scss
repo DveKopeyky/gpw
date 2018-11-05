@@ -35,7 +35,7 @@ $timeline-horizontal-margin: 25vw;
 }
 
 .view-display-id-past_meetings_pager {
-  .teaser:before {
+  .full-page-timeline-teaser:before {
     @extend %timeline-line-solid;
     top: 1.4rem;
   }
@@ -57,14 +57,14 @@ $timeline-horizontal-margin: 25vw;
     }
   }
 
-  .views-row:first-child > .teaser {
+  .views-row:first-child > .full-page-timeline-teaser {
     // Artifice to hide the top part of the dashed line
     top: -1.4rem;
     margin-top: 1.4rem;
     margin-bottom: -1.4rem;
   }
 
-  .teaser {
+  .full-page-timeline-teaser {
     padding-bottom: 1.4rem;
 
     &:before {
@@ -117,16 +117,16 @@ $timeline-horizontal-margin: 25vw;
     &.webinar .col-right {
       align-items: center;
     }
-
-    .field--name-field-language-list {
-      display: none;
-    }
   }
 }
 
 .field--name-field-reports {
   color: $text-muted;
   text-transform: uppercase;
+
+  .field--name-field-language-list {
+    display: none;
+  }
 
   .icon {
     fill: currentColor;
@@ -150,7 +150,7 @@ $timeline-horizontal-margin: 25vw;
 }
 
 .view-display-id-past_meetings_pager {
-  .teaser {
+  .full-page-timeline-teaser {
     h2 {
       @extend %timeline-dot-full;
     }

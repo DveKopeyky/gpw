@@ -1,0 +1,7 @@
+services:
+  gpleo.terms:
+    class: Drupal\gpleo\GPLeoTerms
+    arguments: ['@current_route_match', '@entity_type.manager']
+  gpleo.documents.tags:
+    class: Drupal\gpleo\GPLeoDocumentsTags
+    arguments: ['@entity_type.manager']

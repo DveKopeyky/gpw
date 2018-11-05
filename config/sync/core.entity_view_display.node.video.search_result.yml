@@ -1,0 +1,42 @@
+uuid: 67fa3dfd-e2e9-4fbe-a482-d8f6da2281ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_highlighted_course
+    - field.field.node.video.field_thesaurus
+    - field.field.node.video.field_topic
+    - field.field.node.video.field_video_embed
+    - node.type.video
+  module:
+    - text
+    - user
+id: node.video.search_result
+targetEntityType: node
+bundle: video
+mode: search_result
+content:
+  body:
+    type: text_summary_or_trimmed
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  search_api_excerpt:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_date: true
+  field_highlighted_course: true
+  field_thesaurus: true
+  field_topic: true
+  field_video_embed: true
+  langcode: true
+  links: true

@@ -13,3 +13,62 @@ function gpthesaurus_update_8001() {
     var_dump($e);
   }
 }
+
+/**
+ * Reimport all terms with their tid.
+ */
+function gpthesaurus_update_8002() {
+  try {
+    $l = new \Drupal\gpthesaurus\LEOImport();
+    $terms = $l->load('https://www.informea.org/ws/leo');
+    $l->import($terms);
+  }
+  catch (Exception $e) {
+    var_dump($e);
+  }
+}
+
+/**
+ * #685 - Upper first letter to all terms.
+ */
+function gpthesaurus_update_8003() {
+  $q = \Drupal::entityQuery('taxonomy_term');
+  $q->condition('vid', 'thesaurus');
+  if ($r = $q->execute()) {
+    foreach ($r as $tid => $t) {
+      $term = \Drupal\taxonomy\Entity\Term::load($tid);
+      $term->setName(ucfirst($term->label()));
+      $term->save();
+    }
+  }
+}
+
+/**
+ * #622 - Fix html character encoding.
+ */
+function gpthesaurus_update_8004() {
+  $q = \Drupal::entityQuery('taxonomy_term');
+  $q->condition('vid', 'thesaurus');
+  if ($r = $q->execute()) {
+    foreach ($r as $tid => $t) {
+      $term = \Drupal\taxonomy\Entity\Term::load($tid);
+      $term->setName(mb_convert_encoding($term->label(), "UTF-8", "HTML-ENTITIES"));
+      $term->get('field_synonyms');
+      if($term->field_synonyms){
+        $synonyms = [];
+        foreach ($term->field_synonyms as $field_synonyms){
+          $synonyms[] = mb_convert_encoding($field_synonyms->value, "UTF-8", "HTML-ENTITIES");
+        }
+        $term->set('field_synonyms', $synonyms);
+      }
+      if ($term->field_definitions){
+        $definitions = [];
+        foreach ($term->field_definitions as $field_definitions){
+          $definitions[] = mb_convert_encoding($field_definitions->value, "UTF-8", "HTML-ENTITIES");
+        }
+        $term->set('field_definitions', $definitions);
+      }
+      $term->save();
+    }
+  }
+}

@@ -13,5 +13,5 @@ type: document
 description: 'Use <em>documents</em> to store information about uploaded documents.'
 help: ''
 new_revision: true
-preview_mode: 1
-display_submitted: true
+preview_mode: 0
+display_submitted: false

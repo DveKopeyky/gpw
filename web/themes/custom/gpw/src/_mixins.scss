@@ -46,10 +46,19 @@
 
 %heading-default {
   align-items: center;
-  border-bottom: 1px solid #b7b7b7;
   color: $text-muted;
-  display: inline-flex;
+  display: flex;
   font-size: 1.4rem;
   padding: .4rem .8rem;
+  position: relative;
   text-transform: uppercase;
+  &:after {
+    border-bottom: 1px solid #b7b7b7;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 15rem;
+  }
 }

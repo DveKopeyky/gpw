@@ -119,3 +119,22 @@
     }
   }
 }
+
+.view-id-gpe_search_page .form-item-search-api-fulltext,
+.view-id-gpe_search_page #edit-submit-gpe-search-page {
+  display: none;
+}
+
+.block-more-on-informea-block {
+  .form-group {
+    margin-bottom: .5rem;
+  }
+  .more-link {
+    display: block;
+    padding-bottom: 2rem;
+  }
+  i {
+    font-size: 1rem;
+    padding-left: .5rem;
+  }
+}

@@ -1,0 +1,30 @@
+uuid: 227e42ac-bcb2-46b8-81de-69e2d5820b77
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: views_block__news_thesaurus_news
+theme: gpw
+region: sidebar_second
+weight: -10
+provider: null
+plugin: 'views_block:news-thesaurus_news'
+settings:
+  id: 'views_block:news-thesaurus_news'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/glossary/*'
+    negate: false
+    context_mapping: {  }

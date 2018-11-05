@@ -10,13 +10,13 @@ field_name: field_page_number
 entity_type: child_entity
 bundle: tag
 label: 'Page number'
-description: ''
-required: true
+description: 'Page number to which tag applies to.'
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  min: null
+  min: 1
   max: null
   prefix: ''
   suffix: ''

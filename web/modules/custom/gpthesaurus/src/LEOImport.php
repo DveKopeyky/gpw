@@ -110,11 +110,12 @@ class LEOImport {
       'definition' => 'field_definitions',
       'synonyms' => 'field_synonyms',
       'topics' => 'field_topics',
+      'id' => 'field_informea_tid',
     ];
     foreach ($field_mapping as $api => $drupal) {
       switch ($api) {
         case 'name':
-          $term->setName($row->$api);
+          $term->setName(ucfirst(mb_convert_encoding($row->$api, "UTF-8", "HTML-ENTITIES")));
           break;
         case 'topics':
           $topics = [];
@@ -131,6 +132,13 @@ class LEOImport {
             }
           }
           $term->set($drupal, $topics);
+          break;
+        case 'synonyms':
+        case 'definition':
+          foreach($row->$api as &$value) {
+            $value = mb_convert_encoding($value, "UTF-8", "HTML-ENTITIES");
+          }
+          $term->set($drupal, $row->$api);
           break;
         default:
           $term->set($drupal, $row->$api);

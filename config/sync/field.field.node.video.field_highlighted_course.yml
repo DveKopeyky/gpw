@@ -10,7 +10,7 @@ id: node.video.field_highlighted_course
 field_name: field_highlighted_course
 entity_type: node
 bundle: video
-label: 'Highlighted course'
+label: Course
 description: ''
 required: false
 translatable: false

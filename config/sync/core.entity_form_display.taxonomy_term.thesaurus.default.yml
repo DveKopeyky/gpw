@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.taxonomy_term.thesaurus.field_definitions
     - field.field.taxonomy_term.thesaurus.field_importance
+    - field.field.taxonomy_term.thesaurus.field_informea_tid
     - field.field.taxonomy_term.thesaurus.field_informea_url
     - field.field.taxonomy_term.thesaurus.field_related_leo_terms
     - field.field.taxonomy_term.thesaurus.field_semantic_uri
@@ -47,12 +48,9 @@ content:
     region: content
   field_related_leo_terms:
     weight: 11
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_show_in_term_cloud:
     weight: 6
@@ -118,4 +116,5 @@ content:
     third_party_settings: {  }
 hidden:
   description: true
+  field_informea_tid: true
   field_semantic_uri: true

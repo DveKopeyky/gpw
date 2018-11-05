@@ -10,7 +10,7 @@ id: node.course.field_course_sections
 field_name: field_course_sections
 entity_type: node
 bundle: course
-label: 'Curriculum for this course'
+label: ' Course content'
 description: ''
 required: false
 translatable: true

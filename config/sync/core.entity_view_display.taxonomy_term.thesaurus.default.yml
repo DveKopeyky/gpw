@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.taxonomy_term.thesaurus.field_definitions
     - field.field.taxonomy_term.thesaurus.field_importance
+    - field.field.taxonomy_term.thesaurus.field_informea_tid
     - field.field.taxonomy_term.thesaurus.field_informea_url
     - field.field.taxonomy_term.thesaurus.field_related_leo_terms
     - field.field.taxonomy_term.thesaurus.field_semantic_uri
@@ -22,25 +23,26 @@ bundle: thesaurus
 mode: default
 content:
   description:
-    label: hidden
+    label: above
     type: text_default
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   field_definitions:
-    weight: 3
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  field_importance:
+  field_related_leo_terms:
+    type: entity_reference_label
     weight: 2
+    region: content
     label: above
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      link: true
     third_party_settings: {  }
     type: number_integer
     region: content
@@ -63,17 +65,20 @@ content:
     type: string
     region: content
   field_topics:
-    weight: 1
+    weight: 3
     label: above
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
-    type: entity_reference_label
     region: content
+    type: entity_reference_entity_view
 hidden:
+  field_importance: true
+  field_informea_tid: true
   field_informea_url: true
-  field_related_leo_terms: true
   field_semantic_uri: true
   field_show_in_term_cloud: true
   field_thesaurus_link: true
   langcode: true
+  search_api_excerpt: true

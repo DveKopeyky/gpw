@@ -10,7 +10,7 @@ id: node.external_resource.field_highlighted_course
 field_name: field_highlighted_course
 entity_type: node
 bundle: external_resource
-label: 'Highlighted course'
+label: Course
 description: ''
 required: false
 translatable: false

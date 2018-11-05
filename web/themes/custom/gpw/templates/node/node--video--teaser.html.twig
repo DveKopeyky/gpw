@@ -74,9 +74,7 @@
 #}
 
 {%
-  set classes = [
-  'col-sm-3',
-]
+  set classes = []
 %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes }}>
@@ -86,7 +84,7 @@
   {% if not page %}
     {% set title = label|render|striptags|trim %}
     <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark" title="{{ title}}">{{ title|length > 10 ? title|slice(0, 10) ~ '...' : title }}</a>
+      <a href="{{ url }}" rel="bookmark" title="{{ title}}">{{ title }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}

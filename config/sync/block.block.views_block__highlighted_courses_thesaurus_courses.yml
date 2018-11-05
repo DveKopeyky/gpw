@@ -1,0 +1,30 @@
+uuid: 507c3c8f-bb66-4af2-9b0a-6faf76d84f60
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.highlighted_courses
+  module:
+    - system
+    - views
+  theme:
+    - gpw
+id: views_block__highlighted_courses_thesaurus_courses
+theme: gpw
+region: sidebar_second
+weight: -13
+provider: null
+plugin: 'views_block:highlighted_courses-thesaurus_courses'
+settings:
+  id: 'views_block:highlighted_courses-thesaurus_courses'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/glossary/*'
+    negate: false
+    context_mapping: {  }

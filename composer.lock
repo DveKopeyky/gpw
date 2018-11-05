@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d221c00d8442916c9805a6f2a3299526",
+    "content-hash": "e25dabcf3d3c81780030be186d4af6d8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3887,6 +3887,9 @@
                     "services": {
                         "drush.services.yml": "^9"
                     }
+                },
+                "patches_applied": {
+                    "Excerpt field in view mode (https://www.drupal.org/project/search_api/issues/2983606)": "https://www.drupal.org/files/issues/2018-09-14/2983606-16--entity_excerpt_field.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

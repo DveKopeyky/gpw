@@ -3,7 +3,8 @@
 @import 'meetings-reports';
 
 .webinar, .meeting {
-  &.teaser {
+  &.teaser,
+  &.full-page-timeline-teaser {
     position: relative;
     padding-left: 5.5rem;
     padding-top: 1.4rem;
@@ -57,7 +58,8 @@
 
 }
 
-.webinar.teaser {
+.webinar.teaser,
+.webinar.full-page-timeline-teaser {
   h2 > a {
     color: $gpw-primary;
 
