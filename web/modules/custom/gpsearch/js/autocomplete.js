@@ -1,13 +1,11 @@
 (function($, Drupal, drupalSettings) {
 
-  if (Drupal.getURLParam === undefined) {
-    Drupal.getURLParam = function (name) {
-      var results = new RegExp('[\?&]' + name + '=([^&#]*)')
-        .exec(window.location.search);
+  Drupal.getURLParam = function (name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+      .exec(window.location.search);
 
-      return (results !== null) ? results[1] || 0 : false;
-    };
-  }
+    return (results !== null) ? results[1] || 0 : false;
+  };
 
   Drupal.searchAutocomplete = Drupal.searchAutocomplete || {};
   Drupal.searchAutocomplete.timeoutID = null;
@@ -53,9 +51,13 @@
 
   Drupal.searchAutocomplete.prepopulateSearchField = function() {
     var _searchInputField = $('#gpsearch_text');
-    var _searchText = decodeURI(Drupal.getURLParam(_searchInputField.attr('name')).replace(/\+/g, ' '));
-    if (_searchText) {
-      _searchInputField.val(_searchText);
+    var _searchParamName = _searchInputField.attr('name');
+    var _searchParamValue = Drupal.getURLParam(_searchParamName);
+    if (_searchParamValue) {
+      var _searchText = decodeURI(_searchParamValue.replace(/\+/g, ' '));
+      if (_searchText) {
+        _searchInputField.val(_searchText);
+      }
     }
 
     if (location.pathname == $('#gpsearch_form').attr('action')) {
