@@ -1,0 +1,7 @@
+project:
+  sync:
+    sql:
+      url: https://global-pact-website.edw.ro/sites/default/files/sync/database.sql.gz
+      files_url: https://global-pact-website.edw.ro/sites/default/files/sync/files.tar.gz
+      username: username
+      password: password

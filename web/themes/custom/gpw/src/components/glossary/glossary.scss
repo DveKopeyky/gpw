@@ -1,6 +1,7 @@
 @import '../../utilities';
 @import 'thesaurus-alpabetic-page';
 @import 'glossary-tabs-block';
+@import 'glossary-tabs-block';
 @import 'glossary-view';
 @import 'glossary_term_page_blocks';
 
@@ -49,6 +50,9 @@
     margin-top: 1em;
   }
 
+  .topic-svg-image {
+    width: 25%;
+  }
   .topic-svg-image {
     width: 25%;
   }

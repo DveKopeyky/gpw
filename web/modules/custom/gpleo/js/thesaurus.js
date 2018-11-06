@@ -4,7 +4,6 @@
 
   Drupal.thesaurusView.init = function() {
     Drupal.thesaurusView.prepareFilter();
-    Drupal.thesaurusView.checkHashTopic();
     Drupal.thesaurusView.prepareSelectedTopics();
     Drupal.thesaurusView.prepareSubmitActions();
   };
