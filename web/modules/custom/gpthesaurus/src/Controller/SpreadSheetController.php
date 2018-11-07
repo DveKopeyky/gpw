@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class SpreadSheetController extends ControllerBase {
 
-  public function toXls() {
+  public function downloadXls() {
     $response = new Response();
 
     $filename = sprintf('thesaurus-%s.xls', date('Ymd-Hi'));
@@ -27,14 +27,14 @@ class SpreadSheetController extends ControllerBase {
     $spreadsheet = new Spreadsheet();
 
     //Set metadata.
-    $spreadsheet->getProperties()->setCreator('global-pact-website.edw.ro');
-    $spreadsheet->getProperties()->setTitle('GPW Glossary');
+    $spreadsheet->getProperties()->setCreator('InforMEA Initiative');
+    $spreadsheet->getProperties()->setTitle('LEO - Law and Environment Ontology');
 
     // Get the active sheet.
     $spreadsheet->setActiveSheetIndex(0);
 
     //Rename sheet
-    $spreadsheet->getActiveSheet()->setTitle('Glossary');
+    $spreadsheet->getActiveSheet()->setTitle('Concepts');
 
     $cols = array(
       'A1' => 'ID',
@@ -143,5 +143,4 @@ class SpreadSheetController extends ControllerBase {
     $response->setContent($content);
     return $response;
   }
-
 }

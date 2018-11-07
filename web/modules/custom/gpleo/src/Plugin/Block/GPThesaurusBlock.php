@@ -3,6 +3,7 @@
 namespace Drupal\gpleo\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use \Drupal\Core\Url;
 use \Drupal\Core\Link;
 use Drupal\Core\Access\AccessResult;
@@ -62,71 +63,26 @@ class GPThesaurusBlock extends BlockBase implements ContainerFactoryPluginInterf
    * {@inheritdoc}
    */
   public function build() {
-    // Alphabetically tab.
-    $AlphabeticallyTabURL = Url::fromRoute('view.thesaurus.page_alphabetically');
-    $AlphabeticallyTabLink = Link::fromTextAndUrl(t('Alphabetically'), $AlphabeticallyTabURL);
-    $AlphabeticallyTabLink = $AlphabeticallyTabLink->toRenderable();
-    $AlphabeticallyTabLink['#attributes'] = [
-      'class' => [
-        'glossary-tab',
-        'glossary-alphabetically-tab',
-      ],
+    $alphabetically_page_link = Url::fromRoute('view.thesaurus.page_alphabetically')->toString();
+    $topic_page_link = Url::fromRoute('view.glossary.page_1')->toString();
+    $download_link = Url::fromRoute('gpthesaurus.download_xls')->toString();
+    $topic_link_classes = ['glossary-tab', 'glossary-topic-tab'];
+    $alphabetically_link_classes = ['glossary-tab', 'glossary-alphabetically-tab'];
+    // Set the active element
+    if ('view.thesaurus.page_alphabetically' == \Drupal::routeMatch()->getRouteName()) {
+      $alphabetically_link_classes[] = 'active';
+    }
+    else {
+      $topic_link_classes[] = 'active';
+    }
+    return [
+      '#theme' => 'gpthesaurus_list_type_switcher_block',
+      '#alphabetically_page_link' => $alphabetically_page_link,
+      '#alphabetically_link_classes' => $alphabetically_link_classes,
+      '#topic_page_link' => $topic_page_link,
+      '#topic_link_classes' => $topic_link_classes,
+      '#download_link' => $download_link,
     ];
-    $AlphabeticallyTabMarkup = render($AlphabeticallyTabLink);
-
-    // By topic tab.
-    $TopicTabURL = Url::fromRoute('view.glossary.page_1');
-    $TopicTabLink = Link::fromTextAndUrl(t('By topic'), $TopicTabURL);
-    $TopicTabLink = $TopicTabLink->toRenderable();
-    $TopicTabLink['#attributes'] = [
-      'class' => [
-        'glossary-tab',
-        'glossary-topic-tab',
-      ],
-    ];
-    $TopicTabMarkup = render($TopicTabLink);
-
-    // Label for tabs.
-    $LabelMarkup = '<div class="glossary-tabs-label">' . t('Display glossary terms: ') . '</div>';
-
-    // Download markup.
-    $DownloadTermsURL = Url::fromRoute('gpthesaurus.to_xls');
-    $DownloadTermsLink = Link::fromTextAndUrl(t('Download All Terms'), $DownloadTermsURL);
-    $DownloadTermsLink = $DownloadTermsLink->toRenderable();
-    $DownloadTermsLink['#attributes'] = [
-      'class' => [
-        'glossary-download',
-        'col-sm-3',
-        'btn',
-        'btn-outline',
-      ],
-    ];
-    $DownloadTermsMarkup = render($DownloadTermsLink);
-
-    // Tabs markup.
-    $TabsMarkup = '<div class="glossary-tabs col-sm-9">'
-      . $LabelMarkup
-      . $AlphabeticallyTabMarkup
-      . $TopicTabMarkup
-      . '</div>';
-
-    // Result markup.
-    $ResultMarkup = '<div class="glossary-wrapper row">'
-      . $TabsMarkup
-      . $DownloadTermsMarkup
-      . '</div>';
-
-    return array(
-      '#markup' => $ResultMarkup,
-      '#attributes' => [
-        'class' => [
-          'glossary-tabs-block',
-        ],
-      ],
-      '#attached' => [
-        'library' => ['gpleo/glossary-tabs'],
-      ],
-    );
   }
 
   /**
@@ -144,5 +100,10 @@ class GPThesaurusBlock extends BlockBase implements ContainerFactoryPluginInterf
     return parent::blockAccess($account);
   }
 
-
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    return Cache::mergeContexts(parent::getCacheContexts(), ['route']);
+  }
 }
