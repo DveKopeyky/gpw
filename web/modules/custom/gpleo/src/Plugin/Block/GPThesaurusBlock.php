@@ -90,7 +90,18 @@ class GPThesaurusBlock extends BlockBase implements ContainerFactoryPluginInterf
     $LabelMarkup = '<div class="glossary-tabs-label">' . t('Display glossary terms: ') . '</div>';
 
     // Download markup.
-    $DownloadTermsMarkup = '<div class="glossary-download col-sm-3"></div>';
+    $DownloadTermsURL = Url::fromRoute('gpthesaurus.to_xls');
+    $DownloadTermsLink = Link::fromTextAndUrl(t('Download All Terms'), $DownloadTermsURL);
+    $DownloadTermsLink = $DownloadTermsLink->toRenderable();
+    $DownloadTermsLink['#attributes'] = [
+      'class' => [
+        'glossary-download',
+        'col-sm-3',
+        'btn',
+        'btn-outline',
+      ],
+    ];
+    $DownloadTermsMarkup = render($DownloadTermsLink);
 
     // Tabs markup.
     $TabsMarkup = '<div class="glossary-tabs col-sm-9">'

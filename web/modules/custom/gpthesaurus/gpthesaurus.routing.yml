@@ -1,0 +1,7 @@
+gpthesaurus.to_xls:
+  path: '/to-xls'
+  defaults:
+    _controller: '\Drupal\gpthesaurus\Controller\SpreadSheetController::toXls'
+    _title: 'Download Glossary terms in Excel'
+  requirements:
+    _permission: 'access content'
