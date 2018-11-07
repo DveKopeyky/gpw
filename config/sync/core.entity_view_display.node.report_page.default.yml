@@ -23,8 +23,8 @@ content:
     settings:
       width: '100'
       width_units: '%'
-      height: '100'
-      height_units: '%'
+      height: '50'
+      height_units: em
     third_party_settings: {  }
     type: link_formatter
     region: content
