@@ -3,6 +3,7 @@
 namespace Drupal\gpleo\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use \Drupal\Core\Url;
 use \Drupal\Core\Link;
 use Drupal\Core\Access\AccessResult;
@@ -76,15 +77,11 @@ class GPThesaurusBlock extends BlockBase implements ContainerFactoryPluginInterf
     }
     return [
       '#theme' => 'gpthesaurus_list_type_switcher_block',
-      '#cache' => ['max-age' => 0],
       '#alphabetically_page_link' => $alphabetically_page_link,
       '#alphabetically_link_classes' => $alphabetically_link_classes,
       '#topic_page_link' => $topic_page_link,
       '#topic_link_classes' => $topic_link_classes,
       '#download_link' => $download_link,
-      '#attached' => [
-        'library' => ['gpleo/glossary-tabs'],
-      ],
     ];
   }
 
@@ -101,5 +98,12 @@ class GPThesaurusBlock extends BlockBase implements ContainerFactoryPluginInterf
       }
     }
     return parent::blockAccess($account);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    return Cache::mergeContexts(parent::getCacheContexts(), ['route']);
   }
 }
