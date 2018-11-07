@@ -37,15 +37,13 @@ content:
     type: basic_string
     region: content
   field_related_leo_terms:
-    type: entity_reference_label
+    type: number_integer
     weight: 2
     region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: number_integer
-    region: content
   field_show_topic_shortlist:
     weight: 5
     label: above

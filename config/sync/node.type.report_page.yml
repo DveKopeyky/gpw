@@ -1,0 +1,18 @@
+uuid: 3919ee7b-be58-4248-8476-56c652d081f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - report-page
+    parent: 'report-page:'
+name: 'Report page'
+type: report_page
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

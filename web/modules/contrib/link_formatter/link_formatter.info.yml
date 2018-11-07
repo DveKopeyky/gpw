@@ -1,0 +1,12 @@
+name: Link Formatter
+type: module
+description: 'Display Link in iFrame.'
+package: Custom
+# version: 8.1
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2018-07-30
+version: '8.x-1.1'
+core: '8.x'
+project: 'link_formatter'
+datestamp: 1532940784

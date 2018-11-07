@@ -435,6 +435,9 @@ function gpw_theme_suggestions_page_alter(&$suggestions, &$vars) {
     $term = Term::load($tid);
     $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
   }
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical' && $node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__node__' . $node->bundle();
+  }
 }
 
 /**
