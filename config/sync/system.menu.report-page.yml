@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: report-page
 label: 'Report page'
-description: ''
+description: 'This menu contains the sections from the GPE report.'
 locked: false

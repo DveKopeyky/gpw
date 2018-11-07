@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'report-page:'
 name: 'Report page'
 type: report_page
-description: ''
+description: 'Use <b>Report page</b> to create new pages for the GPE report.'
 help: ''
 new_revision: true
 preview_mode: 1

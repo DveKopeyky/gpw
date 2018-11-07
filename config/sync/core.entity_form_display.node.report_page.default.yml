@@ -50,12 +50,9 @@ content:
     region: content
   field_thesaurus:
     weight: 1
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: options_select
     region: content
   langcode:
     type: language_select
