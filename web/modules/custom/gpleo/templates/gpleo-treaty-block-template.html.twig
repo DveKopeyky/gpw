@@ -15,26 +15,36 @@
       tm_title
 #}
 
-<div class="gpleo-content-header">
-  <span class="num-found">{{ params.numFound }}</span>
-  <span class="tab-label">{{ 'Treaty decisions'|t }}</span>
-  <span class="simple-text">{{ 'tagged with'|t }}</span>
-  <span class="term-link">{{ params.term_link }}</span>
+<div class="gpleo-content-header col-sm-12">
+  <div class="row">
+    <div class="gpleo-result-info col-sm-6 text-left">
+      <span class="num-found">{{ params.numFound }}</span>
+      <span class="tab-label">{{ 'Treaty decisions'|t }}</span>
+      <span class="simple-text">{{ 'tagged with'|t }}</span>
+      <span class="term-link">{{ params.term_link }}</span>
+    </div>
+    <div class="gpleo-result-info col-sm-6 text-right">
+    <span class="gpleo-see-more-imformea">
+      {% trans %}
+        See more results on {{ informea_term_link }} in InforMEA
+      {% endtrans %}
+    </span>
+    </div>
+  </div>
 </div>
 <div class="gpleo-content">
   {% for doc_item in params.docs %}
     <div class="gpleo-tab-content-row">
-      <div class="gp-leo-row-title">
-        <span class="leo-title">{{ doc_item.tm_title[0] }}</span>
-        <span class="leo-link">
-          <a href="{{ doc_item.ss_search_api_url }}">Link</a>
-        </span>
-      </div>
+      {{ doc_item }}
     </div>
-
   {% endfor %}
 </div>
-<div class="gpleo-content-footer">
-  <div class="gpleo-content-pager" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
+<div class="gpleo-content-footer col-sm-12">
+  <div class="row">
+    <div class="gpleo-content-read-more col-sm-5 text-left">
+      <a href="{{ informea_term_link }}">{{ 'See more results on in InforMEA'|t }}</a>
+    </div>
+    <div class="gpleo-content-pager col-sm-7 text-right" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
+  </div>
 </div>
 

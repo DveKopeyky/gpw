@@ -71,6 +71,11 @@ class GPInformeaContentBlock extends BlockBase implements ContainerFactoryPlugin
       '#attached' => [
         'library' => ['gpleo/informea'],
       ],
+      '#cache' => [
+        'contexts' => [
+          'url.path',
+        ],
+      ],
     );
   }
 

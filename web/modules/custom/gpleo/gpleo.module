@@ -54,10 +54,22 @@ function gpleo_theme($existing, $type, $theme, $path) {
         'params' => [],
       ],
     ],
+    'gpleo-decision-template' => [
+      'template' => 'gpleo-decision-template',
+      'variables' => [
+        'doc_item' => [],
+      ],
+    ],
     'gpleo_document_block_template' => [
       'template' => 'gpleo-document-block-template',
       'variables' => [
         'params' => [],
+      ],
+    ],
+    'gpleo-document-template' => [
+      'template' => 'gpleo-document-template',
+      'variables' => [
+        'doc_item' => [],
       ],
     ],
     'gpleo_goal_block_template' => [
