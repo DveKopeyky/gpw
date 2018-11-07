@@ -1,0 +1,7 @@
+name: 'informeasearch'
+type: module
+description: 'Search results from informea related functionality.'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - search_api_solr
