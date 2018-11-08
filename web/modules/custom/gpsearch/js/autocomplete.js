@@ -23,7 +23,7 @@
   };
 
   Drupal.searchAutocomplete.prepareSearchField = function() {
-    $("#gpsearch_text").keypress(function(event) {
+    $("#gpsearch_text").keyup(function(event) {
       if (Drupal.searchAutocomplete.timeoutID) {
         clearTimeout(Drupal.searchAutocomplete.timeoutID);
       }
