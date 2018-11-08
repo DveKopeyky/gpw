@@ -1,4 +1,4 @@
 services:
   informeasearch:
     class: Drupal\informeasearch\InformeaSearchService
-    arguments: []
+    arguments: ['@request_stack']

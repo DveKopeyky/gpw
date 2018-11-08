@@ -13,6 +13,9 @@ use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Solarium\QueryType\Select\Query\Query;
 
+use Drupal\Core\Plugin\PluginBase;
+use Drupal\facets\Entity\Facet;
+use Drupal\facets\Result\Result;
 
 /**
  * Class InformeaSearchService.
@@ -51,29 +54,35 @@ class InformeaSearchService {
   protected $search_field_mappings = array();
   protected $query;
 
-  public function __construct() {
+  public function __construct(RequestStack $request_stack) {
+    $this->requestStack = $request_stack;
     $this->server = Server::load('informea');
     $this->solrClient = $this->server->getBackend()->getSolrConnector();
     $this->query = $this->solrClient->getSelectQuery();
-    $this->query->setFields(['*', 'score']);
+    $this->prepareRequest();
+  }
+
+  public function prepareRequest() {
+    $index_keys = $this->getIndexKeys();
+
+    $requests = [];
+    if ($request_keys = $this->requestStack->getCurrentRequest()->query->get('f')) {
+      foreach ($request_keys as $key) {
+        list($k, $v) = explode(':', $key);
+        if (array_key_exists($k, $index_keys)) {
+          $requests[$index_keys[$k]][] = $v;
+        }
+      }
+    }
+    $this->alterQuery($this->buildQueryParams($requests));
+
+    if ($search_api_fulltext = $this->requestStack->getCurrentRequest()->query->get('text')) {
+      $this->query->setQuery($search_api_fulltext);
+    }
   }
 
   public function search() {
-
-    $facets = [
-      'field_type_of_text' => [
-        'title' => t('Type of court'),
-        'placeholder' => t('Add types…'),
-        'bundle' => 'document_types',
-      ],
-    ];
-
-
-
-
-
-
-    // Facets.
+  /* // Facets.
     $facetSet = $this->query->getFacetSet();
     $facetSet->setSort('count');
     $facetSet->setLimit(10);
@@ -82,35 +91,75 @@ class InformeaSearchService {
 
     foreach ($this->getIndexKeys() as $key => $solr_key) {
       $facetSet->createFacetField($key)->setField($solr_key);
-    }
+    }*/
+
+    //$this->renderFacet();
 
     /** @var Solarium\QueryType\Select\Query\Query $query */
 
     $response = $this->solrClient->search($this->query);
 
     $r = json_decode($response->getBody());
-    //dpm($r);
-    dpm($r->facet_counts->facet_fields);
+    dpm($response->getBody());
+  }
+
+
+  public function facets() {
+
+    // Facets.
+    $facetSet = $this->query->getFacetSet();
+    /** @var \Solarium\Component\FacetSet $facetSet */
+    $facetSet->setSort('count');
+    $facetSet->setLimit(10);
+    $facetSet->setMinCount(1);
+    $facetSet->setMissing(FALSE);
+
+//    dpm($facetSet->getQueryInstance());
+
+
+
+    foreach ($this->getIndexKeys() as $key => $solr_key) {
+      $facetSet->createFacetField($key)->setField($solr_key);
+    }
+
+    //$this->renderFacet();
+
+    /** @var Solarium\QueryType\Select\Query\Query $query */
+
+    //dpm($this->query);
+
+    $response = $this->solrClient->search($this->query);
+
+    $r = json_decode($response->getBody());
+    //dpm($response->getBody());
+    return ($r->facet_counts->facet_fields);
   }
 
   public function buildQueryParams($params = []) {
     $query_params = [];
     foreach ($params as $k => $param) {
       $v = trim(implode(' OR ', $param));
+      /*$query_params[] = [
+        'key' => $k,
+        'query' => "{$k}:({$v})",
+      ];*/
+
+
       $query_params[] = [
         'key' => "facet:$k",
         'tag' => "facet:$k",
         'query' => "{$k}:({$v})",
       ];
-      /*$query_params[] = [
-        'key' => $k,
-        'query' => "{$k}:({$v})",
-      ];*/
+
+
     }
+    dpm($query_params);
     return $query_params;
   }
 
+
   public function alterQuery($params = []) {
+    $this->query->setFields(['*', 'score']);
     foreach ($params as $param) {
       $fq = $this->query->createFilterQuery($param);
       $this->query->addFilterQuery($fq);
@@ -129,6 +178,48 @@ class InformeaSearchService {
 
   public function getQuery() {
     return $this->query;
+  }
+
+  public function renderFacet()
+  {
+
+    /** @var \Drupal\facets\FacetInterface $facet */
+    /*$facet = Facet::create([
+      'id' => 'test_facet',
+      'name' => 'Test facet',
+    ]);*/
+
+    $facet = Facet::load('test_facet');
+
+
+    //$facet->setFacetSourceId($facet_source);
+    //$facet->setFieldIdentifier($field);
+    //$facet->setUrlAlias($id);
+
+    $result_lower = new Result($facet, 5, '5', 1);
+    $result_higher = new Result($facet, 150, '150', 1);
+    $facet->setResults([$result_lower, $result_higher]);
+    $facet->setWidget('links', ['show_numbers' => TRUE]);
+    $facet->addProcessor([
+      'processor_id' => 'url_processor_handler',
+      'weights' => ['pre_query' => -10, 'build' => -10],
+      'settings' => [],
+    ]);
+    $facet->setEmptyBehavior(['behavior' => 'none']);
+    $facet->setOnlyVisibleWhenFacetSourceIsVisible(TRUE);
+
+    $widget = $facet->getWidgetInstance();
+    $build = $widget->build($facet);
+
+    //$facet->save();
+
+  // Create our facet.
+
+    //$block_id = 'facet_block' . PluginBase::DERIVATIVE_SEPARATOR . $facet->id();
+
+
+
+
   }
 
 }

@@ -32,7 +32,7 @@ class InformeaSearchController extends ControllerBase {
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
-/**
+  /**
    * Drupal\informeasearch\InformeaSearchService definition.
    *
    * @var \Drupal\informeasearch\InformeaSearchService
@@ -69,7 +69,7 @@ class InformeaSearchController extends ControllerBase {
    */
   public function search() {
 
-    $index_keys = $this->informeasearch->getIndexKeys();
+/*    $index_keys = $this->informeasearch->getIndexKeys();
 
     $requests = [];
     if ($request_keys = $this->requestStack->getCurrentRequest()->query->get('f')) {
@@ -86,9 +86,9 @@ class InformeaSearchController extends ControllerBase {
 
     if ($search_api_fulltext = $this->requestStack->getCurrentRequest()->query->get('text')) {
       $this->informeasearch->getQuery()->setQuery($search_api_fulltext);
-    }
+    }*/
 
-    $this->informeasearch->search($requests);
+    $this->informeasearch->search();
 
 
     return [
