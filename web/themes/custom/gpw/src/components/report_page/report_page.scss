@@ -1,0 +1,30 @@
+@import '../../utilities';
+
+.page-node-type-report-page {
+  .field--name-field-report-page-resources>.field--items>.field--item{
+    &:nth-child(2n+1) {
+      margin-right: 2%;
+    }
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .field--name-field-thesaurus {
+    .field--item {
+      display: inline;
+      &::after {
+        content: ', ';
+      }
+      &:last-child {
+        &::after {
+          content: '';
+        }
+      }
+    }
+  }
+  .report-page-sidebar>.field {
+    padding-bottom: 10px;
+  }
+
+}
+

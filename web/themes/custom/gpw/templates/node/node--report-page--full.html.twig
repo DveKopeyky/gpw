@@ -92,10 +92,10 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('content') }}>
-    <div class="col-sm-10">
+    <div class="col-sm-8">
       {{ content|without('field_report_page_resources', 'field_report_page_references', 'field_thesaurus') }}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-4 report-page-sidebar">
       {{ content.field_report_page_resources }}
       {{ content.field_thesaurus }}
       {{ content.field_report_page_references }}

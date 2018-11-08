@@ -1,0 +1,22 @@
+uuid: eedb6c1a-7143-4a12-932a-a65a7bf62c14
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: report
+label: Report
+type: 'canonical_entities:node'
+pattern: 'report/[node:title]'
+selection_criteria:
+  2efdcbf9-c51d-481c-a7d1-519511988300:
+    id: node_type
+    bundles:
+      report_page: report_page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 2efdcbf9-c51d-481c-a7d1-519511988300
+selection_logic: and
+weight: -5
+relationships: {  }
