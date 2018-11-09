@@ -26,5 +26,23 @@
     padding-bottom: 10px;
   }
 
+  .report-menu {
+    padding-left: 0px;
+    &>li {
+      &>a {
+        background-color: #aac513;
+        color: #fff !important;
+      }
+    }
+    li {
+      list-style-type: none;
+      a {
+        display: block;
+        padding: 5px 10px;
+        color: #aac513;
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
 
