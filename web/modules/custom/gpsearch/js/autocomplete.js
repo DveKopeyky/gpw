@@ -23,11 +23,16 @@
   };
 
   Drupal.searchAutocomplete.prepareSearchField = function() {
-    $("#gpsearch_text").keypress(function(event) {
+    $("#gpsearch_text").keyup(function(event) {
       if (Drupal.searchAutocomplete.timeoutID) {
         clearTimeout(Drupal.searchAutocomplete.timeoutID);
       }
       Drupal.searchAutocomplete.timeoutID = setTimeout(Drupal.searchAutocomplete.prepareListWrapper, 200);
+    });
+    $('#gpsearch_text').on('focusout', function() {
+      if ($('#gpsearch_terms_list').hasClass('active')) {
+          $('#gpsearch_terms_list').removeClass('active');
+      }
     });
   };
 
@@ -37,6 +42,7 @@
       url: '/gpsearch/autocomplete/thesaurus/' + $('#gpsearch_text').val(),
       dataType: 'json',
       success: function(data) {
+        listWrapper.empty();
         if (data && data.length) {
           $.each(data, function (i, v) {
             var newItem = '<a href="' + v.url + '" class="gpsearch-autocomplete-item">' + v.name
@@ -44,6 +50,8 @@
             listWrapper.append(newItem);
           });
           listWrapper.addClass('active');
+        } else {
+          listWrapper.removeClass('active');
         }
       }
     });
