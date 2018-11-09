@@ -20,28 +20,33 @@ class GPSearchThesaurusAutocomplete extends ControllerBase {
     if (!$search_text) {
       return '';
     }
-    $CurrentLanguageCode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $current_language_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
-    $DBConnection = \Drupal::database();
-    $Query = $DBConnection->select('taxonomy_term_field_data', 't');
-    $Query->fields('t', array('tid', 'name'));
-    $Query->condition('langcode', $CurrentLanguageCode);
-    $Query->condition('name', "%" . $DBConnection->escapeLike($search_text) . "%", 'LIKE');
-    $Query->range(0, 10);
+    $db_connection = \Drupal::database();
+    $query = $db_connection->select('taxonomy_term_field_data', 't');
+    $query->fields('t', array('tid', 'name'));
+    $query->join('taxonomy_term__field_synonyms', 'synonyms', 'synonyms.entity_id = t.tid');
+    $query->condition('t.langcode', $current_language_code);
+    $or_condition =  $query->orConditionGroup()
+      ->condition('t.name', "%" . $db_connection->escapeLike($search_text) . "%", 'LIKE')
+      ->condition('synonyms.field_synonyms_value', "%" . $db_connection->escapeLike($search_text) . "%", 'LIKE');
+    $query->condition($or_condition);
+    $query->distinct();
+    $query->range(0, 10);
 
-    $Rows = $Query->execute()->fetchAll();
-    $Results = [];
-    if ($Rows) {
-      foreach ($Rows as $Row) {
-        $URL = \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $Row->tid])->toString();
-        $Results[] = [
-          'name' => $Row->name,
-          'url' => $URL,
+    $rows = $query->execute()->fetchAll();
+    $results = [];
+    if ($rows) {
+      foreach ($rows as $row) {
+        $url = \Drupal\Core\Url::fromRoute('entity.taxonomy_term.canonical', ['taxonomy_term' => $row->tid])->toString();
+        $results[] = [
+          'name' => $row->name,
+          'url' => $url,
         ];
       }
     }
 
-    return new JsonResponse($Results);
+    return new JsonResponse($results);
   }
 
 }
