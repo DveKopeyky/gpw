@@ -68,29 +68,8 @@ class InformeaSearchController extends ControllerBase {
    *   Return Hello string.
    */
   public function search() {
-
-/*    $index_keys = $this->informeasearch->getIndexKeys();
-
-    $requests = [];
-    if ($request_keys = $this->requestStack->getCurrentRequest()->query->get('f')) {
-      foreach ($request_keys as $key) {
-        list($k, $v) = explode(':', $key);
-          if (array_key_exists($k, $index_keys)) {
-            $requests[$index_keys[$k]][] = $v;
-          }
-       }
-    }
-
-
-    $this->informeasearch->alterQuery($this->informeasearch->buildQueryParams($requests));
-
-    if ($search_api_fulltext = $this->requestStack->getCurrentRequest()->query->get('text')) {
-      $this->informeasearch->getQuery()->setQuery($search_api_fulltext);
-    }*/
-
-    $this->informeasearch->search();
-
-
+    $search_results = $this->informeasearch->search();
+    dpm($search_results->response->numFound);
     return [
       '#type' => 'markup',
       '#markup' => $this->t('Implement method: search')
