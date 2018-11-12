@@ -19,7 +19,6 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
  *   category = @Translation("TAGS"),
  * )
  */
-
 class GPInformeaContentBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
@@ -55,7 +54,6 @@ class GPInformeaContentBlock extends BlockBase implements ContainerFactoryPlugin
     );
   }
 
-
   /**
    * {@inheritdoc}
    */
@@ -63,7 +61,7 @@ class GPInformeaContentBlock extends BlockBase implements ContainerFactoryPlugin
     $tid = $this->routeMatch->getRawParameter('taxonomy_term');
     // May be we can replace it with: Drupal\taxonomy\Entity\Term::load()
     $term = $this->entityTypeManager->getStorage('taxonomy_term')->load($tid);
-    return array(
+    return [
       '#theme' => 'gpleo_content_block_template',
       '#informea_tid' => $term->get('field_informea_tid')->getString(),
       '#term_name' => $term->getName(),
@@ -76,16 +74,15 @@ class GPInformeaContentBlock extends BlockBase implements ContainerFactoryPlugin
           'url.path',
         ],
       ],
-    );
+    ];
   }
-
 
   /**
    * {@inheritdoc}
    */
   protected function blockAccess(AccountInterface $account) {
     if ($this->routeMatch->getRouteName() == 'entity.taxonomy_term.canonical'
-      && $tid =$this->routeMatch->getRawParameter('taxonomy_term')
+      && $tid = $this->routeMatch->getRawParameter('taxonomy_term')
     ) {
       // May be we can replace it with: Drupal\taxonomy\Entity\Term::load()
       $term = $this->entityTypeManager->getStorage('taxonomy_term')->load($tid);

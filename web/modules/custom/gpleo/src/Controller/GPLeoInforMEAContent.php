@@ -2,9 +2,10 @@
 
 namespace Drupal\gpleo\Controller;
 
+use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use \Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Drupal\taxonomy\TermInterface;
 
 /**
@@ -14,8 +15,6 @@ class GPLeoInforMEAContent extends ControllerBase {
 
   /**
    * Building query to the informea server.
-   *
-   * @return String
    */
   private function buildQuery($content_type, $informea_tid, $fields = [], $page = 1, $limit = 5, $additional_query_params = '') {
     // @TODO replace it with variables when settings form will be ready.
@@ -32,7 +31,7 @@ class GPLeoInforMEAContent extends ControllerBase {
       $request_data[] = 'fq=im_field_informea_tags:' . $informea_tid;
     }
     if (count($fields)) {
-      $request_data[] = 'fl=' . join(',', $fields);
+      $request_data[] = 'fl=' . implode(',', $fields);
     }
     $request_data[] = 'rows=' . $limit;
     $request_data[] = 'start=' . $offset;
@@ -104,17 +103,19 @@ class GPLeoInforMEAContent extends ControllerBase {
       $limit = 5;
       if ($custom_limit) {
         $limit = $custom_limit;
-      }
-
-      $page = \Drupal::request()->query->get('page');
-      if (!$page || intval($page) <= 0) {
         $page = 1;
+      }
+      else {
+        $page = \Drupal::request()->query->get('page');
+        if (!$page || intval($page) <= 0) {
+          $page = 1;
+        }
       }
 
       $url = self::buildQuery($content_type, $informea_tid, $fields, $page, $limit, $additional_query_params);
       $data = self::getRequestData($url);
 
-      $template_data = (array)$data->response;
+      $template_data = (array) $data->response;
       $template_data['page'] = $page;
     }
     else {
@@ -139,7 +140,8 @@ class GPLeoInforMEAContent extends ControllerBase {
     $url .= '&wt=json';
     $url .= '&fq=ss_type:' . $content_type;
     $url .= '&fq=im_field_informea_tags:' . $informea_tid;
-    $url .= '&fl=none'; // To hide fields in response.
+    // To hide fields in response.
+    $url .= '&fl=none';
     $url .= '&facet=true';
     $url .= '&facet.field=im_field_treaty';
     $url .= '&rows=1';
@@ -188,7 +190,8 @@ class GPLeoInforMEAContent extends ControllerBase {
       // @TODO Insert additional fields for treaty here.
       $url .= '&fl=is_nid,tm_title,ss_search_api_url';
       $url .= '&rows=' . $limit;
-      $url .= '&start=' . $limit * ($page - 1);
+      // It is always starts from zero, because elements already separated by pages.
+      $url .= '&start=0';
 
       $treaty_data = self::getRequestData($url);
 
@@ -241,6 +244,9 @@ class GPLeoInforMEAContent extends ControllerBase {
     }
   }
 
+  /**
+   * Fill data for paragraphs untagged parent articles.
+   */
   private function prepareMissedTreatyArticles(&$treaty_tree) {
     // Fill empty Articles data.
     $missed_articles = [];
@@ -306,15 +312,15 @@ class GPLeoInforMEAContent extends ControllerBase {
 
   /**
    * Get data from informea server for Treaty texts.
-   *
-   * @return JSON.
    */
   public function getTreatyText(Request $request, TermInterface $taxonomy_term) {
-    $treaty_tree = self::prepareTreatyTree($taxonomy_term);
+    $template_data = self::prepareTreatyTree($taxonomy_term);
+    // @TODO replace it with right link.
+    $template_data['global_link'] = 'Treaty texts';
 
     // Prepare output.
     $template_name = 'gpleo_treaty_block_template';
-    $markup = self::customRender($template_name, $treaty_tree);
+    $markup = self::customRender($template_name, $template_data);
 
     $response = [
       'markup' => $markup,
@@ -325,8 +331,6 @@ class GPLeoInforMEAContent extends ControllerBase {
 
   /**
    * Get data from informea server.
-   *
-   * @return JSON.
    */
   public function getTreatyDecisions(Request $request, TermInterface $taxonomy_term) {
     $content_type = 'decision';
@@ -336,12 +340,14 @@ class GPLeoInforMEAContent extends ControllerBase {
     // Prepare templates.
     $docs = $template_data['docs'];
     $template_data['docs'] = [];
-    foreach($docs as $delta => $doc_item) {
+    foreach ($docs as $delta => $doc_item) {
       $template_data['docs'][] = [
         '#theme' => 'gpleo_decision_template',
         '#doc_item' => $doc_item,
       ];
     }
+    // @TODO replace it with right link.
+    $template_data['global_link'] = 'Treaty decisions';
 
     $template_name = 'gpleo_decision_block_template';
 
@@ -357,8 +363,6 @@ class GPLeoInforMEAContent extends ControllerBase {
 
   /**
    * Get data from informea server.
-   *
-   * @return JSON.
    */
   public function getDocumentsAndLiterature(Request $request, TermInterface $taxonomy_term) {
     $content_type = 'document OR ss_type:literature';
@@ -369,14 +373,16 @@ class GPLeoInforMEAContent extends ControllerBase {
     // Prepare templates.
     $docs = $template_data['docs'];
     $template_data['docs'] = [];
-    foreach($docs as $delta => $doc_item) {
+    foreach ($docs as $delta => $doc_item) {
       // Very long content fix.
-      $doc_item->content = \Drupal\Component\Utility\Unicode::truncate($doc_item->content, 100, TRUE, TRUE);
+      $doc_item->content = Unicode::truncate($doc_item->content, 100, TRUE, TRUE);
       $template_data['docs'][] = [
         '#theme' => 'gpleo_' . $doc_item->ss_type . '_template',
         '#doc_item' => $doc_item,
       ];
     }
+    // @TODO replace it with right link.
+    $template_data['global_link'] = 'Documents';
 
     $template_name = 'gpleo_document_block_template';
 
@@ -392,8 +398,6 @@ class GPLeoInforMEAContent extends ControllerBase {
 
   /**
    * Get data from informea server.
-   *
-   * @return JSON.
    */
   public function getGoalsAndDeclarations(Request $request, TermInterface $taxonomy_term) {
     $content_type = 'goal';
@@ -406,12 +410,14 @@ class GPLeoInforMEAContent extends ControllerBase {
     }
 
     $url = self::buildQuery($content_type, $informea_tid, $fields, $page, $limit);
-    $data = self::getRequestData($url);
+    $template_data = self::getRequestData($url);
+    // @TODO replace it with right link.
+    $template_data['global_link'] = 'Goals';
 
     $template_name = 'gpleo_goal_block_template';
 
     // May be better return JSON without render.
-    $markup = self::customRender($template_name, $data);
+    $markup = self::customRender($template_name, $template_data);
 
     $response = [
       'markup' => $markup,

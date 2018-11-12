@@ -5,10 +5,12 @@
  * Global pact leo module (aka Thesaurus).
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function gpleo_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function gpleo_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $view = $form_state->getStorage('view');
 
   if ($view['view']->id() == 'thesaurus') {
@@ -26,7 +28,6 @@ function gpleo_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormState
     ];
   }
 }
-
 
 /**
  * Implements hook_theme().
