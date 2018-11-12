@@ -87,7 +87,8 @@ class GPLeoInforMEAContent extends ControllerBase {
       'tm_field_decision_number',
       'ss_search_api_url',
       'tm_title',
-      'tm_field_decision_number',
+      'ss_type',
+      'content',
     ];
 
     return $fields;
@@ -129,20 +130,10 @@ class GPLeoInforMEAContent extends ControllerBase {
   }
 
   /**
-   * Get data from informea server for Treaty texts.
-   *
-   * @return JSON.
+   * Prepare Treaty items for our tree.
    */
-  public function getTreatyText(Request $request, TermInterface $taxonomy_term) {
-    // Get treaty ids. First request.
-    $content_type = 'treaty_paragraph OR treaty_article';
-    $limit = 5;
-    $fields = [
-//      'im_field_treaty',
-    ];
-    $informea_tid = $taxonomy_term->get('field_informea_tid')->getString();
-
-//    $template_data = self::prepareData($taxonomy_term, $fields, $content_type);
+  private function prepareTreatyParentsPagedList($informea_tid, $content_type, $limit) {
+    // @TODO Replace it with variable.
     $url = 'http://informea:solr6@search.informea.org/solr/informea/select';
     $url .= '?q=*:*';
     $url .= '&wt=json';
@@ -158,90 +149,172 @@ class GPLeoInforMEAContent extends ControllerBase {
     $facet_counts = $data->facet_counts;
 
     $facet_treaty_ids = $facet_counts->facet_fields->im_field_treaty;
-    $treaty_count = 0;
     $treaty_nids = [];
-    for($i = 0; $i < count($facet_treaty_ids); $i += 2) {
-      $treaty_page = floor($i / (2 * $limit)) + 1;
-      $treaty_nids[$treaty_page][] = [
-        'items_count' => $facet_treaty_ids[$i + 1],
-        'nid' => $facet_treaty_ids[$i],
-      ];
+    for ($i = 0; $i < count($facet_treaty_ids); $i += 2) {
       if ($facet_treaty_ids[$i + 1] === 0) {
-        $treaty_count = $i / 2;
         break;
+      }
+      $treaty_page = floor($i / (2 * $limit)) + 1;
+      $treaty_nid = $facet_treaty_ids[$i];
+      $treaty_nids[$treaty_page]['items'][$treaty_nid] = [
+        'items_count' => $facet_treaty_ids[$i + 1],
+        'nid' => $treaty_nid,
+      ];
+      // Better set it here to get all treaty data.
+      $treaty_nids[$treaty_page]['nid_list'][$treaty_nid] = $treaty_nid;
+    }
+    $treaty_count = $i / 2;
+
+    $result = [
+      'numFound' => $treaty_count,
+      'treaty_nids' => $treaty_nids,
+    ];
+
+    return $result;
+  }
+
+  /**
+   * Prepare parent treaty level for the tree.
+   */
+  private function prepareTreatyLevel($treaty_nids, $page, $limit) {
+    $treaty_tree = [];
+    if (isset($treaty_nids[$page])) {
+      // Get all treaty data.
+      $url = 'http://informea:solr6@search.informea.org/solr/informea/select';
+      $url .= '?q=*:*';
+      $url .= '&wt=json';
+      $url .= '&fq=ss_type:treaty';
+      $url .= '&fq=is_nid:' . implode(' OR is_nid:', $treaty_nids[$page]['nid_list']);
+      // @TODO Insert additional fields for treaty here.
+      $url .= '&fl=is_nid,tm_title,ss_search_api_url';
+      $url .= '&rows=' . $limit;
+      $url .= '&start=' . $limit * ($page - 1);
+
+      $treaty_data = self::getRequestData($url);
+
+      foreach ($treaty_data->response->docs as $treaty_item) {
+        $treaty_nid = $treaty_item->is_nid;
+        $treaty_tree['docs'][$treaty_nid] = [
+          '#theme' => 'gpleo_treaty_text_template',
+          '#treaty_item' => $treaty_item,
+          'items_count' => $treaty_nids[$page]['items'][$treaty_nid]['items_count'],
+        ];
       }
     }
 
-    $page = \Drupal::request()->query->get('page');
-    if (!$page || intval($page) <= 0) {
-      $page = 1;
-    }
-    if (isset($treaty_nids[$page])) {
-      $treaty_page_data = $treaty_nids[$page];
-      foreach($treaty_page_data as $treaty_item_data) {
-        // Get all articles.
-//        is_field_parent_treaty_article
-//        is_field_sorting_order
-//        im_field_treaty
+    return $treaty_tree;
+  }
 
-        $treaty_data = self::prepareData($taxonomy_term, $fields, $content_type, 'fq=im_field_treaty:' . $treaty_item_data['nid'], $treaty_item_data['items_count']);
-        $treaty_data = $treaty_data;
-        $docs_data = $treaty_data['docs'];
-        $docs = [];
+  /**
+   * Prepare tagged treaty articles and treaty paragraphs.
+   */
+  private function prepareTaggedTreatyArticleAndPargraphLevel(TermInterface $taxonomy_term, &$treaty_tree) {
+    // Get all pargraphs and articles taged with this term.
+    foreach ($treaty_tree['docs'] as $treaty_nid => $treaty_item_data) {
+      $additional_query_params = 'fq=im_field_treaty:' . $treaty_nid;
 
-        foreach ($docs_data as $delta => $doc_item) {
+      $treaty_children_data = self::prepareData($taxonomy_term, [], 'treaty_article OR ss_type:treaty_paragraph', $additional_query_params, $treaty_item_data['items_count']);
+
+      if ($treaty_children_data['numFound']) {
+        foreach ($treaty_children_data['docs'] as $delta => $doc_item) {
           switch ($doc_item->ss_type) {
             case 'treaty_paragraph':
-              $docs[$doc_item->is_field_parent_treaty_article]['paragraphs'][$doc_item->is_field_sorting_order] = (array)$doc_item;
-              $missed_articles[] = $doc_item->is_field_parent_treaty_article;
+              $article_nid = $doc_item->is_field_parent_treaty_article;
+              $treaty_tree['docs'][$treaty_nid]['#article_docs'][$article_nid]['#paragraphs'][$doc_item->is_field_sorting_order] = [
+                '#theme' => 'gpleo_treaty_paragraph_template',
+                '#paragraph' => $doc_item,
+              ];
               break;
 
             case 'treaty_article':
-              $docs[$doc_item->is_nid]['article'] = (array)$doc_item;
+              $article_nid = $doc_item->is_nid;
+              $treaty_tree['docs'][$treaty_nid]['#article_docs'][$article_nid]['#article_item'] = $doc_item;
               break;
 
             default:
               continue;
 
           }
+          $treaty_tree['docs'][$treaty_nid]['#article_docs'][$article_nid]['#theme'] = 'gpleo_treaty_article_template';
         }
+      }
+    }
+  }
 
-        // Fill empty Articles data.
-        $missed_articles = [];
-        foreach ($docs as $article_nid => $article_data) {
-          if (!isset($docs[$article_nid]['article']['is_nid'])) {
-            $missed_articles[] = $article_nid;
-          }
+  private function prepareMissedTreatyArticles(&$treaty_tree) {
+    // Fill empty Articles data.
+    $missed_articles = [];
+    $missed_articles_treaty_nids = [];
+    foreach ($treaty_tree['docs'] as $treaty_nid => $treaty_docs_data) {
+      foreach ($treaty_docs_data['#article_docs'] as $article_nid => $article_data) {
+        if (!isset($article_data['#article_item']->is_nid)) {
+          $missed_articles[$article_nid] = $article_nid;
+          $missed_articles_treaty_nids[$treaty_nid] = $treaty_nid;
         }
-        $missed_articles_count = count($missed_articles);
-        if ($missed_articles_count) {
-          $additional_query_params = 'fq=im_field_treaty:' . $treaty_item_data['nid'];
-          $additional_query_params .= '&fq=is_nid:' . implode(' OR is_nid:', $missed_articles);
-
-          $url = self::buildQuery('treaty_article', 0, $fields, 1, $missed_articles_count, $additional_query_params);
-          $treaty_articles_data = self::getRequestData($url);
-
-
-        }
-
       }
     }
 
+    $missed_articles_count = count($missed_articles);
+    if ($missed_articles_count) {
+      $additional_query_params = 'fq=im_field_treaty:' . implode(' OR im_field_treaty:', $missed_articles_treaty_nids);
+      $additional_query_params .= '&fq=is_nid:' . implode(' OR is_nid:', $missed_articles);
 
-    // Prepare templates.
-//    $docs = $template_data['docs'];
-//    $template_data['docs'] = [];
-//    foreach($docs as $delta => $doc_item) {
-//      $template_data['docs'][] = [
-//        '#theme' => 'gpleo-treaty-text-template',
-//        '#doc_item' => $doc_item,
-//      ];
-//    }
+      $url = self::buildQuery('treaty_article', 0, [], 1, $missed_articles_count, $additional_query_params);
+      $treaty_articles_data = self::getRequestData($url);
+
+      foreach ($treaty_articles_data->response->docs as $article) {
+        $treaty_tree['docs'][$article->im_field_treaty[0]]['#article_docs'][$article->is_nid]['#article_item'] = $article;
+      }
+    }
+  }
+
+  /**
+   * Prepare treaty rendrable tree.
+   */
+  private function prepareTreatyTree(TermInterface $taxonomy_term) {
+    $content_type = 'treaty_paragraph OR ss_type:treaty_article';
+    $limit = 5;
+    $informea_tid = $taxonomy_term->get('field_informea_tid')->getString();
+    $page = \Drupal::request()->query->get('page');
+    if (!$page || intval($page) <= 0) {
+      $page = 1;
+    }
+
+    // 1st request to get treaty.
+    $treaty_hierarchy_data = self::prepareTreatyParentsPagedList($informea_tid, $content_type, $limit);
+    $treaty_nids = $treaty_hierarchy_data['treaty_nids'];
+
+    // 2nd request to get treaty data.
+    $treaty_tree = self::prepareTreatyLevel($treaty_nids, $page, $limit);
+    $treaty_tree['numFound'] = $treaty_hierarchy_data['numFound'];
+
+    // 3rd request to get tagged article and paragraph data.
+    self::prepareTaggedTreatyArticleAndPargraphLevel($taxonomy_term, $treaty_tree);
+
+    // 4th request to get untagged articles with tagged paragraphs.
+    self::prepareMissedTreatyArticles($treaty_tree);
+
+    $treaty_tree['start'] = ($page - 1) * $limit;
+    $treaty_tree['page'] = $page;
+    $treaty_tree['term_name'] = $taxonomy_term->getName();
+    $treaty_tree['term_link'] = $taxonomy_term->toLink();
+    $treaty_tree['tid'] = $informea_tid;
+    $treaty_tree['limit'] = $limit;
+
+    return $treaty_tree;
+  }
+
+  /**
+   * Get data from informea server for Treaty texts.
+   *
+   * @return JSON.
+   */
+  public function getTreatyText(Request $request, TermInterface $taxonomy_term) {
+    $treaty_tree = self::prepareTreatyTree($taxonomy_term);
 
     // Prepare output.
     $template_name = 'gpleo_treaty_block_template';
-
-//    $markup = self::customRender($template_name, $template_data);
+    $markup = self::customRender($template_name, $treaty_tree);
 
     $response = [
       'markup' => $markup,
@@ -265,7 +338,7 @@ class GPLeoInforMEAContent extends ControllerBase {
     $template_data['docs'] = [];
     foreach($docs as $delta => $doc_item) {
       $template_data['docs'][] = [
-        '#theme' => 'gpleo-decision-template',
+        '#theme' => 'gpleo_decision_template',
         '#doc_item' => $doc_item,
       ];
     }
@@ -288,24 +361,19 @@ class GPLeoInforMEAContent extends ControllerBase {
    * @return JSON.
    */
   public function getDocumentsAndLiterature(Request $request, TermInterface $taxonomy_term) {
-    $content_type = 'document OR literature';
-    $fields = self::getDefaultQueryFields();
-    $informea_tid = $taxonomy_term->get('field_informea_tid')->getString();
-    $limit = 5;
-    $page = \Drupal::request()->query->get('page');
-    if (!$page || intval($page) <= 0) {
-      $page = 1;
-    }
+    $content_type = 'document OR ss_type:literature';
+    $fields = [];
 
-    $url = self::buildQuery($content_type, $informea_tid, $fields, $page, $limit);
-    $template_data = self::getRequestData($url);
+    $template_data = self::prepareData($taxonomy_term, $fields, $content_type);
 
     // Prepare templates.
     $docs = $template_data['docs'];
     $template_data['docs'] = [];
     foreach($docs as $delta => $doc_item) {
+      // Very long content fix.
+      $doc_item->content = \Drupal\Component\Utility\Unicode::truncate($doc_item->content, 100, TRUE, TRUE);
       $template_data['docs'][] = [
-        '#theme' => 'gpleo-document-template',
+        '#theme' => 'gpleo_' . $doc_item->ss_type . '_template',
         '#doc_item' => $doc_item,
       ];
     }
@@ -316,7 +384,7 @@ class GPLeoInforMEAContent extends ControllerBase {
     $markup = self::customRender($template_name, $template_data);
 
     $response = [
-      '#markup' => $markup,
+      'markup' => $markup,
     ];
 
     return new JsonResponse($response);
@@ -346,7 +414,7 @@ class GPLeoInforMEAContent extends ControllerBase {
     $markup = self::customRender($template_name, $data);
 
     $response = [
-      '#markup' => $markup,
+      'markup' => $markup,
     ];
 
     return new JsonResponse($response);

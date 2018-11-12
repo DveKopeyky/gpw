@@ -27,7 +27,7 @@
       <div class="gp-leo-row-title">
         <span class="leo-title">{{ doc_item.tm_title[0] }}</span>
         <span class="leo-link">
-          <a href="{{ doc_item.ss_search_api_url }}">Link</a>
+          <a href="{{ doc_item.ss_search_api_url }}"><i class="glyphicon glyphicon-new-window"></i></a>
         </span>
       </div>
     </div>
@@ -35,6 +35,6 @@
   {% endfor %}
 </div>
 <div class="gpleo-content-footer">
-  <div class="gpleo-content-pager" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
+  <div class="gpleo-content-pager" gpleo-tab-id="#tab-4" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
 </div>
 

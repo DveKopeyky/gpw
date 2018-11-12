@@ -1,0 +1,66 @@
+.gpleo-content-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.gpleo-related-tab-content {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  .tab-label {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .gpleo-content {
+
+    .gpleo-tab-content-row {
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+      border-bottom: 1px solid $text-muted;
+
+      &.last {
+        border-bottom: none;
+      }
+
+      .accordion-label {
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+          position: absolute;
+          left: 0;
+          font-size: 20px;
+          color: $gpw-secondary;
+          // @TODO Place icon here.
+          content: ' ';
+        }
+
+        &.active {
+          // @TODO Place icon here.
+          content: ' ';
+        }
+      }
+
+      .gp-leo-row-title {
+        margin-top: 10px;
+
+        .leo-title {
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+
+      .gp-leo-row-description {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.gpleo-content-footer {
+  margin-top: 20px;
+}

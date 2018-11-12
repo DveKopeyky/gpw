@@ -5,7 +5,6 @@
  * Global pact leo module (aka Thesaurus).
  */
 
-
 /**
  * Implements hook_form_FORM_ID_alter().
  */
@@ -34,6 +33,7 @@ function gpleo_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormState
  */
 function gpleo_theme($existing, $type, $theme, $path) {
   return [
+    // Main block.
     'gpleo_content_block_template' => [
       'template' => 'gpleo-content-block-template',
       'variables' => [
@@ -42,36 +42,66 @@ function gpleo_theme($existing, $type, $theme, $path) {
         'tid' => 0,
       ],
     ],
+    // Treaty tab.
     'gpleo_treaty_block_template' => [
       'template' => 'gpleo-treaty-block-template',
       'variables' => [
         'params' => [],
       ],
     ],
+    'gpleo_treaty_text_template' => [
+      'template' => 'gpleo-treaty-text-template',
+      'variables' => [
+        'treaty_item' => [],
+        'article_docs' => [],
+      ],
+    ],
+    'gpleo_treaty_article_template' => [
+      'template' => 'gpleo-treaty-article-template',
+      'variables' => [
+        'article_item' => [],
+        'paragraphs' => [],
+      ],
+    ],
+    'gpleo_treaty_paragraph_template' => [
+      'template' => 'gpleo-treaty-paragraph-template',
+      'variables' => [
+        'paragraph' => [],
+      ],
+    ],
+    // Decision tab.
     'gpleo_decision_block_template' => [
       'template' => 'gpleo-decision-block-template',
       'variables' => [
         'params' => [],
       ],
     ],
-    'gpleo-decision-template' => [
+    'gpleo_decision_template' => [
       'template' => 'gpleo-decision-template',
       'variables' => [
         'doc_item' => [],
       ],
     ],
+    // Documents tab.
     'gpleo_document_block_template' => [
       'template' => 'gpleo-document-block-template',
       'variables' => [
         'params' => [],
       ],
     ],
-    'gpleo-document-template' => [
+    'gpleo_document_template' => [
       'template' => 'gpleo-document-template',
       'variables' => [
         'doc_item' => [],
       ],
     ],
+    'gpleo_literature_template' => [
+      'template' => 'gpleo-literature-template',
+      'variables' => [
+        'doc_item' => [],
+      ],
+    ],
+    // Goals tab.
     'gpleo_goal_block_template' => [
       'template' => 'gpleo-goal-block-template',
       'variables' => [

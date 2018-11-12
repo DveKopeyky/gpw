@@ -28,11 +28,12 @@
       <span class="term-link">{{ params.term_link }}</span>
     </div>
     <div class="gpleo-result-info col-sm-6 text-right">
-    <span class="gpleo-see-more-imformea">
-      {% trans %}
-        See more results on {{ informea_term_link }} in InforMEA
-      {% endtrans %}
-    </span>
+      <span class="gpleo-see-more-imformea">
+        {% trans %}
+          See more results on {{ informea_term_link }} in InforMEA
+        {% endtrans %}
+        <a href="{{ informea_term_link }}"><i class="glyphicon glyphicon-new-window"></i></a>
+      </span>
     </div>
   </div>
 </div>
@@ -42,7 +43,7 @@
     {% if loop.index == docs_length %}
       {% set last_class = 'last' %}
     {% endif %}
-    <div class="gpleo-tab-content-row {{ last_class }}">
+    <div class="gpleo-tab-content-row {{ last_class }} clearfix">
       {{ doc_item }}
     </div>
   {% endfor %}
@@ -52,7 +53,7 @@
     <div class="gpleo-content-read-more col-sm-5 text-left">
       <a href="{{ informea_term_link }}">{{ 'See more results on in InforMEA'|t }}</a>
     </div>
-    <div class="gpleo-content-pager col-sm-7 text-right" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
+    <div class="gpleo-content-pager col-sm-7 text-right" gpleo-tab-id="#tab-2" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
   </div>
 </div>
 
