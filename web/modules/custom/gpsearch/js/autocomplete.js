@@ -26,7 +26,7 @@
     $("#gpsearch_text").keyup(function(event) {
       var code = (event.keyCode ? event.keyCode : event.which);
       var termsList = $('#gpsearch_terms_list');
-      if (code == 40 || code == 38 || code == 13) {
+      if (code == 40 || code == 38) {
         var autocomleteItems = termsList.find('.gpsearch-autocomplete-item');
         var currentIndex = -1;
         var enterEnabled = false;
@@ -40,9 +40,6 @@
         }
         else if (code == 38 && currentIndex > 0) {
           newIndex = currentIndex - 1;
-        }
-        else if (code == 13 && enterEnabled) {
-          location.href = $(autocomleteItems[newIndex]).attr('href');
         }
         autocomleteItems.removeClass('hover');
         var selectedItem = $(autocomleteItems[newIndex]);
