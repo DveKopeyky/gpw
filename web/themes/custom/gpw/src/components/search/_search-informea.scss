@@ -1,0 +1,20 @@
+.block-informeasearch {
+  h2.block-title {
+    margin-top: 40px;
+    font-size: $fs-filter-block-title;
+    font-weight: bold;
+  }
+  .selected-items-wrapper{
+  .facet-item{
+    label,
+    .facets-checkbox {
+      display: none;
+    }
+
+  }
+    a.is-active{
+      display: block !important;
+    }
+  }
+
+}
