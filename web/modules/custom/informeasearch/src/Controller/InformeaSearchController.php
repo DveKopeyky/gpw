@@ -69,10 +69,9 @@ class InformeaSearchController extends ControllerBase {
    */
   public function search() {
     $search_results = $this->informeasearch->search();
-    dpm($search_results->response->numFound);
     return [
       '#type' => 'markup',
-      '#markup' => $this->t('Implement method: search')
+      '#markup' => $search_results->response->numFound
     ];
   }
 

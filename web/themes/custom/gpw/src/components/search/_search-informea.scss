@@ -4,6 +4,12 @@
     font-size: $fs-filter-block-title;
     font-weight: bold;
   }
+  .facet-item{
+    display: flex;
+  }
+  label{
+    height: auto !important;
+  }
   .selected-items-wrapper{
   .facet-item{
     label,
