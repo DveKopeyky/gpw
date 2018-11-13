@@ -1,0 +1,31 @@
+uuid: 8e537a23-129e-4d55-818a-cf1643d7158e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:simple_block:c35cf68d-0462-4d2d-8893-385a3aef9c4c'
+  module:
+    - block_content
+    - system
+  theme:
+    - gpw
+id: gpesearchpagefiltertitle
+theme: gpw
+region: sidebar_first
+weight: -21
+provider: null
+plugin: 'block_content:c35cf68d-0462-4d2d-8893-385a3aef9c4c'
+settings:
+  id: 'block_content:c35cf68d-0462-4d2d-8893-385a3aef9c4c'
+  label: 'GPE search page filter title'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search/gpe\r\n/search/informea"
+    negate: false
+    context_mapping: {  }
