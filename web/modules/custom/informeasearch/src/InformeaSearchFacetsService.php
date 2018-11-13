@@ -99,6 +99,13 @@ class InformeaSearchFacetsService {
     if (!$active ) {
       $params["f"][] = "$field:$facet_key";
     }
+
+    if ($additional_params = $this->informeasearch->aditionalUrlParams()) {
+      foreach ($additional_params as $k => $v) {
+        $params[$k] = $v;
+      }
+    }
+
     return [
       'url' => new Url('informeasearch.informea_search_controller_search', $params),
       'active' => $active,
@@ -139,6 +146,7 @@ class InformeaSearchFacetsService {
         ];
         break;
       case 'field_mea_topic':
+        //TODO. get mapping dynamically
         return [
           850 => t('Biodiversity'),
           851 => t('Chemicals and Waste'),
@@ -168,6 +176,7 @@ class InformeaSearchFacetsService {
         return [];
         break;
       case 'field_region':
+        //TODO. get mapping dynamically
         return [
           410 => t('Africa'),
           411 => t('Asia and the Pacific'),

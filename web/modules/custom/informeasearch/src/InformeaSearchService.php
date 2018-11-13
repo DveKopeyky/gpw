@@ -21,6 +21,10 @@ class InformeaSearchService {
 
   protected $query;
 
+  public $perPage = 10;
+
+  public $page = 0;
+
   public function __construct(RequestStack $request_stack) {
     $this->requestStack = $request_stack;
   }
@@ -46,16 +50,29 @@ class InformeaSearchService {
     if ($search_api_fulltext = $this->requestStack->getCurrentRequest()->query->get('text')) {
       $this->query->setQuery($search_api_fulltext);
     }
+
+
+
   }
 
   public function search() {
+    if ($page = $this->requestStack->getCurrentRequest()->query->get('page')) {
+      $this->page = $page;
+    }
 
     if( !isset(static::$results) ){
+
+
       // Set the results;
       $this->server = Server::load('informea');
       $this->solrClient = $this->server->getBackend()->getSolrConnector();
       $this->query = $this->solrClient->getSelectQuery();
       $this->prepareRequest();
+
+      // Paginate;
+      $offset = $this->page * $this->perPage;
+      $this->query->setStart($offset);
+      $this->query->setRows($this->perPage);
 
 
       // Facets.
@@ -131,5 +148,24 @@ class InformeaSearchService {
       'declaration',
       'literature',
     ];
+  }
+
+
+  public function getAdditionalKeys() {
+    $keys =
+      [
+        'text',
+      ];
+    return $keys;
+  }
+
+  public function aditionalUrlParams(){
+    $params = [];
+    foreach ($this->getAdditionalKeys() as $param) {
+      if ($value = $this->requestStack->getCurrentRequest()->query->get($param)) {
+        $params[$param] = $value;
+      }
+    }
+    return $params;
   }
 }

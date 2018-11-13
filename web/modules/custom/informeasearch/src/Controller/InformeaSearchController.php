@@ -69,9 +69,14 @@ class InformeaSearchController extends ControllerBase {
    */
   public function search() {
     $search_results = $this->informeasearch->search();
+    $res = [];
+    foreach ($search_results->response->docs as $r) {
+      $res[] = $r->item_id;
+    }
+
     return [
       '#type' => 'markup',
-      '#markup' => $search_results->response->numFound
+      '#markup' => "Total:" . $search_results->response->numFound . " Results: " . implode (",", $res),
     ];
   }
 
