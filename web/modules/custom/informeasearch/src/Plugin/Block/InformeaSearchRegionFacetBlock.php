@@ -6,7 +6,7 @@ namespace Drupal\informeasearch\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\informeasearch\InformeaSearchService;
+use Drupal\informeasearch\InformeaSearchFacetsService;
 
 /**
  * Global search block shown in the website's header
@@ -20,16 +20,16 @@ use Drupal\informeasearch\InformeaSearchService;
 class InformeaSearchRegionFacetBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * Drupal\informeasearch\InformeaSearchService definition.
+   * Drupal\informeasearch\InformeaSearchFacetsService definition.
    *
-   * @var \Drupal\informeasearch\InformeaSearchService
+   * @var \Drupal\informeasearch\InformeaSearchFacetsService
    */
-  protected $informeasearch;
+  protected $facets;
 
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, InformeaSearchService $informeasearch) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, InformeaSearchFacetsService $facets) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
-    $this->informeasearch = $informeasearch;
+    $this->facets = $facets;
   }
 
   /**
@@ -40,7 +40,7 @@ class InformeaSearchRegionFacetBlock extends BlockBase implements ContainerFacto
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('informeasearch')
+      $container->get('informeasearch.facets')
     );
   }
 
@@ -49,6 +49,6 @@ class InformeaSearchRegionFacetBlock extends BlockBase implements ContainerFacto
    * {@inheritdoc}
    */
   public function build() {
-    return $this->informeasearch->facetBuild('informeaseach_region_facet', 'field_region');
+    return $this->facets->facetBuild('informeaseach_region_facet', 'field_region');
   }
 }

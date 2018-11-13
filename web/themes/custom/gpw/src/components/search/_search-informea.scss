@@ -4,23 +4,24 @@
     font-size: $fs-filter-block-title;
     font-weight: bold;
   }
-  .facet-item{
+  .facet-item {
     display: flex;
+    input[type="checkbox"] {
+      margin: 0;
+    }
   }
   label{
     height: auto !important;
   }
-  .selected-items-wrapper{
-  .facet-item{
-    label,
-    .facets-checkbox {
-      display: none;
+  .selected-items-wrapper {
+    .facet-item {
+      label,
+      .facets-checkbox {
+        display: none;
+      }
     }
-
-  }
     a.is-active{
       display: block !important;
     }
   }
-
 }

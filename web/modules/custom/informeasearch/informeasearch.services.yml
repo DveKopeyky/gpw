@@ -2,3 +2,6 @@ services:
   informeasearch:
     class: Drupal\informeasearch\InformeaSearchService
     arguments: ['@request_stack']
+  informeasearch.facets:
+    class: Drupal\informeasearch\InformeaSearchFacetsService
+    arguments: ['@informeasearch']
