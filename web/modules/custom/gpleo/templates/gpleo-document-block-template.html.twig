@@ -1,0 +1,54 @@
+{#
+  Available variables:
+  params
+    page - page number
+    limit - items per page
+    term_name - Term name
+    term_link - Term link
+    tid - Term ID
+    numFound - length of the list of elements,
+    start - offset,
+    docs - list of elements
+      tm_field_decision_number
+      is_nid
+      ss_search_api_url
+      tm_title
+#}
+
+<div class="gpleo-content-header">
+  <div class="row">
+    <div class="gpleo-result-info col-sm-6 text-left">
+      <span class="num-found">{{ params.numFound }}</span>
+      <span class="tab-label">{{ 'Documents and Literature'|t }}</span>
+      <span class="simple-text">{{ 'tagged with'|t }}</span>
+      <span class="term-link">{{ params.term_link }}</span>
+    </div>
+    <div class="gpleo-result-info col-sm-6 text-right">
+      <span class="gpleo-see-more-imformea">
+        {% trans %}
+          See more results on {{ informea_term_link }} in InforMEA
+        {% endtrans %}
+        <a href="{{ informea_term_link }}"><i class="glyphicon glyphicon-new-window"></i></a>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="gpleo-content">
+  {% for doc_item in params.docs %}
+    {% if loop.index == params.docs|length %}
+      {% set last_class = 'last' %}
+    {% endif %}
+    <div class="gpleo-tab-content-row {{ last_class }} clearfix">
+      {{ doc_item }}
+    </div>
+  {% endfor %}
+</div>
+<div class="gpleo-content-footer col-sm-12">
+  <div class="row">
+    <div class="gpleo-content-read-more col-sm-5 text-left">
+      <a href="{{ informea_term_link }}">{{ 'See more results on in InforMEA'|t }}</a>
+    </div>
+    <div class="gpleo-content-pager col-sm-7 text-right" gpleo-tab-id="#tab-3" gpleo-items="{{ params.numFound }}" gpleo-limit="{{ params.limit }}" gpleo-page="{{ params.page }}"></div>
+  </div>
+</div>
+

@@ -1,0 +1,31 @@
+gpleo.treaty_text:
+  path: '/gpleo/treaty_text/{taxonomy_term}'
+  defaults:
+    _controller: '\Drupal\gpleo\Controller\GPLeoInforMEAContent::getTreatyText'
+    _title: 'Get Treaty text from informea server'
+  requirements:
+    _permission: 'access content'
+
+gpleo.treaty_decisions:
+  path: '/gpleo/treaty_decisions/{taxonomy_term}'
+  defaults:
+    _controller: '\Drupal\gpleo\Controller\GPLeoInforMEAContent::getTreatyDecisions'
+    _title: 'Get Treaty decisions from informea server'
+  requirements:
+    _permission: 'access content'
+
+gpleo.documents_and_literature:
+  path: '/gpleo/documents_and_literature/{taxonomy_term}'
+  defaults:
+    _controller: '\Drupal\gpleo\Controller\GPLeoInforMEAContent::getDocumentsAndLiterature'
+    _title: 'Get documents and literature from informea server'
+  requirements:
+    _permission: 'access content'
+
+gpleo.goals_and_declarations:
+  path: '/gpleo/goals_and_declarations/{taxonomy_term}'
+  defaults:
+    _controller: '\Drupal\gpleo\Controller\GPLeoInforMEAContent::getGoalsAndDeclarations'
+    _title: 'Get goals and declarations from informea server'
+  requirements:
+    _permission: 'access content'
