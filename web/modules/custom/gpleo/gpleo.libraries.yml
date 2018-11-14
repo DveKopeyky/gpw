@@ -15,3 +15,8 @@ thesaurus:
 glossary-tabs:
   js:
     js/glossary-tabs.js: {}
+
+informea:
+  js:
+    js/informea.js: {}
+    js/jquery.simplePagination.js: {}

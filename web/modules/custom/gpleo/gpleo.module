@@ -6,12 +6,12 @@
  */
 
 use Drupal\eck\Entity\EckEntity;
-
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function gpleo_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function gpleo_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $view = $form_state->getStorage('view');
 
   if ($view['view']->id() == 'thesaurus') {
@@ -52,10 +52,95 @@ function gpleo_node_presave(\Drupal\Core\Entity\EntityInterface $node) {
   }
 }
 
-
-function gpleo_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  /*dpm($form['#form_id']);
-  dpm($form['form_id']);*/
- /* dpm($form_state);
-  dpm(array_keys($form));*/
+/**
+ * Implements hook_theme().
+ */
+function gpleo_theme($existing, $type, $theme, $path) {
+  return [
+    'gpthesaurus_list_type_switcher_block' => [
+      'template' => 'glossary-list-type-switcher',
+      'variables' => [
+        'topic_page_link' => '',
+        'topic_link_classes' => [],
+        'alphabetically_page_link' => '',
+        'alphabetically_link_classes' => [],
+        'download_link' => '',
+      ]
+    ],
+    // Main block.
+    'gpleo_content_block_template' => [
+      'template' => 'gpleo-content-block-template',
+      'variables' => [
+        'informea_tid' => 0,
+        'term_name' => '',
+        'tid' => 0,
+      ],
+    ],
+    // Treaty tab.
+    'gpleo_treaty_block_template' => [
+      'template' => 'gpleo-treaty-block-template',
+      'variables' => [
+        'params' => [],
+      ],
+    ],
+    'gpleo_treaty_text_template' => [
+      'template' => 'gpleo-treaty-text-template',
+      'variables' => [
+        'treaty_item' => [],
+        'article_docs' => [],
+      ],
+    ],
+    'gpleo_treaty_article_template' => [
+      'template' => 'gpleo-treaty-article-template',
+      'variables' => [
+        'article_item' => [],
+        'paragraphs' => [],
+      ],
+    ],
+    'gpleo_treaty_paragraph_template' => [
+      'template' => 'gpleo-treaty-paragraph-template',
+      'variables' => [
+        'paragraph' => [],
+      ],
+    ],
+    // Decision tab.
+    'gpleo_decision_block_template' => [
+      'template' => 'gpleo-decision-block-template',
+      'variables' => [
+        'params' => [],
+      ],
+    ],
+    'gpleo_decision_template' => [
+      'template' => 'gpleo-decision-template',
+      'variables' => [
+        'doc_item' => [],
+      ],
+    ],
+    // Documents tab.
+    'gpleo_document_block_template' => [
+      'template' => 'gpleo-document-block-template',
+      'variables' => [
+        'params' => [],
+      ],
+    ],
+    'gpleo_document_template' => [
+      'template' => 'gpleo-document-template',
+      'variables' => [
+        'doc_item' => [],
+      ],
+    ],
+    'gpleo_literature_template' => [
+      'template' => 'gpleo-literature-template',
+      'variables' => [
+        'doc_item' => [],
+      ],
+    ],
+    // Goals tab.
+    'gpleo_goal_block_template' => [
+      'template' => 'gpleo-goal-block-template',
+      'variables' => [
+        'params' => [],
+      ],
+    ],
+  ];
 }

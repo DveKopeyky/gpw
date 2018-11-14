@@ -1,0 +1,39 @@
+{#
+  treaty_item
+    tm_title
+    ss_search_api_url
+    is_nid
+    numFound
+    page
+    term_name
+    term_link
+    tid
+    limit
+    article_docs
+#}
+
+<div class="gp-leo-row-title col-sm-12">
+  <span class="leo-title">{{ treaty_item.tm_title[0] }}</span>
+  <span class="leo-link">
+    <a href="{{ treaty_item.ss_search_api_url }}"><i class="glyphicon glyphicon-new-window"></i></a>
+  </span>
+</div>
+
+<div class="gp-leo-row-description col-sm-12">
+  <div class="leo-description">{{ treaty_item.body }}</div>
+  {# @TODO IMPROTANT!!! Do not forget remove this test text from it. #}
+  Test text decription exmaple words without any order bla bla bla
+</div>
+
+{% if article_docs %}
+  <div class="treaty-tabs col-sm-12">
+    <div class="gp-leo-treaty-articles-label accordion-label" data-list-id="trety-{{ treaty_item.is_nid }}-article-list">{{ 'Treaty articles'|t }} ({{ article_docs|length }})</div>
+  </div>
+  <div id="trety-{{ treaty_item.is_nid }}-article-list" class="gp-leo-treaty-article-list col-sm-12">
+    {% for article_item in article_docs %}
+      <div class="gp-leo-article-row">
+        {{ article_item }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -34,7 +34,7 @@ class InformeaSearchFacetsService {
 
 
     $facet_items = $this->facetItems($field);
-    $facet_labels = $this->facetLabels($field, $facet_items);
+    $facet_labels = self::facetLabels($field, $facet_items);
 
     $facet_results = [];
 
@@ -132,7 +132,7 @@ class InformeaSearchFacetsService {
     }
   }
 
-  public function facetLabels($field = NULL, $facet_items = []) {
+  public static function facetLabels($field = NULL, $facet_items = []) {
     switch($field) {
       case 'type':
         return [

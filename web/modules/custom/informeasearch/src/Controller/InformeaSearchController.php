@@ -8,6 +8,8 @@ use Drupal\Core\Entity\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\informeasearch\InformeaSearchService;
+use Drupal\informeasearch\InformeaSearchFacetsService;
+
 
 /**
  * Class InformeaSearchController.
@@ -68,16 +70,52 @@ class InformeaSearchController extends ControllerBase {
    *   Return Hello string.
    */
   public function search() {
-    $search_results = $this->informeasearch->search();
-    $res = [];
-    foreach ($search_results->response->docs as $r) {
-      $res[] = $r->item_id;
+    $search_results = $this->informeasearch->search()->response;
+
+
+    $types = InformeaSearchFacetsService::facetLabels('type');
+    $topics = InformeaSearchFacetsService::facetLabels('field_mea_topic');
+
+
+    $results = [];
+    if ($search_results->numFound ){
+      $template_data = (array) $search_results;
+
+      // Prepare templates.
+      $docs = $template_data['docs'];
+      foreach ($docs as $delta => $doc_item) {
+
+
+        if (isset($types[$doc_item->ss_type])) {
+          $doc_item->type = $types[$doc_item->ss_type];
+        }
+        $doc_topics = [];
+        if ($doc_item->im_field_mea_topic) {
+          foreach ($doc_item->im_field_mea_topic as $topic) {
+            if (isset($topics[$topic])) {
+              $doc_topics[] = $topics[$topic];
+            }
+          }
+          $doc_item->topics = implode(', ', $doc_topics);
+        }
+
+        $results['docs'][] = [
+            "#theme" => "informeasearch_item",
+            "#doc_item" => $doc_item,
+          ];
+      }
+      // Initialize the pager;
+      pager_default_initialize($search_results->numFound, 10);
+    }
+    else {
+      $results = ['#markup' => '<p class="text-center text-muted">' . t('There are no search results.') . '</p>',];
     }
 
     return [
-      '#type' => 'markup',
-      '#markup' => "Total:" . $search_results->response->numFound . " Results: " . implode (",", $res),
+      'results' => $results,
+      'pager' => ['#type' => 'pager'],
     ];
+
   }
 
 }

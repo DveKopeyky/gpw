@@ -1,0 +1,32 @@
+{#
+  Data for this will be filled via AJAX.
+
+  Available variables:
+    informea_tid - Term Id on informea
+    tid - Term ID on this site
+    term_name - term name
+#}
+<div id="gpleo_related_wrapper" class="gpleo-related-wrapper">
+  <a id="informea_tid" data-term-id="{{ informea_tid }}" class="hidden"></a>
+  <div id="gpleo_related_header" class="gpleo-related-header row">
+    <div id="gpleo_related_blue" class="col-sm-4">{{ 'Explore in InforMEA'|t }}</div>
+    <div id="gpleo_related_informea_logo" class="col-sm-4 col-sm-offset-4"></div>
+  </div>
+  <div id="gpleo_related_title" class="gpleo-related-header row">
+    <h3>{{ 'Content tagged with'|t }} <span class="term-name">{{ term_name }}</span></h3>
+  </div>
+  <div id="gpleo_related_content" class="gpleo-related-content row">
+    <div id="gpleo_related_tabs" class="col-sm-12">
+      <div id="treaty_text" class="gpleo-related-tab" gpleo-action="/gpleo/treaty_text/{{ tid }}">{{ 'Treaty Text'|t }}</div>
+      <div id="treaty_decisions" class="gpleo-related-tab" gpleo-action="/gpleo/treaty_decisions/{{ tid }}">{{ 'Treaty Decisions'|t }}</div>
+      <div id="documents_and_literature" class="gpleo-related-tab" gpleo-action="/gpleo/documents_and_literature/{{ tid }}">{{ 'Documents and Literature'|t }}</div>
+      <div id="goals_and_declarations" class="gpleo-related-tab" gpleo-action="/gpleo/goals_and_declarations/{{ tid }}">{{ 'Goals and Declarations'|t }}</div>
+    </div>
+    <div id="gpleo_related_tabs_content_wrapper" class="col-sm-12">
+      <div id="treaty_text_content" class="gpleo-related-tab-content row"></div>
+      <div id="treaty_decisions_content" class="gpleo-related-tab-content row"></div>
+      <div id="documents_and_literature_content" class="gpleo-related-tab-content row"></div>
+      <div id="goals_and_declarations_content" class="gpleo-related-tab-content row"></div>
+    </div>
+  </div>
+</div>

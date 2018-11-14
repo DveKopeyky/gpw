@@ -111,3 +111,26 @@
     }
   }
 }
+
+.search-switcher-tabs {
+  display: flex;
+  justify-content: flex-end !important;
+  border-bottom: 1px solid #737373;
+  .nav-item {
+    .nav-link {
+      margin-right: -1px;
+      border: 1px solid #737373;
+    }
+    &:last-child {
+      .nav-link {
+        margin-right: 15px;
+      }
+    }
+    .active {
+      border-bottom: 1px solid #ffffff !important;
+      color: #000000;
+    }
+  }
+
+
+}

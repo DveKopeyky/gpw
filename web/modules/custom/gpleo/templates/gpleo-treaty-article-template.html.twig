@@ -1,0 +1,20 @@
+{#
+  article_item
+    tm_title
+    ss_search_api_url
+    is_nid
+  paragraphs
+#}
+{% if paragraphs|length > 0 %}
+  {% set accordion_class = 'accordion-label' %}
+{% endif %}
+<div class="gp-leo-row-title treaty-article">
+  <span class="leo-article-title {{ accordion_class }}" data-list-id="trety-{{ article_item.is_nid }}-paragraphs-list">{{ article_item.tm_title[0] }}</span>
+</div>
+<div id="trety-{{ article_item.is_nid }}-paragraphs-list" class="gp-leo-paragraphs">
+  {% for paragraph in paragraphs %}
+    <div class="gpleo-paragraph-row">
+      {{ paragraph }}
+    </div>
+  {% endfor %}
+</div>

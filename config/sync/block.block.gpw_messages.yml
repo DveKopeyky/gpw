@@ -11,7 +11,7 @@ _core:
 id: gpw_messages
 theme: gpw
 region: highlighted
-weight: -10
+weight: -20
 provider: null
 plugin: system_messages_block
 settings:
