@@ -6,7 +6,9 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
+use Drupal\node\NodeInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
 /**
  * Implements hook_help().
  */
@@ -22,4 +24,15 @@ function gpbase_help($route_name, RouteMatchInterface $route_match) {
     default:
       return '';
   }
+}
+
+/**
+ * Implements hook_node_access().
+ */
+function gpbase_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  $result = AccessResult::neutral();
+  if ($node->bundle() == 'report_page' && $op == 'view' && !$account->hasPermission('view report page ct')) {
+    $result = AccessResult::forbidden();
+  }
+  return $result;
 }

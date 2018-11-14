@@ -15,4 +15,5 @@ permissions:
   - 'access toolbar'
   - 'view any child_entity entities'
   - 'view own unpublished content'
+  - 'view report page ct'
   - 'view the administration theme'
