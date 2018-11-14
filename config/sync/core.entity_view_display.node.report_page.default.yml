@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.report_page.field_thesaurus
     - node.type.report_page
   module:
+    - gpbase
     - link_formatter
     - text
     - user
@@ -47,10 +48,9 @@ content:
   field_thesaurus:
     weight: 103
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: definition_popup_field_formatter
     region: content
   links:
     weight: 100

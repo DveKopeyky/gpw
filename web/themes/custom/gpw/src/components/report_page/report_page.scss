@@ -36,11 +36,17 @@
     }
     li {
       list-style-type: none;
+      margin-bottom: 5px;
       a {
         display: block;
         padding: 5px 10px;
-        color: #aac513;
-        margin-bottom: 5px;
+        color: #fff;
+      }
+      ul {
+        border-top: 5px solid #fff;
+        li {
+          background-color: #333333;
+        }
       }
     }
   }

@@ -4,14 +4,13 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_report_page_resources
-    - node.type.document
     - node.type.report_page
     - node.type.video
 id: node.report_page.field_report_page_resources
 field_name: field_report_page_resources
 entity_type: node
 bundle: report_page
-label: 'Learning resources'
+label: Videos
 description: ''
 required: false
 translatable: false
@@ -21,7 +20,6 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      document: document
       video: video
     sort:
       field: _none
