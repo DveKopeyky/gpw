@@ -333,6 +333,11 @@ function gpw_preprocess_page_title(&$variables) {
           $variables['subtitle']['news_category'] = $node->field_news_category->view('full');
         }
         break;
+      case 'report_page':
+        $variables['subtitle'] = $node->label();
+        $variables['title'] = t('Gaps in international environmental law and environment-related instruments');
+
+        break;
 
       default:
         break;

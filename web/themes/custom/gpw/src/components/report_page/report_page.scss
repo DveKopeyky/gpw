@@ -1,13 +1,18 @@
 @import '../../utilities';
 
 .page-node-type-report-page {
-  .field--name-field-report-page-resources>.field--items>.field--item{
-    &:nth-child(2n+1) {
-      margin-right: 2%;
+  .field--name-field-report-page-resources {
+    &>.field--items>.field--item {
+      &:nth-child(2n+1) {
+        margin-right: 2%;
+      }
+      width: 48%;
+      display: inline-block;
+      vertical-align: top;
     }
-    width: 48%;
-    display: inline-block;
-    vertical-align: top;
+    &>.field--label {
+
+    }
   }
   .field--name-field-thesaurus {
     .field--item {
@@ -43,10 +48,7 @@
         color: #fff;
       }
       ul {
-        border-top: 5px solid #fff;
-        li {
-          background-color: #333333;
-        }
+        background-color: #333333;
       }
     }
   }

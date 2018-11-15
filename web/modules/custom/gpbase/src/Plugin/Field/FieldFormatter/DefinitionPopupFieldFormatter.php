@@ -57,7 +57,11 @@ class DefinitionPopupFieldFormatter extends FormatterBase {
 
     foreach ($items as $delta => $item) {
       $elements[$delta] = [
-        '#children' => "<a href='#' onclick='return false;' data-toggle=\"tooltip\" data-placement=\"top\" title=\"" . $item->entity->field_definitions->getString(). "\">" . $item->entity->label() . "</a>"
+        '#children' => "<a href='" .$item->entity->url() . "' 
+         data-toggle=\"tooltip\" 
+         data-placement=\"top\" 
+         target='_blank'
+         title=\"" . $item->entity->field_definitions->getString(). "\">" . $item->entity->label() . "</a>"
       ];
     }
 
