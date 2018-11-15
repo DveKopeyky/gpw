@@ -1,0 +1,8 @@
+uuid: e2350d44-690c-48f3-b5a2-889291ad7cbd
+langcode: en
+status: true
+dependencies: {  }
+id: report-page
+label: 'Report page'
+description: 'This menu contains the sections from the GPE report.'
+locked: false

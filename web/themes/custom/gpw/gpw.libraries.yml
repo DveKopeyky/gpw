@@ -60,6 +60,10 @@ news:
     theme:
       dist/components/news/news.css: {}
       dist/components/news/news-views.css: {}
+report_page:
+  css:
+    theme:
+      dist/components/report_page/report_page.css: {}
 
 documents:
   css:
@@ -134,3 +138,4 @@ framework:
     - gpw/homepage
     - gpw/glossary
     - gpw/taxonomy_term
+    - gpw/report_page

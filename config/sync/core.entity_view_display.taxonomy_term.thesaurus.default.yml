@@ -37,7 +37,7 @@ content:
     type: basic_string
     region: content
   field_related_leo_terms:
-    type: entity_reference_label
+    type: number_integer
     weight: 2
     region: content
     label: above

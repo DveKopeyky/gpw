@@ -1,0 +1,4 @@
+
+view report page ct:
+  title: 'View Report page CT'
+  description: 'Allow access to report_page nodes'

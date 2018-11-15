@@ -1,0 +1,28 @@
+uuid: c21dc2b4-fe3c-4381-ae9f-d278370b5b5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_page_resources
+    - node.type.report_page
+    - node.type.video
+id: node.report_page.field_report_page_resources
+field_name: field_report_page_resources
+entity_type: node
+bundle: report_page
+label: Videos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference
