@@ -22,3 +22,18 @@ function informeasearch_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+
+/**
+ * Implements hook_theme().
+ */
+function informeasearch_theme($existing, $type, $theme, $path) {
+  return [
+    'informeasearch_item' => [
+      'template' => 'informeasearch-item',
+      'variables' => [
+        'doc_item' => [],
+      ],
+    ],
+  ];
+}

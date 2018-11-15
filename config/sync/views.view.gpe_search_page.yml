@@ -206,7 +206,7 @@ display:
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
-            identifier: search_api_fulltext
+            identifier: text
             required: false
             remember: false
             multiple: false

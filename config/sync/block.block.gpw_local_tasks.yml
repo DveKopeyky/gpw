@@ -9,7 +9,7 @@ _core:
 id: gpw_local_tasks
 theme: gpw
 region: highlighted
-weight: -9
+weight: -19
 provider: null
 plugin: local_tasks_block
 settings:

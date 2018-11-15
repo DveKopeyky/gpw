@@ -62,12 +62,14 @@ class InformeaSearchService {
 
     if( !isset(static::$results) ){
 
-
       // Set the results;
       $this->server = Server::load('informea');
       $this->solrClient = $this->server->getBackend()->getSolrConnector();
       $this->query = $this->solrClient->getSelectQuery();
       $this->prepareRequest();
+
+      // Set fields;
+      $this->query->setFields($this->defaultFields());
 
       // Paginate;
       $offset = $this->page * $this->perPage;
@@ -147,6 +149,18 @@ class InformeaSearchService {
       'goal',
       'declaration',
       'literature',
+    ];
+  }
+
+  public function defaultFields() {
+    return [
+      'is_nid',
+      'tm_field_decision_number',
+      'ss_search_api_url',
+      'tm_title',
+      'ss_type',
+      'content',
+      'im_field_mea_topic',
     ];
   }
 

@@ -1,0 +1,15 @@
+{% import "@gpw/_icons.twig" as icons %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>
+          <a href="{{ doc_item.ss_search_api_url }}" target="_blank">
+            {{ doc_item.tm_title[0] }}
+          </a>
+        </h3>
+        <div>{{ doc_item.content }}</div>
+      <div>{{ icons.get('tag', base_path ~ directory, '', 20, 20) }} {{ doc_item.type }}
+        {% if (doc_item.topics) %}<em>in {{ doc_item.topics }}</em>{%  endif %}
+      </div>
+    </div>
+</div>
