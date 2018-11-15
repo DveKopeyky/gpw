@@ -4,6 +4,7 @@ namespace Drupal\gpleo\Controller;
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\search_api\Entity\Server;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\taxonomy\TermInterface;
@@ -13,14 +14,32 @@ use Drupal\taxonomy\TermInterface;
  */
 class GPLeoInforMEAContent extends ControllerBase {
 
+  private function getSearchUrl() {
+    $server = Server::load('informea');
+    $config = $server->getBackendConfig();
+    $scheme = $config['connector_config']['scheme'];
+    $host = $config['connector_config']['host'];
+    $port = $config['connector_config']['port'];
+    $path = $config['connector_config']['path'];
+    $core = $config['connector_config']['core'];
+    if (!empty($config['connector_config']['username']) && !empty($config['connector_config']['password'])) {
+      $auth = sprintf('%s:%s', $config['connector_config']['username'], $config['connector_config']['password']);
+      $server_url = sprintf('%s://%s@%s:%s%s/%s/select', $scheme, $auth, $host, $port, $path, $core);
+    }
+    else {
+      $server_url = sprintf('%s://%s:%s%s/%s/select', $scheme, $host, $port, $path, $core);
+    }
+    return $server_url;
+  }
+
   /**
    * Building query to the informea server.
    */
   private function buildQuery($content_type, $informea_tid, $fields = [], $page = 1, $limit = 5, $additional_query_params = '') {
     // @TODO replace it with variables when settings form will be ready.
-    $server_url = 'http://informea:solr6@search.informea.org/solr/informea/select';
-    $offset = ($page - 1) * $limit;
+    $server_url = $this->getSearchUrl();
 
+    $offset = ($page - 1) * $limit;
     $request_data[] = $server_url . '?';
     $request_data[] = 'indent=on';
     $request_data[] = 'q=*:*';
@@ -135,7 +154,7 @@ class GPLeoInforMEAContent extends ControllerBase {
    */
   private function prepareTreatyParentsPagedList($informea_tid, $content_type, $limit) {
     // @TODO Replace it with variable.
-    $url = 'http://informea:solr6@search.informea.org/solr/informea/select';
+    $url = $this->getSearchUrl();
     $url .= '?q=*:*';
     $url .= '&wt=json';
     $url .= '&fq=ss_type:' . $content_type;
@@ -182,7 +201,7 @@ class GPLeoInforMEAContent extends ControllerBase {
     $treaty_tree = [];
     if (isset($treaty_nids[$page])) {
       // Get all treaty data.
-      $url = 'http://informea:solr6@search.informea.org/solr/informea/select';
+      $url = $this->getSearchUrl();
       $url .= '?q=*:*';
       $url .= '&wt=json';
       $url .= '&fq=ss_type:treaty';
