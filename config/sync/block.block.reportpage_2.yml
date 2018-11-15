@@ -1,27 +1,30 @@
-uuid: a6a16a27-52b3-4762-b91f-16dfc9aca885
+uuid: 4aaa0e99-5e37-4ef1-8d5b-7523258f38de
 langcode: en
 status: true
 dependencies:
   config:
     - system.menu.report-page
   module:
+    - menu_block
     - node
-    - system
   theme:
     - gpw
-id: reportpage
+id: reportpage_2
 theme: gpw
 region: sidebar_first
 weight: 0
 provider: null
-plugin: 'system_menu_block:report-page'
+plugin: 'menu_block:report-page'
 settings:
-  id: 'system_menu_block:report-page'
+  id: 'menu_block:report-page'
   label: 'Report page'
-  provider: system
+  provider: menu_block
   label_display: '0'
   level: 1
   depth: 0
+  expand: 1
+  parent: 'report-page:'
+  suggestion: report_page
 visibility:
   node_type:
     id: node_type

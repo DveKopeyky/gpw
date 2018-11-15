@@ -46,6 +46,7 @@ module:
   language: 0
   link: 0
   link_formatter: 0
+  menu_block: 0
   menu_link_attributes: 0
   menu_ui: 0
   node: 0
