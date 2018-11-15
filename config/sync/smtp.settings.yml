@@ -5,11 +5,11 @@ smtp_port: '465'
 smtp_protocol: ssl
 smtp_username: ''
 smtp_password: ''
-smtp_from: ''
-smtp_fromname: ''
+smtp_from: drupal@eaudeweb.ro
+smtp_fromname: 'Global Pact'
 smtp_client_hostname: ''
 smtp_client_helo: ''
-smtp_allowhtml: '0'
+smtp_allowhtml: '1'
 smtp_test_address: ''
 smtp_debugging: false
 prev_mail_system: php_mail

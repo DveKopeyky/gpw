@@ -17,7 +17,7 @@ id: contact
 title: Contact
 description: 'Basic email contact webform.'
 category: ''
-elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[current-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[current-user:mail]'\nsubject:\n  '#title': Subject\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send message'\n"
+elements: "contact_form_introduction:\n  '#type': processed_text\n  '#text': |\n    <h3 class=\"text-align-justify\">Do you have questions or comments on the process or the substantive topics of the Global Pact for the Environment? Thanks for sharing them. You will receive a response from the Law Division of UN Environment shortly.</h3>\n    \n  '#format': full_html\nname:\n  '#type': textfield\n  '#title': 'Your Name :'\n  '#required': true\n  '#default_value': '[current-user:display-name]'\nemail:\n  '#type': email\n  '#title': 'Your Email :'\n  '#required': true\n  '#default_value': '[current-user:mail]'\nsubject:\n  '#type': textfield\n  '#title': 'Subject :'\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nemail_purpose:\n  '#type': radios\n  '#title': 'Select one of the options below :'\n  '#options':\n    1: 'My question is related to the governance process of the Global Pact for the Environment'\n    2: 'I would like more information on a substantive issue relevant in the context of the Global Pact for the Environment'\n  '#required': true\n  '#wrapper_type': form_element\nmessage:\n  '#type': textarea\n  '#title': 'Message :'\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send message'"
 css: ''
 javascript: ''
 settings:
@@ -203,17 +203,57 @@ handlers:
       sender_name: ''
   email_notification:
     id: email
-    label: 'Email notification'
+    label: 'Email notification - Type #1'
     handler_id: email_notification
     status: true
-    conditions: {  }
+    conditions:
+      enabled:
+        ':input[name="email_purpose"]':
+          value: '1'
     weight: 1
     settings:
       states:
         - completed
-      to_mail: _default
+      to_mail: Angela.Kariuki@un.org
       to_options: {  }
       cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: '[webform_submission:values:email:raw]'
+      from_options: {  }
+      from_name: '[webform_submission:values:name:raw]'
+      subject: '[webform_submission:values:subject:raw]'
+      body: '[webform_submission:values:message:value]'
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+  email_notification_type_1:
+    id: email
+    label: 'Email notification - Type #2'
+    handler_id: email_notification_type_1
+    status: true
+    conditions:
+      enabled:
+        ':input[name="email_purpose"]':
+          value: '2'
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: Iddah.Kamau@un.org
+      to_options: {  }
+      cc_mail: Lillian.Onyango@un.org
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
