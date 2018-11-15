@@ -142,5 +142,11 @@ function gpleo_theme($existing, $type, $theme, $path) {
         'params' => [],
       ],
     ],
+    'gpleo_green_block' => [
+      'template' => 'gpleo-green-block',
+      'variables' => [
+        'content' => [],
+      ]
+    ],
   ];
 }
