@@ -12,3 +12,4 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'view any child_entity entities'
+  - 'view media'

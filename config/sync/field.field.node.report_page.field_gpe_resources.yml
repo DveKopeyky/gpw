@@ -1,0 +1,32 @@
+uuid: 2cf4ebe2-6e66-4376-9761-32d3bb722482
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gpe_resources
+    - node.type.document
+    - node.type.external_resource
+    - node.type.highlighted_course
+    - node.type.report_page
+id: node.report_page.field_gpe_resources
+field_name: field_gpe_resources
+entity_type: node
+bundle: report_page
+label: Resources
+description: 'Add here references to existing GPE website content'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      highlighted_course: highlighted_course
+      document: document
+      external_resource: external_resource
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference

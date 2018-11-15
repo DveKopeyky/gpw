@@ -14,6 +14,7 @@
 
     }
   }
+
   .field--name-field-thesaurus {
     .field--item {
       display: inline;
@@ -27,8 +28,24 @@
       }
     }
   }
+
   .report-page-sidebar>.field {
     padding-bottom: 10px;
+  }
+
+  .field--name-field-videos {
+    .field--label {
+      margin: 10px 0 15px 0;
+    }
+
+    h3 {
+      font-size: 1em;
+      margin: 2px 0 0 0;
+    }
+
+    article {
+      margin-bottom: 15px;
+    }
   }
 
   .report-menu {
@@ -45,11 +62,18 @@
       a {
         display: block;
         padding: 5px 10px;
-        color: #fff;
+        color: #333;
       }
-      ul {
-        background-color: #333333;
+
+      a.is-active {
+        font-weight: bold;
+        color: #333;
+        &::after {
+          float: right;
+          content: '♦';
+        }
       }
+
     }
   }
 }

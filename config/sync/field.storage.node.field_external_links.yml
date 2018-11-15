@@ -1,16 +1,16 @@
-uuid: d98cea85-a25c-4e21-b19e-309c8ee6dd8c
+uuid: d9c603e9-8906-42ae-b826-661a2eb2b0e5
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-    - text
-id: node.field_report_page_references
-field_name: field_report_page_references
+id: node.field_external_links
+field_name: field_external_links
 entity_type: node
-type: text_long
+type: link
 settings: {  }
-module: text
+module: link
 locked: false
 cardinality: -1
 translatable: true

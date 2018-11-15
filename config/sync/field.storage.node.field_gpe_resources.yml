@@ -1,11 +1,11 @@
-uuid: c3784352-fd0f-4f96-8054-72084cee928b
+uuid: 8ba648f3-287b-4534-ad7c-fea413a546b3
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_report_page_resources
-field_name: field_report_page_resources
+id: node.field_gpe_resources
+field_name: field_gpe_resources
 entity_type: node
 type: entity_reference
 settings:

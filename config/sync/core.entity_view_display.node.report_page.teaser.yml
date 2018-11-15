@@ -16,5 +16,9 @@ content:
     weight: 100
     region: content
 hidden:
+  field_report_page_iframe: true
+  field_report_page_references: true
+  field_report_page_resources: true
+  field_thesaurus: true
   langcode: true
   search_api_excerpt: true

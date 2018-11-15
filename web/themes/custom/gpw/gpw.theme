@@ -228,15 +228,6 @@ function gpw_preprocess_menu__footer(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gpw_preprocess_menu__report_page(&$variables) {
-  foreach ($variables["items"] as $delta => $item ) {
-    $variables["items"][$delta]['url']->setOption('attributes',['target' => '_blank']);
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
 function gpw_preprocess_region(&$variables) {
   if($variables['region'] == 'title') {
     $variables['attributes']['class'][] = 'hero';
@@ -344,9 +335,6 @@ function gpw_preprocess_page_title(&$variables) {
 
     }
   }
-
-
-
 }
 
 /**
@@ -465,4 +453,3 @@ function gpw_theme($existing, $type, $theme, $path) {
     ]],
   );
 }
-

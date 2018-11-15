@@ -3,21 +3,42 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.report_page.field_external_links
+    - field.field.node.report_page.field_gpe_resources
     - field.field.node.report_page.field_report_page_iframe
-    - field.field.node.report_page.field_report_page_references
-    - field.field.node.report_page.field_report_page_resources
     - field.field.node.report_page.field_thesaurus
+    - field.field.node.report_page.field_videos
     - node.type.report_page
   module:
     - gpbase
+    - link
     - link_formatter
-    - text
     - user
 id: node.report_page.default
 targetEntityType: node
 bundle: report_page
 mode: default
 content:
+  field_external_links:
+    weight: 106
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_gpe_resources:
+    weight: 108
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_report_page_iframe:
     weight: 105
     label: hidden
@@ -29,28 +50,21 @@ content:
     third_party_settings: {  }
     type: link_formatter
     region: content
-  field_report_page_references:
-    weight: 104
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_report_page_resources:
-    weight: 102
-    label: above
-    settings:
-      view_mode: teaser
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
   field_thesaurus:
     weight: 103
     label: above
     settings: {  }
     third_party_settings: {  }
     type: definition_popup_field_formatter
+    region: content
+  field_videos:
+    weight: 107
+    label: above
+    settings:
+      view_mode: report_page_video
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
     region: content
   links:
     weight: 100
