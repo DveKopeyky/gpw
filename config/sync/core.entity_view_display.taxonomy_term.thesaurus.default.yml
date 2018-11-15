@@ -44,8 +44,6 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    type: number_integer
-    region: content
   field_show_topic_shortlist:
     weight: 5
     label: above

@@ -1,0 +1,26 @@
+uuid: 5d771707-1e02-40bc-bd0c-692ed2a78241
+langcode: en
+status: true
+dependencies:
+  module:
+    - informeasearch
+    - system
+  theme:
+    - gpw
+id: informeasearchtopicfacet
+theme: gpw
+region: sidebar_first
+weight: -20
+provider: null
+plugin: informeasearch_topic_facet_block
+settings:
+  id: informeasearch_topic_facet_block
+  label: Topic
+  provider: informeasearch
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/informea
+    negate: false
+    context_mapping: {  }

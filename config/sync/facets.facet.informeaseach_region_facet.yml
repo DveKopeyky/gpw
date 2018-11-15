@@ -1,0 +1,23 @@
+uuid: b533c210-d42a-4de9-9abc-be77c0a4deb0
+langcode: en
+status: true
+dependencies: {  }
+id: informeaseach_region_facet
+name: informeaseach_region_facet
+url_alias: null
+weight: null
+min_count: 1
+show_only_one_result: false
+field_identifier: null
+facet_source_id: null
+widget: null
+query_operator: null
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: null
+exclude: null
+only_visible_when_facet_source_is_visible: null
+processor_configs: {  }
+empty_behavior: null
+show_title: null
