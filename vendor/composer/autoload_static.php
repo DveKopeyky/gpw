@@ -183,6 +183,10 @@ class ComposerStaticInita663b1be310a631aa6e251cd621f14e2
             'Grasmash\\Expander\\' => 18,
             'Goutte\\' => 7,
         ),
+        'E' => 
+        array (
+            'EauDeWeb\\' => 9,
+        ),
         'D' => 
         array (
             'Drush\\Internal\\' => 15,
@@ -217,6 +221,7 @@ class ComposerStaticInita663b1be310a631aa6e251cd621f14e2
         ),
         'B' => 
         array (
+            'Boedah\\Robo\\Task\\Drush\\' => 23,
             'Behat\\Mink\\Driver\\' => 18,
             'Behat\\Mink\\' => 11,
         ),
@@ -482,6 +487,10 @@ class ComposerStaticInita663b1be310a631aa6e251cd621f14e2
         array (
             0 => __DIR__ . '/..' . '/fabpot/goutte/Goutte',
         ),
+        'EauDeWeb\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eaudeweb/heavy-lifter/src',
+        ),
         'Drush\\Internal\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/internal-copy',
@@ -588,6 +597,10 @@ class ComposerStaticInita663b1be310a631aa6e251cd621f14e2
         'CommerceGuys\\Addressing\\' => 
         array (
             0 => __DIR__ . '/..' . '/commerceguys/addressing/src',
+        ),
+        'Boedah\\Robo\\Task\\Drush\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/boedah/robo-drush/src',
         ),
         'Behat\\Mink\\Driver\\' => 
         array (

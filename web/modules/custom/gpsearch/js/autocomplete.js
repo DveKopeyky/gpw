@@ -24,10 +24,47 @@
 
   Drupal.searchAutocomplete.prepareSearchField = function() {
     $("#gpsearch_text").keyup(function(event) {
-      if (Drupal.searchAutocomplete.timeoutID) {
-        clearTimeout(Drupal.searchAutocomplete.timeoutID);
+      var code = (event.keyCode ? event.keyCode : event.which);
+      var termsList = $('#gpsearch_terms_list');
+      if (code == 40 || code == 38) {
+        var autocomleteItems = termsList.find('.gpsearch-autocomplete-item');
+        var currentIndex = -1;
+        var enterEnabled = false;
+        if (termsList.find('.gpsearch-autocomplete-item.hover').length) {
+          currentIndex = termsList.find('.gpsearch-autocomplete-item.hover').index();
+          enterEnabled = true;
+        }
+        var newIndex;
+        if (code == 40 && currentIndex < autocomleteItems.length - 1) {
+          newIndex = currentIndex + 1;
+        }
+        else if (code == 38 && currentIndex > 0) {
+          newIndex = currentIndex - 1;
+        }
+        autocomleteItems.removeClass('hover');
+        var selectedItem = $(autocomleteItems[newIndex]);
+        selectedItem.addClass('hover');
+        var scrollTo = selectedItem.offset().top - termsList.offset().top - termsList.height() + selectedItem.height() * (newIndex + 1);
+        termsList.animate({scrollTop: scrollTo}, 200);
       }
-      Drupal.searchAutocomplete.timeoutID = setTimeout(Drupal.searchAutocomplete.prepareListWrapper, 200);
+      else {
+        if (Drupal.searchAutocomplete.timeoutID) {
+          clearTimeout(Drupal.searchAutocomplete.timeoutID);
+        }
+        Drupal.searchAutocomplete.timeoutID = setTimeout(Drupal.searchAutocomplete.prepareListWrapper, 200);
+      }
+    }).keypress(function(event) {
+      // We shell catch Enter action before keyUp because by default it will work for form submit.
+      var code = (event.keyCode ? event.keyCode : event.which);
+      var termsList = $('#gpsearch_terms_list');
+
+      if (code == 13 && termsList.hasClass('active') && termsList.find('.gpsearch-autocomplete-item.hover').length) {
+        // This method is not work here idk why, So I will create clear url for redirect.
+        // termsList.find('.gpsearch-autocomplete-item.hover').click();
+        location.pathname = termsList.find('.gpsearch-autocomplete-item.hover').attr('href');
+
+        return false;
+      }
     });
     $('#gpsearch_text').on('focusout', function() {
       if ($('#gpsearch_terms_list').hasClass('active')) {

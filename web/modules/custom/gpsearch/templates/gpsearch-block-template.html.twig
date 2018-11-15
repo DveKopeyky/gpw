@@ -10,12 +10,12 @@
 {% else %}
   {% set autofocus = 'a' %}
 {% endif %}
-{% set placeholder = 'Search in Global Pact Website'|t %}
+
 {% set help_text = 'Explore only content tagged with'|t %}
 
 <div id="gpsearch_block_form_wrapper" class="gpsearch-block-form-wrapper col-sm-5 col-sm-offset-7">
   <form id="gpsearch_form" action="{{ action }}" methid="get" >
-    <input id="gpsearch_text" type="text" class="form-control" name="search_api_fulltext" placeholder="{{ placeholder }}" {{ autofocus }} autocomplete="off">
+    <input id="gpsearch_text" type="text" class="form-control" name="text" placeholder="{{ placeholder }}" {{ autofocus }} autocomplete="off">
     <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" id="search_icon"></span>
   </form>
   <div id="gpsearch_help" class="gpsearch-help">

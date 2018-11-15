@@ -10,7 +10,7 @@ dependencies:
 id: gpinformeacontentblock
 theme: gpw
 region: content
-weight: -3
+weight: -11
 provider: null
 plugin: gpinformea_content_block
 settings:

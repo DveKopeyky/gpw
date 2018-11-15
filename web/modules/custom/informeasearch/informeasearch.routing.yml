@@ -1,0 +1,10 @@
+
+informeasearch.informea_search_controller_search:
+  path: '/search/informea'
+  defaults:
+    _controller: '\Drupal\informeasearch\Controller\InformeaSearchController::search'
+    _title: 'search'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

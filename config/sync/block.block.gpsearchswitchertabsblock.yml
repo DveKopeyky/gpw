@@ -1,0 +1,26 @@
+uuid: bc79d3ac-5d39-4578-b839-2d4d48e0ef57
+langcode: en
+status: true
+dependencies:
+  module:
+    - gpsearch
+    - system
+  theme:
+    - gpw
+id: gpsearchswitchertabsblock
+theme: gpw
+region: highlighted
+weight: -16
+provider: null
+plugin: gpsearch_switcher_tabs_block
+settings:
+  id: gpsearch_switcher_tabs_block
+  label: 'Gpsearch switcher tabs block'
+  provider: gpsearch
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search/*'
+    negate: false
+    context_mapping: {  }

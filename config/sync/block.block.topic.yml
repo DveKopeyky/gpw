@@ -12,7 +12,7 @@ dependencies:
 id: topic
 theme: gpw
 region: sidebar_first
-weight: -13
+weight: -16
 provider: null
 plugin: 'facet_block:topic'
 settings:

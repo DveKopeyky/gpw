@@ -11,3 +11,12 @@ leo-terms:
 thesaurus:
   js:
     js/thesaurus.js: {}
+
+glossary-tabs:
+  js:
+    js/glossary-tabs.js: {}
+
+informea:
+  js:
+    js/informea.js: {}
+    js/jquery.simplePagination.js: {}

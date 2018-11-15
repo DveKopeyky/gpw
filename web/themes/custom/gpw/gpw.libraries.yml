@@ -100,6 +100,11 @@ page:
     - gpw/hero
     - gpw/footer
 
+taxonomy_term:
+  css:
+    theme:
+      dist/components/taxonomy_term/taxonomy_term.css: {}
+
 
 homepage:
   css:
@@ -128,3 +133,4 @@ framework:
     - gpw/search
     - gpw/homepage
     - gpw/glossary
+    - gpw/taxonomy_term
