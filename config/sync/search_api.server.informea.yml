@@ -19,8 +19,8 @@ backend_config:
   connector: basic_auth
   connector_config:
     scheme: http
-    host: ''
-    port: ''
+    host: localhost
+    port: '80'
     path: /solr
     core: ''
     timeout: 5
@@ -28,8 +28,8 @@ backend_config:
     optimize_timeout: 10
     finalize_timeout: 30
     commit_within: 1000
-    username: ''
-    password: ''
+    username: admin
+    password: password
     solr_version: '6'
     http_method: AUTO
   sasm_limit_search_page_to_content_language: true
