@@ -1,0 +1,13 @@
+block.settings.gpgreen_block:
+  type: block_settings
+  label: 'GP Green block'
+  mapping:
+    main_title:
+      type: label
+      label: 'Main title'
+    description:
+      type: text
+      label: 'Short description'
+    action_button:
+      type: label
+      label: 'Action button text'

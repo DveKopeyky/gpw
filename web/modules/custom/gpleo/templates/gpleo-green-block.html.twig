@@ -2,7 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-left col-sm-4">
-      <h2 class="block-title">{{ content.label }}</h2>
+      {% if content.label_display %}
+        <h2 class="block-title">{{ content.label }}</h2>
+      {% endif %}
     </div>
     <div class="col-right col-sm-8">
       <div class="form-group">

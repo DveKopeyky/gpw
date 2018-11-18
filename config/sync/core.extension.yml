@@ -11,6 +11,7 @@ module:
   chosen_lib: 0
   ckeditor: 0
   config: 0
+  config_translation: 0
   contact: 0
   contact_storage: 0
   content_sync: 0
@@ -43,6 +44,7 @@ module:
   inline_entity_form: 0
   language: 0
   link: 0
+  locale: 0
   menu_link_attributes: 0
   menu_ui: 0
   node: 0
