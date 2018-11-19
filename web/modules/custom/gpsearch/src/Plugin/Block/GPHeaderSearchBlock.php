@@ -27,20 +27,30 @@ class GPHeaderSearchBlock extends BlockBase {
   public function build() {
     $config = $this->getConfiguration();
 
+    $action =  Url::fromRoute('view.gpe_search_page.page_1')->toString();
+    $placeholder = t('Search in Global Pact Website');
+
+    $current_route = \Drupal::routeMatch()->getRouteName();
+    if ($current_route == 'informeasearch.informea_search_controller_search') {
+      $action = Url::fromRoute('informeasearch.informea_search_controller_search')->toString();
+      $placeholder = t('Search in informea');
+    }
+
     $block = [
       '#theme' => 'gpsearch_block_template',
       '#attached' => [
         'library' => ['gpsearch/autocomplete'],
       ],
-      '#action' => Url::fromRoute('view.gpe_search_page.page_1')->toString(),
+      '#placeholder' => $placeholder,
+      '#action' => $action,
       '#attributes' => [
         'class' => [
           'gpsearch-fulltext-block',
           'row',
         ],
-      ]
+      ],
+      '#cache' => ['max-age' => 0],
     ];
-
     return $block;
   }
 }

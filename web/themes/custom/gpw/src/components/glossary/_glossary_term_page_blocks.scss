@@ -1,8 +1,3 @@
-.view-display-id-thesaurus_videos {
-  article {
-    padding: .2rem;
-  }
-}
 
 .block-views-blockhighlighted-courses-thesaurus-courses {
   .featured-course-header {
@@ -40,7 +35,10 @@
   }
 }
 
-.view-display-id-thesaurus_videos {
+.view-display-id-thesaurus_videos, .field--name-field-report-page-resources {
+  article {
+    padding: .2rem;
+  }
   h2 {
     font-size: 1.8rem;
     margin-top: 1.4rem;
@@ -60,6 +58,12 @@
 
 .block-views-blockdocuments-thesaurus-documents > .block-title,
 .block-views-blockvideos-thesaurus-videos > .block-title,
+.field--name-field-report-page-resources > .field--label,
+.page-node-type-report-page .field--name-field-thesaurus > .field--label,
+.page-node-type-report-page .field--name-field-gpe-resources > .field--label,
+.page-node-type-report-page .field--name-field-external-links > .field--label,
+.page-node-type-report-page .field--name-field-videos> .field--label,
+.page-node-type-report-page .field--name-field-report-page-references > .field--label,
 .block-views-blockhighlighted-courses-thesaurus-courses > .block-title,
 .block-views-blocknews-thesaurus-news > .block-title,
 .field--name-field-definitions > .field--label {

@@ -2,10 +2,7 @@ uuid: 63fabb7e-adb3-4635-80cd-90703b0d006c
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:simple_block:b00e7918-6136-45c2-8448-7877feaecb46'
   module:
-    - block_content
     - system
   theme:
     - gpw

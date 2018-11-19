@@ -1,0 +1,26 @@
+uuid: 0239a366-adee-4bc3-9a37-7e6f5e8128e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - informeasearch
+    - system
+  theme:
+    - gpw
+id: informeasearchtagsfacet
+theme: gpw
+region: sidebar_first
+weight: -18
+provider: null
+plugin: informeasearch_tags_facet_block
+settings:
+  id: informeasearch_tags_facet_block
+  label: Tags
+  provider: informeasearch
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/informea
+    negate: false
+    context_mapping: {  }

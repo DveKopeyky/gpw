@@ -10,7 +10,7 @@ dependencies:
 id: seemoreresultsoninformea
 theme: gpw
 region: sidebar_first
-weight: 0
+weight: -13
 provider: null
 plugin: more_on_informea_block
 settings:

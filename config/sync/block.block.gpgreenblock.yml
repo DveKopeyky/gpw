@@ -1,0 +1,33 @@
+uuid: 0289dbd6-5869-4968-a141-9d036d310c1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - gpleo
+    - system
+  theme:
+    - gpw
+id: gpgreenblock
+theme: gpw
+region: content_5
+weight: 0
+provider: null
+plugin: gpgreen_block
+settings:
+  id: gpgreen_block
+  label: Report
+  provider: gpleo
+  label_display: '0'
+  main_title: 'Gaps in international environmental law and environment-related instruments'
+  main_title_url: /report
+  description: "The report reviews and analyses the corpus of international environmental law and environmental-related instruments as well\r\nas the governance structure and implementation of international environmental law."
+  image:
+    - '306'
+  action_button: 'Access the "Report of the Secretary General" here'
+  action_button_link: /report
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

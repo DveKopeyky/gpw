@@ -1,0 +1,41 @@
+uuid: 0623f96c-c88e-4e30-8737-71d918b727f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.report_page_video
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_highlighted_course
+    - field.field.node.video.field_thesaurus
+    - field.field.node.video.field_topic
+    - field.field.node.video.field_video_embed
+    - node.type.video
+  module:
+    - user
+    - video_embed_field
+id: node.video.report_page_video
+targetEntityType: node
+bundle: video
+mode: report_page_video
+content:
+  field_video_embed:
+    type: video_embed_field_video
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: false
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_date: true
+  field_highlighted_course: true
+  field_thesaurus: true
+  field_topic: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

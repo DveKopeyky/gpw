@@ -1,0 +1,10 @@
+uuid: a0822992-d076-4242-9947-f62158e171f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.report_page_video
+label: 'Report page video'
+targetEntityType: node
+cache: true

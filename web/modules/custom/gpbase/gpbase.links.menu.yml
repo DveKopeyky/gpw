@@ -1,7 +1,8 @@
 gpbase.main.contact:
   title: 'Contact'
   menu_name: main
-  route_name: contact.site_page
+#  route_name: contact.site_page
+  url: internal:/webform/contact
   weight: 5
 
 gpbase.main.elearning:
@@ -44,6 +45,7 @@ gpbase.footer.glossary:
 gpbase.footer.contact:
   title: 'Contact'
   menu_name: footer
-  route_name: contact.site_page
+#  route_name: contact.site_page
+  url: internal:/webform/contact
   weight: 5
 

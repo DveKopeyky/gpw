@@ -84,7 +84,7 @@
   {% if not page %}
     {% set title = label|render|striptags|trim %}
     <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark" title="{{ title}}">{{ title }}</a>
+      <a target="_blank" href="{{ node.field_video_embed.value }}" rel="bookmark" title="{{ title }}">{{ title|raw }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}
